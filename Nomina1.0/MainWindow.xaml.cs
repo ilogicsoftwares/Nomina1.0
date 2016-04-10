@@ -38,7 +38,7 @@ namespace Nomina1._0
             {
                 if (this.passwordBox.Password.Trim() == comboBox.SelectedValue.ToString().Trim())
                 {
-                    Datos.AbrirWindow<PrincipalWindow>();
+                    Datos.AbrirWindow<PrincipalWindow>(Datos.Micontexto.trabajador.ToList());
                     Close();
                 }else
                 {

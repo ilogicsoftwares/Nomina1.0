@@ -25,7 +25,7 @@ namespace Nomina1._0
                     if (control.Text == string.Empty  )
                     {
                         resultado = false;
-                        goto salida;
+                        return false;
                         
                     }
                  
@@ -38,7 +38,7 @@ namespace Nomina1._0
                     {
 
                         resultado = false;
-                        goto salida;
+                        return false;
 
                     }
 
@@ -64,10 +64,11 @@ namespace Nomina1._0
 
         }
       
-        public static void AbrirWindow<T>() where T :Window, new()
+        public static void AbrirWindow<T>(object Xta) where T :Window, new()
         {
             Window Ventana = new T();
             Ventana.Show();
+            Ventana.DataContext=Xta;
             
         }
 
