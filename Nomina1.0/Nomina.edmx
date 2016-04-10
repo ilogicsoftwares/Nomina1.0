@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="nominaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cargo">
+          <Key>
+            <PropertyRef Name="idcargo" />
+          </Key>
+          <Property Name="idcargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="conceptos" Type="varchar" MaxLength="100" />
+          <Property Name="Iddepartamentos" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.company' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="company">
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Rif" Type="varchar" MaxLength="10" />
+          <Property Name="Direccion" Type="varchar" MaxLength="250" />
+          <Property Name="Telefono1" Type="varchar" MaxLength="20" />
+          <Property Name="Telefono2" Type="varchar" MaxLength="20" />
+          <Property Name="Telefono3" Type="varchar" MaxLength="20" />
+          <Property Name="Representante" Type="varchar" MaxLength="50" />
+          <Property Name="Logo" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="conceptos">
+          <Key>
+            <PropertyRef Name="idconcepto" />
+          </Key>
+          <Property Name="idconcepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="variante" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="tipo" Type="int" />
+          <Property Name="Valor" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="departamentos">
+          <Key>
+            <PropertyRef Name="iddepartamentos" />
+          </Key>
+          <Property Name="iddepartamentos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.empresa' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="empresa">
+          <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
+          <Property Name="Rif" Type="varchar" MaxLength="11" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Telefonos" Type="varchar" MaxLength="11" />
+          <Property Name="TipodeLicencia" Type="varchar" MaxLength="50" />
+          <Property Name="NumerodeLicencia" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Contacto" Type="varchar" MaxLength="50" />
+          <Property Name="Logo" Type="varchar" MaxLength="100" />
+          <Property Name="Detallelogo" Type="varchar" MaxLength="100" />
+          <Property Name="Idempresa" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'nomina.gradointruc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="gradointruc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="grado" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="jornada">
+          <Key>
+            <PropertyRef Name="idjornada" />
+          </Key>
+          <Property Name="idjornada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Lunes" Type="int" />
+          <Property Name="Martes" Type="int" />
+          <Property Name="Miercoles" Type="int" />
+          <Property Name="Jueves" Type="int" />
+          <Property Name="Viernes" Type="int" />
+          <Property Name="Sabado" Type="int" />
+          <Property Name="Domingo" Type="int" />
+          <Property Name="Horariodesde" Type="varchar" MaxLength="10" />
+          <Property Name="Horariohasta" Type="varchar" MaxLength="10" />
+          <Property Name="Descansodesde" Type="varchar" MaxLength="10" />
+          <Property Name="Descansohasta" Type="varchar" MaxLength="10" />
+          <Property Name="descanso" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.menu' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="menu">
+          <Property Name="id" Type="char" MaxLength="25" />
+          <Property Name="Nombre" Type="char" MaxLength="50" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Pariente" Type="char" MaxLength="25" />
+          <Property Name="Accion" Type="char" MaxLength="100" />
+          <Property Name="Seleccionado" Type="int" />
+          <Property Name="hijos" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.menulimited' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="menulimited">
+          <Property Name="id" Type="char" MaxLength="25" />
+          <Property Name="Nombre" Type="char" MaxLength="50" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Pariente" Type="char" MaxLength="25" />
+          <Property Name="Accion" Type="char" MaxLength="100" />
+          <Property Name="Seleccionado" Type="int" />
+          <Property Name="hijos" Type="int" />
+        </EntityType>-->
+        <EntityType Name="nacionalidad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="char" MaxLength="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.nominagen' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="nominagen">
+          <Property Name="id" Type="int" />
+          <Property Name="idtype" Type="int" />
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="cedula" Type="varchar" MaxLength="12" />
+          <Property Name="conceptos" Type="varchar" MaxLength="50" />
+          <Property Name="montos" Type="varchar" MaxLength="50" />
+          <Property Name="basico" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="totalded" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="totalasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="neto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="varvacaciones" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="varutilidades" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="otrasasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="desde" Type="date" />
+          <Property Name="hasta" Type="date" />
+        </EntityType>-->
+        <EntityType Name="nominaini">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="desde" Type="date" />
+          <Property Name="hasta" Type="date" />
+          <Property Name="estatus" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="nominatype">
+          <Key>
+            <PropertyRef Name="idnomina" />
+          </Key>
+          <Property Name="idnomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="intervalo" Type="int" Nullable="false" />
+          <Property Name="conceptos" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="nominauni">
+          <Key>
+            <PropertyRef Name="idnomina" />
+          </Key>
+          <Property Name="idnomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nominatype" Type="int" />
+          <Property Name="desde" Type="date" />
+          <Property Name="hasta" Type="date" />
+          <Property Name="totalnomina" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="totalasignaciones" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="totaldeducciones" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="estatus" Type="int" />
+          <Property Name="fecha" Type="datetime" Precision="0" />
+          <Property Name="user" Type="int" />
+          <Property Name="cantidadt" Type="int" />
+        </EntityType>
+        <EntityType Name="prenomina">
+          <Key>
+            <PropertyRef Name="idprenomina" />
+          </Key>
+          <Property Name="idprenomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idnominatype" Type="int" Nullable="false" />
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="idconcepto" Type="int" />
+          <Property Name="nombrecon" Type="varchar" MaxLength="50" />
+          <Property Name="valorconcepto" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="tipoconcepto" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.presmanual' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="presmanual">
+          <Property Name="idpres" Type="int" />
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="idmes" Type="int" />
+          <Property Name="mes" Type="date" />
+          <Property Name="Salbase" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="otrasasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Salmen" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Saldia" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="diasdev" Type="int" />
+          <Property Name="AlicuotaV" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="diasdeu" Type="int" />
+          <Property Name="AlicuotaU" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Salarioint" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Dias" Type="int" />
+          <Property Name="TotalMes" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Tasa" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Interes" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Anticipo" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Acumulado" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>-->
+        <EntityType Name="procedures">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.tasas' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tasas">
+          <Property Name="fecha" Type="date" />
+          <Property Name="tasa" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>-->
+        <EntityType Name="trabajador">
+          <Key>
+            <PropertyRef Name="idtrabajador" />
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="idtrabajador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cedula" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nombres" Type="varchar" MaxLength="100" />
+          <Property Name="apellidos" Type="varchar" MaxLength="100" />
+          <Property Name="idcargo" Type="int" />
+          <Property Name="iddepartamentos" Type="int" />
+          <Property Name="direccion" Type="varchar" MaxLength="250" />
+          <Property Name="telefonocel" Type="varchar" MaxLength="12" />
+          <Property Name="telefonolocal" Type="varchar" MaxLength="12" />
+          <Property Name="telefonocontacto" Type="varchar" MaxLength="12" />
+          <Property Name="nombrecontacto" Type="varchar" MaxLength="50" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+          <Property Name="Sueldo" Type="double" />
+          <Property Name="idstatus" Type="int" />
+          <Property Name="conceptos" Type="varchar" MaxLength="250" />
+          <Property Name="Sexo" Type="int" />
+          <Property Name="Fechaing" Type="datetime" Precision="0" />
+          <Property Name="fechanac" Type="datetime" Precision="0" />
+          <Property Name="edocivil" Type="int" />
+          <Property Name="Nhijos" Type="int" />
+          <Property Name="nacionalidad" Type="varchar" MaxLength="1" />
+          <Property Name="nivelintruc" Type="varchar" MaxLength="50" />
+          <Property Name="lugarnac" Type="varchar" MaxLength="50" />
+          <Property Name="dirfoto" Type="varchar" MaxLength="100" />
+          <Property Name="Idnomina" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.usermenu' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="usermenu">
+          <Property Name="id" Type="char" MaxLength="25" />
+          <Property Name="Nombre" Type="char" MaxLength="50" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Pariente" Type="char" MaxLength="25" />
+          <Property Name="Accion" Type="char" MaxLength="100" />
+          <Property Name="Seleccionado" Type="int" />
+          <Property Name="hijos" Type="int" />
+          <Property Name="idusuario" Type="int" />
+        </EntityType>-->
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="idusuario" />
+          </Key>
+          <Property Name="idusuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tipoid" Type="int" Nullable="false" />
+          <Property Name="keyCi" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Cedula" Type="varchar" MaxLength="10" />
+          <Property Name="FechaNac" Type="date" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" />
+          <Property Name="Telefono" Type="varchar" MaxLength="20" />
+          <Property Name="Desactivar" Type="int" />
+          <Property Name="Vigenciadesde" Type="date" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="usertypeid" />
+          </Key>
+          <Property Name="usertypeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="variables">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tamaño" Type="int" Nullable="false" />
+          <Property Name="valorinicial" Type="varchar" MaxLength="50" />
+          <Property Name="constante" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'nomina.varsys' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="varsys">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="cedula" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="vDIASDES" Type="int" />
+          <Property Name="vDLAB" Type="decimal" Precision="11" Scale="2" />
+          <Property Name="vVHIJOS" Type="decimal" Precision="11" Scale="2" />
+          <Property Name="vDF" Type="decimal" Precision="11" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="nominaModelStoreContainer">
+          <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="jornada" EntityType="Self.jornada" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="nominaini" EntityType="Self.nominaini" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="nominatype" EntityType="Self.nominatype" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="nominauni" EntityType="Self.nominauni" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="prenomina" EntityType="Self.prenomina" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="procedures" EntityType="Self.procedures" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="trabajador" EntityType="Self.trabajador" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="usertype" EntityType="Self.usertype" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="variables" EntityType="Self.variables" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="gradointruc" EntityType="Self.gradointruc" store:Type="Tables" store:Schema="nomina">
+            <DefiningQuery>SELECT
+`gradointruc`.`ID`, 
+`gradointruc`.`grado`
+FROM `gradointruc` AS `gradointruc`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="varsys" EntityType="Self.varsys" store:Type="Tables" store:Schema="nomina">
+            <DefiningQuery>SELECT
+`varsys`.`idtrabajador`, 
+`varsys`.`cedula`, 
+`varsys`.`vDIASDES`, 
+`varsys`.`vDLAB`, 
+`varsys`.`vVHIJOS`, 
+`varsys`.`vDF`
+FROM `varsys` AS `varsys`</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="nominaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cargo">
+          <Key>
+            <PropertyRef Name="idcargo" />
+          </Key>
+          <Property Name="idcargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="conceptos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Iddepartamentos" Type="Int32" />
+        </EntityType>
+        <EntityType Name="conceptos">
+          <Key>
+            <PropertyRef Name="idconcepto" />
+          </Key>
+          <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="variante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="Int32" />
+          <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="departamentos">
+          <Key>
+            <PropertyRef Name="iddepartamentos" />
+          </Key>
+          <Property Name="iddepartamentos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="jornada">
+          <Key>
+            <PropertyRef Name="idjornada" />
+          </Key>
+          <Property Name="idjornada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Lunes" Type="Int32" />
+          <Property Name="Martes" Type="Int32" />
+          <Property Name="Miercoles" Type="Int32" />
+          <Property Name="Jueves" Type="Int32" />
+          <Property Name="Viernes" Type="Int32" />
+          <Property Name="Sabado" Type="Int32" />
+          <Property Name="Domingo" Type="Int32" />
+          <Property Name="Horariodesde" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Horariohasta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Descansodesde" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Descansohasta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="descanso" Type="Int32" />
+        </EntityType>
+        <EntityType Name="nacionalidad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="nominaini">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="desde" Type="DateTime" />
+          <Property Name="hasta" Type="DateTime" />
+          <Property Name="estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="nominatype">
+          <Key>
+            <PropertyRef Name="idnomina" />
+          </Key>
+          <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="intervalo" Type="Int32" Nullable="false" />
+          <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="nominauni">
+          <Key>
+            <PropertyRef Name="idnomina" />
+          </Key>
+          <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nominatype" Type="Int32" />
+          <Property Name="desde" Type="DateTime" />
+          <Property Name="hasta" Type="DateTime" />
+          <Property Name="totalnomina" Type="Decimal" />
+          <Property Name="totalasignaciones" Type="Decimal" />
+          <Property Name="totaldeducciones" Type="Decimal" />
+          <Property Name="estatus" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" />
+          <Property Name="user" Type="Int32" />
+          <Property Name="cantidadt" Type="Int32" />
+        </EntityType>
+        <EntityType Name="prenomina">
+          <Key>
+            <PropertyRef Name="idprenomina" />
+          </Key>
+          <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idnominatype" Type="Int32" Nullable="false" />
+          <Property Name="idtrabajador" Type="Int32" />
+          <Property Name="idconcepto" Type="Int32" />
+          <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="valorconcepto" Type="Decimal" />
+          <Property Name="valorvar" Type="Decimal" />
+          <Property Name="tipoconcepto" Type="Int32" />
+        </EntityType>
+        <EntityType Name="procedures">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="trabajador">
+          <Key>
+            <PropertyRef Name="idtrabajador" />
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="idtrabajador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idcargo" Type="Int32" />
+          <Property Name="iddepartamentos" Type="Int32" />
+          <Property Name="direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="telefonocel" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="telefonolocal" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="telefonocontacto" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="nombrecontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sueldo" Type="Double" />
+          <Property Name="idstatus" Type="Int32" />
+          <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Sexo" Type="Int32" />
+          <Property Name="Fechaing" Type="DateTime" />
+          <Property Name="fechanac" Type="DateTime" />
+          <Property Name="edocivil" Type="Int32" />
+          <Property Name="Nhijos" Type="Int32" />
+          <Property Name="nacionalidad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="nivelintruc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Idnomina" Type="Int32" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="idusuario" />
+          </Key>
+          <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoid" Type="Int32" Nullable="false" />
+          <Property Name="keyCi" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNac" Type="DateTime" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Desactivar" Type="Int32" />
+          <Property Name="Vigenciadesde" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="usertypeid" />
+          </Key>
+          <Property Name="usertypeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="variables">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tamaño" Type="Int32" Nullable="false" />
+          <Property Name="valorinicial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="constante" Type="Int32" />
+        </EntityType>
+        <EntityType Name="gradointruc">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="grado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="varsys">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="idtrabajador" Type="Int32" />
+          <Property Name="cedula" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vDIASDES" Type="Int32" />
+          <Property Name="vDLAB" Type="Decimal" />
+          <Property Name="vVHIJOS" Type="Decimal" />
+          <Property Name="vDF" Type="Decimal" />
+        </EntityType>
+        <EntityContainer Name="nominaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cargo" EntityType="Self.cargo" />
+          <EntitySet Name="conceptos" EntityType="Self.conceptos" />
+          <EntitySet Name="departamentos" EntityType="Self.departamentos" />
+          <EntitySet Name="jornada" EntityType="Self.jornada" />
+          <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" />
+          <EntitySet Name="nominaini" EntityType="Self.nominaini" />
+          <EntitySet Name="nominatype" EntityType="Self.nominatype" />
+          <EntitySet Name="nominauni" EntityType="Self.nominauni" />
+          <EntitySet Name="prenomina" EntityType="Self.prenomina" />
+          <EntitySet Name="procedures" EntityType="Self.procedures" />
+          <EntitySet Name="trabajador" EntityType="Self.trabajador" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="usertype" EntityType="Self.usertype" />
+          <EntitySet Name="variables" EntityType="Self.variables" />
+          <EntitySet Name="gradointruc" EntityType="Self.gradointruc" />
+          <EntitySet Name="varsys" EntityType="Self.varsys" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="nominaModelStoreContainer" CdmEntityContainer="nominaEntities">
+          <EntitySetMapping Name="cargo">
+            <EntityTypeMapping TypeName="nominaModel.cargo">
+              <MappingFragment StoreEntitySet="cargo">
+                <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+                <ScalarProperty Name="Iddepartamentos" ColumnName="Iddepartamentos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conceptos">
+            <EntityTypeMapping TypeName="nominaModel.conceptos">
+              <MappingFragment StoreEntitySet="conceptos">
+                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="variante" ColumnName="variante" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departamentos">
+            <EntityTypeMapping TypeName="nominaModel.departamentos">
+              <MappingFragment StoreEntitySet="departamentos">
+                <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jornada">
+            <EntityTypeMapping TypeName="nominaModel.jornada">
+              <MappingFragment StoreEntitySet="jornada">
+                <ScalarProperty Name="idjornada" ColumnName="idjornada" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Lunes" ColumnName="Lunes" />
+                <ScalarProperty Name="Martes" ColumnName="Martes" />
+                <ScalarProperty Name="Miercoles" ColumnName="Miercoles" />
+                <ScalarProperty Name="Jueves" ColumnName="Jueves" />
+                <ScalarProperty Name="Viernes" ColumnName="Viernes" />
+                <ScalarProperty Name="Sabado" ColumnName="Sabado" />
+                <ScalarProperty Name="Domingo" ColumnName="Domingo" />
+                <ScalarProperty Name="Horariodesde" ColumnName="Horariodesde" />
+                <ScalarProperty Name="Horariohasta" ColumnName="Horariohasta" />
+                <ScalarProperty Name="Descansodesde" ColumnName="Descansodesde" />
+                <ScalarProperty Name="Descansohasta" ColumnName="Descansohasta" />
+                <ScalarProperty Name="descanso" ColumnName="descanso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nacionalidad">
+            <EntityTypeMapping TypeName="nominaModel.nacionalidad">
+              <MappingFragment StoreEntitySet="nacionalidad">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nominaini">
+            <EntityTypeMapping TypeName="nominaModel.nominaini">
+              <MappingFragment StoreEntitySet="nominaini">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="desde" ColumnName="desde" />
+                <ScalarProperty Name="hasta" ColumnName="hasta" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nominatype">
+            <EntityTypeMapping TypeName="nominaModel.nominatype">
+              <MappingFragment StoreEntitySet="nominatype">
+                <ScalarProperty Name="idnomina" ColumnName="idnomina" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="intervalo" ColumnName="intervalo" />
+                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nominauni">
+            <EntityTypeMapping TypeName="nominaModel.nominauni">
+              <MappingFragment StoreEntitySet="nominauni">
+                <ScalarProperty Name="idnomina" ColumnName="idnomina" />
+                <ScalarProperty Name="nominatype" ColumnName="nominatype" />
+                <ScalarProperty Name="desde" ColumnName="desde" />
+                <ScalarProperty Name="hasta" ColumnName="hasta" />
+                <ScalarProperty Name="totalnomina" ColumnName="totalnomina" />
+                <ScalarProperty Name="totalasignaciones" ColumnName="totalasignaciones" />
+                <ScalarProperty Name="totaldeducciones" ColumnName="totaldeducciones" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="cantidadt" ColumnName="cantidadt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prenomina">
+            <EntityTypeMapping TypeName="nominaModel.prenomina">
+              <MappingFragment StoreEntitySet="prenomina">
+                <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
+                <ScalarProperty Name="idnominatype" ColumnName="idnominatype" />
+                <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+                <ScalarProperty Name="nombrecon" ColumnName="nombrecon" />
+                <ScalarProperty Name="valorconcepto" ColumnName="valorconcepto" />
+                <ScalarProperty Name="valorvar" ColumnName="valorvar" />
+                <ScalarProperty Name="tipoconcepto" ColumnName="tipoconcepto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="procedures">
+            <EntityTypeMapping TypeName="nominaModel.procedures">
+              <MappingFragment StoreEntitySet="procedures">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trabajador">
+            <EntityTypeMapping TypeName="nominaModel.trabajador">
+              <MappingFragment StoreEntitySet="trabajador">
+                <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+                <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="telefonocel" ColumnName="telefonocel" />
+                <ScalarProperty Name="telefonolocal" ColumnName="telefonolocal" />
+                <ScalarProperty Name="telefonocontacto" ColumnName="telefonocontacto" />
+                <ScalarProperty Name="nombrecontacto" ColumnName="nombrecontacto" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+                <ScalarProperty Name="idstatus" ColumnName="idstatus" />
+                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Fechaing" ColumnName="Fechaing" />
+                <ScalarProperty Name="fechanac" ColumnName="fechanac" />
+                <ScalarProperty Name="edocivil" ColumnName="edocivil" />
+                <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+                <ScalarProperty Name="nivelintruc" ColumnName="nivelintruc" />
+                <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
+                <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
+                <ScalarProperty Name="Idnomina" ColumnName="Idnomina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="nominaModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="tipoid" ColumnName="tipoid" />
+                <ScalarProperty Name="keyCi" ColumnName="keyCi" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Desactivar" ColumnName="Desactivar" />
+                <ScalarProperty Name="Vigenciadesde" ColumnName="Vigenciadesde" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usertype">
+            <EntityTypeMapping TypeName="nominaModel.usertype">
+              <MappingFragment StoreEntitySet="usertype">
+                <ScalarProperty Name="usertypeid" ColumnName="usertypeid" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="variables">
+            <EntityTypeMapping TypeName="nominaModel.variables">
+              <MappingFragment StoreEntitySet="variables">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="tamaño" ColumnName="tamaño" />
+                <ScalarProperty Name="valorinicial" ColumnName="valorinicial" />
+                <ScalarProperty Name="constante" ColumnName="constante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gradointruc">
+            <EntityTypeMapping TypeName="nominaModel.gradointruc">
+              <MappingFragment StoreEntitySet="gradointruc">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="grado" ColumnName="grado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="varsys">
+            <EntityTypeMapping TypeName="nominaModel.varsys">
+              <MappingFragment StoreEntitySet="varsys">
+                <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="vDIASDES" ColumnName="vDIASDES" />
+                <ScalarProperty Name="vDLAB" ColumnName="vDLAB" />
+                <ScalarProperty Name="vVHIJOS" ColumnName="vVHIJOS" />
+                <ScalarProperty Name="vDF" ColumnName="vDF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

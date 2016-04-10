@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nominaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cargo">
+    <Key>
+      <PropertyRef Name="idcargo" />
+    </Key>
+    <Property Name="idcargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="conceptos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Iddepartamentos" Type="Int32" />
+  </EntityType>
+  <EntityType Name="conceptos">
+    <Key>
+      <PropertyRef Name="idconcepto" />
+    </Key>
+    <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="variante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="departamentos">
+    <Key>
+      <PropertyRef Name="iddepartamentos" />
+    </Key>
+    <Property Name="iddepartamentos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="jornada">
+    <Key>
+      <PropertyRef Name="idjornada" />
+    </Key>
+    <Property Name="idjornada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Lunes" Type="Int32" />
+    <Property Name="Martes" Type="Int32" />
+    <Property Name="Miercoles" Type="Int32" />
+    <Property Name="Jueves" Type="Int32" />
+    <Property Name="Viernes" Type="Int32" />
+    <Property Name="Sabado" Type="Int32" />
+    <Property Name="Domingo" Type="Int32" />
+    <Property Name="Horariodesde" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Horariohasta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Descansodesde" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Descansohasta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="descanso" Type="Int32" />
+  </EntityType>
+  <EntityType Name="nacionalidad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="nominaini">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="desde" Type="DateTime" />
+    <Property Name="hasta" Type="DateTime" />
+    <Property Name="estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="nominatype">
+    <Key>
+      <PropertyRef Name="idnomina" />
+    </Key>
+    <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="intervalo" Type="Int32" Nullable="false" />
+    <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="nominauni">
+    <Key>
+      <PropertyRef Name="idnomina" />
+    </Key>
+    <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nominatype" Type="Int32" />
+    <Property Name="desde" Type="DateTime" />
+    <Property Name="hasta" Type="DateTime" />
+    <Property Name="totalnomina" Type="Decimal" />
+    <Property Name="totalasignaciones" Type="Decimal" />
+    <Property Name="totaldeducciones" Type="Decimal" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="user" Type="Int32" />
+    <Property Name="cantidadt" Type="Int32" />
+  </EntityType>
+  <EntityType Name="prenomina">
+    <Key>
+      <PropertyRef Name="idprenomina" />
+    </Key>
+    <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idnominatype" Type="Int32" Nullable="false" />
+    <Property Name="idtrabajador" Type="Int32" />
+    <Property Name="idconcepto" Type="Int32" />
+    <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valorconcepto" Type="Decimal" />
+    <Property Name="valorvar" Type="Decimal" />
+    <Property Name="tipoconcepto" Type="Int32" />
+  </EntityType>
+  <EntityType Name="procedures">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="trabajador">
+    <Key>
+      <PropertyRef Name="idtrabajador" />
+      <PropertyRef Name="cedula" />
+    </Key>
+    <Property Name="idtrabajador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idcargo" Type="Int32" />
+    <Property Name="iddepartamentos" Type="Int32" />
+    <Property Name="direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="telefonocel" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="telefonolocal" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="telefonocontacto" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="nombrecontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sueldo" Type="Double" />
+    <Property Name="idstatus" Type="Int32" />
+    <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Sexo" Type="Int32" />
+    <Property Name="Fechaing" Type="DateTime" />
+    <Property Name="fechanac" Type="DateTime" />
+    <Property Name="edocivil" Type="Int32" />
+    <Property Name="Nhijos" Type="Int32" />
+    <Property Name="nacionalidad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="nivelintruc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Idnomina" Type="Int32" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipoid" Type="Int32" Nullable="false" />
+    <Property Name="keyCi" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FechaNac" Type="DateTime" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Desactivar" Type="Int32" />
+    <Property Name="Vigenciadesde" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="usertype">
+    <Key>
+      <PropertyRef Name="usertypeid" />
+    </Key>
+    <Property Name="usertypeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="variables">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tamaño" Type="Int32" Nullable="false" />
+    <Property Name="valorinicial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="constante" Type="Int32" />
+  </EntityType>
+  <EntityType Name="gradointruc">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="grado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="varsys">
+    <Key>
+      <PropertyRef Name="cedula" />
+    </Key>
+    <Property Name="idtrabajador" Type="Int32" />
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="vDIASDES" Type="Int32" />
+    <Property Name="vDLAB" Type="Decimal" />
+    <Property Name="vVHIJOS" Type="Decimal" />
+    <Property Name="vDF" Type="Decimal" />
+  </EntityType>
+  <EntityContainer Name="nominaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cargo" EntityType="Self.cargo" />
+    <EntitySet Name="conceptos" EntityType="Self.conceptos" />
+    <EntitySet Name="departamentos" EntityType="Self.departamentos" />
+    <EntitySet Name="jornada" EntityType="Self.jornada" />
+    <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" />
+    <EntitySet Name="nominaini" EntityType="Self.nominaini" />
+    <EntitySet Name="nominatype" EntityType="Self.nominatype" />
+    <EntitySet Name="nominauni" EntityType="Self.nominauni" />
+    <EntitySet Name="prenomina" EntityType="Self.prenomina" />
+    <EntitySet Name="procedures" EntityType="Self.procedures" />
+    <EntitySet Name="trabajador" EntityType="Self.trabajador" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <EntitySet Name="usertype" EntityType="Self.usertype" />
+    <EntitySet Name="variables" EntityType="Self.variables" />
+    <EntitySet Name="gradointruc" EntityType="Self.gradointruc" />
+    <EntitySet Name="varsys" EntityType="Self.varsys" />
+  </EntityContainer>
+</Schema>
