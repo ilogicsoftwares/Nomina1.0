@@ -69,6 +69,7 @@
     <Compile Include="conceptos.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Datos.cs" />
     <Compile Include="departamentos.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
@@ -108,12 +109,16 @@
     <Compile Include="trabajador.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="usermenu.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
     <Compile Include="users.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="usertype.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="Usuario.cs" />
     <Compile Include="variables.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>

@@ -198,12 +198,32 @@
     <EntitySetMapping Name="varsys">
       <EntityTypeMapping TypeName="nominaModel.varsys">
         <MappingFragment StoreEntitySet="varsys">
+          <ScalarProperty Name="vDFI" ColumnName="vDFI" />
+          <ScalarProperty Name="vHR" ColumnName="vHR" />
           <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
           <ScalarProperty Name="cedula" ColumnName="cedula" />
           <ScalarProperty Name="vDIASDES" ColumnName="vDIASDES" />
           <ScalarProperty Name="vDLAB" ColumnName="vDLAB" />
           <ScalarProperty Name="vVHIJOS" ColumnName="vVHIJOS" />
           <ScalarProperty Name="vDF" ColumnName="vDF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usermenu">
+      <EntityTypeMapping TypeName="nominaModel.usermenu">
+        <MappingFragment StoreEntitySet="usermenu">
+          <ScalarProperty Name="Idmenu" ColumnName="Idmenu" />
+          <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
+          <ScalarProperty Name="Editar" ColumnName="Editar" />
+          <ScalarProperty Name="Guardar" ColumnName="Guardar" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="hijos" ColumnName="hijos" />
+          <ScalarProperty Name="Seleccionado" ColumnName="Seleccionado" />
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="Pariente" ColumnName="Pariente" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nomina1._0"
+
         mc:Ignorable="d"
         Title="Ilogic Softwares Nomina - Ingresar" Height="523.643" Width="361.225" WindowStartupLocation="CenterScreen">
+   
     <Grid Name="grid1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="99*"/>
@@ -21,7 +23,7 @@
             <RowDefinition Height="143*"/>
             <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
-        <ComboBox x:Name="comboBox" Margin="0,45,0,0" Grid.Row="1" DisplayMemberPath="Nombre" ItemsSource="{Binding}" SelectedValuePath="keyCi" Grid.Column="1"/>
+        <ComboBox x:Name="comboBox" Margin="0,45,0,0" Grid.Row="1" DisplayMemberPath="Nombre" ItemsSource="{Binding usuarios}" SelectedItem="{Binding UsuarioActual}" SelectedValuePath="{Binding UsuarioActual.keyCi}" Grid.Column="1"/>
         <Label x:Name="label" Content="Seleccione Usuario" Margin="0,19,0,22" Grid.Row="1" HorizontalContentAlignment="Center" Grid.Column="1"/>
         <PasswordBox x:Name="passwordBox" Margin="0,26,0,0" Grid.Row="3" Grid.Column="1"/>
         <Label x:Name="label_Copy" Content="Ingrese Clave" Margin="0,0,0,19" Grid.Row="3" HorizontalContentAlignment="Center" Grid.Column="1"/>
@@ -29,6 +31,7 @@
         <Label x:Name="label1" Content="Nomina" Margin="0,55,27,0" VerticalAlignment="Top" Height="47" FontFamily="Microsoft Sans Serif" FontSize="29.333" FontWeight="Bold" TextOptions.TextFormattingMode="Display" Foreground="Gray" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <Label x:Name="label1_Copy" Content="Ilogic Softwares" Margin="0,10,33,0" VerticalAlignment="Top" Height="47" FontFamily="Microsoft Sans Serif" FontSize="29.333" FontWeight="Bold" TextOptions.TextFormattingMode="Display" Foreground="Gray" Grid.ColumnSpan="3"/>
         <TextBlock x:Name="textBlock" Grid.Row="6" TextWrapping="Wrap" FontSize="10" FontStretch="ExtraCondensed" TextAlignment="Center" Foreground="White" Background="#FF424242" Grid.ColumnSpan="3"><Run Text="Este Sistema esta protegido por las Leyes Venezolanas e "/><Run Text="I"/><Run Text="nternacionesles"/><Run Text="."/><LineBreak/><Run Text="Ilogic Softwares"/><Run FontFamily="Arial" Text="©"/><Run FontFamily="Arial" Text=" 2016"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <Label x:Name="Mensaje" Content="" Grid.Column="1" Margin="0,20,0,24" Grid.Row="4" RenderTransformOrigin="0.895,0.038" HorizontalContentAlignment="Right" Foreground="Red"/>
 
     </Grid>
 </Window>

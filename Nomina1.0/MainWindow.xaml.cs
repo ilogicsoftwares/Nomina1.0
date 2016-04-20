@@ -14,35 +14,39 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Entity;
 using System.Collections;
+using Nomina1._0.Controllers;
 
 namespace Nomina1._0
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+  
     public partial class MainWindow : Window
     {
-       
+        public UserController initUser = new UserController();
         public MainWindow()
         {
             
             InitializeComponent();
-
-            this.DataContext = Datos.Micontexto.users.ToList();
-        
+            DataContext = initUser;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
            if ( Datos.ValidarDatos(grid1))
             {
-                if (this.passwordBox.Password.Trim() == comboBox.SelectedValue.ToString().Trim())
+                if (passwordBox.Password.Trim() == comboBox.SelectedValuePath.ToString().Trim())
                 {
+                    UserController.UsuarioActivo = initUser.UsuarioActual;
                     Datos.AbrirWindow<PrincipalWindow>();
+                    Mensaje.Content = "";
+                  
                     Close();
+                   
                 }else
                 {
-                    MessageBox.Show("Clave Invalida");
+                    Mensaje.Content=("Clave Invalida...");
                 }
             }
 

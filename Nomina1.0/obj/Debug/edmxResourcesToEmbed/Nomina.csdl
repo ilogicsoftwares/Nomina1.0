@@ -190,6 +190,8 @@
     <Property Name="vDLAB" Type="Decimal" />
     <Property Name="vVHIJOS" Type="Decimal" />
     <Property Name="vDF" Type="Decimal" />
+    <Property Name="vHR" Type="Decimal" />
+    <Property Name="vDFI" Type="Decimal" />
   </EntityType>
   <EntityContainer Name="nominaEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="cargo" EntityType="Self.cargo" />
@@ -208,5 +210,23 @@
     <EntitySet Name="variables" EntityType="Self.variables" />
     <EntitySet Name="gradointruc" EntityType="Self.gradointruc" />
     <EntitySet Name="varsys" EntityType="Self.varsys" />
+    <EntitySet Name="usermenu" EntityType="nominaModel.usermenu" />
   </EntityContainer>
+  <EntityType Name="usermenu">
+    <Key>
+      <PropertyRef Name="Idmenu" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="Int32" />
+    <Property Name="Pariente" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Accion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Seleccionado" Type="Int32" />
+    <Property Name="hijos" Type="Int32" />
+    <Property Name="idusuario" Type="Int32" />
+    <Property Name="Guardar" Type="Int32" />
+    <Property Name="Editar" Type="Int32" />
+    <Property Name="Eliminar" Type="Int32" />
+    <Property Name="Idmenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
 </Schema>

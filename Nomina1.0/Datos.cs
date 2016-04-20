@@ -25,7 +25,7 @@ namespace Nomina1._0
                     if (control.Text == string.Empty  )
                     {
                         resultado = false;
-                        return false;
+                        goto salida;
                         
                     }
                  
@@ -34,11 +34,11 @@ namespace Nomina1._0
                 if (c is ComboBox)
                 {
                     var control = c as ComboBox;
-                    if (control.SelectedItem == null || control.SelectedValue==null)
+                    if (control.SelectedItem == null || control.SelectedValuePath==null)
                     {
 
                         resultado = false;
-                        return false;
+                        goto salida;
 
                     }
 
@@ -46,7 +46,7 @@ namespace Nomina1._0
                 if (c is PasswordBox)
                 {
                     var control = c as PasswordBox;
-                    if (control.Password == string.Empty)
+                    if (control.Password == "")
                     {
                         resultado = false;
                         goto salida;
@@ -58,7 +58,9 @@ namespace Nomina1._0
 
             }
             salida:
-            if (resultado == false) { MessageBox.Show("Complete los Datos", "Error Al ingresar"); }
+            if (resultado == false) {
+                MessageBox.Show("Complete los Datos", "Error Al ingresar");
+            }
 
             return resultado;
 
@@ -72,7 +74,7 @@ namespace Nomina1._0
             
         }
 
-     
+    
     }
 
     

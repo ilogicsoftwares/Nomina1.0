@@ -20,5 +20,7 @@ namespace Nomina1._0
         public Nullable<decimal> vDLAB { get; set; }
         public Nullable<decimal> vVHIJOS { get; set; }
         public Nullable<decimal> vDF { get; set; }
+        public Nullable<decimal> vHR { get; set; }
+        public Nullable<decimal> vDFI { get; set; }
     }
 }

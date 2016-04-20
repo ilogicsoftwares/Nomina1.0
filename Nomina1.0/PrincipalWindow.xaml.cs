@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Nomina1._0.Controllers;
 namespace Nomina1._0
 {
     /// <summary>
@@ -22,6 +22,7 @@ namespace Nomina1._0
         public PrincipalWindow()
         {
             InitializeComponent();
+            UserController.userMenu();
         }
     }
 }

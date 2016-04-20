@@ -10,10 +10,9 @@
 namespace Nomina1._0
 {
     using System;
-    using System.Collections;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class nominaEntities : DbContext
     {
         public nominaEntities()
@@ -25,7 +24,7 @@ namespace Nomina1._0
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public DbSet<cargo> cargo { get; set; }
         public DbSet<conceptos> conceptos { get; set; }
         public DbSet<departamentos> departamentos { get; set; }
@@ -42,5 +41,6 @@ namespace Nomina1._0
         public DbSet<variables> variables { get; set; }
         public DbSet<gradointruc> gradointruc { get; set; }
         public DbSet<varsys> varsys { get; set; }
+        public DbSet<usermenu> usermenu { get; set; }
     }
 }

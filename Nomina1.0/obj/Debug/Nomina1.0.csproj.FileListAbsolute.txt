@@ -24,7 +24,6 @@ C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\bin\Debug\Nomina1.0.e
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\bin\Debug\Nomina1.0.pdb
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\bin\Debug\EntityFramework.dll
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\bin\Debug\EntityFramework.xml
-C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.csprojResolveAssemblyReference.cache
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\MainWindow.g.cs
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\PrincipalWindow.g.cs
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\App.g.cs
