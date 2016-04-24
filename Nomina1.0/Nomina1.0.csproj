@@ -118,7 +118,6 @@
     <Compile Include="usertype.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs" />
     <Compile Include="variables.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>

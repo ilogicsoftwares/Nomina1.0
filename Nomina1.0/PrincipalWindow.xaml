@@ -5,14 +5,4 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nomina1._0"
         mc:Ignorable="d"
-        Title="Ilogic Softwares Nomina" Height="355.814" Width="441.86" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid>
-        <Menu x:Name="menu" IsMainMenu="True">
-            <MenuItem Header="Inicio">
-                <MenuItem Header="Nuevo"/>
-
-            </MenuItem>
-        </Menu>
-
-    </Grid>
-</Window>
+        Title="Ilogic Softwares Nomina" Height="355.814" Width="441.86" WindowStartupLocation="CenterScreen" WindowState="Maximized"/>

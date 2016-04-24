@@ -22,7 +22,10 @@ namespace Nomina1._0
         public PrincipalWindow()
         {
             InitializeComponent();
-            UserController.userMenu();
+            this.Title += " " + UserController.UsuarioActivo.descripcion;
+             UserController.userMenu();
+             AddChild(UserController.UserMenu);
+           
         }
     }
 }

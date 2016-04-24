@@ -10,13 +10,14 @@ namespace Nomina1._0.Controllers
 {
   public  class UserController
     {
-        nominaEntities userContext = new nominaEntities();
+       static nominaEntities userContext = new nominaEntities();
+        
         public static Menu UserMenu=new Menu();
         public UserController()
         {
             CargarUsuarios();
 
-
+            
          }
         private void CargarUsuarios()
         {
@@ -71,13 +72,48 @@ namespace Nomina1._0.Controllers
         }
         public static void userMenu()
         {
-            nominaEntities MenuContext = new nominaEntities();
-            var Topmenu = MenuContext.usermenu.Where(x => x.idusuario == UsuarioActivo.idusuario)
-                                           .Where(x=>x.Tipo ==0)
-                                           .ToList();
-              
-        }
-       
 
+            var Topmenu = userContext.usermenu.Where(x => x.idusuario == UsuarioActivo.idusuario)
+                                           .Where(x => x.Tipo == 0)
+                                           .OrderBy(q=>q.id)
+                                           .ToList();
+            
+
+            //cargar encabezados e hijos
+            CargarMenuItems(Topmenu,UserMenu.Items);
+            
+
+            
+
+        }
+
+        private static void CargarMenuItems(List<usermenu> Querylist,ItemCollection ElementColection)
+        {
+            foreach (var row in Querylist)
+            {
+                
+               MenuItem nuevoitem = new MenuItem();
+                Separator nuevosep = new Separator(); 
+               
+                nuevoitem.Uid = row.id;
+                var mheader = row.Nombre;
+                if (mheader != @"\-")
+                {
+                    nuevoitem.Header = mheader;
+                    ElementColection.Add(nuevoitem);
+                }
+                else { ElementColection.Add(nuevosep); }
+                    if (row.hijos==1)
+                {
+var Hijos = userContext.usermenu.Where(x => x.idusuario == UsuarioActivo.idusuario)
+                                           .Where(x=>x.Pariente ==row.id)
+                                           .OrderBy(q=>q.id)
+                                           .ToList();
+                    CargarMenuItems(Hijos, nuevoitem.Items);  
+                }
+
+            }
+
+        }
     }
 }
