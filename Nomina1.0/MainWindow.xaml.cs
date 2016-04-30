@@ -39,10 +39,11 @@ namespace Nomina1._0
                 if (passwordBox.Password.Trim() == comboBox.SelectedValuePath.ToString().Trim())
                 {
                     UserController.UsuarioActivo = initUser.UsuarioActual;
-                    Datos.AbrirWindow<PrincipalWindow>();
+                    Datos.AbrirWindow("PrincipalWindow",0);
+                    Close();
                     Mensaje.Content = "";
                   
-                    Close();
+                  
                    
                 }else
                 {

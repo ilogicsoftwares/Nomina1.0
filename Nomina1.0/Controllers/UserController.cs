@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -100,7 +101,7 @@ namespace Nomina1._0.Controllers
                 CommandBinding customCommandBinding = new CommandBinding(
          CustomRoutedCommand, ExecutedCustomCommand, CanExecuteCustomCommand);
 
-                // attach CommandBinding to root window
+                
                 nuevoitem.CommandBindings.Add(customCommandBinding);
                 nuevoitem.Command = CustomRoutedCommand;
 
@@ -128,11 +129,48 @@ var Hijos = userContext.usermenu.Where(x => x.idusuario == UsuarioActivo.idusuar
    public static void ExecutedCustomCommand(object sender,
   ExecutedRoutedEventArgs e)
         {
-            var esto = sender;
-            MessageBox.Show("Custom Command Executed");
+            try
+            {
+
+            
+            var esto = sender as MenuItem;
+            var uid =esto.Uid;
+            var Item =userContext.usermenu.Where(x => x.idusuario == UsuarioActivo.idusuario)
+                                           .Where(x => x.id == uid)
+                                           .OrderBy(q => q.id)
+                                           .ToList();
+                EjecutarFuncion(Item[0].Accion, Item[0].Parametros);
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception caught: "+ ex.ToString());
+            }
         }
 
-    public static void CanExecuteCustomCommand(object sender,
+        private static void EjecutarFuncion(string accion, string parametros)
+        {
+            try
+            {
+                object[] param = null;
+
+                if (parametros != null)
+                {
+
+                    param = parametros.Split(',');
+                }
+            Type type = typeof(Datos);
+            object instance = Activator.CreateInstance(type);
+            MethodInfo method = type.GetMethod(accion);
+            method.Invoke(instance, param);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error Inesperado: " + ex.ToString());
+            }
+        }
+
+        public static void CanExecuteCustomCommand(object sender,
     CanExecuteRoutedEventArgs e)
         {
             Control target = e.Source as Control;

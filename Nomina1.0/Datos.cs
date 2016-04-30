@@ -66,18 +66,23 @@ namespace Nomina1._0
 
         }
       
-        public static void AbrirWindow<T>() where T :Window, new()
-        {
-           T Ventana = new T();
-            Ventana.Show();
-            
-            
-        }
-        public static void AbrirWindow(string window)
+       
+        public static void AbrirWindow(string window,int isModal=1)
         {
             Type ventana = Type.GetType("Nomina1._0."+window);
             Window nventana = (Window)Activator.CreateInstance(ventana);
-            nventana.ShowDialog();
+            if (isModal == 1)
+            {
+                nventana.ShowDialog();
+            }
+            else
+            {
+                nventana.Show();
+            }
+        }
+        public static void Cerrarapi()
+        {
+            App.Current.Shutdown();
         }
 
     
