@@ -5,14 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Nomina1._0.Controllers
 {
   public  class UserController
     {
        static nominaEntities userContext = new nominaEntities();
-        
-        public static Menu UserMenu=new Menu();
+       public static Menu UserMenu=new Menu();
+      
+      public static RoutedCommand CustomRoutedCommand = new RoutedCommand();
         public UserController()
         {
             CargarUsuarios();
@@ -93,8 +95,16 @@ namespace Nomina1._0.Controllers
             {
                 
                MenuItem nuevoitem = new MenuItem();
-                Separator nuevosep = new Separator(); 
-               
+               Separator nuevosep = new Separator();
+
+                CommandBinding customCommandBinding = new CommandBinding(
+         CustomRoutedCommand, ExecutedCustomCommand, CanExecuteCustomCommand);
+
+                // attach CommandBinding to root window
+                nuevoitem.CommandBindings.Add(customCommandBinding);
+                nuevoitem.Command = CustomRoutedCommand;
+
+
                 nuevoitem.Uid = row.id;
                 var mheader = row.Nombre;
                 if (mheader != @"\-")
@@ -114,6 +124,27 @@ var Hijos = userContext.usermenu.Where(x => x.idusuario == UsuarioActivo.idusuar
 
             }
 
+        }
+   public static void ExecutedCustomCommand(object sender,
+  ExecutedRoutedEventArgs e)
+        {
+            var esto = sender;
+            MessageBox.Show("Custom Command Executed");
+        }
+
+    public static void CanExecuteCustomCommand(object sender,
+    CanExecuteRoutedEventArgs e)
+        {
+            Control target = e.Source as Control;
+
+            if (target != null)
+            {
+                e.CanExecute = true;
+            }
+            else
+            {
+                e.CanExecute = false;
+            }
         }
     }
 }

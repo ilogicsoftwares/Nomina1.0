@@ -15,6 +15,19 @@
           <Property Name="conceptos" Type="varchar" MaxLength="100" />
           <Property Name="Iddepartamentos" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.company' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="company">
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Rif" Type="varchar" MaxLength="10" />
+          <Property Name="Direccion" Type="varchar" MaxLength="250" />
+          <Property Name="Telefono1" Type="varchar" MaxLength="20" />
+          <Property Name="Telefono2" Type="varchar" MaxLength="20" />
+          <Property Name="Telefono3" Type="varchar" MaxLength="20" />
+          <Property Name="Representante" Type="varchar" MaxLength="50" />
+          <Property Name="Logo" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+        </EntityType>-->
         <EntityType Name="conceptos">
           <Key>
             <PropertyRef Name="idconcepto" />
@@ -33,6 +46,21 @@
           <Property Name="iddepartamentos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.empresa' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="empresa">
+          <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
+          <Property Name="Rif" Type="varchar" MaxLength="11" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Telefonos" Type="varchar" MaxLength="11" />
+          <Property Name="TipodeLicencia" Type="varchar" MaxLength="50" />
+          <Property Name="NumerodeLicencia" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Contacto" Type="varchar" MaxLength="50" />
+          <Property Name="Logo" Type="varchar" MaxLength="100" />
+          <Property Name="Detallelogo" Type="varchar" MaxLength="100" />
+          <Property Name="Idempresa" Type="int" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'nomina.gradointruc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="gradointruc">
@@ -61,6 +89,29 @@ warning 6002: The table/view 'nomina.gradointruc' does not have a primary key de
           <Property Name="Descansohasta" Type="varchar" MaxLength="10" />
           <Property Name="descanso" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.menu' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="menu">
+          <Property Name="id" Type="char" MaxLength="25" />
+          <Property Name="Nombre" Type="char" MaxLength="50" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Pariente" Type="char" MaxLength="25" />
+          <Property Name="Accion" Type="char" MaxLength="100" />
+          <Property Name="Parameters" Type="varchar" MaxLength="50" />
+          <Property Name="Seleccionado" Type="int" />
+          <Property Name="hijos" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.menulimited' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="menulimited">
+          <Property Name="id" Type="char" MaxLength="25" />
+          <Property Name="Nombre" Type="char" MaxLength="50" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Pariente" Type="char" MaxLength="25" />
+          <Property Name="Accion" Type="char" MaxLength="100" />
+          <Property Name="Seleccionado" Type="int" />
+          <Property Name="hijos" Type="int" />
+        </EntityType>-->
         <EntityType Name="nacionalidad">
           <Key>
             <PropertyRef Name="id" />
@@ -68,6 +119,25 @@ warning 6002: The table/view 'nomina.gradointruc' does not have a primary key de
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="descripcion" Type="char" MaxLength="2" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.nominagen' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="nominagen">
+          <Property Name="id" Type="int" />
+          <Property Name="idtype" Type="int" />
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="cedula" Type="varchar" MaxLength="12" />
+          <Property Name="conceptos" Type="varchar" MaxLength="50" />
+          <Property Name="montos" Type="varchar" MaxLength="50" />
+          <Property Name="basico" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="totalded" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="totalasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="neto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="varvacaciones" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="varutilidades" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="otrasasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="desde" Type="date" />
+          <Property Name="hasta" Type="date" />
+        </EntityType>-->
         <EntityType Name="nominaini">
           <Key>
             <PropertyRef Name="id" />
@@ -115,6 +185,29 @@ warning 6002: The table/view 'nomina.gradointruc' does not have a primary key de
           <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
           <Property Name="tipoconcepto" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.presmanual' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="presmanual">
+          <Property Name="idpres" Type="int" />
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="idmes" Type="int" />
+          <Property Name="mes" Type="date" />
+          <Property Name="Salbase" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="otrasasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Salmen" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Saldia" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="diasdev" Type="int" />
+          <Property Name="AlicuotaV" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="diasdeu" Type="int" />
+          <Property Name="AlicuotaU" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Salarioint" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Dias" Type="int" />
+          <Property Name="TotalMes" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Tasa" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Interes" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Anticipo" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Acumulado" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>-->
         <EntityType Name="procedures">
           <Key>
             <PropertyRef Name="id" />
@@ -123,6 +216,12 @@ warning 6002: The table/view 'nomina.gradointruc' does not have a primary key de
           <Property Name="Nombre" Type="varchar" MaxLength="50" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'nomina.tasas' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tasas">
+          <Property Name="fecha" Type="date" />
+          <Property Name="tasa" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>-->
         <EntityType Name="trabajador">
           <Key>
             <PropertyRef Name="idtrabajador" />
@@ -163,6 +262,7 @@ warning 6002: The table/view 'nomina.gradointruc' does not have a primary key de
           <Property Name="Tipo" Type="int" />
           <Property Name="Pariente" Type="char" MaxLength="25" />
           <Property Name="Accion" Type="char" MaxLength="100" />
+          <Property Name="Parametros" Type="varchar" MaxLength="100" />
           <Property Name="Seleccionado" Type="int" />
           <Property Name="hijos" Type="int" />
           <Property Name="idusuario" Type="int" />
@@ -486,6 +586,7 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="Editar" Type="Int32" />
           <Property Name="Eliminar" Type="Int32" />
           <Property Name="Idmenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Parametros" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -704,6 +805,7 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <EntitySetMapping Name="usermenu">
             <EntityTypeMapping TypeName="nominaModel.usermenu">
               <MappingFragment StoreEntitySet="usermenu">
+                <ScalarProperty Name="Parametros" ColumnName="Parametros" />
                 <ScalarProperty Name="Idmenu" ColumnName="Idmenu" />
                 <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
                 <ScalarProperty Name="Editar" ColumnName="Editar" />

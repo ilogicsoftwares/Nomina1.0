@@ -212,6 +212,7 @@
     <EntitySetMapping Name="usermenu">
       <EntityTypeMapping TypeName="nominaModel.usermenu">
         <MappingFragment StoreEntitySet="usermenu">
+          <ScalarProperty Name="Parametros" ColumnName="Parametros" />
           <ScalarProperty Name="Idmenu" ColumnName="Idmenu" />
           <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
           <ScalarProperty Name="Editar" ColumnName="Editar" />

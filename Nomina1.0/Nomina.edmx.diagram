@@ -21,7 +21,7 @@
         <EntityTypeShape EntityType="nominaModel.variables" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.gradointruc" PointX="9.375" PointY="10.75" Width="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.varsys" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="nominaModel.usermenu" Width="1.5" PointX="7.375" PointY="10.75" />
+        <EntityTypeShape EntityType="nominaModel.usermenu" Width="1.5" PointX="3.875" PointY="10.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

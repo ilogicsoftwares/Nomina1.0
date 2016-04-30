@@ -26,5 +26,6 @@ namespace Nomina1._0
         public Nullable<int> Editar { get; set; }
         public Nullable<int> Eliminar { get; set; }
         public int Idmenu { get; set; }
+        public string Parametros { get; set; }
     }
 }

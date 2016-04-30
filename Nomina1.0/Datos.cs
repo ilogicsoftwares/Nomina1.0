@@ -73,6 +73,12 @@ namespace Nomina1._0
             
             
         }
+        public static void AbrirWindow(string window)
+        {
+            Type ventana = Type.GetType("Nomina1._0."+window);
+            Window nventana = (Window)Activator.CreateInstance(ventana);
+            nventana.ShowDialog();
+        }
 
     
     }
