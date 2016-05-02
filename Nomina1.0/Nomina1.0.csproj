@@ -51,8 +51,10 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,9 +64,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -77,6 +81,7 @@
     <Compile Include="conceptos.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\TrabajadorController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Datos.cs" />
     <Compile Include="departamentos.cs">
@@ -132,6 +137,9 @@
     <Compile Include="varsys.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="WindowOriginal.xaml.cs">
+      <DependentUpon>WindowOriginal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinTrabajador.xaml.cs">
       <DependentUpon>WinTrabajador.xaml</DependentUpon>
     </Compile>
@@ -148,6 +156,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PrincipalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowOriginal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

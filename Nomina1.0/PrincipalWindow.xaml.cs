@@ -19,18 +19,19 @@ namespace Nomina1._0
     /// </summary>
     public partial class PrincipalWindow : Window
     {
+       
         public PrincipalWindow()
         {
             InitializeComponent();
-            this.Title += " " + UserController.UsuarioActivo.descripcion;
-             UserController.userMenu();
-             AddChild(UserController.UserMenu);
+          this.Title += " Usuario: " + UserController.UsuarioActivo.descripcion;
+           UserController.userMenu();
+         AddChild(UserController.UserMenu);
 
         }
 
-
-
-
-
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

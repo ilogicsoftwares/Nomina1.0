@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nomina1._0"
         mc:Ignorable="d"
-        Title="Trabajador" Height="300" Width="300">
+        Title="WinTrabajador" Height="300" Width="591">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="115*"/>
+            <ColumnDefinition Width="312*"/>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="97*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label" Content="Cedula:" Margin="-39,33,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="154"/>
+        <TextBox x:Name="textBox" Grid.Column="1" Height="23" Margin="0,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1"/>
+        <Label x:Name="label_Copy" Content="Nombres:" Margin="0,59,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="74"/>
+        <TextBox x:Name="textBox_Copy1" Height="23" Margin="0,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="2"/>
+        <Label x:Name="label_Copy2" Content="Apellidos:" Margin="20,89,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
+        <Label x:Name="label_Copy3" Content="Datos Personales" Margin="0,7,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" FontWeight="Bold"/>
+        <TextBox x:Name="textBox_Copy2" Height="23" Margin="0,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="3"/>
+        <Label x:Name="label_Copy4" Content="Sexo:" Margin="0,121,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="74" RenderTransformOrigin="0.541,0.731"/>
+        <Label x:Name="label_Copy5" Content="Estado Civil:" Margin="0,147,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="74" RenderTransformOrigin="0.541,0.731"/>
+        <StackPanel Grid.Column="1" Height="20" Margin="0,126,0,0" VerticalAlignment="Top" Orientation="Horizontal" CanHorizontallyScroll="True">
+            <RadioButton x:Name="radioButton_Copy3" Content="Masculino" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <RadioButton x:Name="radioButton_Copy" Content="Femenino" VerticalAlignment="Top" Margin="50,0,0,0" HorizontalContentAlignment="Right" RenderTransformOrigin="1.423,1.133" HorizontalAlignment="Right"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Height="20" Margin="0,154,0,0" VerticalAlignment="Top" Orientation="Horizontal" CanHorizontallyScroll="True">
+            <RadioButton x:Name="radioButton_Copy1" Content="Casado" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <RadioButton x:Name="radioButton_Copy2" Content="Soltero" VerticalAlignment="Top" Margin="65,0,0,0" HorizontalContentAlignment="Right" RenderTransformOrigin="1.423,1.133" HorizontalAlignment="Right"/>
+        </StackPanel>
+        <Label x:Name="label_Copy1" Content="Id:" Margin="0,10,0,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" Grid.Column="2"/>
+        <TextBox x:Name="textBox_Copy" Grid.Column="3" Height="23" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1"/>
     </Grid>
 </Window>

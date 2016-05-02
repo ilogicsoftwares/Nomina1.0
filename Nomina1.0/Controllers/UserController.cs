@@ -152,12 +152,13 @@ var Hijos = userContext.usermenu.Where(x => x.idusuario == UsuarioActivo.idusuar
         {
             try
             {
-                object[] param = null;
 
+               object[] param = null;
                 if (parametros != null)
                 {
-
-                    param = parametros.Split(',');
+                    
+                   param = parametros.Split(',');
+                
                 }
             Type type = typeof(Datos);
             object instance = Activator.CreateInstance(type);
