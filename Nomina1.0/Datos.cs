@@ -75,6 +75,8 @@ namespace Nomina1._0
 
                 Type ventana = Type.GetType("Nomina1._0." + window);
                 Window nventana = (Window)Activator.CreateInstance(ventana);
+                nventana.WindowStyle = WindowStyle.ToolWindow;
+                nventana.ShowInTaskbar = false;
                 if (window=="PrincipalWindow")
                 {
                     _PrincipalWindow = nventana;

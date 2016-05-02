@@ -4,9 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nomina1._0"
+        xmlns:vm="clr-namespace:Nomina1._0.Controllers"
         mc:Ignorable="d"
-        Title="WinTrabajador" Height="300" Width="591">
-    <Grid>
+        Title="WinTrabajador" Height="300" Width="591" WindowStyle="ToolWindow">
+
+    <Grid DataContext="{Binding Trabajadores}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="115*"/>
             <ColumnDefinition Width="312*"/>
@@ -14,7 +16,7 @@
             <ColumnDefinition Width="97*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="Cedula:" Margin="-39,33,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="154"/>
-        <TextBox x:Name="textBox" Grid.Column="1" Height="23" Margin="0,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1"/>
+        <TextBox x:Name="textBox" Grid.Column="1" Height="23" Margin="0,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1" Text="{Binding cedula}"/>
         <Label x:Name="label_Copy" Content="Nombres:" Margin="0,59,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="74"/>
         <TextBox x:Name="textBox_Copy1" Height="23" Margin="0,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="2"/>
         <Label x:Name="label_Copy2" Content="Apellidos:" Margin="20,89,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>

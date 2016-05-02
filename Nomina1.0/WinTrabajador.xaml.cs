@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Nomina1._0.Controllers;
 
 namespace Nomina1._0
 {
@@ -19,9 +20,12 @@ namespace Nomina1._0
     /// </summary>
     public partial class WinTrabajador : Window
     {
+
+        TrabajadorController trabajadores = new TrabajadorController();
         public WinTrabajador()
         {
             InitializeComponent();
+            DataContext = trabajadores;
         }
     }
 }

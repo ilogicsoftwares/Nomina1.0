@@ -30,7 +30,6 @@ C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.c
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\MainWindow.g.cs
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\PrincipalWindow.g.cs
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\WindowOriginal.g.cs
-C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\WinTrabajad.g.cs
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\App.g.cs
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0_Content.g.cs
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0_MarkupCompile.cache
@@ -38,9 +37,11 @@ C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0_M
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\MainWindow.baml
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\PrincipalWindow.baml
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\WindowOriginal.baml
-C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\WinTrabajad.baml
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.g.resources
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\Nomina1._0.Properties.Resources.resources
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.csproj.GenerateResource.Cache
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.exe
 C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.pdb
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\WinTrabajador.g.cs
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\WinTrabajador.baml
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\Nomina1.0\obj\Debug\GeneratedInternalTypeHelper.g.cs
