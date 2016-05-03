@@ -12,13 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Nomina1._0.Controllers;
+using MahApps.Metro.Controls;
 
 namespace Nomina1._0
 {
     /// <summary>
     /// Interaction logic for WinTrabajador.xaml
     /// </summary>
-    public partial class WinTrabajador : Window
+    public partial class WinTrabajador
     {
 
         TrabajadorController trabajadores = new TrabajadorController();
@@ -26,6 +27,7 @@ namespace Nomina1._0
         {
             InitializeComponent();
             DataContext = trabajadores;
+            
         }
     }
 }

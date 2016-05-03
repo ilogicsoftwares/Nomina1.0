@@ -12,18 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Nomina1._0.Controllers;
+using MahApps.Metro.Controls;
 namespace Nomina1._0
 {
     /// <summary>
     /// Interaction logic for PrincipalWindow.xaml
     /// </summary>
-    public partial class PrincipalWindow : Window
+    public partial class PrincipalWindow 
     {
        
         public PrincipalWindow()
         {
+           
             InitializeComponent();
-          this.Title += " Usuario: " + UserController.UsuarioActivo.descripcion;
+          
+            this.Title += " Usuario: " + UserController.UsuarioActivo.descripcion;
            UserController.userMenu();
          AddChild(UserController.UserMenu);
 

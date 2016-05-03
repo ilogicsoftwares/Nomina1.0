@@ -1,0 +1,11 @@
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\bin\Debug\WpfCustomControlLibrary2.dll
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\bin\Debug\WpfCustomControlLibrary2.pdb
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\obj\Debug\WpfCustomControlLibrary2_MarkupCompile.cache
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\obj\Debug\WpfCustomControlLibrary2_MarkupCompile.lref
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\obj\Debug\Themes\Generic.baml
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\obj\Debug\WpfCustomControlLibrary2.g.resources
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\obj\Debug\WpfCustomControlLibrary2.Properties.Resources.resources
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\obj\Debug\WpfCustomControlLibrary2.csproj.GenerateResource.Cache
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\obj\Debug\WpfCustomControlLibrary2.dll
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\WpfCustomControlLibrary2\obj\Debug\WpfCustomControlLibrary2.pdb

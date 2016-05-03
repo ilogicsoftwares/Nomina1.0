@@ -1,0 +1,5 @@
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\IlogicControls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\IlogicControls\obj\Debug\IlogicControls_MarkupCompile.cache
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\IlogicControls\obj\Debug\IlogicControls_MarkupCompile.lref
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\IlogicControls\obj\Debug\IlogicControls.dll
+C:\Users\RichardJesus\Documents\GitHub\Nomina1.0\IlogicControls\obj\Debug\IlogicControls.pdb

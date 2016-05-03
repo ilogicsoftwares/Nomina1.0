@@ -1,12 +1,21 @@
-﻿<Window x:Class="Nomina1._0.WinTrabajador"
+﻿<Controls:MetroWindow x:Class="Nomina1._0.WinTrabajador"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nomina1._0"
         xmlns:vm="clr-namespace:Nomina1._0.Controllers"
+        
         mc:Ignorable="d"
-        Title="WinTrabajador" Height="300" Width="591" WindowStyle="ToolWindow">
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:Converters="http://metro.mahapps.com/winfx/xaml/shared"
+        xmlns:metro="clr-namespace:MahApps.Metro;assembly=MahApps.Metro"
+        Title="WinTrabajador" Height="300" Width="591"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      RenderOptions.ClearTypeHint="Enabled"
+                      ResizeMode="CanResizeWithGrip"
+                      TextOptions.TextFormattingMode="Display"
+                      WindowStartupLocation="CenterScreen">
 
     <Grid DataContext="{Binding Trabajadores}">
         <Grid.ColumnDefinitions>
@@ -16,7 +25,7 @@
             <ColumnDefinition Width="97*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="Cedula:" Margin="-39,33,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="154"/>
-        <TextBox x:Name="textBox" Grid.Column="1" Height="23" Margin="0,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1" Text="{Binding cedula}"/>
+        <TextBox x:Name="textBox" Grid.Column="1" Height="23" Margin="0,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1"/>
         <Label x:Name="label_Copy" Content="Nombres:" Margin="0,59,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="74"/>
         <TextBox x:Name="textBox_Copy1" Height="23" Margin="0,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="2"/>
         <Label x:Name="label_Copy2" Content="Apellidos:" Margin="20,89,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
@@ -35,4 +44,4 @@
         <Label x:Name="label_Copy1" Content="Id:" Margin="0,10,0,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" Grid.Column="2"/>
         <TextBox x:Name="textBox_Copy" Grid.Column="3" Height="23" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1"/>
     </Grid>
-</Window>
+</Controls:MetroWindow>

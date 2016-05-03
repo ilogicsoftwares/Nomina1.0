@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
+using MahApps.Metro.Controls;
 
 
 namespace Nomina1._0
@@ -74,13 +75,16 @@ namespace Nomina1._0
             {
 
                 Type ventana = Type.GetType("Nomina1._0." + window);
-                Window nventana = (Window)Activator.CreateInstance(ventana);
-                nventana.WindowStyle = WindowStyle.ToolWindow;
+                MetroWindow nventana = (MetroWindow)Activator.CreateInstance(ventana);
                 nventana.ShowInTaskbar = false;
+                nventana.WindowStyle = WindowStyle.ToolWindow;
+                nventana.SetResourceReference("AccentColorBrush");
                 if (window=="PrincipalWindow")
                 {
+                    nventana.ShowInTaskbar = true;
+                    nventana.WindowStyle = WindowStyle.ThreeDBorderWindow;
                     _PrincipalWindow = nventana;
-
+                    
                 }
                 else
                 {
@@ -88,6 +92,7 @@ namespace Nomina1._0
                 }
                 if (isModal == "1")
                 {
+                  
                     nventana.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     
                     nventana.ShowDialog();
@@ -96,6 +101,7 @@ namespace Nomina1._0
                 }
                 else
                 {
+                 
                     nventana.WindowStartupLocation = WindowStartupLocation.CenterScreen;
                     nventana.Show();
                    

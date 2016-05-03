@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data.Entity;
 using System.Collections;
 using Nomina1._0.Controllers;
+using MahApps.Metro.Controls;
 
 namespace Nomina1._0
 {
@@ -22,12 +23,12 @@ namespace Nomina1._0
     /// Interaction logic for MainWindow.xaml
     /// </summary>
   
-    public partial class MainWindow : Window
+    public partial class MainWindow:MetroWindow 
     {
         public UserController initUser = new UserController();
         public MainWindow()
         {
-            
+            this.WindowStyle = WindowStyle.ThreeDBorderWindow;
             InitializeComponent();
             DataContext = initUser;
         }
