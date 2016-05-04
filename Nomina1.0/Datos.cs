@@ -78,7 +78,8 @@ namespace Nomina1._0
                 MetroWindow nventana = (MetroWindow)Activator.CreateInstance(ventana);
                 nventana.ShowInTaskbar = false;
                 nventana.WindowStyle = WindowStyle.ToolWindow;
-                nventana.SetResourceReference("AccentColorBrush");
+                nventana.SetResourceReference(MetroWindow.GlowBrushProperty,"AccentColorBrush");
+                nventana.ResizeMode = ResizeMode.CanResizeWithGrip;
                 if (window=="PrincipalWindow")
                 {
                     nventana.ShowInTaskbar = true;

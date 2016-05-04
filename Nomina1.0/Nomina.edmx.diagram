@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="886ee8db099e47848900dbd82ffd1e50" Name="Diagram1">
+      <Diagram DiagramId="886ee8db099e47848900dbd82ffd1e50" Name="Diagram1" ZoomLevel="62">
         <EntityTypeShape EntityType="nominaModel.cargo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.conceptos" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.departamentos" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
@@ -15,13 +15,13 @@
         <EntityTypeShape EntityType="nominaModel.nominauni" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.prenomina" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.procedures" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="nominaModel.trabajador" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.users" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.usertype" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.variables" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.gradointruc" PointX="9.375" PointY="10.75" Width="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.varsys" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="nominaModel.usermenu" Width="1.5" PointX="3.875" PointY="10.625" />
+        <EntityTypeShape EntityType="nominaModel.trabajador" Width="1.5" PointX="6.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

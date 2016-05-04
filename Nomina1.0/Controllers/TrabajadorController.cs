@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Nomina1._0.Controllers
 {
     class TrabajadorController
     {
-        static nominaEntities TrabajadContext = new nominaEntities();
+        public static nominaEntities TrabajadContext = new nominaEntities();
 
         public TrabajadorController()
         {
@@ -24,6 +26,23 @@ namespace Nomina1._0.Controllers
         {
 
         }
+        public static void GuardarTrabajador()
+        {
+            try
+            {
+                TrabajadContext.SaveChanges();
+            }catch(DbEntityValidationException exe)
+
+            {
+                MessageBox.Show(exe.EntityValidationErrors.ToString());
+            }
+           
+        }
+
+        public static void AgregarTrabajador()
+        {
+            TrabajadContext.SaveChanges();
+        }
 
         private List<trabajador> _Trabajadores;
         public List<trabajador> Trabajadores
@@ -37,6 +56,7 @@ namespace Nomina1._0.Controllers
                 _Trabajadores = value;
             }
         }
+        
         
     }
 }

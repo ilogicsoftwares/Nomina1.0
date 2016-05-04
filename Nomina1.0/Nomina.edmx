@@ -15,19 +15,6 @@
           <Property Name="conceptos" Type="varchar" MaxLength="100" />
           <Property Name="Iddepartamentos" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'nomina.company' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="company">
-          <Property Name="Nombre" Type="varchar" MaxLength="100" />
-          <Property Name="Rif" Type="varchar" MaxLength="10" />
-          <Property Name="Direccion" Type="varchar" MaxLength="250" />
-          <Property Name="Telefono1" Type="varchar" MaxLength="20" />
-          <Property Name="Telefono2" Type="varchar" MaxLength="20" />
-          <Property Name="Telefono3" Type="varchar" MaxLength="20" />
-          <Property Name="Representante" Type="varchar" MaxLength="50" />
-          <Property Name="Logo" Type="varchar" MaxLength="50" />
-          <Property Name="Correo" Type="varchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="conceptos">
           <Key>
             <PropertyRef Name="idconcepto" />
@@ -46,23 +33,8 @@ warning 6013: The table/view 'nomina.company' does not have a primary key define
           <Property Name="iddepartamentos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'nomina.empresa' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="empresa">
-          <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
-          <Property Name="Rif" Type="varchar" MaxLength="11" />
-          <Property Name="Direccion" Type="varchar" MaxLength="200" />
-          <Property Name="Telefonos" Type="varchar" MaxLength="11" />
-          <Property Name="TipodeLicencia" Type="varchar" MaxLength="50" />
-          <Property Name="NumerodeLicencia" Type="varchar" MaxLength="50" />
-          <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="Contacto" Type="varchar" MaxLength="50" />
-          <Property Name="Logo" Type="varchar" MaxLength="100" />
-          <Property Name="Detallelogo" Type="varchar" MaxLength="100" />
-          <Property Name="Idempresa" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'nomina.gradointruc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'nomina.gradointruc' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="gradointruc">
           <Key>
             <PropertyRef Name="ID" />
@@ -89,29 +61,6 @@ warning 6002: The table/view 'nomina.gradointruc' does not have a primary key de
           <Property Name="Descansohasta" Type="varchar" MaxLength="10" />
           <Property Name="descanso" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'nomina.menu' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="menu">
-          <Property Name="id" Type="char" MaxLength="25" />
-          <Property Name="Nombre" Type="char" MaxLength="50" />
-          <Property Name="Tipo" Type="int" />
-          <Property Name="Pariente" Type="char" MaxLength="25" />
-          <Property Name="Accion" Type="char" MaxLength="100" />
-          <Property Name="Parameters" Type="varchar" MaxLength="50" />
-          <Property Name="Seleccionado" Type="int" />
-          <Property Name="hijos" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'nomina.menulimited' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="menulimited">
-          <Property Name="id" Type="char" MaxLength="25" />
-          <Property Name="Nombre" Type="char" MaxLength="50" />
-          <Property Name="Tipo" Type="int" />
-          <Property Name="Pariente" Type="char" MaxLength="25" />
-          <Property Name="Accion" Type="char" MaxLength="100" />
-          <Property Name="Seleccionado" Type="int" />
-          <Property Name="hijos" Type="int" />
-        </EntityType>-->
         <EntityType Name="nacionalidad">
           <Key>
             <PropertyRef Name="id" />
@@ -119,25 +68,6 @@ warning 6013: The table/view 'nomina.menulimited' does not have a primary key de
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="descripcion" Type="char" MaxLength="2" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'nomina.nominagen' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="nominagen">
-          <Property Name="id" Type="int" />
-          <Property Name="idtype" Type="int" />
-          <Property Name="idtrabajador" Type="int" />
-          <Property Name="cedula" Type="varchar" MaxLength="12" />
-          <Property Name="conceptos" Type="varchar" MaxLength="50" />
-          <Property Name="montos" Type="varchar" MaxLength="50" />
-          <Property Name="basico" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="totalded" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="totalasig" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="neto" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="varvacaciones" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="varutilidades" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="otrasasig" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="desde" Type="date" />
-          <Property Name="hasta" Type="date" />
-        </EntityType>-->
         <EntityType Name="nominaini">
           <Key>
             <PropertyRef Name="id" />
@@ -185,29 +115,6 @@ warning 6013: The table/view 'nomina.nominagen' does not have a primary key defi
           <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
           <Property Name="tipoconcepto" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'nomina.presmanual' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="presmanual">
-          <Property Name="idpres" Type="int" />
-          <Property Name="idtrabajador" Type="int" />
-          <Property Name="idmes" Type="int" />
-          <Property Name="mes" Type="date" />
-          <Property Name="Salbase" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="otrasasig" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Salmen" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Saldia" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="diasdev" Type="int" />
-          <Property Name="AlicuotaV" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="diasdeu" Type="int" />
-          <Property Name="AlicuotaU" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Salarioint" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Dias" Type="int" />
-          <Property Name="TotalMes" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Tasa" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Interes" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Anticipo" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="Acumulado" Type="decimal" Precision="10" Scale="2" />
-        </EntityType>-->
         <EntityType Name="procedures">
           <Key>
             <PropertyRef Name="id" />
@@ -216,16 +123,9 @@ warning 6013: The table/view 'nomina.presmanual' does not have a primary key def
           <Property Name="Nombre" Type="varchar" MaxLength="50" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'nomina.tasas' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tasas">
-          <Property Name="fecha" Type="date" />
-          <Property Name="tasa" Type="decimal" Precision="4" Scale="2" />
-        </EntityType>-->
         <EntityType Name="trabajador">
           <Key>
             <PropertyRef Name="idtrabajador" />
-            <PropertyRef Name="cedula" />
           </Key>
           <Property Name="idtrabajador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="cedula" Type="varchar" MaxLength="10" Nullable="false" />
@@ -304,8 +204,8 @@ warning 6013: The table/view 'nomina.tasas' does not have a primary key defined 
           <Property Name="valorinicial" Type="varchar" MaxLength="50" />
           <Property Name="constante" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'nomina.varsys' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="varsys">
           <Key>
             <PropertyRef Name="cedula" />
@@ -467,37 +367,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="trabajador">
-          <Key>
-            <PropertyRef Name="idtrabajador" />
-            <PropertyRef Name="cedula" />
-          </Key>
-          <Property Name="idtrabajador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="idcargo" Type="Int32" />
-          <Property Name="iddepartamentos" Type="Int32" />
-          <Property Name="direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="telefonocel" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="telefonolocal" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="telefonocontacto" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="nombrecontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Sueldo" Type="Double" />
-          <Property Name="idstatus" Type="Int32" />
-          <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Sexo" Type="Int32" />
-          <Property Name="Fechaing" Type="DateTime" />
-          <Property Name="fechanac" Type="DateTime" />
-          <Property Name="edocivil" Type="Int32" />
-          <Property Name="Nhijos" Type="Int32" />
-          <Property Name="nacionalidad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="nivelintruc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Idnomina" Type="Int32" />
-        </EntityType>
         <EntityType Name="users">
           <Key>
             <PropertyRef Name="idusuario" />
@@ -562,13 +431,13 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <EntitySet Name="nominauni" EntityType="Self.nominauni" />
           <EntitySet Name="prenomina" EntityType="Self.prenomina" />
           <EntitySet Name="procedures" EntityType="Self.procedures" />
-          <EntitySet Name="trabajador" EntityType="Self.trabajador" />
           <EntitySet Name="users" EntityType="Self.users" />
           <EntitySet Name="usertype" EntityType="Self.usertype" />
           <EntitySet Name="variables" EntityType="Self.variables" />
           <EntitySet Name="gradointruc" EntityType="Self.gradointruc" />
           <EntitySet Name="varsys" EntityType="Self.varsys" />
           <EntitySet Name="usermenu" EntityType="nominaModel.usermenu" />
+          <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
         </EntityContainer>
         <EntityType Name="usermenu">
           <Key>
@@ -587,6 +456,36 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="Eliminar" Type="Int32" />
           <Property Name="Idmenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Parametros" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="trabajador">
+          <Key>
+            <PropertyRef Name="idtrabajador" />
+          </Key>
+          <Property Name="idtrabajador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedula" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idcargo" Type="Int32" />
+          <Property Name="iddepartamentos" Type="Int32" />
+          <Property Name="direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="telefonocel" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="telefonolocal" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="telefonocontacto" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="nombrecontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sueldo" Type="Double" />
+          <Property Name="idstatus" Type="Int32" />
+          <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Sexo" Type="Int32" />
+          <Property Name="Fechaing" Type="DateTime" />
+          <Property Name="fechanac" Type="DateTime" />
+          <Property Name="edocivil" Type="Int32" />
+          <Property Name="Nhijos" Type="Int32" />
+          <Property Name="nacionalidad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="nivelintruc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Idnomina" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -713,37 +612,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="trabajador">
-            <EntityTypeMapping TypeName="nominaModel.trabajador">
-              <MappingFragment StoreEntitySet="trabajador">
-                <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-                <ScalarProperty Name="cedula" ColumnName="cedula" />
-                <ScalarProperty Name="nombres" ColumnName="nombres" />
-                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
-                <ScalarProperty Name="idcargo" ColumnName="idcargo" />
-                <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="telefonocel" ColumnName="telefonocel" />
-                <ScalarProperty Name="telefonolocal" ColumnName="telefonolocal" />
-                <ScalarProperty Name="telefonocontacto" ColumnName="telefonocontacto" />
-                <ScalarProperty Name="nombrecontacto" ColumnName="nombrecontacto" />
-                <ScalarProperty Name="correo" ColumnName="correo" />
-                <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
-                <ScalarProperty Name="idstatus" ColumnName="idstatus" />
-                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-                <ScalarProperty Name="Fechaing" ColumnName="Fechaing" />
-                <ScalarProperty Name="fechanac" ColumnName="fechanac" />
-                <ScalarProperty Name="edocivil" ColumnName="edocivil" />
-                <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
-                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
-                <ScalarProperty Name="nivelintruc" ColumnName="nivelintruc" />
-                <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
-                <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
-                <ScalarProperty Name="Idnomina" ColumnName="Idnomina" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="nominaModel.users">
               <MappingFragment StoreEntitySet="users">
@@ -818,6 +686,37 @@ FROM `varsys` AS `varsys`</DefiningQuery>
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trabajador">
+            <EntityTypeMapping TypeName="nominaModel.trabajador">
+              <MappingFragment StoreEntitySet="trabajador">
+                <ScalarProperty Name="Idnomina" ColumnName="Idnomina" />
+                <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
+                <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
+                <ScalarProperty Name="nivelintruc" ColumnName="nivelintruc" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+                <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
+                <ScalarProperty Name="edocivil" ColumnName="edocivil" />
+                <ScalarProperty Name="fechanac" ColumnName="fechanac" />
+                <ScalarProperty Name="Fechaing" ColumnName="Fechaing" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+                <ScalarProperty Name="idstatus" ColumnName="idstatus" />
+                <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="nombrecontacto" ColumnName="nombrecontacto" />
+                <ScalarProperty Name="telefonocontacto" ColumnName="telefonocontacto" />
+                <ScalarProperty Name="telefonolocal" ColumnName="telefonolocal" />
+                <ScalarProperty Name="telefonocel" ColumnName="telefonocel" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
+                <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

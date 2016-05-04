@@ -120,37 +120,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="trabajador">
-      <EntityTypeMapping TypeName="nominaModel.trabajador">
-        <MappingFragment StoreEntitySet="trabajador">
-          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-          <ScalarProperty Name="cedula" ColumnName="cedula" />
-          <ScalarProperty Name="nombres" ColumnName="nombres" />
-          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
-          <ScalarProperty Name="idcargo" ColumnName="idcargo" />
-          <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
-          <ScalarProperty Name="direccion" ColumnName="direccion" />
-          <ScalarProperty Name="telefonocel" ColumnName="telefonocel" />
-          <ScalarProperty Name="telefonolocal" ColumnName="telefonolocal" />
-          <ScalarProperty Name="telefonocontacto" ColumnName="telefonocontacto" />
-          <ScalarProperty Name="nombrecontacto" ColumnName="nombrecontacto" />
-          <ScalarProperty Name="correo" ColumnName="correo" />
-          <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
-          <ScalarProperty Name="idstatus" ColumnName="idstatus" />
-          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
-          <ScalarProperty Name="Fechaing" ColumnName="Fechaing" />
-          <ScalarProperty Name="fechanac" ColumnName="fechanac" />
-          <ScalarProperty Name="edocivil" ColumnName="edocivil" />
-          <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
-          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
-          <ScalarProperty Name="nivelintruc" ColumnName="nivelintruc" />
-          <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
-          <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
-          <ScalarProperty Name="Idnomina" ColumnName="Idnomina" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="nominaModel.users">
         <MappingFragment StoreEntitySet="users">
@@ -225,6 +194,37 @@
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trabajador">
+      <EntityTypeMapping TypeName="nominaModel.trabajador">
+        <MappingFragment StoreEntitySet="trabajador">
+          <ScalarProperty Name="Idnomina" ColumnName="Idnomina" />
+          <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
+          <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
+          <ScalarProperty Name="nivelintruc" ColumnName="nivelintruc" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+          <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
+          <ScalarProperty Name="edocivil" ColumnName="edocivil" />
+          <ScalarProperty Name="fechanac" ColumnName="fechanac" />
+          <ScalarProperty Name="Fechaing" ColumnName="Fechaing" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+          <ScalarProperty Name="idstatus" ColumnName="idstatus" />
+          <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="nombrecontacto" ColumnName="nombrecontacto" />
+          <ScalarProperty Name="telefonocontacto" ColumnName="telefonocontacto" />
+          <ScalarProperty Name="telefonolocal" ColumnName="telefonolocal" />
+          <ScalarProperty Name="telefonocel" ColumnName="telefonocel" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
+          <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

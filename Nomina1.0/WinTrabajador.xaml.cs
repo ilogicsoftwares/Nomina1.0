@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Nomina1._0.Controllers;
 using MahApps.Metro.Controls;
-
 namespace Nomina1._0
 {
     /// <summary>
@@ -21,13 +20,20 @@ namespace Nomina1._0
     /// </summary>
     public partial class WinTrabajador
     {
-
+        trabajador nuevotrabajador = new trabajador();
         TrabajadorController trabajadores = new TrabajadorController();
         public WinTrabajador()
         {
             InitializeComponent();
-            DataContext = trabajadores;
+            DataContext = nuevotrabajador;
             
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            TrabajadorController.TrabajadContext.trabajador.Add(nuevotrabajador);
+            TrabajadorController.GuardarTrabajador();
+           
         }
     }
 }
