@@ -15,7 +15,7 @@
                       RenderOptions.ClearTypeHint="Enabled"
                       ResizeMode="CanResizeWithGrip"
                       TextOptions.TextFormattingMode="Display"
-                      WindowStartupLocation="CenterScreen">
+                      WindowStartupLocation="CenterScreen" Activated="MetroWindow_Activated">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -43,6 +43,6 @@
         </StackPanel>
         <Label x:Name="label_Copy1" Content="Id:" Margin="0,10,0,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" Grid.Column="2"/>
         <TextBox x:Name="Id" Grid.Column="3" Height="26" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1" HorizontalAlignment="Left" Width="67" Text="{Binding idtrabajador}"/>
-        <Button x:Name="button" Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="23,183,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button" Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="45,154,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
     </Grid>
 </Controls:MetroWindow>

@@ -16,6 +16,8 @@ namespace Nomina1._0
     {
         public static nominaEntities Micontexto= new nominaEntities();
         public static Window _PrincipalWindow;
+        public static object ObjectActual;
+        public static MetroWindow WindowActual;
         public static bool ValidarDatos(Grid container)
         {
             bool resultado=true;

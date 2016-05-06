@@ -21,19 +21,31 @@ namespace Nomina1._0
     public partial class WinTrabajador
     {
         trabajador nuevotrabajador = new trabajador();
-        TrabajadorController trabajadores = new TrabajadorController();
+
         public WinTrabajador()
         {
             InitializeComponent();
-            DataContext = nuevotrabajador;
-            
+            DataContext = Datos.Micontexto.trabajador.ToList()
+           
+        }
+
+        private void MetroWindow_Activated(object sender, EventArgs e)
+        {
+            Datos.WindowActual = this;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            TrabajadorController.TrabajadContext.trabajador.Add(nuevotrabajador);
-            TrabajadorController.GuardarTrabajador();
            
         }
+
+        //private void button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Datos.Micontexto.trabajador.Add(nuevotrabajador);
+        //     TrabajadorController.GuardarTrabajador();
+
+        // }
+
+
     }
 }

@@ -10,7 +10,7 @@ namespace Nomina1._0.Controllers
 {
     class TrabajadorController
     {
-        public static nominaEntities TrabajadContext = new nominaEntities();
+        
 
         public TrabajadorController()
         {
@@ -19,7 +19,7 @@ namespace Nomina1._0.Controllers
 
         private void CargarTrabajadores()
         {
-            this._Trabajadores = TrabajadContext.trabajador.ToList();
+            this._Trabajadores = Datos.Micontexto.trabajador.ToList();
         }
 
         public static void BuscarTabajador(int id)
@@ -30,7 +30,7 @@ namespace Nomina1._0.Controllers
         {
             try
             {
-                TrabajadContext.SaveChanges();
+                Datos.Micontexto.SaveChanges();
             }catch(DbEntityValidationException exe)
 
             {
@@ -41,7 +41,7 @@ namespace Nomina1._0.Controllers
 
         public static void AgregarTrabajador()
         {
-            TrabajadContext.SaveChanges();
+            Datos.Micontexto.SaveChanges();
         }
 
         private List<trabajador> _Trabajadores;

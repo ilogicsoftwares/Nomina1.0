@@ -28,11 +28,23 @@ namespace Nomina1._0
           
             this.Title += " Usuario: " + UserController.UsuarioActivo.descripcion;
            UserController.userMenu();
-         AddChild(UserController.UserMenu);
+         
+            grid1.Children.Add(UserController.UserMenu);
+         
 
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void button_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Datos.Micontexto.SaveChanges();
+        }
+
+        private void CommandNuevo_Copy1_Click(object sender, RoutedEventArgs e)
         {
            
         }

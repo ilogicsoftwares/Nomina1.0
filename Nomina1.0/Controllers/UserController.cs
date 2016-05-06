@@ -12,7 +12,7 @@ namespace Nomina1._0.Controllers
 {
   public  class UserController
     {
-       static nominaEntities userContext = new nominaEntities();
+       static nominaEntities userContext = Datos.Micontexto;
        public static Menu UserMenu=new Menu();
       
       public static RoutedCommand CustomRoutedCommand = new RoutedCommand();
