@@ -39,10 +39,7 @@ namespace Nomina1._0.Controllers
            
         }
 
-        public static void AgregarTrabajador()
-        {
-            Datos.Micontexto.SaveChanges();
-        }
+      
 
         private List<trabajador> _Trabajadores;
         public List<trabajador> Trabajadores
@@ -56,7 +53,17 @@ namespace Nomina1._0.Controllers
                 _Trabajadores = value;
             }
         }
+
+        private trabajador _Ntrabajador;
+        public trabajador Ntrabajador
+        {
+            get { return _Ntrabajador; }
+            set { _Ntrabajador = value; }
+        }
+
         
-        
+
+
+
     }
 }

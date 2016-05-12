@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Nomina1._0.Controllers;
-using MahApps.Metro.Controls;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace Nomina1._0
 {
     /// <summary>
@@ -20,26 +10,37 @@ namespace Nomina1._0
     /// </summary>
     public partial class WinTrabajador
     {
-        trabajador nuevotrabajador = new trabajador();
 
+        IOrderedEnumerable<trabajador> listatrabajad = Datos.Micontexto.trabajador.ToList().OrderByDescending(o=>o.idtrabajador);
         public WinTrabajador()
         {
             InitializeComponent();
-            DataContext = Datos.Micontexto.trabajador.ToList()
-           
+            
+            
+            DataContext = listatrabajad;
         }
-
+       
         private void MetroWindow_Activated(object sender, EventArgs e)
         {
             Datos.WindowActual = this;
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+     
+        public void Nuevo()
         {
+            var ultimoid = listatrabajad.FirstOrDefault().idtrabajador;
+            trabajador elgue = new trabajador()
+            {
+                idtrabajador = ultimoid + 1
+            };
+
+            DataContext = elgue;
            
         }
 
-        //private void button_Click(object sender, RoutedEventArgs e)
+       
+
+        //private void button_Clicevk(object sender, RoutedEventArgs e)
         //{
         //    Datos.Micontexto.trabajador.Add(nuevotrabajador);
         //     TrabajadorController.GuardarTrabajador();

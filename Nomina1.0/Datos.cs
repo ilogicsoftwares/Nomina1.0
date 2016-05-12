@@ -8,7 +8,7 @@ using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
-
+using System.Reflection;
 
 namespace Nomina1._0
 {
@@ -120,7 +120,23 @@ namespace Nomina1._0
             Application.Current.Shutdown();
         }
 
-    
+        public static void NuevoObjeto(string objeto)
+        {
+            Type nobjeto = Type.GetType("Nomina1._0." + objeto);
+            object newobject = (object)Activator.CreateInstance(nobjeto);
+           
+            WindowActual.DataContext =newobject;
+            
+        }
+        public static void EjecutarMetodo(object window,string metodo)
+        {
+            Type type = (window.GetType());
+          
+            MethodInfo method = type.GetMethod(metodo);
+            method.Invoke(window, null);
+
+        }
+
     }
 
     

@@ -34,19 +34,15 @@ namespace Nomina1._0
 
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void CommandNuevo_Click(object sender, RoutedEventArgs e)
         {
-           
+            Datos.EjecutarMetodo(Datos.WindowActual, "Nuevo");
         }
 
-        private void button_Copy_Click(object sender, RoutedEventArgs e)
+        private void CommandGuardar_Click(object sender, RoutedEventArgs e)
         {
+            Datos.Micontexto.trabajador.Add((trabajador)Datos.WindowActual.DataContext);
             Datos.Micontexto.SaveChanges();
-        }
-
-        private void CommandNuevo_Copy1_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
     }
 }

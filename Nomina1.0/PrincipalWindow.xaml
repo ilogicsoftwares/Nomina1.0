@@ -9,11 +9,11 @@
         Title="Ilogic Softwares Nomina" Height="355.814" Width="441.86" WindowStartupLocation="CenterOwner" WindowState="Maximized">
     <Grid Name="grid1" Height="29" VerticalAlignment="Top">
         <Grid Height="26" Margin="0,31,0,-28" VerticalAlignment="Top">
-            <Button x:Name="CommandNuevo" Content="Nuevo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
-            <Button x:Name="CommandGuardar" Content="Guardar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="75,0,0,0" Click="button_Copy_Click"/>
+            <Button x:Name="CommandNuevo" Content="Nuevo" HorizontalAlignment="Left" Width="75" Margin="0,0,0,1" Click="CommandNuevo_Click"/>
+            <Button x:Name="CommandGuardar" Content="Guardar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="75,0,0,0" Click="CommandGuardar_Click"/>
             <Button x:Name="CommandEliminar" Content="Eliminar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="150,0,0,0"/>
             <Button x:Name="CommandNuevo_Copy" Content="&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="225,0,0,0"/>
-            <Button x:Name="CommandNuevo_Copy1" Content="&gt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,0,0,0" Click="CommandNuevo_Copy1_Click"/>
+            <Button x:Name="CommandNuevo_Copy1" Content="&gt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,0,0,0"/>
         </Grid>
     </Grid>
 </Controls:MetroWindow>
