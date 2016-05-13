@@ -56,5 +56,7 @@
         <Grid HorizontalAlignment="Left" Height="27" Margin="0,242,0,0" VerticalAlignment="Top" Width="243" Grid.ColumnSpan="2"/>
         <ComboBox x:Name="comboBoxgrado" Grid.Column="3" Margin="0,92,0,0" VerticalAlignment="Top" DisplayMemberPath="grado" ItemsSource="{Binding Lgrado}" SelectedValuePath="idgrado" SelectedValue="{Binding Path=TrabajadorActual.idgrado,Mode=TwoWay}"/>
         <ComboBox x:Name="comboBoxestatus" Grid.Column="3" Margin="0,121,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lestatus}" SelectedValuePath="idestatus" SelectedValue="{Binding Path=TrabajadorActual.idstatus,Mode=TwoWay}"/>
+        <Label x:Name="label_Copy10" Content="Dirección:" Margin="0,154,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
+        <TextBlock x:Name="textBlock" Grid.Column="3" Margin="0,154,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="96"/>
     </Grid>
 </Controls:MetroWindow>
