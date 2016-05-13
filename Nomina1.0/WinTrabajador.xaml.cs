@@ -21,7 +21,8 @@ namespace Nomina1._0
             Grid1.DataContext = Atrabajadores.TrabajadorActual;
             StackSexo.DataContext = Atrabajadores;
             StackEdoCivil.DataContext = Atrabajadores;
-
+            comboBoxestatus.DataContext = Atrabajadores;
+            comboBoxgrado.DataContext = Atrabajadores;
         }
        
         private void MetroWindow_Activated(object sender, EventArgs e)

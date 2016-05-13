@@ -38,10 +38,10 @@ namespace Nomina1._0
         public DbSet<users> users { get; set; }
         public DbSet<usertype> usertype { get; set; }
         public DbSet<variables> variables { get; set; }
-        public DbSet<gradointruc> gradointruc { get; set; }
         public DbSet<varsys> varsys { get; set; }
         public DbSet<usermenu> usermenu { get; set; }
-        public DbSet<trabajador> trabajador { get; set; }
         public DbSet<estatus> estatus { get; set; }
+        public DbSet<gradointruc> gradointruc { get; set; }
+        public DbSet<trabajador> trabajador { get; set; }
     }
 }

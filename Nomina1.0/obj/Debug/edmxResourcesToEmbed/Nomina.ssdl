@@ -35,13 +35,11 @@
     <Property Name="idestatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="30" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'nomina.gradointruc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="gradointruc">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="idgrado" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="idgrado" Type="int" Nullable="false" />
     <Property Name="grado" Type="varchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="jornada">
@@ -150,7 +148,7 @@ warning 6002: The table/view 'nomina.gradointruc' does not have a primary key de
     <Property Name="edocivil" Type="int" />
     <Property Name="Nhijos" Type="int" />
     <Property Name="nacionalidad" Type="varchar" MaxLength="1" />
-    <Property Name="nivelintruc" Type="varchar" MaxLength="50" />
+    <Property Name="idgrado" Type="int" />
     <Property Name="lugarnac" Type="varchar" MaxLength="50" />
     <Property Name="dirfoto" Type="varchar" MaxLength="100" />
     <Property Name="Idnomina" Type="int" />
@@ -226,6 +224,7 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
     <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="estatus" EntityType="Self.estatus" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="gradointruc" EntityType="Self.gradointruc" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="jornada" EntityType="Self.jornada" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="nominaini" EntityType="Self.nominaini" Schema="nomina" store:Type="Tables" />
@@ -238,12 +237,6 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
     <EntitySet Name="users" EntityType="Self.users" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="usertype" EntityType="Self.usertype" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="variables" EntityType="Self.variables" Schema="nomina" store:Type="Tables" />
-    <EntitySet Name="gradointruc" EntityType="Self.gradointruc" store:Type="Tables" store:Schema="nomina">
-      <DefiningQuery>SELECT
-`gradointruc`.`ID`, 
-`gradointruc`.`grado`
-FROM `gradointruc` AS `gradointruc`</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="varsys" EntityType="Self.varsys" store:Type="Tables" store:Schema="nomina">
       <DefiningQuery>SELECT
 `varsys`.`idtrabajador`, 

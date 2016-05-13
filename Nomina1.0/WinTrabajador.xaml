@@ -23,7 +23,8 @@
             <ColumnDefinition Width="221*"/>
             <ColumnDefinition Width="146*"/>
             <ColumnDefinition Width="148*"/>
-            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="93*"/>
+            <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="Cedula:" Margin="0,33,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="113"/>
         <TextBox x:Name="cedula" Grid.Column="1" Height="26" Margin="0,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1" Text="{Binding cedula, Mode=TwoWay}"/>
@@ -42,8 +43,8 @@
             <RadioButton x:Name="radioButton_Copy1" Content="Casado" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding Path=Casado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <RadioButton x:Name="radioButton_Copy2" Content="Soltero" VerticalAlignment="Top" Margin="65,0,0,0" HorizontalContentAlignment="Right" RenderTransformOrigin="1.423,1.133" HorizontalAlignment="Right" IsChecked="{Binding Path=Soltero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
-        <Label x:Name="label_Copy1" Content="Id:" Margin="0,5,0,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" Grid.Column="3"/>
-        <TextBox x:Name="Id" Grid.Column="4" Height="26" Margin="0,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1" Text="{Binding idtrabajador}"/>
+        <Label x:Name="label_Copy1" Content="Id:" Margin="0,4,0,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" Grid.Column="2"/>
+        <TextBox x:Name="Id" Grid.Column="3" Height="26" Margin="0,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1" Text="{Binding idtrabajador}"/>
         <Label x:Name="label_Copy6" Content="Fecha de Nacimiento:" Margin="0,33,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
         <Label x:Name="label_Copy7" Content="Lugar de Nacimiento:" Margin="0,64,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
         <DatePicker Grid.Column="3" Margin="0,33,0,0" VerticalAlignment="Top" Height="26"  SelectedDate="{Binding
@@ -51,9 +52,9 @@
         Mode=TwoWay}"/>
         <TextBox x:Name="nombres_Copy" Height="26" Margin="0,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="3" TabIndex="2" Text="{Binding lugarnac, Mode=TwoWay}"/>
         <Label x:Name="label_Copy8" Content="Nivel de Instrucción:" Margin="0,90,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
-        <Label x:Name="label_Copy9" Content="Estatus:" Margin="0,120,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
+        <Label x:Name="label_Copy9" Content="Estatus:" Margin="0,122,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
         <Grid HorizontalAlignment="Left" Height="27" Margin="0,242,0,0" VerticalAlignment="Top" Width="243" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="comboBox" Grid.Column="3" HorizontalAlignment="Left" Margin="0,92,0,0" VerticalAlignment="Top" Width="148"/>
-        <ComboBox x:Name="comboBox_Copy" Grid.Column="3" HorizontalAlignment="Left" Margin="0,121,0,0" VerticalAlignment="Top" Width="148" ItemsSource="{Binding Lestatus}" DataContext="Atrabajadores"/>
+        <ComboBox x:Name="comboBoxgrado" Grid.Column="3" Margin="0,92,0,0" VerticalAlignment="Top" DisplayMemberPath="grado" ItemsSource="{Binding Lgrado}" SelectedValuePath="idgrado" SelectedValue="{Binding Path=TrabajadorActual.idgrado,Mode=TwoWay}"/>
+        <ComboBox x:Name="comboBoxestatus" Grid.Column="3" Margin="0,121,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lestatus}" SelectedValuePath="idestatus" SelectedValue="{Binding Path=TrabajadorActual.idstatus,Mode=TwoWay}"/>
     </Grid>
 </Controls:MetroWindow>

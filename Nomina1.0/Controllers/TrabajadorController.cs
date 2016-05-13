@@ -17,6 +17,7 @@ namespace Nomina1._0.Controllers
             CargarTrabajadores();
             this.TrabajadorActual = Trabajadores.FirstOrDefault();
             this.Lestatus = Datos.Micontexto.estatus.ToList();
+            this.Lgrado = Datos.Micontexto.gradointruc.ToList();
         }
 
         private void CargarTrabajadores()
@@ -99,6 +100,7 @@ namespace Nomina1._0.Controllers
                 if (value == true)
                 {
                    TrabajadorActual.Sexo=1;
+                    
                 }
                 else
                 {
@@ -210,8 +212,22 @@ namespace Nomina1._0.Controllers
                 RaisePropertyChanged("Lestatus");
             }
         }
-   
-      
+
+        private List<gradointruc> _Lgrado;
+        public List<gradointruc> Lgrado
+        {
+            get
+            {
+                return _Lgrado;
+            }
+            set
+            {
+                _Lgrado = value;
+                RaisePropertyChanged("Lestatus");
+            }
+        }
+
+
 
     }
 }

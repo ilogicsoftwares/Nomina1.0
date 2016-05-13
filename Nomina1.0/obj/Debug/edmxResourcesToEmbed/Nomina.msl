@@ -156,14 +156,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="gradointruc">
-      <EntityTypeMapping TypeName="nominaModel.gradointruc">
-        <MappingFragment StoreEntitySet="gradointruc">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="grado" ColumnName="grado" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="varsys">
       <EntityTypeMapping TypeName="nominaModel.varsys">
         <MappingFragment StoreEntitySet="varsys">
@@ -197,13 +189,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="estatus">
+      <EntityTypeMapping TypeName="nominaModel.estatus">
+        <MappingFragment StoreEntitySet="estatus">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idestatus" ColumnName="idestatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gradointruc">
+      <EntityTypeMapping TypeName="nominaModel.gradointruc">
+        <MappingFragment StoreEntitySet="gradointruc">
+          <ScalarProperty Name="grado" ColumnName="grado" />
+          <ScalarProperty Name="idgrado" ColumnName="idgrado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="trabajador">
       <EntityTypeMapping TypeName="nominaModel.trabajador">
         <MappingFragment StoreEntitySet="trabajador">
           <ScalarProperty Name="Idnomina" ColumnName="Idnomina" />
           <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
           <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
-          <ScalarProperty Name="nivelintruc" ColumnName="nivelintruc" />
+          <ScalarProperty Name="idgrado" ColumnName="idgrado" />
           <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
           <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
           <ScalarProperty Name="edocivil" ColumnName="edocivil" />
@@ -225,14 +233,6 @@
           <ScalarProperty Name="nombres" ColumnName="nombres" />
           <ScalarProperty Name="cedula" ColumnName="cedula" />
           <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="estatus">
-      <EntityTypeMapping TypeName="nominaModel.estatus">
-        <MappingFragment StoreEntitySet="estatus">
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="idestatus" ColumnName="idestatus" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

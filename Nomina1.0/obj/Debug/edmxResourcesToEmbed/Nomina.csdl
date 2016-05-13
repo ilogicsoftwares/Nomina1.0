@@ -142,13 +142,6 @@
     <Property Name="valorinicial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="constante" Type="Int32" />
   </EntityType>
-  <EntityType Name="gradointruc">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="grado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="varsys">
     <Key>
       <PropertyRef Name="cedula" />
@@ -176,11 +169,11 @@
     <EntitySet Name="users" EntityType="Self.users" />
     <EntitySet Name="usertype" EntityType="Self.usertype" />
     <EntitySet Name="variables" EntityType="Self.variables" />
-    <EntitySet Name="gradointruc" EntityType="Self.gradointruc" />
     <EntitySet Name="varsys" EntityType="Self.varsys" />
     <EntitySet Name="usermenu" EntityType="nominaModel.usermenu" />
-    <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
     <EntitySet Name="estatus" EntityType="nominaModel.estatus" />
+    <EntitySet Name="gradointruc" EntityType="nominaModel.gradointruc" />
+    <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
   </EntityContainer>
   <EntityType Name="usermenu">
     <Key>
@@ -199,6 +192,20 @@
     <Property Name="Eliminar" Type="Int32" />
     <Property Name="Idmenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Parametros" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="estatus">
+    <Key>
+      <PropertyRef Name="idestatus" />
+    </Key>
+    <Property Name="idestatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="gradointruc">
+    <Key>
+      <PropertyRef Name="idgrado" />
+    </Key>
+    <Property Name="idgrado" Type="Int32" Nullable="false" />
+    <Property Name="grado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="trabajador">
     <Key>
@@ -225,16 +232,9 @@
     <Property Name="edocivil" Type="Int32" />
     <Property Name="Nhijos" Type="Int32" />
     <Property Name="nacionalidad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-    <Property Name="nivelintruc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idgrado" Type="Int32" />
     <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Idnomina" Type="Int32" />
-  </EntityType>
-  <EntityType Name="estatus">
-    <Key>
-      <PropertyRef Name="idestatus" />
-    </Key>
-    <Property Name="idestatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

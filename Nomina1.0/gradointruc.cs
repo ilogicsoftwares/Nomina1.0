@@ -14,7 +14,7 @@ namespace Nomina1._0
     
     public partial class gradointruc
     {
-        public int ID { get; set; }
+        public int idgrado { get; set; }
         public string grado { get; set; }
     }
 }

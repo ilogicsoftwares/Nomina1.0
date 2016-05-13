@@ -35,7 +35,7 @@ namespace Nomina1._0
         public Nullable<int> edocivil { get; set; }
         public Nullable<int> Nhijos { get; set; }
         public string nacionalidad { get; set; }
-        public string nivelintruc { get; set; }
+        public Nullable<int> idgrado { get; set; }
         public string lugarnac { get; set; }
         public string dirfoto { get; set; }
         public Nullable<int> Idnomina { get; set; }

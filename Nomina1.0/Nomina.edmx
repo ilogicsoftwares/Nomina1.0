@@ -40,13 +40,11 @@
           <Property Name="idestatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="30" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'nomina.gradointruc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="gradointruc">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="idgrado" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="idgrado" Type="int" Nullable="false" />
           <Property Name="grado" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="jornada">
@@ -155,7 +153,7 @@ warning 6002: The table/view 'nomina.gradointruc' does not have a primary key de
           <Property Name="edocivil" Type="int" />
           <Property Name="Nhijos" Type="int" />
           <Property Name="nacionalidad" Type="varchar" MaxLength="1" />
-          <Property Name="nivelintruc" Type="varchar" MaxLength="50" />
+          <Property Name="idgrado" Type="int" />
           <Property Name="lugarnac" Type="varchar" MaxLength="50" />
           <Property Name="dirfoto" Type="varchar" MaxLength="100" />
           <Property Name="Idnomina" Type="int" />
@@ -231,6 +229,7 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
           <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="estatus" EntityType="Self.estatus" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="gradointruc" EntityType="Self.gradointruc" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="jornada" EntityType="Self.jornada" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="nominaini" EntityType="Self.nominaini" Schema="nomina" store:Type="Tables" />
@@ -243,12 +242,6 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
           <EntitySet Name="users" EntityType="Self.users" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="usertype" EntityType="Self.usertype" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="variables" EntityType="Self.variables" Schema="nomina" store:Type="Tables" />
-          <EntitySet Name="gradointruc" EntityType="Self.gradointruc" store:Type="Tables" store:Schema="nomina">
-            <DefiningQuery>SELECT
-`gradointruc`.`ID`, 
-`gradointruc`.`grado`
-FROM `gradointruc` AS `gradointruc`</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="varsys" EntityType="Self.varsys" store:Type="Tables" store:Schema="nomina">
             <DefiningQuery>SELECT
 `varsys`.`idtrabajador`, 
@@ -408,13 +401,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="valorinicial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="constante" Type="Int32" />
         </EntityType>
-        <EntityType Name="gradointruc">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="grado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="varsys">
           <Key>
             <PropertyRef Name="cedula" />
@@ -442,11 +428,11 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <EntitySet Name="users" EntityType="Self.users" />
           <EntitySet Name="usertype" EntityType="Self.usertype" />
           <EntitySet Name="variables" EntityType="Self.variables" />
-          <EntitySet Name="gradointruc" EntityType="Self.gradointruc" />
           <EntitySet Name="varsys" EntityType="Self.varsys" />
           <EntitySet Name="usermenu" EntityType="nominaModel.usermenu" />
-          <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
           <EntitySet Name="estatus" EntityType="nominaModel.estatus" />
+          <EntitySet Name="gradointruc" EntityType="nominaModel.gradointruc" />
+          <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
         </EntityContainer>
         <EntityType Name="usermenu">
           <Key>
@@ -465,6 +451,20 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="Eliminar" Type="Int32" />
           <Property Name="Idmenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Parametros" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="estatus">
+          <Key>
+            <PropertyRef Name="idestatus" />
+          </Key>
+          <Property Name="idestatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="gradointruc">
+          <Key>
+            <PropertyRef Name="idgrado" />
+          </Key>
+          <Property Name="idgrado" Type="Int32" Nullable="false" />
+          <Property Name="grado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="trabajador">
           <Key>
@@ -491,17 +491,10 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="edocivil" Type="Int32" />
           <Property Name="Nhijos" Type="Int32" />
           <Property Name="nacionalidad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="nivelintruc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idgrado" Type="Int32" />
           <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Idnomina" Type="Int32" />
-        </EntityType>
-        <EntityType Name="estatus">
-          <Key>
-            <PropertyRef Name="idestatus" />
-          </Key>
-          <Property Name="idestatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -664,14 +657,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="gradointruc">
-            <EntityTypeMapping TypeName="nominaModel.gradointruc">
-              <MappingFragment StoreEntitySet="gradointruc">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="grado" ColumnName="grado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="varsys">
             <EntityTypeMapping TypeName="nominaModel.varsys">
               <MappingFragment StoreEntitySet="varsys">
@@ -705,13 +690,29 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="estatus">
+            <EntityTypeMapping TypeName="nominaModel.estatus">
+              <MappingFragment StoreEntitySet="estatus">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idestatus" ColumnName="idestatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gradointruc">
+            <EntityTypeMapping TypeName="nominaModel.gradointruc">
+              <MappingFragment StoreEntitySet="gradointruc">
+                <ScalarProperty Name="grado" ColumnName="grado" />
+                <ScalarProperty Name="idgrado" ColumnName="idgrado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="trabajador">
             <EntityTypeMapping TypeName="nominaModel.trabajador">
               <MappingFragment StoreEntitySet="trabajador">
                 <ScalarProperty Name="Idnomina" ColumnName="Idnomina" />
                 <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
                 <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
-                <ScalarProperty Name="nivelintruc" ColumnName="nivelintruc" />
+                <ScalarProperty Name="idgrado" ColumnName="idgrado" />
                 <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
                 <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
                 <ScalarProperty Name="edocivil" ColumnName="edocivil" />
@@ -733,14 +734,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
                 <ScalarProperty Name="nombres" ColumnName="nombres" />
                 <ScalarProperty Name="cedula" ColumnName="cedula" />
                 <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="estatus">
-            <EntityTypeMapping TypeName="nominaModel.estatus">
-              <MappingFragment StoreEntitySet="estatus">
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="idestatus" ColumnName="idestatus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
