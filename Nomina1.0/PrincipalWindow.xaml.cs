@@ -41,7 +41,7 @@ namespace Nomina1._0
 
         private void CommandGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Datos.Micontexto.trabajador.Add((trabajador)Datos.WindowActual.DataContext);
+           
             Datos.Micontexto.SaveChanges();
         }
     }

@@ -34,28 +34,26 @@
         <TextBox x:Name="apellidos" Height="26" Margin="0,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="3" Text="{Binding apellidos, Mode=TwoWay}"/>
         <Label x:Name="label_Copy4" Content="Sexo:" Margin="0,121,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="74" RenderTransformOrigin="0.541,0.731"/>
         <Label x:Name="label_Copy5" Content="Estado Civil:" Margin="0,147,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="74" RenderTransformOrigin="0.541,0.731"/>
-        <StackPanel Grid.Column="1" Height="20" Margin="0,126,0,0" VerticalAlignment="Top" Orientation="Horizontal" CanHorizontallyScroll="True" Background="#FFE4E2E2">
-            <RadioButton x:Name="radioButton_Copy3" Content="Masculino" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton x:Name="radioButton_Copy" Content="Femenino" VerticalAlignment="Top" Margin="50,0,0,0" HorizontalContentAlignment="Right" RenderTransformOrigin="1.423,1.133" HorizontalAlignment="Right"/>
+        <StackPanel Grid.Column="1" Height="20" Margin="0,126,0,0" VerticalAlignment="Top" Orientation="Horizontal" CanHorizontallyScroll="True" Background="#FFE4E2E2" Name="StackSexo">
+            <RadioButton x:Name="radioButton_Copy3" Content="Masculino" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding Path=Masculino, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <RadioButton x:Name="radioButton_Copy" Content="Femenino" VerticalAlignment="Top" Margin="50,0,0,0" HorizontalContentAlignment="Right" RenderTransformOrigin="1.423,1.133" HorizontalAlignment="Right" IsChecked="{Binding Path=Femenino, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
-        <StackPanel Grid.Column="1" Height="20" Margin="0,154,0,0" VerticalAlignment="Top" Orientation="Horizontal" CanHorizontallyScroll="True" Background="#FFE4E2E2">
-            <RadioButton x:Name="radioButton_Copy1" Content="Casado" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton x:Name="radioButton_Copy2" Content="Soltero" VerticalAlignment="Top" Margin="65,0,0,0" HorizontalContentAlignment="Right" RenderTransformOrigin="1.423,1.133" HorizontalAlignment="Right"/>
+        <StackPanel Name="StackEdoCivil"  Grid.Column="1" Height="20" Margin="0,154,0,0" VerticalAlignment="Top" Orientation="Horizontal" CanHorizontallyScroll="True" Background="#FFE4E2E2">
+            <RadioButton x:Name="radioButton_Copy1" Content="Casado" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding Path=Casado, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <RadioButton x:Name="radioButton_Copy2" Content="Soltero" VerticalAlignment="Top" Margin="65,0,0,0" HorizontalContentAlignment="Right" RenderTransformOrigin="1.423,1.133" HorizontalAlignment="Right" IsChecked="{Binding Path=Soltero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
         <Label x:Name="label_Copy1" Content="Id:" Margin="0,5,0,0" VerticalAlignment="Top" Height="23" HorizontalContentAlignment="Right" Grid.Column="3"/>
         <TextBox x:Name="Id" Grid.Column="4" Height="26" Margin="0,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1" Text="{Binding idtrabajador}"/>
         <Label x:Name="label_Copy6" Content="Fecha de Nacimiento:" Margin="0,33,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
         <Label x:Name="label_Copy7" Content="Lugar de Nacimiento:" Margin="0,64,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
-        <DatePicker Grid.Column="3" Margin="0,33,0,0" VerticalAlignment="Top" Height="26"/>
-        <TextBox x:Name="nombres_Copy" Height="26" Margin="0,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="3" TabIndex="2" Text="{Binding nombres, Mode=TwoWay}"/>
+        <DatePicker Grid.Column="3" Margin="0,33,0,0" VerticalAlignment="Top" Height="26"  SelectedDate="{Binding
+        Path=Fechaing,
+        Mode=TwoWay}"/>
+        <TextBox x:Name="nombres_Copy" Height="26" Margin="0,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="3" TabIndex="2" Text="{Binding lugarnac, Mode=TwoWay}"/>
         <Label x:Name="label_Copy8" Content="Nivel de Instrucción:" Margin="0,90,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
-        <TextBox x:Name="nombres_Copy1" Height="26" Margin="0,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="3" TabIndex="2" Text="{Binding nombres, Mode=TwoWay}"/>
         <Label x:Name="label_Copy9" Content="Estatus:" Margin="0,120,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
-        <StackPanel Grid.Column="3" Height="57" Margin="0,126,0,0" VerticalAlignment="Top" CanHorizontallyScroll="True" Background="#FFE4E2E2">
-            <RadioButton x:Name="radioButton_Copy4" Content="Activo" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton x:Name="radioButton_Copy5" Content="Vacaciones" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <RadioButton x:Name="radioButton_Copy6" Content="Egresado" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        </StackPanel>
         <Grid HorizontalAlignment="Left" Height="27" Margin="0,242,0,0" VerticalAlignment="Top" Width="243" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="comboBox" Grid.Column="3" HorizontalAlignment="Left" Margin="0,92,0,0" VerticalAlignment="Top" Width="148"/>
+        <ComboBox x:Name="comboBox_Copy" Grid.Column="3" HorizontalAlignment="Left" Margin="0,121,0,0" VerticalAlignment="Top" Width="148" ItemsSource="{Binding Lestatus}" DataContext="Atrabajadores"/>
     </Grid>
 </Controls:MetroWindow>

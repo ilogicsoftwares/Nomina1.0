@@ -228,5 +228,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="estatus">
+      <EntityTypeMapping TypeName="nominaModel.estatus">
+        <MappingFragment StoreEntitySet="estatus">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idestatus" ColumnName="idestatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -180,6 +180,7 @@
     <EntitySet Name="varsys" EntityType="Self.varsys" />
     <EntitySet Name="usermenu" EntityType="nominaModel.usermenu" />
     <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
+    <EntitySet Name="estatus" EntityType="nominaModel.estatus" />
   </EntityContainer>
   <EntityType Name="usermenu">
     <Key>
@@ -228,5 +229,12 @@
     <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Idnomina" Type="Int32" />
+  </EntityType>
+  <EntityType Name="estatus">
+    <Key>
+      <PropertyRef Name="idestatus" />
+    </Key>
+    <Property Name="idestatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

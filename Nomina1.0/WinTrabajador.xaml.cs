@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-
+using Nomina1._0.Controllers;
 namespace Nomina1._0
 {
     /// <summary>
@@ -11,13 +11,17 @@ namespace Nomina1._0
     public partial class WinTrabajador
     {
 
-        IOrderedEnumerable<trabajador> listatrabajad = Datos.Micontexto.trabajador.ToList().OrderByDescending(o=>o.idtrabajador);
+        TrabajadorController Atrabajadores = new TrabajadorController();
         public WinTrabajador()
         {
             InitializeComponent();
             
             
-            DataContext = listatrabajad;
+          
+            Grid1.DataContext = Atrabajadores.TrabajadorActual;
+            StackSexo.DataContext = Atrabajadores;
+            StackEdoCivil.DataContext = Atrabajadores;
+
         }
        
         private void MetroWindow_Activated(object sender, EventArgs e)
@@ -28,14 +32,9 @@ namespace Nomina1._0
      
         public void Nuevo()
         {
-            var ultimoid = listatrabajad.FirstOrDefault().idtrabajador;
-            trabajador elgue = new trabajador()
-            {
-                idtrabajador = ultimoid + 1
-            };
 
-            DataContext = elgue;
-           
+            Atrabajadores.NuevoTrabajador();
+            Grid1.DataContext = Atrabajadores.TrabajadorActual;
         }
 
        

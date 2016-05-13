@@ -28,8 +28,15 @@
     <Property Name="iddepartamentos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'nomina.gradointruc' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="estatus">
+    <Key>
+      <PropertyRef Name="idestatus" />
+    </Key>
+    <Property Name="idestatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'nomina.gradointruc' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="gradointruc">
     <Key>
       <PropertyRef Name="ID" />
@@ -199,8 +206,8 @@ advertencia 6002: La tabla o vista 'nomina.gradointruc' no tiene definida ningun
     <Property Name="valorinicial" Type="varchar" MaxLength="50" />
     <Property Name="constante" Type="int" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'nomina.varsys' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="varsys">
     <Key>
       <PropertyRef Name="cedula" />
@@ -218,6 +225,7 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
     <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="estatus" EntityType="Self.estatus" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="jornada" EntityType="Self.jornada" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="nominaini" EntityType="Self.nominaini" Schema="nomina" store:Type="Tables" />
