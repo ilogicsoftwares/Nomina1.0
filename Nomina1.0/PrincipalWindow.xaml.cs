@@ -41,8 +41,29 @@ namespace Nomina1._0
 
         private void CommandGuardar_Click(object sender, RoutedEventArgs e)
         {
-           
-            Datos.Micontexto.SaveChanges();
+            try {
+                Datos.EjecutarMetodo(Datos.WindowActual, "Guardar");
+              
+            }
+            catch(Exception exec)
+            {
+                MessageBox.Show(exec.ToString());
+            }
+        }
+
+        private void CommandNuevo_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+            Datos.EjecutarMetodo(Datos.WindowActual, "Next");
+        }
+
+        private void CommandNuevo_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Datos.EjecutarMetodo(Datos.WindowActual, "Back");
+        }
+
+        private void CommandEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            Datos.EjecutarMetodo(Datos.WindowActual, "Eliminar");
         }
     }
 }

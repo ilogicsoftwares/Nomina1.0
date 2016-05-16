@@ -14,7 +14,14 @@ namespace Nomina1._0
     
     public partial class gradointruc
     {
+        public gradointruc()
+        {
+            this.trabajador = new HashSet<trabajador>();
+        }
+    
         public int idgrado { get; set; }
         public string grado { get; set; }
+    
+        public virtual ICollection<trabajador> trabajador { get; set; }
     }
 }

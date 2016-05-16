@@ -68,10 +68,10 @@
         </EntityType>
         <EntityType Name="nacionalidad">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="idnacionalidad" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="descripcion" Type="char" MaxLength="2" />
+          <Property Name="idnacionalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="nominaini">
           <Key>
@@ -147,12 +147,12 @@
           <Property Name="Sueldo" Type="double" />
           <Property Name="idstatus" Type="int" />
           <Property Name="conceptos" Type="varchar" MaxLength="250" />
-          <Property Name="Sexo" Type="int" />
+          <Property Name="sexo" Type="int" />
           <Property Name="Fechaing" Type="datetime" Precision="0" />
           <Property Name="fechanac" Type="datetime" Precision="0" />
           <Property Name="edocivil" Type="int" />
           <Property Name="Nhijos" Type="int" />
-          <Property Name="nacionalidad" Type="varchar" MaxLength="1" />
+          <Property Name="nacionalidad" Type="int" />
           <Property Name="idgrado" Type="int" />
           <Property Name="lugarnac" Type="varchar" MaxLength="50" />
           <Property Name="dirfoto" Type="varchar" MaxLength="100" />
@@ -224,6 +224,42 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
           <Property Name="vHR" Type="decimal" Precision="11" Scale="2" />
           <Property Name="vDFI" Type="decimal" Precision="11" Scale="2" />
         </EntityType>
+        <Association Name="TrabajadorEstatus">
+          <End Role="estatus" Type="Self.estatus" Multiplicity="0..1" />
+          <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="idestatus" />
+            </Principal>
+            <Dependent Role="trabajador">
+              <PropertyRef Name="idstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Trabajadorgrado">
+          <End Role="gradointruc" Type="Self.gradointruc" Multiplicity="0..1" />
+          <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gradointruc">
+              <PropertyRef Name="idgrado" />
+            </Principal>
+            <Dependent Role="trabajador">
+              <PropertyRef Name="idgrado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TrabajadorNac">
+          <End Role="nacionalidad" Type="Self.nacionalidad" Multiplicity="0..1" />
+          <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacionalidad">
+              <PropertyRef Name="idnacionalidad" />
+            </Principal>
+            <Dependent Role="trabajador">
+              <PropertyRef Name="nacionalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="nominaModelStoreContainer">
           <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
@@ -254,21 +290,23 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
 `varsys`.`vDFI`
 FROM `varsys` AS `varsys`</DefiningQuery>
           </EntitySet>
+          <AssociationSet Name="TrabajadorEstatus" Association="Self.TrabajadorEstatus">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="Trabajadorgrado" Association="Self.Trabajadorgrado">
+            <End Role="gradointruc" EntitySet="gradointruc" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="TrabajadorNac" Association="Self.TrabajadorNac">
+            <End Role="nacionalidad" EntitySet="nacionalidad" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="nominaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="cargo">
-          <Key>
-            <PropertyRef Name="idcargo" />
-          </Key>
-          <Property Name="idcargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="conceptos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Iddepartamentos" Type="Int32" />
-        </EntityType>
         <EntityType Name="conceptos">
           <Key>
             <PropertyRef Name="idconcepto" />
@@ -279,13 +317,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="tipo" Type="Int32" />
           <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="departamentos">
-          <Key>
-            <PropertyRef Name="iddepartamentos" />
-          </Key>
-          <Property Name="iddepartamentos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="jornada">
           <Key>
@@ -306,13 +337,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="Descansohasta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="descanso" Type="Int32" />
         </EntityType>
-        <EntityType Name="nacionalidad">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="nominaini">
           <Key>
             <PropertyRef Name="id" />
@@ -321,15 +345,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="desde" Type="DateTime" />
           <Property Name="hasta" Type="DateTime" />
           <Property Name="estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="nominatype">
-          <Key>
-            <PropertyRef Name="idnomina" />
-          </Key>
-          <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="intervalo" Type="Int32" Nullable="false" />
-          <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="nominauni">
           <Key>
@@ -415,13 +430,9 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="vDFI" Type="Decimal" />
         </EntityType>
         <EntityContainer Name="nominaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="cargo" EntityType="Self.cargo" />
           <EntitySet Name="conceptos" EntityType="Self.conceptos" />
-          <EntitySet Name="departamentos" EntityType="Self.departamentos" />
           <EntitySet Name="jornada" EntityType="Self.jornada" />
-          <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" />
           <EntitySet Name="nominaini" EntityType="Self.nominaini" />
-          <EntitySet Name="nominatype" EntityType="Self.nominatype" />
           <EntitySet Name="nominauni" EntityType="Self.nominauni" />
           <EntitySet Name="prenomina" EntityType="Self.prenomina" />
           <EntitySet Name="procedures" EntityType="Self.procedures" />
@@ -430,10 +441,26 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <EntitySet Name="variables" EntityType="Self.variables" />
           <EntitySet Name="varsys" EntityType="Self.varsys" />
           <EntitySet Name="usermenu" EntityType="nominaModel.usermenu" />
+          <EntitySet Name="cargo" EntityType="nominaModel.cargo" />
+          <EntitySet Name="departamentos" EntityType="nominaModel.departamentos" />
           <EntitySet Name="estatus" EntityType="nominaModel.estatus" />
           <EntitySet Name="gradointruc" EntityType="nominaModel.gradointruc" />
+          <EntitySet Name="nominatype" EntityType="nominaModel.nominatype" />
+          <EntitySet Name="nacionalidad" EntityType="nominaModel.nacionalidad" />
           <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
-        </EntityContainer>
+          <AssociationSet Name="TrabajadorEstatus" Association="nominaModel.TrabajadorEstatus">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="Trabajadorgrado" Association="nominaModel.Trabajadorgrado">
+            <End Role="gradointruc" EntitySet="gradointruc" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="TrabajadorNac" Association="nominaModel.TrabajadorNac">
+            <End Role="nacionalidad" EntitySet="nacionalidad" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="usermenu">
           <Key>
             <PropertyRef Name="Idmenu" />
@@ -452,12 +479,30 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="Idmenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Parametros" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="cargo">
+          <Key>
+            <PropertyRef Name="idcargo" />
+          </Key>
+          <Property Name="idcargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="conceptos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Iddepartamentos" Type="Int32" />
+        </EntityType>
+        <EntityType Name="departamentos">
+          <Key>
+            <PropertyRef Name="iddepartamentos" />
+          </Key>
+          <Property Name="iddepartamentos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="estatus">
           <Key>
             <PropertyRef Name="idestatus" />
           </Key>
           <Property Name="idestatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorEstatus" FromRole="estatus" ToRole="trabajador" />
         </EntityType>
         <EntityType Name="gradointruc">
           <Key>
@@ -465,6 +510,24 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           </Key>
           <Property Name="idgrado" Type="Int32" Nullable="false" />
           <Property Name="grado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="trabajador" Relationship="nominaModel.Trabajadorgrado" FromRole="gradointruc" ToRole="trabajador" />
+        </EntityType>
+        <EntityType Name="nominatype">
+          <Key>
+            <PropertyRef Name="idnomina" />
+          </Key>
+          <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="intervalo" Type="Int32" Nullable="false" />
+          <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="nacionalidad">
+          <Key>
+            <PropertyRef Name="idnacionalidad" />
+          </Key>
+          <Property Name="idnacionalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNac" FromRole="nacionalidad" ToRole="trabajador" />
         </EntityType>
         <EntityType Name="trabajador">
           <Key>
@@ -483,36 +546,37 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="nombrecontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Sueldo" Type="Double" />
-          <Property Name="idstatus" Type="Int32" />
           <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Sexo" Type="Int32" />
+          <Property Name="sexo" Type="Int32" />
           <Property Name="Fechaing" Type="DateTime" />
           <Property Name="fechanac" Type="DateTime" />
           <Property Name="edocivil" Type="Int32" />
           <Property Name="Nhijos" Type="Int32" />
-          <Property Name="nacionalidad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="idgrado" Type="Int32" />
           <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Idnomina" Type="Int32" />
+          <NavigationProperty Name="estatus" Relationship="nominaModel.TrabajadorEstatus" FromRole="trabajador" ToRole="estatus" />
+          <NavigationProperty Name="gradointruc" Relationship="nominaModel.Trabajadorgrado" FromRole="trabajador" ToRole="gradointruc" />
+          <NavigationProperty Name="nacionalidad" Relationship="nominaModel.TrabajadorNac" FromRole="trabajador" ToRole="nacionalidad" />
         </EntityType>
-      </Schema>
+        <Association Name="TrabajadorEstatus">
+          <End Type="nominaModel.estatus" Role="estatus" Multiplicity="0..1" />
+          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+        </Association>
+        <Association Name="Trabajadorgrado">
+          <End Type="nominaModel.gradointruc" Role="gradointruc" Multiplicity="0..1" />
+          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+        </Association>
+        <Association Name="TrabajadorNac">
+          <End Type="nominaModel.nacionalidad" Role="nacionalidad" Multiplicity="0..1" />
+          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="nominaModelStoreContainer" CdmEntityContainer="nominaEntities">
-          <EntitySetMapping Name="cargo">
-            <EntityTypeMapping TypeName="nominaModel.cargo">
-              <MappingFragment StoreEntitySet="cargo">
-                <ScalarProperty Name="idcargo" ColumnName="idcargo" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-                <ScalarProperty Name="Iddepartamentos" ColumnName="Iddepartamentos" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="conceptos">
             <EntityTypeMapping TypeName="nominaModel.conceptos">
               <MappingFragment StoreEntitySet="conceptos">
@@ -522,14 +586,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
                 <ScalarProperty Name="Valor" ColumnName="Valor" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="departamentos">
-            <EntityTypeMapping TypeName="nominaModel.departamentos">
-              <MappingFragment StoreEntitySet="departamentos">
-                <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -553,14 +609,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="nacionalidad">
-            <EntityTypeMapping TypeName="nominaModel.nacionalidad">
-              <MappingFragment StoreEntitySet="nacionalidad">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="nominaini">
             <EntityTypeMapping TypeName="nominaModel.nominaini">
               <MappingFragment StoreEntitySet="nominaini">
@@ -568,16 +616,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
                 <ScalarProperty Name="desde" ColumnName="desde" />
                 <ScalarProperty Name="hasta" ColumnName="hasta" />
                 <ScalarProperty Name="estatus" ColumnName="estatus" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="nominatype">
-            <EntityTypeMapping TypeName="nominaModel.nominatype">
-              <MappingFragment StoreEntitySet="nominatype">
-                <ScalarProperty Name="idnomina" ColumnName="idnomina" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="intervalo" ColumnName="intervalo" />
-                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -690,6 +728,25 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="cargo">
+            <EntityTypeMapping TypeName="nominaModel.cargo">
+              <MappingFragment StoreEntitySet="cargo">
+                <ScalarProperty Name="Iddepartamentos" ColumnName="Iddepartamentos" />
+                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departamentos">
+            <EntityTypeMapping TypeName="nominaModel.departamentos">
+              <MappingFragment StoreEntitySet="departamentos">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="estatus">
             <EntityTypeMapping TypeName="nominaModel.estatus">
               <MappingFragment StoreEntitySet="estatus">
@@ -706,21 +763,36 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="nominatype">
+            <EntityTypeMapping TypeName="nominaModel.nominatype">
+              <MappingFragment StoreEntitySet="nominatype">
+                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+                <ScalarProperty Name="intervalo" ColumnName="intervalo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idnomina" ColumnName="idnomina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nacionalidad">
+            <EntityTypeMapping TypeName="nominaModel.nacionalidad">
+              <MappingFragment StoreEntitySet="nacionalidad">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idnacionalidad" ColumnName="idnacionalidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="trabajador">
             <EntityTypeMapping TypeName="nominaModel.trabajador">
               <MappingFragment StoreEntitySet="trabajador">
                 <ScalarProperty Name="Idnomina" ColumnName="Idnomina" />
                 <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
                 <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
-                <ScalarProperty Name="idgrado" ColumnName="idgrado" />
-                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
                 <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
                 <ScalarProperty Name="edocivil" ColumnName="edocivil" />
                 <ScalarProperty Name="fechanac" ColumnName="fechanac" />
                 <ScalarProperty Name="Fechaing" ColumnName="Fechaing" />
-                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
                 <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-                <ScalarProperty Name="idstatus" ColumnName="idstatus" />
                 <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
                 <ScalarProperty Name="correo" ColumnName="correo" />
                 <ScalarProperty Name="nombrecontacto" ColumnName="nombrecontacto" />
@@ -737,7 +809,34 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <AssociationSetMapping Name="TrabajadorEstatus" TypeName="nominaModel.TrabajadorEstatus" StoreEntitySet="trabajador">
+            <EndProperty Name="trabajador">
+              <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+            </EndProperty>
+            <EndProperty Name="estatus">
+              <ScalarProperty Name="idestatus" ColumnName="idstatus" />
+            </EndProperty>
+            <Condition ColumnName="idstatus" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Trabajadorgrado" TypeName="nominaModel.Trabajadorgrado" StoreEntitySet="trabajador">
+            <EndProperty Name="trabajador">
+              <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+            </EndProperty>
+            <EndProperty Name="gradointruc">
+              <ScalarProperty Name="idgrado" ColumnName="idgrado" />
+            </EndProperty>
+            <Condition ColumnName="idgrado" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TrabajadorNac" TypeName="nominaModel.TrabajadorNac" StoreEntitySet="trabajador">
+            <EndProperty Name="trabajador">
+              <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+            </EndProperty>
+            <EndProperty Name="nacionalidad">
+              <ScalarProperty Name="idnacionalidad" ColumnName="nacionalidad" />
+            </EndProperty>
+            <Condition ColumnName="nacionalidad" IsNull="false" />
+          </AssociationSetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

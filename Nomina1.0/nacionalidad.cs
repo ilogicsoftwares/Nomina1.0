@@ -14,7 +14,14 @@ namespace Nomina1._0
     
     public partial class nacionalidad
     {
-        public int id { get; set; }
+        public nacionalidad()
+        {
+            this.trabajador = new HashSet<trabajador>();
+        }
+    
+        public int idnacionalidad { get; set; }
         public string descripcion { get; set; }
+    
+        public virtual ICollection<trabajador> trabajador { get; set; }
     }
 }

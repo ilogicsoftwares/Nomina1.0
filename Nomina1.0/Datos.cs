@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,9 @@ namespace Nomina1._0
         public static Window _PrincipalWindow;
         public static object ObjectActual;
         public static MetroWindow WindowActual;
+        public static bool HayNuevo=false;
         public static bool ValidarDatos(Grid container)
+
         {
             bool resultado=true;
             foreach (var c in LogicalTreeHelper.GetChildren(container))
@@ -130,10 +133,15 @@ namespace Nomina1._0
         }
         public static void EjecutarMetodo(object window,string metodo)
         {
-            Type type = (window.GetType());
-          
-            MethodInfo method = type.GetMethod(metodo);
-            method.Invoke(window, null);
+            if (window != null)
+            {
+                Type type = (window.GetType());
+
+                MethodInfo method = type.GetMethod(metodo);
+                method.Invoke(window, null);
+            }
+            
+
 
         }
 

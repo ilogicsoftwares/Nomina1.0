@@ -27,17 +27,18 @@ namespace Nomina1._0
         public string nombrecontacto { get; set; }
         public string correo { get; set; }
         public Nullable<double> Sueldo { get; set; }
-        public Nullable<int> idstatus { get; set; }
         public string conceptos { get; set; }
-        public Nullable<int> Sexo { get; set; }
+        public Nullable<int> sexo { get; set; }
         public Nullable<System.DateTime> Fechaing { get; set; }
         public Nullable<System.DateTime> fechanac { get; set; }
         public Nullable<int> edocivil { get; set; }
         public Nullable<int> Nhijos { get; set; }
-        public string nacionalidad { get; set; }
-        public Nullable<int> idgrado { get; set; }
         public string lugarnac { get; set; }
         public string dirfoto { get; set; }
         public Nullable<int> Idnomina { get; set; }
+    
+        public virtual estatus estatus { get; set; }
+        public virtual gradointruc gradointruc { get; set; }
+        public virtual nacionalidad nacionalidad { get; set; }
     }
 }

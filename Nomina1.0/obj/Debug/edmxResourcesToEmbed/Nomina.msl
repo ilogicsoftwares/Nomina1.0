@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="nominaModelStoreContainer" CdmEntityContainer="nominaEntities">
-    <EntitySetMapping Name="cargo">
-      <EntityTypeMapping TypeName="nominaModel.cargo">
-        <MappingFragment StoreEntitySet="cargo">
-          <ScalarProperty Name="idcargo" ColumnName="idcargo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-          <ScalarProperty Name="Iddepartamentos" ColumnName="Iddepartamentos" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="conceptos">
       <EntityTypeMapping TypeName="nominaModel.conceptos">
         <MappingFragment StoreEntitySet="conceptos">
@@ -21,14 +10,6 @@
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="tipo" ColumnName="tipo" />
           <ScalarProperty Name="Valor" ColumnName="Valor" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="departamentos">
-      <EntityTypeMapping TypeName="nominaModel.departamentos">
-        <MappingFragment StoreEntitySet="departamentos">
-          <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -52,14 +33,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="nacionalidad">
-      <EntityTypeMapping TypeName="nominaModel.nacionalidad">
-        <MappingFragment StoreEntitySet="nacionalidad">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="nominaini">
       <EntityTypeMapping TypeName="nominaModel.nominaini">
         <MappingFragment StoreEntitySet="nominaini">
@@ -67,16 +40,6 @@
           <ScalarProperty Name="desde" ColumnName="desde" />
           <ScalarProperty Name="hasta" ColumnName="hasta" />
           <ScalarProperty Name="estatus" ColumnName="estatus" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="nominatype">
-      <EntityTypeMapping TypeName="nominaModel.nominatype">
-        <MappingFragment StoreEntitySet="nominatype">
-          <ScalarProperty Name="idnomina" ColumnName="idnomina" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="intervalo" ColumnName="intervalo" />
-          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -189,6 +152,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="cargo">
+      <EntityTypeMapping TypeName="nominaModel.cargo">
+        <MappingFragment StoreEntitySet="cargo">
+          <ScalarProperty Name="Iddepartamentos" ColumnName="Iddepartamentos" />
+          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departamentos">
+      <EntityTypeMapping TypeName="nominaModel.departamentos">
+        <MappingFragment StoreEntitySet="departamentos">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="estatus">
       <EntityTypeMapping TypeName="nominaModel.estatus">
         <MappingFragment StoreEntitySet="estatus">
@@ -205,21 +187,36 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="nominatype">
+      <EntityTypeMapping TypeName="nominaModel.nominatype">
+        <MappingFragment StoreEntitySet="nominatype">
+          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+          <ScalarProperty Name="intervalo" ColumnName="intervalo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idnomina" ColumnName="idnomina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nacionalidad">
+      <EntityTypeMapping TypeName="nominaModel.nacionalidad">
+        <MappingFragment StoreEntitySet="nacionalidad">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idnacionalidad" ColumnName="idnacionalidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="trabajador">
       <EntityTypeMapping TypeName="nominaModel.trabajador">
         <MappingFragment StoreEntitySet="trabajador">
           <ScalarProperty Name="Idnomina" ColumnName="Idnomina" />
           <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
           <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
-          <ScalarProperty Name="idgrado" ColumnName="idgrado" />
-          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
           <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
           <ScalarProperty Name="edocivil" ColumnName="edocivil" />
           <ScalarProperty Name="fechanac" ColumnName="fechanac" />
           <ScalarProperty Name="Fechaing" ColumnName="Fechaing" />
-          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
           <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-          <ScalarProperty Name="idstatus" ColumnName="idstatus" />
           <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
           <ScalarProperty Name="correo" ColumnName="correo" />
           <ScalarProperty Name="nombrecontacto" ColumnName="nombrecontacto" />
@@ -236,5 +233,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="TrabajadorEstatus" TypeName="nominaModel.TrabajadorEstatus" StoreEntitySet="trabajador">
+      <EndProperty Name="trabajador">
+        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+      </EndProperty>
+      <EndProperty Name="estatus">
+        <ScalarProperty Name="idestatus" ColumnName="idstatus" />
+      </EndProperty>
+      <Condition ColumnName="idstatus" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Trabajadorgrado" TypeName="nominaModel.Trabajadorgrado" StoreEntitySet="trabajador">
+      <EndProperty Name="trabajador">
+        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+      </EndProperty>
+      <EndProperty Name="gradointruc">
+        <ScalarProperty Name="idgrado" ColumnName="idgrado" />
+      </EndProperty>
+      <Condition ColumnName="idgrado" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TrabajadorNac" TypeName="nominaModel.TrabajadorNac" StoreEntitySet="trabajador">
+      <EndProperty Name="trabajador">
+        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+      </EndProperty>
+      <EndProperty Name="nacionalidad">
+        <ScalarProperty Name="idnacionalidad" ColumnName="nacionalidad" />
+      </EndProperty>
+      <Condition ColumnName="nacionalidad" IsNull="false" />
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

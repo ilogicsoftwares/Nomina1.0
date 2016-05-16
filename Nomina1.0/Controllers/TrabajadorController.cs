@@ -10,19 +10,51 @@ namespace Nomina1._0.Controllers
 {
     class TrabajadorController:ViewModelBase
     {
-        
 
+        int indiceactual=0;
         public TrabajadorController()
         {
             CargarTrabajadores();
-            this.TrabajadorActual = Trabajadores.FirstOrDefault();
-            this.Lestatus = Datos.Micontexto.estatus.ToList();
-            this.Lgrado = Datos.Micontexto.gradointruc.ToList();
+           
+
+        }
+
+        public void Next()
+        {
+            if (indiceactual < (Trabajadores.Count()-1))
+            {
+                indiceactual += 1;
+                TrabajadorActual = Trabajadores[indiceactual];
+            }
+        }
+        public void Back()
+        {
+            if (indiceactual >0)
+            {
+                indiceactual -= 1;
+                TrabajadorActual = Trabajadores[indiceactual];
+            }
+        }
+        public void Eliminar()
+        {
+            if (MessageBox.Show("Seguro Desea Eliminar el Trabajador", "Eliminar", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+
+                Datos.Micontexto.trabajador.Remove(TrabajadorActual);
+                Datos.Micontexto.SaveChanges();
+                indiceactual = 0;
+                CargarTrabajadores();
+            }
         }
 
         private void CargarTrabajadores()
         {
-            this._Trabajadores = Datos.Micontexto.trabajador.ToList().OrderByDescending(o=>o.idtrabajador);
+            Trabajadores = Datos.Micontexto.trabajador.ToList();
+            TrabajadorActual = Trabajadores[indiceactual];
+            Lestatus = Datos.Micontexto.estatus.ToList();
+            Lgrado = Datos.Micontexto.gradointruc.ToList();
+            Lnac = Datos.Micontexto.nacionalidad.ToList();
+           
         }
 
         public static void BuscarTabajador(int id)
@@ -42,10 +74,11 @@ namespace Nomina1._0.Controllers
            
         }
 
+        
       
 
-        private IOrderedEnumerable<trabajador> _Trabajadores;
-        public IOrderedEnumerable<trabajador> Trabajadores
+        private List<trabajador> _Trabajadores;
+        public List<trabajador> Trabajadores
         {
             get
             {
@@ -54,150 +87,30 @@ namespace Nomina1._0.Controllers
             set
             {
                 _Trabajadores = value;
-                RaisePropertyChanged("Trabajadores");
+                NotifyPropertyChanged();
             }
         }
 
         private trabajador _TrabajadorActual;
-        public trabajador TrabajadorActual
+        public  trabajador TrabajadorActual
         {
             get { return _TrabajadorActual; }
             set { _TrabajadorActual = value;
-                RaisePropertyChanged("TrabajadorActual");
+                NotifyPropertyChanged();
             }
         }
 
         public void NuevoTrabajador()
         {
-            trabajador nexttrabajad = new trabajador()
-            {
-                idtrabajador = TrabajadorActual.idtrabajador + 1,
-                Sexo = 1
-                
-                
-            };
-            this.TrabajadorActual = nexttrabajad;
+            trabajador nexttrabajad = new trabajador();
+        
+         
+          TrabajadorActual = nexttrabajad;
+        
+          
         }
-
-      
-        public bool Masculino
-        {
-            get
-            { if (TrabajadorActual.Sexo==1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-
-
-                 }
-            set
-            {
-                if (value == true)
-                {
-                   TrabajadorActual.Sexo=1;
-                    
-                }
-                else
-                {
-                    TrabajadorActual.Sexo = 2;
-                }
-                RaisePropertyChanged("Masculino");
-            }
-        }
-        public bool Femenino
-        {
-            get
-            {
-                if (TrabajadorActual.Sexo == 2)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-
-
-            }
-            set
-            {
-                if (value == true)
-                {
-                    TrabajadorActual.Sexo = 2;
-                }
-                else
-                {
-                    TrabajadorActual.Sexo =1;
-                }
-                RaisePropertyChanged("Femenino");
-            }
-        }
-
-        public bool Soltero
-        {
-            get
-            {
-                if (TrabajadorActual.edocivil == 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-
-
-            }
-            set
-            {
-                if (value == true)
-                {
-                    TrabajadorActual.edocivil = 1;
-                }
-                else
-                {
-                    TrabajadorActual.edocivil = 2;
-                }
-                RaisePropertyChanged("Soltero");
-            }
-        }
-        public bool Casado
-        {
-            get
-            {
-                if (TrabajadorActual.edocivil == 2)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-
-
-            }
-            set
-            {
-                if (value == true)
-                {
-                    TrabajadorActual.edocivil = 2;
-                    
-                }
-                else
-                {
-                    TrabajadorActual.edocivil = 1;
-                }
-                RaisePropertyChanged("Casado");
-            }
-        }
+       
+            
 
         private List<estatus> _Lestatus;
         public List<estatus> Lestatus
@@ -209,7 +122,20 @@ namespace Nomina1._0.Controllers
             set
             {
                 _Lestatus = value;
-                RaisePropertyChanged("Lestatus");
+                NotifyPropertyChanged();
+            }
+        }
+        private List<nacionalidad> _Lnac;
+        public List<nacionalidad> Lnac
+        {
+            get
+            {
+                return _Lnac;
+            }
+            set
+            {
+                _Lnac = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -223,7 +149,7 @@ namespace Nomina1._0.Controllers
             set
             {
                 _Lgrado = value;
-                RaisePropertyChanged("Lestatus");
+                NotifyPropertyChanged();
             }
         }
 

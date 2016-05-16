@@ -131,6 +131,7 @@
     <Compile Include="procedures.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="RadioBoolToIntConverter.cs" />
     <Compile Include="trabajador.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>

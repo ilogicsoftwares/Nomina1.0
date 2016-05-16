@@ -25,13 +25,9 @@ namespace Nomina1._0
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<cargo> cargo { get; set; }
         public DbSet<conceptos> conceptos { get; set; }
-        public DbSet<departamentos> departamentos { get; set; }
         public DbSet<jornada> jornada { get; set; }
-        public DbSet<nacionalidad> nacionalidad { get; set; }
         public DbSet<nominaini> nominaini { get; set; }
-        public DbSet<nominatype> nominatype { get; set; }
         public DbSet<nominauni> nominauni { get; set; }
         public DbSet<prenomina> prenomina { get; set; }
         public DbSet<procedures> procedures { get; set; }
@@ -40,8 +36,12 @@ namespace Nomina1._0
         public DbSet<variables> variables { get; set; }
         public DbSet<varsys> varsys { get; set; }
         public DbSet<usermenu> usermenu { get; set; }
+        public DbSet<cargo> cargo { get; set; }
+        public DbSet<departamentos> departamentos { get; set; }
         public DbSet<estatus> estatus { get; set; }
         public DbSet<gradointruc> gradointruc { get; set; }
+        public DbSet<nominatype> nominatype { get; set; }
+        public DbSet<nacionalidad> nacionalidad { get; set; }
         public DbSet<trabajador> trabajador { get; set; }
     }
 }
