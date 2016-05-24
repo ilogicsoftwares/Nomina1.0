@@ -74,6 +74,7 @@ C:\Nomina1.0\Nomina1.0\obj\Debug\WindowOriginal.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinTrabajador.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\App.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0_Content.g.cs
+C:\Nomina1.0\Nomina1.0\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0_MarkupCompile.cache
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0_MarkupCompile.lref
 C:\Nomina1.0\Nomina1.0\obj\Debug\App.baml
@@ -87,4 +88,3 @@ C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.csproj.GenerateResource.Cache
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.exe
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.pdb
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.csprojResolveAssemblyReference.cache
-C:\Nomina1.0\Nomina1.0\obj\Debug\GeneratedInternalTypeHelper.g.cs

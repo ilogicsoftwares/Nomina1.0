@@ -152,6 +152,8 @@
     <Property Name="lugarnac" Type="varchar" MaxLength="50" />
     <Property Name="dirfoto" Type="varchar" MaxLength="100" />
     <Property Name="Idnomina" Type="int" />
+    <Property Name="numerocuenta" Type="varchar" MaxLength="20" />
+    <Property Name="tipocuenta" Type="varchar" MaxLength="4" />
   </EntityType>
   <EntityType Name="usermenu">
     <Key>
@@ -219,6 +221,30 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
     <Property Name="vHR" Type="decimal" Precision="11" Scale="2" />
     <Property Name="vDFI" Type="decimal" Precision="11" Scale="2" />
   </EntityType>
+  <Association Name="TrabajadorCargo">
+    <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cargo">
+        <PropertyRef Name="idcargo" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idcargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorDepart">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="iddepartamentos" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="iddepartamentos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="TrabajadorEstatus">
     <End Role="estatus" Type="Self.estatus" Multiplicity="0..1" />
     <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -255,6 +281,18 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="TrabajadorNomina">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="Idnomina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="nominaModelStoreContainer">
     <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
@@ -285,6 +323,14 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
 `varsys`.`vDFI`
 FROM `varsys` AS `varsys`</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="TrabajadorCargo" Association="Self.TrabajadorCargo">
+      <End Role="cargo" EntitySet="cargo" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorDepart" Association="Self.TrabajadorDepart">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
     <AssociationSet Name="TrabajadorEstatus" Association="Self.TrabajadorEstatus">
       <End Role="estatus" EntitySet="estatus" />
       <End Role="trabajador" EntitySet="trabajador" />
@@ -295,6 +341,10 @@ FROM `varsys` AS `varsys`</DefiningQuery>
     </AssociationSet>
     <AssociationSet Name="TrabajadorNac" Association="Self.TrabajadorNac">
       <End Role="nacionalidad" EntitySet="nacionalidad" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorNomina" Association="Self.TrabajadorNomina">
+      <End Role="nominatype" EntitySet="nominatype" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
   </EntityContainer>

@@ -14,7 +14,14 @@ namespace Nomina1._0
     
     public partial class departamentos
     {
+        public departamentos()
+        {
+            this.trabajador = new HashSet<trabajador>();
+        }
+    
         public int iddepartamentos { get; set; }
         public string Descripcion { get; set; }
+    
+        public virtual ICollection<trabajador> trabajador { get; set; }
     }
 }

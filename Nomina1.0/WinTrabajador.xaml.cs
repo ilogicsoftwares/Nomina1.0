@@ -78,6 +78,8 @@ namespace Nomina1._0
             comboBoxestatus.DataContext = Atrabajadores;
             comboBoxgrado.DataContext = Atrabajadores;
             comboBoxnacional.DataContext = Atrabajadores;
+            comboCargo.DataContext = Atrabajadores;
+            comboNomina.DataContext = Atrabajadores;
             
         }
 

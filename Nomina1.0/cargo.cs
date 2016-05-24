@@ -14,10 +14,17 @@ namespace Nomina1._0
     
     public partial class cargo
     {
+        public cargo()
+        {
+            this.trabajador = new HashSet<trabajador>();
+        }
+    
         public int idcargo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public string conceptos { get; set; }
         public Nullable<int> Iddepartamentos { get; set; }
+    
+        public virtual ICollection<trabajador> trabajador { get; set; }
     }
 }

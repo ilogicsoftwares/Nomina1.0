@@ -14,9 +14,16 @@ namespace Nomina1._0
     
     public partial class nominatype
     {
+        public nominatype()
+        {
+            this.trabajador = new HashSet<trabajador>();
+        }
+    
         public int idnomina { get; set; }
         public string descripcion { get; set; }
         public int intervalo { get; set; }
         public string conceptos { get; set; }
+    
+        public virtual ICollection<trabajador> trabajador { get; set; }
     }
 }

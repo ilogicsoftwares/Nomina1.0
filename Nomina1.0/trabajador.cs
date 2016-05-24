@@ -18,8 +18,6 @@ namespace Nomina1._0
         public string cedula { get; set; }
         public string nombres { get; set; }
         public string apellidos { get; set; }
-        public Nullable<int> idcargo { get; set; }
-        public Nullable<int> iddepartamentos { get; set; }
         public string direccion { get; set; }
         public string telefonocel { get; set; }
         public string telefonolocal { get; set; }
@@ -35,10 +33,14 @@ namespace Nomina1._0
         public Nullable<int> Nhijos { get; set; }
         public string lugarnac { get; set; }
         public string dirfoto { get; set; }
-        public Nullable<int> Idnomina { get; set; }
+        public string numerocuenta { get; set; }
+        public string tipocuenta { get; set; }
     
+        public virtual cargo cargo { get; set; }
+        public virtual departamentos departamentos { get; set; }
         public virtual estatus estatus { get; set; }
         public virtual gradointruc gradointruc { get; set; }
         public virtual nacionalidad nacionalidad { get; set; }
+        public virtual nominatype nominatype { get; set; }
     }
 }

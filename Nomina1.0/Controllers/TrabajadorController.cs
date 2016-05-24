@@ -54,7 +54,8 @@ namespace Nomina1._0.Controllers
             Lestatus = Datos.Micontexto.estatus.ToList();
             Lgrado = Datos.Micontexto.gradointruc.ToList();
             Lnac = Datos.Micontexto.nacionalidad.ToList();
-           
+            Lnomina = Datos.Micontexto.nominatype.ToList();
+            Lcargo = Datos.Micontexto.cargo.ToList();
         }
 
         public static void BuscarTabajador(int id)
@@ -122,6 +123,32 @@ namespace Nomina1._0.Controllers
             set
             {
                 _Lestatus = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private List<cargo> _Lcargo;
+        public List<cargo> Lcargo
+        {
+            get
+            {
+                return _Lcargo;
+            }
+            set
+            {
+                _Lcargo = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private List<nominatype> _Lnomina;
+        public List<nominatype> Lnomina
+        {
+            get
+            {
+                return _Lnomina;
+            }
+            set
+            {
+                _Lnomina = value;
                 NotifyPropertyChanged();
             }
         }
