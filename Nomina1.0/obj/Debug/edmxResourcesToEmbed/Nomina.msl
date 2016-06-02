@@ -205,10 +205,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tipocuenta">
+      <EntityTypeMapping TypeName="nominaModel.tipocuenta">
+        <MappingFragment StoreEntitySet="tipocuenta">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bancos">
+      <EntityTypeMapping TypeName="nominaModel.bancos">
+        <MappingFragment StoreEntitySet="bancos">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="Idbanco" ColumnName="Idbanco" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="trabajador">
       <EntityTypeMapping TypeName="nominaModel.trabajador">
         <MappingFragment StoreEntitySet="trabajador">
-          <ScalarProperty Name="tipocuenta" ColumnName="tipocuenta" />
           <ScalarProperty Name="numerocuenta" ColumnName="numerocuenta" />
           <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
           <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
@@ -232,6 +247,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="Trabajadoridbanco" TypeName="nominaModel.Trabajadoridbanco" StoreEntitySet="trabajador">
+      <EndProperty Name="trabajador">
+        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+      </EndProperty>
+      <EndProperty Name="bancos">
+        <ScalarProperty Name="Idbanco" ColumnName="idbanco" />
+      </EndProperty>
+      <Condition ColumnName="idbanco" IsNull="false" />
+    </AssociationSetMapping>
     <AssociationSetMapping Name="TrabajadorCargo" TypeName="nominaModel.TrabajadorCargo" StoreEntitySet="trabajador">
       <EndProperty Name="trabajador">
         <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
@@ -285,6 +309,15 @@
         <ScalarProperty Name="idnomina" ColumnName="Idnomina" />
       </EndProperty>
       <Condition ColumnName="Idnomina" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TrabajadorTipoc" TypeName="nominaModel.TrabajadorTipoc" StoreEntitySet="trabajador">
+      <EndProperty Name="trabajador">
+        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+      </EndProperty>
+      <EndProperty Name="tipocuenta">
+        <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
+      </EndProperty>
+      <Condition ColumnName="idtipocuenta" IsNull="false" />
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="nominaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bancos">
+    <Key>
+      <PropertyRef Name="Idbanco" />
+    </Key>
+    <Property Name="Idbanco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="cargo">
     <Key>
       <PropertyRef Name="idcargo" />
@@ -123,6 +130,13 @@
     <Property Name="Nombre" Type="varchar" MaxLength="50" />
     <Property Name="Descripcion" Type="varchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="tipocuenta">
+    <Key>
+      <PropertyRef Name="idtipocuenta" />
+    </Key>
+    <Property Name="idtipocuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="trabajador">
     <Key>
       <PropertyRef Name="idtrabajador" />
@@ -153,7 +167,8 @@
     <Property Name="dirfoto" Type="varchar" MaxLength="100" />
     <Property Name="Idnomina" Type="int" />
     <Property Name="numerocuenta" Type="varchar" MaxLength="20" />
-    <Property Name="tipocuenta" Type="varchar" MaxLength="4" />
+    <Property Name="idbanco" Type="int" />
+    <Property Name="idtipocuenta" Type="int" />
   </EntityType>
   <EntityType Name="usermenu">
     <Key>
@@ -206,8 +221,8 @@
     <Property Name="valorinicial" Type="varchar" MaxLength="50" />
     <Property Name="constante" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'nomina.varsys' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="varsys">
     <Key>
       <PropertyRef Name="cedula" />
@@ -269,6 +284,18 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="Trabajadoridbanco">
+    <End Role="bancos" Type="Self.bancos" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bancos">
+        <PropertyRef Name="Idbanco" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idbanco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="TrabajadorNac">
     <End Role="nacionalidad" Type="Self.nacionalidad" Multiplicity="0..1" />
     <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -293,7 +320,20 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="TrabajadorTipoc">
+    <End Role="tipocuenta" Type="Self.tipocuenta" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipocuenta">
+        <PropertyRef Name="idtipocuenta" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idtipocuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="nominaModelStoreContainer">
+    <EntitySet Name="bancos" EntityType="Self.bancos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
@@ -306,6 +346,7 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
     <EntitySet Name="nominauni" EntityType="Self.nominauni" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="prenomina" EntityType="Self.prenomina" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="procedures" EntityType="Self.procedures" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="tipocuenta" EntityType="Self.tipocuenta" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="trabajador" EntityType="Self.trabajador" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="usermenu" EntityType="Self.usermenu" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="nomina" store:Type="Tables" />
@@ -339,12 +380,20 @@ FROM `varsys` AS `varsys`</DefiningQuery>
       <End Role="gradointruc" EntitySet="gradointruc" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
+    <AssociationSet Name="Trabajadoridbanco" Association="Self.Trabajadoridbanco">
+      <End Role="bancos" EntitySet="bancos" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
     <AssociationSet Name="TrabajadorNac" Association="Self.TrabajadorNac">
       <End Role="nacionalidad" EntitySet="nacionalidad" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
     <AssociationSet Name="TrabajadorNomina" Association="Self.TrabajadorNomina">
       <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorTipoc" Association="Self.TrabajadorTipoc">
+      <End Role="tipocuenta" EntitySet="tipocuenta" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
   </EntityContainer>

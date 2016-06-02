@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="nominaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bancos">
+          <Key>
+            <PropertyRef Name="Idbanco" />
+          </Key>
+          <Property Name="Idbanco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="cargo">
           <Key>
             <PropertyRef Name="idcargo" />
@@ -128,6 +135,13 @@
           <Property Name="Nombre" Type="varchar" MaxLength="50" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="tipocuenta">
+          <Key>
+            <PropertyRef Name="idtipocuenta" />
+          </Key>
+          <Property Name="idtipocuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="trabajador">
           <Key>
             <PropertyRef Name="idtrabajador" />
@@ -158,7 +172,8 @@
           <Property Name="dirfoto" Type="varchar" MaxLength="100" />
           <Property Name="Idnomina" Type="int" />
           <Property Name="numerocuenta" Type="varchar" MaxLength="20" />
-          <Property Name="tipocuenta" Type="varchar" MaxLength="4" />
+          <Property Name="idbanco" Type="int" />
+          <Property Name="idtipocuenta" Type="int" />
         </EntityType>
         <EntityType Name="usermenu">
           <Key>
@@ -211,8 +226,8 @@
           <Property Name="valorinicial" Type="varchar" MaxLength="50" />
           <Property Name="constante" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'nomina.varsys' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="varsys">
           <Key>
             <PropertyRef Name="cedula" />
@@ -274,6 +289,18 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Trabajadoridbanco">
+          <End Role="bancos" Type="Self.bancos" Multiplicity="0..1" />
+          <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bancos">
+              <PropertyRef Name="Idbanco" />
+            </Principal>
+            <Dependent Role="trabajador">
+              <PropertyRef Name="idbanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="TrabajadorNac">
           <End Role="nacionalidad" Type="Self.nacionalidad" Multiplicity="0..1" />
           <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -298,7 +325,20 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="TrabajadorTipoc">
+          <End Role="tipocuenta" Type="Self.tipocuenta" Multiplicity="0..1" />
+          <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipocuenta">
+              <PropertyRef Name="idtipocuenta" />
+            </Principal>
+            <Dependent Role="trabajador">
+              <PropertyRef Name="idtipocuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="nominaModelStoreContainer">
+          <EntitySet Name="bancos" EntityType="Self.bancos" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
@@ -311,6 +351,7 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
           <EntitySet Name="nominauni" EntityType="Self.nominauni" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="prenomina" EntityType="Self.prenomina" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="procedures" EntityType="Self.procedures" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="tipocuenta" EntityType="Self.tipocuenta" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="trabajador" EntityType="Self.trabajador" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="usermenu" EntityType="Self.usermenu" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="users" EntityType="Self.users" Schema="nomina" store:Type="Tables" />
@@ -344,12 +385,20 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="gradointruc" EntitySet="gradointruc" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
+          <AssociationSet Name="Trabajadoridbanco" Association="Self.Trabajadoridbanco">
+            <End Role="bancos" EntitySet="bancos" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
           <AssociationSet Name="TrabajadorNac" Association="Self.TrabajadorNac">
             <End Role="nacionalidad" EntitySet="nacionalidad" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
           <AssociationSet Name="TrabajadorNomina" Association="Self.TrabajadorNomina">
             <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="TrabajadorTipoc" Association="Self.TrabajadorTipoc">
+            <End Role="tipocuenta" EntitySet="tipocuenta" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
         </EntityContainer>
@@ -497,7 +546,13 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <EntitySet Name="nacionalidad" EntityType="nominaModel.nacionalidad" />
           <EntitySet Name="cargo" EntityType="nominaModel.cargo" />
           <EntitySet Name="nominatype" EntityType="nominaModel.nominatype" />
+          <EntitySet Name="tipocuenta" EntityType="nominaModel.tipocuenta" />
+          <EntitySet Name="bancos" EntityType="nominaModel.bancos" />
           <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
+          <AssociationSet Name="Trabajadoridbanco" Association="nominaModel.Trabajadoridbanco">
+            <End Role="bancos" EntitySet="bancos" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
           <AssociationSet Name="TrabajadorCargo" Association="nominaModel.TrabajadorCargo">
             <End Role="cargo" EntitySet="cargo" />
             <End Role="trabajador" EntitySet="trabajador" />
@@ -520,6 +575,10 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           </AssociationSet>
           <AssociationSet Name="TrabajadorNomina" Association="nominaModel.TrabajadorNomina">
             <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="TrabajadorTipoc" Association="nominaModel.TrabajadorTipoc">
+            <End Role="tipocuenta" EntitySet="tipocuenta" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
           </EntityContainer>
@@ -594,6 +653,22 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
         </EntityType>
+        <EntityType Name="tipocuenta">
+          <Key>
+            <PropertyRef Name="idtipocuenta" />
+          </Key>
+          <Property Name="idtipocuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorTipoc" FromRole="tipocuenta" ToRole="trabajador" />
+        </EntityType>
+        <EntityType Name="bancos">
+          <Key>
+            <PropertyRef Name="Idbanco" />
+          </Key>
+          <Property Name="Idbanco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="trabajador" Relationship="nominaModel.Trabajadoridbanco" FromRole="bancos" ToRole="trabajador" />
+        </EntityType>
         <EntityType Name="trabajador">
           <Key>
             <PropertyRef Name="idtrabajador" />
@@ -618,14 +693,19 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="numerocuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="tipocuenta" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bancos" Relationship="nominaModel.Trabajadoridbanco" FromRole="trabajador" ToRole="bancos" />
           <NavigationProperty Name="cargo" Relationship="nominaModel.TrabajadorCargo" FromRole="trabajador" ToRole="cargo" />
           <NavigationProperty Name="departamentos" Relationship="nominaModel.TrabajadorDepart" FromRole="trabajador" ToRole="departamentos" />
           <NavigationProperty Name="estatus" Relationship="nominaModel.TrabajadorEstatus" FromRole="trabajador" ToRole="estatus" />
           <NavigationProperty Name="gradointruc" Relationship="nominaModel.Trabajadorgrado" FromRole="trabajador" ToRole="gradointruc" />
           <NavigationProperty Name="nacionalidad" Relationship="nominaModel.TrabajadorNac" FromRole="trabajador" ToRole="nacionalidad" />
           <NavigationProperty Name="nominatype" Relationship="nominaModel.TrabajadorNomina" FromRole="trabajador" ToRole="nominatype" />
+          <NavigationProperty Name="tipocuenta" Relationship="nominaModel.TrabajadorTipoc" FromRole="trabajador" ToRole="tipocuenta" />
         </EntityType>
+        <Association Name="Trabajadoridbanco">
+          <End Type="nominaModel.bancos" Role="bancos" Multiplicity="0..1" />
+          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+        </Association>
         <Association Name="TrabajadorCargo">
           <End Type="nominaModel.cargo" Role="cargo" Multiplicity="0..1" />
           <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
@@ -648,6 +728,10 @@ FROM `varsys` AS `varsys`</DefiningQuery>
         </Association>
         <Association Name="TrabajadorNomina">
           <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="0..1" />
+          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+        </Association>
+        <Association Name="TrabajadorTipoc">
+          <End Type="nominaModel.tipocuenta" Role="tipocuenta" Multiplicity="0..1" />
           <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
         </Association>
         </Schema>
@@ -860,10 +944,25 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tipocuenta">
+            <EntityTypeMapping TypeName="nominaModel.tipocuenta">
+              <MappingFragment StoreEntitySet="tipocuenta">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bancos">
+            <EntityTypeMapping TypeName="nominaModel.bancos">
+              <MappingFragment StoreEntitySet="bancos">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="Idbanco" ColumnName="Idbanco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="trabajador">
             <EntityTypeMapping TypeName="nominaModel.trabajador">
               <MappingFragment StoreEntitySet="trabajador">
-                <ScalarProperty Name="tipocuenta" ColumnName="tipocuenta" />
                 <ScalarProperty Name="numerocuenta" ColumnName="numerocuenta" />
                 <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
                 <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
@@ -887,6 +986,15 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="Trabajadoridbanco" TypeName="nominaModel.Trabajadoridbanco" StoreEntitySet="trabajador">
+            <EndProperty Name="trabajador">
+              <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+            </EndProperty>
+            <EndProperty Name="bancos">
+              <ScalarProperty Name="Idbanco" ColumnName="idbanco" />
+            </EndProperty>
+            <Condition ColumnName="idbanco" IsNull="false" />
+          </AssociationSetMapping>
           <AssociationSetMapping Name="TrabajadorCargo" TypeName="nominaModel.TrabajadorCargo" StoreEntitySet="trabajador">
             <EndProperty Name="trabajador">
               <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
@@ -940,6 +1048,15 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               <ScalarProperty Name="idnomina" ColumnName="Idnomina" />
             </EndProperty>
             <Condition ColumnName="Idnomina" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TrabajadorTipoc" TypeName="nominaModel.TrabajadorTipoc" StoreEntitySet="trabajador">
+            <EndProperty Name="trabajador">
+              <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+            </EndProperty>
+            <EndProperty Name="tipocuenta">
+              <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
+            </EndProperty>
+            <Condition ColumnName="idtipocuenta" IsNull="false" />
           </AssociationSetMapping>
           </EntityContainerMapping>
       </Mapping>

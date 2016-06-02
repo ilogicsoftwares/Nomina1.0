@@ -12,18 +12,16 @@ namespace Nomina1._0
     using System;
     using System.Collections.Generic;
     
-    public partial class users
+    public partial class bancos
     {
-        public int idusuario { get; set; }
+        public bancos()
+        {
+            this.trabajador = new HashSet<trabajador>();
+        }
+    
+        public int Idbanco { get; set; }
         public string descripcion { get; set; }
-        public int tipoid { get; set; }
-        public string keyCi { get; set; }
-        public string Nombre { get; set; }
-        public string Cedula { get; set; }
-        public Nullable<System.DateTime> FechaNac { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
-        public Nullable<int> Desactivar { get; set; }
-        public Nullable<System.DateTime> Vigenciadesde { get; set; }
+    
+        public virtual ICollection<trabajador> trabajador { get; set; }
     }
 }

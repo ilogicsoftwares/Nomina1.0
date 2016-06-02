@@ -28,17 +28,17 @@
             <ColumnDefinition Width="29*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="Cedula:" Margin="0,33,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="113"/>
-        <TextBox x:Name="cedula" Grid.Column="1" Height="26" Margin="0,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1" Text="{Binding cedula, Mode=TwoWay}"/>
+        <TextBox x:Name="cedula" Grid.Column="1" Height="26" Margin="0,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="1" Text="{Binding cedula, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" LostFocus="cedula_LostFocus"/>
         <Label x:Name="label_Copy" Content="Nombres:" Margin="0,59,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="74"/>
-        <TextBox x:Name="nombres" Height="26" Margin="0,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="2" Text="{Binding nombres, Mode=TwoWay}"/>
+        <TextBox x:Name="nombres" Height="26" Margin="0,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="2" Text="{Binding nombres, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="label_Copy2" Content="Apellidos:" Margin="20,89,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
         <Label x:Name="label_Copy3" Content="Datos Personales" Margin="0,7,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" FontWeight="Bold" HorizontalAlignment="Left" Width="334"/>
-        <TextBox x:Name="apellidos" Height="26" Margin="0,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="3" Text="{Binding apellidos, Mode=TwoWay}"/>
+        <TextBox x:Name="apellidos" Height="26" Margin="0,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="3" Text="{Binding apellidos, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="label_Copy4" Content="Sexo:" Margin="0,121,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="74" RenderTransformOrigin="0.541,0.731"/>
         <Label x:Name="label_Copy5" Content="Estado Civil:" Margin="0,147,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="74" RenderTransformOrigin="0.541,0.731"/>
         <StackPanel Grid.Column="1" Height="20" Margin="0,126,0,0" VerticalAlignment="Top" Orientation="Horizontal" CanHorizontallyScroll="True" Background="#FFE4E2E2" Name="StackSexo" Panel.ZIndex="-4">
-            <RadioButton x:Name="masculino" Content="Masculino" HorizontalAlignment="Left" VerticalAlignment="Top"  IsChecked="{Binding Path=sexo, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=1}" TabIndex="4"/>
-            <RadioButton x:Name="femenino" Content="Femenino" VerticalAlignment="Top" Margin="50,0,0,0" HorizontalContentAlignment="Right" RenderTransformOrigin="1.423,1.133" HorizontalAlignment="Right" IsChecked="{Binding Path=sexo, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=2}" TabIndex="5"/>
+            <RadioButton x:Name="masculino" Content="Masculino" HorizontalAlignment="Left" VerticalAlignment="Top"  IsChecked="{Binding Path=sexo, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=1,UpdateSourceTrigger=PropertyChanged}" TabIndex="4"/>
+            <RadioButton x:Name="femenino" Content="Femenino" VerticalAlignment="Top" Margin="50,0,0,0" HorizontalContentAlignment="Right" RenderTransformOrigin="1.423,1.133" HorizontalAlignment="Right" IsChecked="{Binding Path=sexo, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=2,UpdateSourceTrigger=PropertyChanged}" TabIndex="5"/>
         </StackPanel>
         <StackPanel Name="StackEdoCivil"  Grid.Column="1" Height="20" Margin="0,154,0,0" VerticalAlignment="Top" Orientation="Horizontal" CanHorizontallyScroll="True" Background="#FFE4E2E2">
             <RadioButton x:Name="radioButton_Copy1" Content="Casado" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding Path=edocivil, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=1}" TabIndex="6"/>
@@ -50,44 +50,44 @@
         <Label x:Name="label_Copy7" Content="Lugar de Nacimiento:" Margin="0,62,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
         <DatePicker Grid.Column="3" Margin="0,33,0,0" VerticalAlignment="Top" Height="26"  SelectedDate="{Binding
         Path=fechanac,
-        Mode=TwoWay}" TabIndex="9"/>
+        Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TabIndex="9"/>
         <TextBox x:Name="txtLugarnac" Height="26" Margin="0,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="3" TabIndex="10" Text="{Binding lugarnac, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="label_Copy8" Content="Nivel de Instrucción:" Margin="0,119,0,0" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Right" Grid.Column="2"/>
         <Label x:Name="label_Copy9" Content="Estatus:" Margin="32,307,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
-        <ComboBox x:Name="comboBoxgrado" Grid.Column="3" Margin="0,119,0,0" VerticalAlignment="Top" DisplayMemberPath="grado" ItemsSource="{Binding Lgrado}"  SelectedValue="{Binding Path=TrabajadorActual.gradointruc,Mode=TwoWay}" Height="26" TabIndex="12"/>
-        <ComboBox x:Name="comboBoxestatus" Grid.Column="3" Margin="0,307,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lestatus}"  SelectedValue="{Binding Path=TrabajadorActual.estatus,Mode=TwoWay}" Height="26" TabIndex="21"/>
+        <ComboBox x:Name="comboBoxgrado" Grid.Column="3" Margin="0,119,0,0" VerticalAlignment="Top" DisplayMemberPath="grado" ItemsSource="{Binding Lgrado}"  SelectedValue="{Binding gradointruc,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="12"/>
+        <ComboBox x:Name="comboBoxestatus" Grid.Column="3" Margin="0,307,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lestatus}"  SelectedValue="{Binding estatus,Mode=TwoWay}" Height="26" TabIndex="21"/>
         <Label x:Name="label_Copy10" Content="Dirección:" Margin="0,179,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="txtDireccion" Height="57" Margin="1,181,124,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="8" Text="{Binding direccion, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtDireccion" Height="57" Margin="1,181,124,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" TabIndex="8" Text="{Binding direccion, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
         <Label x:Name="label_Copy11" Content="Nacionalidad:" Margin="0,90,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
-        <ComboBox x:Name="comboBoxnacional" Grid.Column="3" Margin="0,89,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lnac}"  SelectedValue="{Binding TrabajadorActual.nacionalidad, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="11"/>
+        <ComboBox x:Name="comboBoxnacional" Grid.Column="3" Margin="0,89,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lnac}"  SelectedValue="{Binding nacionalidad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Height="26" TabIndex="11"/>
         <Grid Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="91,121,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="label_Copy12" Content="Hijos:" Margin="0,150,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88" Grid.Column="2"/>
-        <TextBox x:Name="txthijos" Grid.Column="3" Height="26" Margin="0,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="13" Text="{Binding Nhijos, Mode=TwoWay}"/>
+        <TextBox x:Name="txthijos" Grid.Column="3" Height="26" Margin="0,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="13" Text="{Binding Nhijos, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="label_Copy13" Content="Datos Laborales" Margin="0,276,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Left" Grid.ColumnSpan="3" FontWeight="Bold" HorizontalAlignment="Left" Width="374"/>
         <Label x:Name="label_Copy14" Content="Nomina:" Margin="0,307,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
-        <ComboBox x:Name="comboNomina" Grid.Column="1" Margin="0,307,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lnomina}"  SelectedValue="{Binding TrabajadorActual.nominatype, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="17"/>
+        <ComboBox x:Name="comboNomina" Grid.Column="1" Margin="0,307,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lnomina}"  SelectedValue="{Binding nominatype, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="17"/>
         <Label x:Name="label_Copy15" Content="Tel. Local:" Margin="0,213,0,0" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88" Grid.Column="2"/>
         <TextBox x:Name="txtLocal" Grid.Column="3" Height="26" Margin="0,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="15" Text="{Binding telefonolocal, Mode=TwoWay}"/>
         <Label x:Name="label_Copy16" Content="Tel. Celular:" Margin="0,182,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88" Grid.Column="2"/>
-        <TextBox x:Name="txtCelular" Grid.Column="3" Height="26" Margin="0,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="14" Text="{Binding telefonocel, Mode=TwoWay}"/>
+        <TextBox x:Name="txtCelular" Grid.Column="3" Height="26" Margin="0,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="14" Text="{Binding telefonocel, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="label_Copy17" Content="Tel. Contacto:" Margin="0,245,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88" Grid.Column="2"/>
-        <TextBox x:Name="txtContacto" Grid.Column="3" Height="26" Margin="0,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="151" Text="{Binding telefonocontacto, Mode=TwoWay}"/>
+        <TextBox x:Name="txtContacto" Grid.Column="3" Height="26" Margin="0,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="151" Text="{Binding telefonocontacto, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="label_Copy18" Content="Contacto:" Margin="0,245,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88"/>
-        <TextBox x:Name="txtContacton" Grid.Column="1" Height="26" Margin="1,245,124,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="16" Text="{Binding nombrecontacto, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtContacton" Grid.Column="1" Height="26" Margin="1,245,124,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="16" Text="{Binding nombrecontacto, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
         <Label x:Name="label_Copy19" Content="Cargo :" Margin="1,369,246,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="comboCargo" Grid.Column="1" Margin="0,369,0,0" VerticalAlignment="Top" DisplayMemberPath="Nombre" ItemsSource="{Binding Lcargo}"  SelectedValue="{Binding TrabajadorActual.cargo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="19"/>
+        <ComboBox x:Name="comboCargo" Grid.Column="1" Margin="0,369,0,0" VerticalAlignment="Top" DisplayMemberPath="Nombre" ItemsSource="{Binding Lcargo}"  SelectedValue="{Binding cargo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="19"/>
         <Label x:Name="label_Copy20" Content="Sueldo Base Mensual:" Margin="0,401,0,0" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56"/>
-        <TextBox x:Name="cedula_Copy5" Grid.Column="1" Height="26" Margin="0,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="20" Text="{Binding Sueldo, Mode=TwoWay , StringFormat=N}"/>
+        <TextBox x:Name="cedula_Copy5" Grid.Column="1" Height="26" Margin="0,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="20" Text="{Binding Sueldo, Mode=TwoWay , StringFormat=N,UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="label_Copy21" Content="Departamento:" Margin="0,338,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
-        <ComboBox x:Name="comboBoxnacional_Copy2" Grid.Column="1" Margin="0,338,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lnac}"  SelectedValue="{Binding TrabajadorActual.nacionalidad, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="18"/>
+        <ComboBox x:Name="comboBoxnacional_Copy2" Grid.Column="1" Margin="0,338,0,0" VerticalAlignment="Top" DisplayMemberPath="Descripcion" ItemsSource="{Binding Ldepart}"  SelectedValue="{Binding departamentos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="18"/>
         <Label x:Name="label_Copy22" Content="Fecha de Ingreso:" Margin="0,337,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
-        <DatePicker Grid.Column="3" Margin="0,337,0,0" VerticalAlignment="Top" Height="26"  SelectedDate="{Binding Fechaing, Mode=TwoWay}" TabIndex="22"/>
+        <DatePicker Grid.Column="3" Margin="0,337,0,0" VerticalAlignment="Top" Height="26"  SelectedDate="{Binding Fechaing, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TabIndex="22"/>
         <Label x:Name="label_Copy23" Content="Numero de Cuenta:" Margin="1,401,0,0" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56" Grid.Column="2"/>
-        <TextBox x:Name="cedula_Copy6" Grid.Column="3" Height="26" Margin="0,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="24" Text="{Binding numerocuenta, Mode=TwoWay}"/>
+        <TextBox x:Name="cedula_Copy6" Grid.Column="3" Height="26" Margin="0,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="24" Text="{Binding numerocuenta, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="label_Copy24" Content="Banco:" Margin="32,369,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
-        <ComboBox x:Name="comboBoxestatus_Copy" Grid.Column="3" Margin="0,369,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lestatus}"  SelectedValue="{Binding TrabajadorActual.estatus, Mode=TwoWay}" Height="26" TabIndex="23"/>
+        <ComboBox x:Name="comboBoxestatus_Copy" Grid.Column="3" Margin="0,369,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lbanco}"  SelectedValue="{Binding bancos, Mode=TwoWay}" Height="26" TabIndex="23"/>
         <Label x:Name="label_Copy25" Content="Tipo de Cuenta:" Margin="1,432,0,0" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56" Grid.Column="2"/>
-        <ComboBox x:Name="comboBoxestatus_Copy1" Grid.Column="3" Margin="0,432,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lestatus}"  SelectedValue="{Binding TrabajadorActual.estatus, Mode=TwoWay}" Height="26" TabIndex="26"/>
+        <ComboBox x:Name="comboBoxestatus_Copy1" Grid.Column="3" Margin="0,432,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Ltipoc}"  SelectedValue="{Binding tipocuenta, Mode=TwoWay}" Height="26" TabIndex="26"/>
         <Button x:Name="button" Content="Concepto" Grid.Column="1" HorizontalAlignment="Left" Margin="1,441,0,0" VerticalAlignment="Top" Width="98" TabIndex="27"/>
         <Button x:Name="button_Copy" Content="Variables" Grid.Column="1" HorizontalAlignment="Left" Margin="150,442,0,0" VerticalAlignment="Top" Width="98" Grid.ColumnSpan="2" TabIndex="28"/>
 

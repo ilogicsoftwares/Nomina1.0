@@ -12,9 +12,21 @@
          <TypeUISetting>
             <PropertyUISettings>
                <PropertyUISetting Name="Nombre">
+                  <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows:WPF" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+                        <BindableControlInfo Name="ComboBox" Type="System.Windows.Controls.ComboBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                     </ControlSetting></ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
+      <GenericObjectDataSource DisplayName="nacionalidad" Version="1.0">
+         <TypeInfo>Nomina1._0.nacionalidad, Nomina1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="nominaEntities.trabajador.nacionalidad">
                   <ControlSettings>
                      <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                        <BindableControlInfo Name="ComboBox" Type="System.Windows.Controls.ComboBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                        <BindableControlInfo Name="[Ninguno]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
                      </ControlSetting>
                   </ControlSettings>
                </PropertyUISetting>

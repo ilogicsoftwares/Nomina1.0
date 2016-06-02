@@ -83,6 +83,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="bancos.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
     <Compile Include="cargo.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
@@ -132,6 +135,9 @@
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="RadioBoolToIntConverter.cs" />
+    <Compile Include="tipocuenta.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
     <Compile Include="trabajador.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>

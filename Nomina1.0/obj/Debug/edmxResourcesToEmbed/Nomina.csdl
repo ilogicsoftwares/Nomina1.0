@@ -140,7 +140,13 @@
     <EntitySet Name="nacionalidad" EntityType="nominaModel.nacionalidad" />
     <EntitySet Name="cargo" EntityType="nominaModel.cargo" />
     <EntitySet Name="nominatype" EntityType="nominaModel.nominatype" />
+    <EntitySet Name="tipocuenta" EntityType="nominaModel.tipocuenta" />
+    <EntitySet Name="bancos" EntityType="nominaModel.bancos" />
     <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
+    <AssociationSet Name="Trabajadoridbanco" Association="nominaModel.Trabajadoridbanco">
+      <End Role="bancos" EntitySet="bancos" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
     <AssociationSet Name="TrabajadorCargo" Association="nominaModel.TrabajadorCargo">
       <End Role="cargo" EntitySet="cargo" />
       <End Role="trabajador" EntitySet="trabajador" />
@@ -163,6 +169,10 @@
     </AssociationSet>
     <AssociationSet Name="TrabajadorNomina" Association="nominaModel.TrabajadorNomina">
       <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorTipoc" Association="nominaModel.TrabajadorTipoc">
+      <End Role="tipocuenta" EntitySet="tipocuenta" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
   </EntityContainer>
@@ -237,6 +247,22 @@
     <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
   </EntityType>
+  <EntityType Name="tipocuenta">
+    <Key>
+      <PropertyRef Name="idtipocuenta" />
+    </Key>
+    <Property Name="idtipocuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorTipoc" FromRole="tipocuenta" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="bancos">
+    <Key>
+      <PropertyRef Name="Idbanco" />
+    </Key>
+    <Property Name="Idbanco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="trabajador" Relationship="nominaModel.Trabajadoridbanco" FromRole="bancos" ToRole="trabajador" />
+  </EntityType>
   <EntityType Name="trabajador">
     <Key>
       <PropertyRef Name="idtrabajador" />
@@ -261,14 +287,19 @@
     <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="numerocuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="tipocuenta" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bancos" Relationship="nominaModel.Trabajadoridbanco" FromRole="trabajador" ToRole="bancos" />
     <NavigationProperty Name="cargo" Relationship="nominaModel.TrabajadorCargo" FromRole="trabajador" ToRole="cargo" />
     <NavigationProperty Name="departamentos" Relationship="nominaModel.TrabajadorDepart" FromRole="trabajador" ToRole="departamentos" />
     <NavigationProperty Name="estatus" Relationship="nominaModel.TrabajadorEstatus" FromRole="trabajador" ToRole="estatus" />
     <NavigationProperty Name="gradointruc" Relationship="nominaModel.Trabajadorgrado" FromRole="trabajador" ToRole="gradointruc" />
     <NavigationProperty Name="nacionalidad" Relationship="nominaModel.TrabajadorNac" FromRole="trabajador" ToRole="nacionalidad" />
     <NavigationProperty Name="nominatype" Relationship="nominaModel.TrabajadorNomina" FromRole="trabajador" ToRole="nominatype" />
+    <NavigationProperty Name="tipocuenta" Relationship="nominaModel.TrabajadorTipoc" FromRole="trabajador" ToRole="tipocuenta" />
   </EntityType>
+  <Association Name="Trabajadoridbanco">
+    <End Type="nominaModel.bancos" Role="bancos" Multiplicity="0..1" />
+    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+  </Association>
   <Association Name="TrabajadorCargo">
     <End Type="nominaModel.cargo" Role="cargo" Multiplicity="0..1" />
     <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
@@ -291,6 +322,10 @@
   </Association>
   <Association Name="TrabajadorNomina">
     <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="0..1" />
+    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+  </Association>
+  <Association Name="TrabajadorTipoc">
+    <End Type="nominaModel.tipocuenta" Role="tipocuenta" Multiplicity="0..1" />
     <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
   </Association>
 </Schema>

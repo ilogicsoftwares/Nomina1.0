@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Nomina1._0.Controllers;
 using System.Windows;
+using System.Data.Entity;
+using System.Windows.Documents;
+using System.Data;
 
 namespace Nomina1._0
 {
@@ -12,16 +15,15 @@ namespace Nomina1._0
     /// </summary>
     public partial class WinTrabajador
     {
-
+   
         TrabajadorController Atrabajadores = new TrabajadorController();
         public WinTrabajador()
         {
             InitializeComponent();
-       
-            Actualizar();
-            
-          
-        
+
+           
+
+            this.DataContext = Atrabajadores;
         }
        
         private void MetroWindow_Activated(object sender, EventArgs e)
@@ -29,65 +31,41 @@ namespace Nomina1._0
             Datos.WindowActual = this;
         }
 
-     
-        public void Nuevo()
-        {
+      
+   
 
-            Atrabajadores.NuevoTrabajador();
-            Datos.HayNuevo = true;
-            Actualizar();
-        }
-
-        public void Guardar()
-        {
-            if( Datos.HayNuevo==true)
-            {
-                Datos.Micontexto.trabajador.Add(Atrabajadores.TrabajadorActual);
-                Datos.HayNuevo = false;
-            }
-            Datos.Micontexto.SaveChanges();
-            MessageBox.Show("Se ha Guardado los Datos Exitosamente");
-            Actualizar();
-        }
-
-        public void Next()
-        {
-            Atrabajadores.Next();
-            Actualizar();
-
-        }
-
-        public void Back()
-        {
-            Atrabajadores.Back();
-            Actualizar();
-
-        }
-
-        public void Eliminar()
-        {
-            Atrabajadores.Eliminar();
-            Actualizar();
-
-        }
-
-        public void Actualizar()
-        {
-
-            Grid1.DataContext = Atrabajadores.TrabajadorActual;
-            comboBoxestatus.DataContext = Atrabajadores;
-            comboBoxgrado.DataContext = Atrabajadores;
-            comboBoxnacional.DataContext = Atrabajadores;
-            comboCargo.DataContext = Atrabajadores;
-            comboNomina.DataContext = Atrabajadores;
-            
-        }
+      
 
         private void MetroWindow_Closed(object sender, EventArgs e)
         {
             Datos.WindowActual = null;
         }
 
+        private void cedula_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (cedula.Text!=string.Empty)
+            {
+                TrabajadorController.TrabajadorBuscado(cedula.Text);
+                DataContext = TrabajadorController.TrabajadorActual;
+            }else
+            {
+                TrabajadorController Atrabajadores = new TrabajadorController();
+                this.DataContext = Atrabajadores;
+            }
+        }
+
+        public void Guardar()
+        {
+           var original = Datos.Micontexto.trabajador.Find(TrabajadorController.TrabajadorActual.idtrabajador);
+
+            if (original != null)
+           {
+                Datos.Micontexto.Entry(original).CurrentValues.SetValues(TrabajadorController.TrabajadorActual);
+                original.nacionalidad = TrabajadorController.TrabajadorActual.nacionalidad;
+                Datos.Micontexto.SaveChanges();
+           
+           }
+        }
 
         //private void button_Clicevk(object sender, RoutedEventArgs e)
         //{
