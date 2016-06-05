@@ -64,6 +64,7 @@ C:\Nomina1.0\Nomina1.0\bin\Debug\Antlr3.Runtime.pdb
 C:\Nomina1.0\Nomina1.0\bin\Debug\EntityFramework.xml
 C:\Nomina1.0\Nomina1.0\bin\Debug\MahApps.Metro.pdb
 C:\Nomina1.0\Nomina1.0\bin\Debug\MahApps.Metro.xml
+C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.csprojResolveAssemblyReference.cache
 C:\Nomina1.0\Nomina1.0\obj\Debug\Interop.MSScriptControl.dll
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.csproj.ResolveComReference.cache
 C:\Nomina1.0\Nomina1.0\obj\Debug\Resources\Icons.baml
@@ -87,4 +88,3 @@ C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1._0.Properties.Resources.resources
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.csproj.GenerateResource.Cache
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.exe
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.pdb
-C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.csprojResolveAssemblyReference.cache

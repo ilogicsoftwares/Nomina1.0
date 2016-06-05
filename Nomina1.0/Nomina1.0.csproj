@@ -92,9 +92,10 @@
     <Compile Include="conceptos.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\TrabajadorController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ViewModelBase.cs" />
+    <Compile Include="ViewModel\PrincipalViewModel.cs" />
+    <Compile Include="ViewModel\TrabajadorViewModel.cs" />
+    <Compile Include="ViewModel\UserController.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="Datos.cs" />
     <Compile Include="departamentos.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
@@ -135,6 +136,7 @@
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="RadioBoolToIntConverter.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="tipocuenta.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
