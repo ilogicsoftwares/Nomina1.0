@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
+using System.Windows.Controls;
 
 namespace Nomina1._0.ViewModel
 {
@@ -24,43 +24,85 @@ namespace Nomina1._0.ViewModel
         public static List<tipocuenta> Ltipoc { get { return Datos.Micontexto.tipocuenta.ToList(); } }
 
         nominaEntities bd = Datos.Micontexto;
-        public RelayCommand AgregarTrabCommand { get; set; }
+
         public TrabajadorViewModel()
         {
-
-            CargaListasyComandos();
-            TrabajadorActual = new trabajador();
-            
+            Nuevo();
 
         }
-        public TrabajadorViewModel(string cedula)
-        {
-            CargaListasyComandos();
-            TrabajadorActual = bd.trabajador.FirstOrDefault(x => x.cedula == cedula);
-        }
 
-        void CargaListasyComandos()
-        {
-           
-            AgregarTrabCommand = new RelayCommand(Agregar);
-        }
-
+     
         private trabajador _TrabajadorActual;
         public trabajador TrabajadorActual
         {
             get { return _TrabajadorActual; }
             set { _TrabajadorActual = value; }
-        }
-       
 
+        }
+
+               
      
-        void Agregar(object parameter)
+        public void Guardar()
         {
-            bd.trabajador.Add((trabajador)parameter);
-            bd.SaveChanges();
+            try
+            {
+             
+                bd.trabajador.Add(TrabajadorActual);
+                bd.SaveChanges();
+                MessageBox.Show("Datos Guardados Exitosamente");
+                Nuevo();
+            }catch(Exception exc)
+            {
+                MessageBox.Show(exc.ToString()); 
+            }
         }
 
+        public void Nuevo()
+        {
+            TrabajadorActual = new trabajador();
+            NotifyPropertyChanged("TrabajadorActual");
+            PrincipalViewModel.EstatusNuevo = true;
+        }
 
+       public  void Editar()
+
+        {
+            bd.SaveChanges();
+            MessageBox.Show("Datos Actualizados");
+
+        }
+
+        public void Buscar(string cedulax)
+        {
+
+            var bt = bd.trabajador.FirstOrDefault(x => x.cedula == cedulax);
+            if (bt != null)
+            {
+                TrabajadorActual = bt;
+                PrincipalViewModel.EstatusNuevo = false;
+                NotifyPropertyChanged("TrabajadorActual");
+            }
+            else
+            {
+                TrabajadorActual = new trabajador {cedula=cedulax };
+                PrincipalViewModel.EstatusNuevo = true;
+                NotifyPropertyChanged("TrabajadorActual");
+                
+            }
+        }
+
+        public void Filtro(string id)
+        {
+            int esto = Int32.Parse(id);
+            var bt = bd.trabajador.FirstOrDefault(x=>x.idtrabajador==esto);
+
+
+            TrabajadorActual = bt;
+            PrincipalViewModel.EstatusNuevo = false;
+            NotifyPropertyChanged("TrabajadorActual");
+
+
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
@@ -69,6 +111,7 @@ namespace Nomina1._0.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
 
     }
 }

@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace Nomina1._0
 {
     /// <summary>
-    /// Interaction logic for WindowOriginal.xaml
+    /// Lógica de interacción para WinJornada.xaml
     /// </summary>
-    public partial class WindowOriginal : Window
+    public partial class WinJornada
     {
-        public WindowOriginal()
+        public WinJornada()
         {
             InitializeComponent();
-        }
-
-        private void label_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
         }
     }
 }

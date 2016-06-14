@@ -7,6 +7,17 @@
     <Property Name="Idbanco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="campos">
+    <Key>
+      <PropertyRef Name="idcampo" />
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="idcampo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="valorinicial" Type="int" />
+    <Property Name="esReiniciado" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="cargo">
     <Key>
       <PropertyRef Name="idcargo" />
@@ -16,6 +27,7 @@
     <Property Name="Descripcion" Type="varchar" MaxLength="250" />
     <Property Name="conceptos" Type="varchar" MaxLength="100" />
     <Property Name="Iddepartamentos" Type="int" />
+    <Property Name="sidcargo" Type="varchar" MaxLength="7" Nullable="false" />
   </EntityType>
   <EntityType Name="conceptos">
     <Key>
@@ -34,6 +46,7 @@
     </Key>
     <Property Name="iddepartamentos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="estatus">
     <Key>
@@ -122,14 +135,6 @@
     <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
     <Property Name="tipoconcepto" Type="int" />
   </EntityType>
-  <EntityType Name="procedures">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nombre" Type="varchar" MaxLength="50" />
-    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
-  </EntityType>
   <EntityType Name="tipocuenta">
     <Key>
       <PropertyRef Name="idtipocuenta" />
@@ -143,8 +148,8 @@
     </Key>
     <Property Name="idtrabajador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="cedula" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="nombres" Type="varchar" MaxLength="100" />
-    <Property Name="apellidos" Type="varchar" MaxLength="100" />
+    <Property Name="nombres" Type="varchar" MaxLength="50" />
+    <Property Name="apellidos" Type="varchar" MaxLength="50" />
     <Property Name="idcargo" Type="int" />
     <Property Name="iddepartamentos" Type="int" />
     <Property Name="direccion" Type="varchar" MaxLength="250" />
@@ -153,7 +158,7 @@
     <Property Name="telefonocontacto" Type="varchar" MaxLength="12" />
     <Property Name="nombrecontacto" Type="varchar" MaxLength="50" />
     <Property Name="correo" Type="varchar" MaxLength="50" />
-    <Property Name="Sueldo" Type="double" />
+    <Property Name="Sueldo" Type="decimal" Precision="10" Scale="2" />
     <Property Name="idstatus" Type="int" />
     <Property Name="conceptos" Type="varchar" MaxLength="250" />
     <Property Name="sexo" Type="int" />
@@ -210,16 +215,6 @@
     </Key>
     <Property Name="usertypeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="variables">
-    <Key>
-      <PropertyRef Name="nombre" />
-    </Key>
-    <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="tipo" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="tamaño" Type="int" Nullable="false" />
-    <Property Name="valorinicial" Type="varchar" MaxLength="50" />
-    <Property Name="constante" Type="int" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -334,6 +329,7 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
   </Association>
   <EntityContainer Name="nominaModelStoreContainer">
     <EntitySet Name="bancos" EntityType="Self.bancos" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="campos" EntityType="Self.campos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
@@ -345,13 +341,11 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
     <EntitySet Name="nominatype" EntityType="Self.nominatype" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="nominauni" EntityType="Self.nominauni" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="prenomina" EntityType="Self.prenomina" Schema="nomina" store:Type="Tables" />
-    <EntitySet Name="procedures" EntityType="Self.procedures" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="tipocuenta" EntityType="Self.tipocuenta" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="trabajador" EntityType="Self.trabajador" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="usermenu" EntityType="Self.usermenu" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="users" EntityType="Self.users" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="usertype" EntityType="Self.usertype" Schema="nomina" store:Type="Tables" />
-    <EntitySet Name="variables" EntityType="Self.variables" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="varsys" EntityType="Self.varsys" store:Type="Tables" store:Schema="nomina">
       <DefiningQuery>SELECT
 `varsys`.`idtrabajador`, 

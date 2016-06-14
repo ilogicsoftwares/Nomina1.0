@@ -24,6 +24,7 @@ namespace Nomina1._0
         public string Descripcion { get; set; }
         public string conceptos { get; set; }
         public Nullable<int> Iddepartamentos { get; set; }
+        public string sidcargo { get; set; }
     
         public virtual ICollection<trabajador> trabajador { get; set; }
     }

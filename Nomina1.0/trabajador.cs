@@ -24,7 +24,7 @@ namespace Nomina1._0
         public string telefonocontacto { get; set; }
         public string nombrecontacto { get; set; }
         public string correo { get; set; }
-        public Nullable<double> Sueldo { get; set; }
+        public Nullable<decimal> Sueldo { get; set; }
         public string conceptos { get; set; }
         public Nullable<int> sexo { get; set; }
         public Nullable<System.DateTime> Fechaing { get; set; }

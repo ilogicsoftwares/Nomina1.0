@@ -12,12 +12,12 @@ namespace Nomina1._0
     using System;
     using System.Collections.Generic;
     
-    public partial class variables
+    public partial class campos
     {
+        public int idcampo { get; set; }
         public string nombre { get; set; }
-        public string tipo { get; set; }
-        public int tamaño { get; set; }
-        public string valorinicial { get; set; }
-        public Nullable<int> constante { get; set; }
+        public Nullable<int> valorinicial { get; set; }
+        public Nullable<int> esReiniciado { get; set; }
+        public string descripcion { get; set; }
     }
 }

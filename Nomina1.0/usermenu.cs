@@ -19,6 +19,7 @@ namespace Nomina1._0
         public Nullable<int> Tipo { get; set; }
         public string Pariente { get; set; }
         public string Accion { get; set; }
+        public string Parametros { get; set; }
         public Nullable<int> Seleccionado { get; set; }
         public Nullable<int> hijos { get; set; }
         public Nullable<int> idusuario { get; set; }
@@ -26,6 +27,5 @@ namespace Nomina1._0
         public Nullable<int> Editar { get; set; }
         public Nullable<int> Eliminar { get; set; }
         public int Idmenu { get; set; }
-        public string Parametros { get; set; }
     }
 }

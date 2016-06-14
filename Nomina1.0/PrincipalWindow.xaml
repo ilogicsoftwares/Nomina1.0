@@ -5,15 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Nomina1._0"
+        xmlns:vm="clr-namespace:Nomina1._0.ViewModel"
+        
         mc:Ignorable="d"
         Title="Ilogic Softwares Nomina" Height="355.814" Width="441.86" WindowStartupLocation="CenterOwner" WindowState="Maximized">
+    <Window.DataContext>
+        <vm:PrincipalViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <Grid Name="grid1" Height="29" VerticalAlignment="Top">
-        <Grid Height="26" Margin="0,31,0,-28" VerticalAlignment="Top">
-            <Button x:Name="CommandNuevo" Content="Nuevo" HorizontalAlignment="Left" Width="75" Margin="0,0,0,1" Click="CommandNuevo_Click"/>
-            <Button x:Name="CommandGuardar" Content="Guardar" HorizontalAlignment="Left" Width="75" Margin="75,0,0,0" Click="CommandGuardar_Click" Height="25" VerticalAlignment="Top"/>
-            <Button x:Name="CommandEliminar" Content="Eliminar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="150,0,0,0" Click="CommandEliminar_Click"/>
-            <Button x:Name="CommandNuevo_Copy" Content="&lt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="225,0,0,0" Click="CommandNuevo_Copy_Click"/>
-            <Button x:Name="CommandNuevo_Copy1" Content="&gt;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="300,0,0,0" Click="CommandNuevo_Copy1_Click"/>
+        <Grid Height="35" Margin="0,31,1,-37" VerticalAlignment="Top">
+            <Button x:Name="CommandGuardar"  HorizontalAlignment="Left" Width="35" Margin="28,0,0,0" Command="{Binding GuardarEntidadCommand}" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Guardar(Ctrl+G)">
+                <Rectangle Width="15"
+                Height="15"
+                Fill="Teal">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                          Visual="{DynamicResource appbar_save}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="CommandNuevo"  Command="{Binding NuevaEntidadCommand}"  HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Nuevo(Ctrl+N)">
+                <Rectangle Width="15"
+                Height="15"
+                Fill="Teal">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                          Visual="{DynamicResource appbar_add}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="CommandGuardar_Copy"  HorizontalAlignment="Left" Width="35" Margin="56,0,0,0" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Buscar(Ctrl+B)" Click="CommandGuardar_Copy_Click">
+                <Rectangle Width="15"
+            		Height="15"
+            		Fill="Teal">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+            				Visual="{DynamicResource appbar_magnify }" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+
         </Grid>
+
+
+
     </Grid>
+
+
+
+
 </Controls:MetroWindow>

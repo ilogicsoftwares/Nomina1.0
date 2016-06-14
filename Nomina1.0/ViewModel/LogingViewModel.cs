@@ -8,15 +8,15 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Nomina1._0.Controllers
+namespace Nomina1._0.ViewModel
 {
-  public  class UserController
+  public  class LogingViewModel
     {
        static nominaEntities userContext = Datos.Micontexto;
        public static Menu UserMenu=new Menu();
       
       public static RoutedCommand CustomRoutedCommand = new RoutedCommand();
-        public UserController()
+        public LogingViewModel()
         {
             CargarUsuarios();
 
@@ -139,8 +139,13 @@ var Hijos = userContext.usermenu.Where(x => x.idusuario == UsuarioActivo.idusuar
                                            .Where(x => x.id == uid)
                                            .OrderBy(q => q.id)
                                            .ToList();
-                EjecutarFuncion(Item[0].Accion, Item[0].Parametros);
-               
+                if (Item[0].Accion == "AbrirWindow")
+                {
+                    Datos.EjecutarFuncion(Item[0].Accion, Item[0].Nombre + "," + Item[0].Parametros);
+                }else
+                {
+                    Datos.EjecutarFuncion(Item[0].Accion,Item[0].Parametros);
+                }
             }
             catch (Exception ex)
             {
@@ -148,28 +153,7 @@ var Hijos = userContext.usermenu.Where(x => x.idusuario == UsuarioActivo.idusuar
             }
         }
 
-        private static void EjecutarFuncion(string accion, string parametros)
-        {
-            try
-            {
-
-               object[] param = null;
-                if (parametros != null)
-                {
-                    
-                   param = parametros.Split(',');
-                
-                }
-            Type type = typeof(Datos);
-            object instance = Activator.CreateInstance(type);
-            MethodInfo method = type.GetMethod(accion);
-            method.Invoke(instance, param);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error Inesperado: " + ex.ToString());
-            }
-        }
+       
 
         public static void CanExecuteCustomCommand(object sender,
     CanExecuteRoutedEventArgs e)

@@ -1,31 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Data.Entity;
-using System.Collections;
-using Nomina1._0.Controllers;
 using MahApps.Metro.Controls;
+using Nomina1._0.ViewModel;
 
 namespace Nomina1._0
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-  
+
     public partial class MainWindow:MetroWindow 
     {
-        public UserController initUser = new UserController();
+        public LogingViewModel initUser = new LogingViewModel();
         public MainWindow()
         {
             this.WindowStyle = WindowStyle.ThreeDBorderWindow;
@@ -39,8 +25,8 @@ namespace Nomina1._0
             {
                 if (passwordBox.Password.Trim() == comboBox.SelectedValuePath.ToString().Trim())
                 {
-                    UserController.UsuarioActivo = initUser.UsuarioActual;
-                    Datos.AbrirWindow("PrincipalWindow","0");
+                    LogingViewModel.UsuarioActivo = initUser.UsuarioActual;
+                    Datos.AbrirWindow("Ilogic Softwares Nomina -"+" Usuario: " + LogingViewModel.UsuarioActivo.descripcion,"PrincipalWindow","0");
                     Close();
                     Mensaje.Content = "";
                   

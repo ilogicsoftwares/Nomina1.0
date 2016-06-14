@@ -56,6 +56,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.5840.25917, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.6\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
@@ -86,17 +90,16 @@
     <Compile Include="bancos.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="campos.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
     <Compile Include="cargo.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="conceptos.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\PrincipalViewModel.cs" />
-    <Compile Include="ViewModel\TrabajadorViewModel.cs" />
-    <Compile Include="ViewModel\UserController.cs" />
-    <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="Datos.cs" />
+    <Compile Include="Consultas.cs" />
     <Compile Include="departamentos.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
@@ -106,15 +109,11 @@
     <Compile Include="gradointruc.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="IProcedimientos.cs" />
     <Compile Include="jornada.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="nacionalidad.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Nomina.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="nominaini.cs">
@@ -129,20 +128,34 @@
     <Compile Include="prenomina.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
-    <Compile Include="PrincipalWindow.xaml.cs">
-      <DependentUpon>PrincipalWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="procedures.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RadioBoolToIntConverter.cs" />
-    <Compile Include="RelayCommand.cs" />
     <Compile Include="tipocuenta.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="trabajador.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="varsys.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\CamposViewModel.cs" />
+    <Compile Include="ViewModel\CargoViewModel.cs" />
+    <Compile Include="ViewModel\DepartViewModel.cs" />
+    <Compile Include="ViewModel\ModelBase.cs" />
+    <Compile Include="ViewModel\PrincipalViewModel.cs" />
+    <Compile Include="ViewModel\TrabajadorViewModel.cs" />
+    <Compile Include="ViewModel\LogingViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="Datos.cs" />
+    <Compile Include="Nomina.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrincipalWindow.xaml.cs">
+      <DependentUpon>PrincipalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RadioBoolToIntConverter.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="usermenu.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
@@ -152,14 +165,23 @@
     <Compile Include="usertype.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
-    <Compile Include="variables.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+    <Compile Include="WinBusqueda.xaml.cs">
+      <DependentUpon>WinBusqueda.xaml</DependentUpon>
     </Compile>
-    <Compile Include="varsys.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+    <Compile Include="WinCampos.xaml.cs">
+      <DependentUpon>WinCampos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WindowOriginal.xaml.cs">
-      <DependentUpon>WindowOriginal.xaml</DependentUpon>
+    <Compile Include="WinCargo.xaml.cs">
+      <DependentUpon>WinCargo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinDepartamento.xaml.cs">
+      <DependentUpon>WinDepartamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinJornada.xaml.cs">
+      <DependentUpon>WinJornada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinNomina.xaml.cs">
+      <DependentUpon>WinNomina.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinTrabajador.xaml.cs">
       <DependentUpon>WinTrabajador.xaml</DependentUpon>
@@ -188,7 +210,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="WindowOriginal.xaml">
+    <Page Include="WinBusqueda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinCampos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinCargo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinDepartamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinJornada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinNomina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,6 +315,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

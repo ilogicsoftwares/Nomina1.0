@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Nomina1._0.Controllers
+namespace Nomina1._0.ViewModel
 {
-    class ViewModelBase : INotifyPropertyChanged
+   public class ViewModelBase : INotifyPropertyChanged
     {
 
 
