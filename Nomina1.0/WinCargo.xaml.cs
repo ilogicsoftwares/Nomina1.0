@@ -21,13 +21,18 @@ namespace Nomina1._0
         {
             PrincipalViewModel.ObjetoActual = (CargoViewModel)DataContext;
             Datos.WindowActual = this;
-            Datos.SelectQuery ="new(sidcargo as Codigo,Nombre,Descripcion,departamentos.Descripcion as Departamento,conceptos as Conceptos )";
+            Datos.SelectQuery ="new(idcargo as ID,sidcargo as Codigo,Nombre,Descripcion,departamentos.Descripcion as Departamento,conceptos as Conceptos )";
             Datos.ObjectType = "cargo";
         }
 
         private void textBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
 
+        }
+
+        private void MetroWindow_Closed(object sender, System.EventArgs e)
+        {
+            Datos.ResetAll();
         }
     }
 }

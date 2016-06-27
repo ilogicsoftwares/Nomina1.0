@@ -139,8 +139,11 @@
     </Compile>
     <Compile Include="ViewModel\CamposViewModel.cs" />
     <Compile Include="ViewModel\CargoViewModel.cs" />
+    <Compile Include="ViewModel\ConceptosListViewModel.cs" />
+    <Compile Include="ViewModel\ConceptosViewModel.cs" />
     <Compile Include="ViewModel\DepartViewModel.cs" />
     <Compile Include="ViewModel\ModelBase.cs" />
+    <Compile Include="ViewModel\NominaViewModel.cs" />
     <Compile Include="ViewModel\PrincipalViewModel.cs" />
     <Compile Include="ViewModel\TrabajadorViewModel.cs" />
     <Compile Include="ViewModel\LogingViewModel.cs" />
@@ -173,6 +176,9 @@
     </Compile>
     <Compile Include="WinCargo.xaml.cs">
       <DependentUpon>WinCargo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinConceptos.xaml.cs">
+      <DependentUpon>WinConceptos.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinDepartamento.xaml.cs">
       <DependentUpon>WinDepartamento.xaml</DependentUpon>
@@ -219,6 +225,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinCargo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinConceptos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

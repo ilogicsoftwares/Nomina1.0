@@ -16,6 +16,7 @@ namespace Nomina1._0
     {
         public departamentos()
         {
+            this.cargo = new HashSet<cargo>();
             this.trabajador = new HashSet<trabajador>();
         }
     
@@ -23,6 +24,7 @@ namespace Nomina1._0
         public string Descripcion { get; set; }
         public string codigo { get; set; }
     
+        public virtual ICollection<cargo> cargo { get; set; }
         public virtual ICollection<trabajador> trabajador { get; set; }
     }
 }

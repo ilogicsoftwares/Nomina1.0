@@ -121,6 +121,7 @@ C:\Nomina1.0\Nomina1.0\obj\Debug\PrincipalWindow.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinBusqueda.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinCampos.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinCargo.g.cs
+C:\Nomina1.0\Nomina1.0\obj\Debug\WinConceptos.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinDepartamento.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinJornada.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinNomina.g.cs
@@ -136,6 +137,7 @@ C:\Nomina1.0\Nomina1.0\obj\Debug\PrincipalWindow.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinBusqueda.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinCampos.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinCargo.baml
+C:\Nomina1.0\Nomina1.0\obj\Debug\WinConceptos.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinDepartamento.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinJornada.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinNomina.baml

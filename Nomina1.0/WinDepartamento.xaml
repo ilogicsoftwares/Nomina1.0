@@ -13,7 +13,7 @@
                       ResizeMode="CanResizeWithGrip"
                       TextOptions.TextFormattingMode="Display"
                       WindowStartupLocation="CenterScreen"
-        Title="Departamentos" Height="129" Width="402.632" Activated="MetroWindow_Activated_1">
+        Title="Departamentos" Height="129" Width="402.632" Activated="MetroWindow_Activated_1" Closed="MetroWindow_Closed">
     <Window.DataContext>
         <vm:DepartViewModel/>
     </Window.DataContext>
@@ -24,7 +24,7 @@
             <ColumnDefinition Width="35*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="label" Content="Codigo:" Margin="0,15,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Height="25"/>
-        <TextBox x:Name="textBox" Grid.Column="1" Height="26" Margin="0,14,0,0" TextWrapping="Wrap" Text="{Binding DepartActual.codigo,Mode=OneTime,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122" LostFocus="textBox_LostFocus_1"/>
+        <TextBox x:Name="textBox" Grid.Column="1" Height="26" Margin="0,14,0,0" TextWrapping="Wrap" Text="{Binding DepartActual.codigo,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="122" LostFocus="textBox_LostFocus_1"/>
         <Label x:Name="label_Copy" Content="Nombre:" Margin="0,46,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Height="25"/>
         <TextBox x:Name="textBox_Copy" Grid.Column="1" Height="26" Margin="0,45,0,0" TextWrapping="Wrap" Text="{Binding DepartActual.Descripcion,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
 

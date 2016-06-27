@@ -30,7 +30,7 @@ namespace Nomina1._0
             PrincipalViewModel.ObjetoActual = (TrabajadorViewModel)DataContext;
             Datos.WindowActual = this;
             Datos.ObjectType = "trabajador";
-            Datos.SelectQuery = "new(idtrabajador as Codigo, nombres as Nombres, apellidos as Apellidos, cedula as Cedula, departamentos.Descripcion as Departamento, cargo.Nombre as Cargo, Sueldo)";
+            Datos.SelectQuery = "new(idtrabajador as ID, nombres as Nombres, apellidos as Apellidos, cedula as Cedula,nominatype.descripcion as Nomina, departamentos.Descripcion as Departamento, cargo.Nombre as Cargo, Sueldo)";
 
 
 

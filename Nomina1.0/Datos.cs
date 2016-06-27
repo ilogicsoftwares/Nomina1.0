@@ -157,13 +157,13 @@ namespace Nomina1._0
         }
         public static void Guardado()
         {
-            WindowActual.Topmost = true;
-            WindowActual.ShowMessageAsync("Guardado","Se han Guardado los Datos con Exito!",MessageDialogStyle.Affirmative);
+
+            MessageBox.Show("Datos Guardados!","Guardar",MessageBoxButton.OK,MessageBoxImage.Information);
          
         }
         public static void Actualizado()
         {
-            _PrincipalWindow.ShowMessageAsync("Actualizado", "Se han Actualizado los Datos!", MessageDialogStyle.Affirmative);
+            MessageBox.Show("Datos Actualizados!", "Actualiar", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public static void EjecutarFuncion(string accion, string parametros)
@@ -188,6 +188,8 @@ namespace Nomina1._0
                 MessageBox.Show("Error Inesperado: " + ex.ToString());
             }
         }
+
+        
 
         public static void AFuncion(object objeto,string accion, string parametros)
         {

@@ -20,5 +20,6 @@ namespace Nomina1._0
         public string descripcion { get; set; }
         public Nullable<int> tipo { get; set; }
         public string Valor { get; set; }
+        public string codigo { get; set; }
     }
 }

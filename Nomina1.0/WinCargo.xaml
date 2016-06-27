@@ -13,7 +13,7 @@
                       ResizeMode="CanResizeWithGrip"
                       TextOptions.TextFormattingMode="Display"
                       WindowStartupLocation="CenterScreen"
-        Title="Cargos" Height="172.556" Width="402.632" Activated="MetroWindow_Activated">
+        Title="Cargos" Height="172.556" Width="402.632" Activated="MetroWindow_Activated" Closed="MetroWindow_Closed">
     <Window.DataContext>
         <vm:CargoViewModel/>
     </Window.DataContext>
@@ -29,7 +29,7 @@
         <TextBox x:Name="textBox_Copy" Grid.Column="1" Height="23" Margin="0,41,0,0" TextWrapping="Wrap" Text="{Binding CargoActual.Nombre,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy1" Content="Descripción:" Margin="0,71,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Height="25"/>
         <TextBox x:Name="textBox_Copy1" Grid.Column="1" Height="23" Margin="0,72,0,0" TextWrapping="Wrap" Text="{Binding CargoActual.Descripcion,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox" Grid.Column="1" Margin="0,103,0,0" VerticalAlignment="Top" ItemsSource="{Binding Ldepart}" DisplayMemberPath="Descripcion" SelectedValue="{Binding CargoActual.Iddepartamentos}" SelectedValuePath="iddepartamentos"/>
+        <ComboBox x:Name="comboBox" Grid.Column="1" Margin="0,103,0,0" VerticalAlignment="Top" ItemsSource="{Binding Ldepart}" DisplayMemberPath="Descripcion" SelectedValue="{Binding CargoActual.departamentos}"/>
         <Label x:Name="label_Copy2" Content="Departamento:" Margin="0,101,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Height="25"/>
 
     </Grid>

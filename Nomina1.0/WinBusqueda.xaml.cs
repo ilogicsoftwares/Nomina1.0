@@ -61,7 +61,7 @@ namespace Nomina1._0
         {
             //  Datos.AFuncion(PrincipalViewModel.ObjetoActual, "Filtro",selectedObject.GetType().GetProperty("Id").GetValue(selectedObject).ToString());
             
-            var _id = objetoActual.Codigo;
+            var _id = objetoActual.ID;
             if (_id != 0)
             {
                 Datos.AFuncion(PrincipalViewModel.ObjetoActual, "Filtro", _id.ToString());
@@ -71,7 +71,16 @@ namespace Nomina1._0
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            filtrarpor(comboBox.Text, textBox.Text);
+            if (textBox.Text==string.Empty)
+            {
+
+                dataGrid.DataContext = ConsultaInicial.ToArray();
+            }
+            else
+            {
+                filtrarpor(comboBox.Text, textBox.Text);
+            }
+          
         
            
 
@@ -93,8 +102,8 @@ namespace Nomina1._0
 
         private void filtrarpor(string Campo,object valor)
         {
-            if (Campo==string.Empty) { MessageBox.Show("Selecciones un Campo para Filtrar"); return; }
-          
+            if (Campo==string.Empty ) { MessageBox.Show("Selecciones un Campo para Filtrar"); return; }
+            if (valor.ToString()==string.Empty) { dataGrid.DataContext = ConsultaInicial.ToArray(); }
             try
             {
                 IEnumerable<dynamic> x = ConsultaInicial.Where(Campo + ".Contains(@0)", valor) as IEnumerable<dynamic>;

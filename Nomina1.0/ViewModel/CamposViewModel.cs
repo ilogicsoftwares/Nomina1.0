@@ -64,7 +64,7 @@ namespace Nomina1._0.ViewModel
 
         {
             bd.SaveChanges();
-            MessageBox.Show("Datos Actualizados");
+            Datos.Actualizado();
 
         }
 

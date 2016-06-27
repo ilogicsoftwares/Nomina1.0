@@ -6,15 +6,11 @@
     <EntitySet Name="usertype" EntityType="nominaModel.usertype" />
     <EntitySet Name="bancos" EntityType="nominaModel.bancos" />
     <EntitySet Name="campos" EntityType="nominaModel.campos" />
-    <EntitySet Name="cargo" EntityType="nominaModel.cargo" />
-    <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
-    <EntitySet Name="departamentos" EntityType="nominaModel.departamentos" />
     <EntitySet Name="estatus" EntityType="nominaModel.estatus" />
     <EntitySet Name="gradointruc" EntityType="nominaModel.gradointruc" />
     <EntitySet Name="jornada" EntityType="nominaModel.jornada" />
     <EntitySet Name="nacionalidad" EntityType="nominaModel.nacionalidad" />
     <EntitySet Name="nominaini" EntityType="nominaModel.nominaini" />
-    <EntitySet Name="nominatype" EntityType="nominaModel.nominatype" />
     <EntitySet Name="nominauni" EntityType="nominaModel.nominauni" />
     <EntitySet Name="prenomina" EntityType="nominaModel.prenomina" />
     <EntitySet Name="tipocuenta" EntityType="nominaModel.tipocuenta" />
@@ -22,14 +18,6 @@
     <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
     <AssociationSet Name="Trabajadoridbanco" Association="nominaModel.Trabajadoridbanco">
       <End Role="bancos" EntitySet="bancos" />
-      <End Role="trabajador" EntitySet="trabajador" />
-    </AssociationSet>
-    <AssociationSet Name="TrabajadorCargo" Association="nominaModel.TrabajadorCargo">
-      <End Role="cargo" EntitySet="cargo" />
-      <End Role="trabajador" EntitySet="trabajador" />
-    </AssociationSet>
-    <AssociationSet Name="TrabajadorDepart" Association="nominaModel.TrabajadorDepart">
-      <End Role="departamentos" EntitySet="departamentos" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
     <AssociationSet Name="TrabajadorEstatus" Association="nominaModel.TrabajadorEstatus">
@@ -44,14 +32,30 @@
       <End Role="nacionalidad" EntitySet="nacionalidad" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
-    <AssociationSet Name="TrabajadorNomina" Association="nominaModel.TrabajadorNomina">
-      <End Role="nominatype" EntitySet="nominatype" />
-      <End Role="trabajador" EntitySet="trabajador" />
-    </AssociationSet>
     <AssociationSet Name="TrabajadorTipoc" Association="nominaModel.TrabajadorTipoc">
       <End Role="tipocuenta" EntitySet="tipocuenta" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
+    <EntitySet Name="cargo" EntityType="nominaModel.cargo" />
+    <EntitySet Name="departamentos" EntityType="nominaModel.departamentos" />
+    <AssociationSet Name="cargodepart" Association="nominaModel.cargodepart">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="cargo" EntitySet="cargo" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorCargo" Association="nominaModel.TrabajadorCargo">
+      <End Role="cargo" EntitySet="cargo" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorDepart" Association="nominaModel.TrabajadorDepart">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <EntitySet Name="nominatype" EntityType="nominaModel.nominatype" />
+    <AssociationSet Name="TrabajadorNomina" Association="nominaModel.TrabajadorNomina">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
   </EntityContainer>
   <EntityType Name="usermenu">
     <Key>
@@ -113,38 +117,6 @@
     <Property Name="esReiniciado" Type="Int32" />
     <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="cargo">
-    <Key>
-      <PropertyRef Name="idcargo" />
-    </Key>
-    <Property Name="idcargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-    <Property Name="conceptos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Iddepartamentos" Type="Int32" />
-    <Property Name="sidcargo" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorCargo" FromRole="cargo" ToRole="trabajador" />
-  </EntityType>
-  <EntityType Name="conceptos">
-    <Key>
-      <PropertyRef Name="idconcepto" />
-    </Key>
-    <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="variante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="tipo" Type="Int32" />
-    <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="departamentos">
-    <Key>
-      <PropertyRef Name="iddepartamentos" />
-    </Key>
-    <Property Name="iddepartamentos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="codigo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorDepart" FromRole="departamentos" ToRole="trabajador" />
-  </EntityType>
   <EntityType Name="estatus">
     <Key>
       <PropertyRef Name="idestatus" />
@@ -196,16 +168,6 @@
     <Property Name="desde" Type="DateTime" />
     <Property Name="hasta" Type="DateTime" />
     <Property Name="estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="nominatype">
-    <Key>
-      <PropertyRef Name="idnomina" />
-    </Key>
-    <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="intervalo" Type="Int32" Nullable="false" />
-    <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
   </EntityType>
   <EntityType Name="nominauni">
     <Key>
@@ -282,24 +244,16 @@
     <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="numerocuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="bancos" Relationship="nominaModel.Trabajadoridbanco" FromRole="trabajador" ToRole="bancos" />
-    <NavigationProperty Name="cargo" Relationship="nominaModel.TrabajadorCargo" FromRole="trabajador" ToRole="cargo" />
-    <NavigationProperty Name="departamentos" Relationship="nominaModel.TrabajadorDepart" FromRole="trabajador" ToRole="departamentos" />
     <NavigationProperty Name="estatus" Relationship="nominaModel.TrabajadorEstatus" FromRole="trabajador" ToRole="estatus" />
     <NavigationProperty Name="gradointruc" Relationship="nominaModel.Trabajadorgrado" FromRole="trabajador" ToRole="gradointruc" />
     <NavigationProperty Name="nacionalidad" Relationship="nominaModel.TrabajadorNac" FromRole="trabajador" ToRole="nacionalidad" />
-    <NavigationProperty Name="nominatype" Relationship="nominaModel.TrabajadorNomina" FromRole="trabajador" ToRole="nominatype" />
     <NavigationProperty Name="tipocuenta" Relationship="nominaModel.TrabajadorTipoc" FromRole="trabajador" ToRole="tipocuenta" />
+    <NavigationProperty Name="cargo" Relationship="nominaModel.TrabajadorCargo" FromRole="trabajador" ToRole="cargo" />
+    <NavigationProperty Name="departamentos" Relationship="nominaModel.TrabajadorDepart" FromRole="trabajador" ToRole="departamentos" />
+    <NavigationProperty Name="nominatype" Relationship="nominaModel.TrabajadorNomina" FromRole="trabajador" ToRole="nominatype" />
   </EntityType>
   <Association Name="Trabajadoridbanco">
     <End Type="nominaModel.bancos" Role="bancos" Multiplicity="0..1" />
-    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
-  </Association>
-  <Association Name="TrabajadorCargo">
-    <End Type="nominaModel.cargo" Role="cargo" Multiplicity="0..1" />
-    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
-  </Association>
-  <Association Name="TrabajadorDepart">
-    <End Type="nominaModel.departamentos" Role="departamentos" Multiplicity="0..1" />
     <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
   </Association>
   <Association Name="TrabajadorEstatus">
@@ -314,12 +268,69 @@
     <End Type="nominaModel.nacionalidad" Role="nacionalidad" Multiplicity="0..1" />
     <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
   </Association>
-  <Association Name="TrabajadorNomina">
-    <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="0..1" />
-    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
-  </Association>
   <Association Name="TrabajadorTipoc">
     <End Type="nominaModel.tipocuenta" Role="tipocuenta" Multiplicity="0..1" />
     <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
   </Association>
+  <EntityType Name="cargo">
+    <Key>
+      <PropertyRef Name="idcargo" />
+    </Key>
+    <Property Name="idcargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="conceptos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="sidcargo" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="departamentos" Relationship="nominaModel.cargodepart" FromRole="cargo" ToRole="departamentos" />
+    <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorCargo" FromRole="cargo" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="departamentos">
+    <Key>
+      <PropertyRef Name="iddepartamentos" />
+    </Key>
+    <Property Name="iddepartamentos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cargo" Relationship="nominaModel.cargodepart" FromRole="departamentos" ToRole="cargo" />
+    <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorDepart" FromRole="departamentos" ToRole="trabajador" />
+  </EntityType>
+  <Association Name="cargodepart">
+    <End Type="nominaModel.departamentos" Role="departamentos" Multiplicity="0..1" />
+    <End Type="nominaModel.cargo" Role="cargo" Multiplicity="*" />
+  </Association>
+  <Association Name="TrabajadorCargo">
+    <End Type="nominaModel.cargo" Role="cargo" Multiplicity="0..1" />
+    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+  </Association>
+  <Association Name="TrabajadorDepart">
+    <End Type="nominaModel.departamentos" Role="departamentos" Multiplicity="0..1" />
+    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+  </Association>
+  <EntityType Name="nominatype">
+    <Key>
+      <PropertyRef Name="idnomina" />
+    </Key>
+    <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="intervalo" Type="Int32" Nullable="false" />
+    <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="scodigo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
+  </EntityType>
+  <Association Name="TrabajadorNomina">
+    <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="0..1" />
+    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+  </Association>
+  <EntityType Name="conceptos">
+    <Key>
+      <PropertyRef Name="idconcepto" />
+    </Key>
+    <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="variante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

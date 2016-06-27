@@ -92,6 +92,19 @@ namespace Nomina1._0.ViewModel
 
               }
           }
+        public void Filtro(string id)
+        {
+        
+            int esto = Int32.Parse(id);
+            var bt = bd.cargo.FirstOrDefault(x => x.idcargo == esto);
+            bd.Entry(bt).Reload();
+
+            CargoActual = bt;
+            PrincipalViewModel.EstatusNuevo = false;
+            NotifyPropertyChanged("CargoActual");
+
+
+        }
         #endregion
         #region Implementation
         public event PropertyChangedEventHandler PropertyChanged;

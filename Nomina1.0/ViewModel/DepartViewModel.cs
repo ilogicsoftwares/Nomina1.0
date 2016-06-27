@@ -30,7 +30,7 @@ namespace Nomina1._0.ViewModel
             set
             {
                 _DepartActual = value;
-                NotifyPropertyChanged();
+                NotifyPropertyChanged("DepartActual");
             }
         }
 
@@ -42,7 +42,7 @@ namespace Nomina1._0.ViewModel
             {
                 bd.departamentos.Add(DepartActual);
                 bd.SaveChanges();
-                MessageBox.Show("Datos Guardados Exitosamente");
+                Datos.Guardado();
                 Nuevo();
             }
             catch (Exception)
@@ -62,7 +62,7 @@ namespace Nomina1._0.ViewModel
 
         {
             bd.SaveChanges();
-            MessageBox.Show("Datos Actualizados");
+            Datos.Actualizado();
 
         }
 
@@ -85,7 +85,19 @@ namespace Nomina1._0.ViewModel
             }
         }
         #endregion
+        public void Filtro(string id)
+        {
+         
+            int esto = Int32.Parse(id);
+            var bt = bd.departamentos.FirstOrDefault(x => x.iddepartamentos == esto);
+            bd.Entry(bt).Reload();
 
+            DepartActual = bt;
+            PrincipalViewModel.EstatusNuevo = false;
+            NotifyPropertyChanged("DepartActual");
+
+
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")

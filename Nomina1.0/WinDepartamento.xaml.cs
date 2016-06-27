@@ -25,6 +25,14 @@ namespace Nomina1._0
         {
             PrincipalViewModel.ObjetoActual = (DepartViewModel)DataContext;
             Datos.WindowActual = this;
+            Datos.ObjectType = "departamentos";
+            Datos.SelectQuery = "new(iddepartamentos as ID,codigo as Codigo, Descripcion as Nombre)";
+            
+        }
+
+        private void MetroWindow_Closed(object sender, System.EventArgs e)
+        {
+            Datos.ResetAll();
         }
     }
     

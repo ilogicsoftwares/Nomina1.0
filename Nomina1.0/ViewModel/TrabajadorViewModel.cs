@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.Entity.Validation;
 using System.Linq;
@@ -23,8 +24,9 @@ namespace Nomina1._0.ViewModel
         public static List<bancos> Lbanco { get { return Datos.Micontexto.bancos.ToList();}}
         public static List<tipocuenta> Ltipoc { get { return Datos.Micontexto.tipocuenta.ToList(); } }
 
-        nominaEntities bd = Datos.Micontexto;
 
+        nominaEntities bd = Datos.Micontexto;
+        
         public TrabajadorViewModel()
         {
             Nuevo();
@@ -36,12 +38,26 @@ namespace Nomina1._0.ViewModel
         public trabajador TrabajadorActual
         {
             get { return _TrabajadorActual; }
-            set { _TrabajadorActual = value; }
-
+            set { _TrabajadorActual = value;
+                ConceptosViewList = new ConceptosListViewModel(TrabajadorActual);
+                
+            }
+            
         }
 
-               
-     
+
+        private ConceptosListViewModel _ConceptosViewList;
+        public ConceptosListViewModel ConceptosViewList
+        {
+            get { return _ConceptosViewList; }
+            set
+            {
+                _ConceptosViewList = value;
+                NotifyPropertyChanged("ConceptosViewList");
+            }
+        }
+
+
         public void Guardar()
         {
             try
@@ -49,7 +65,7 @@ namespace Nomina1._0.ViewModel
              
                 bd.trabajador.Add(TrabajadorActual);
                 bd.SaveChanges();
-                MessageBox.Show("Datos Guardados Exitosamente");
+                Datos.Guardado();
                 Nuevo();
             }catch(Exception exc)
             {
@@ -60,6 +76,9 @@ namespace Nomina1._0.ViewModel
         public void Nuevo()
         {
             TrabajadorActual = new trabajador();
+           
+           
+                    
             NotifyPropertyChanged("TrabajadorActual");
             PrincipalViewModel.EstatusNuevo = true;
         }
@@ -68,13 +87,13 @@ namespace Nomina1._0.ViewModel
 
         {
             bd.SaveChanges();
-            MessageBox.Show("Datos Actualizados");
+            Datos.Actualizado();
 
         }
 
         public void Buscar(string cedulax)
         {
-
+           
             var bt = bd.trabajador.FirstOrDefault(x => x.cedula == cedulax);
             if (bt != null)
             {
@@ -93,9 +112,10 @@ namespace Nomina1._0.ViewModel
 
         public void Filtro(string id)
         {
+           
             int esto = Int32.Parse(id);
             var bt = bd.trabajador.FirstOrDefault(x=>x.idtrabajador==esto);
-
+            bd.Entry(bt).Reload(); // cargar sin cambios
 
             TrabajadorActual = bt;
             PrincipalViewModel.EstatusNuevo = false;

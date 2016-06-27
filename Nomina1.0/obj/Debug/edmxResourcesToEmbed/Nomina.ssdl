@@ -39,6 +39,7 @@
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
     <Property Name="tipo" Type="int" />
     <Property Name="Valor" Type="varchar" MaxLength="100" />
+    <Property Name="codigo" Type="varchar" MaxLength="15" Nullable="false" />
   </EntityType>
   <EntityType Name="departamentos">
     <Key>
@@ -105,6 +106,7 @@
     <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="intervalo" Type="int" Nullable="false" />
     <Property Name="conceptos" Type="varchar" MaxLength="250" />
+    <Property Name="scodigo" Type="varchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="nominauni">
     <Key>
@@ -231,6 +233,18 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
     <Property Name="vHR" Type="decimal" Precision="11" Scale="2" />
     <Property Name="vDFI" Type="decimal" Precision="11" Scale="2" />
   </EntityType>
+  <Association Name="cargodepart">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="0..1" />
+    <End Role="cargo" Type="Self.cargo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="iddepartamentos" />
+      </Principal>
+      <Dependent Role="cargo">
+        <PropertyRef Name="Iddepartamentos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="TrabajadorCargo">
     <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
     <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -358,6 +372,10 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
 `varsys`.`vDFI`
 FROM `varsys` AS `varsys`</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="cargodepart" Association="Self.cargodepart">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="cargo" EntitySet="cargo" />
+    </AssociationSet>
     <AssociationSet Name="TrabajadorCargo" Association="Self.TrabajadorCargo">
       <End Role="cargo" EntitySet="cargo" />
       <End Role="trabajador" EntitySet="trabajador" />

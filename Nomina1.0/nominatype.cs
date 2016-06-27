@@ -23,6 +23,7 @@ namespace Nomina1._0
         public string descripcion { get; set; }
         public int intervalo { get; set; }
         public string conceptos { get; set; }
+        public string scodigo { get; set; }
     
         public virtual ICollection<trabajador> trabajador { get; set; }
     }
