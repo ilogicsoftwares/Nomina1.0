@@ -36,7 +36,7 @@
         </Grid.ColumnDefinitions>
         <TextBox x:Name="textBox1" Grid.Column="1" Height="23" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding ConceptoActual.codigo,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" TextChanged="textBox1_TextChanged" LostFocus="textBox1_LostFocus"/>
         <TextBox x:Name="textBox1_Copy" Grid.Column="1" Height="23" Margin="0,41,0,0" TextWrapping="Wrap" Text="{Binding ConceptoActual.nombre,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="formula" Grid.Column="1" Height="62" Margin="0,72,0,0" TextWrapping="Wrap" Text="{Binding ConceptoActual.Valor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.ColumnSpan="2" IsReadOnly="True"/>
+        <TextBox x:Name="formula" Grid.Column="1" Height="62" Margin="0,72,0,0" TextWrapping="Wrap" Text="{Binding ConceptoActual.Valor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Button x:Name="CommandNuevo" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Agregar Elemento" Margin="0,0,0,121" Grid.Column="3" Height="35" VerticalAlignment="Bottom">
             <Rectangle Width="15"
         		Height="15"
@@ -47,7 +47,7 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <TextBox x:Name="textBox1_Copy2" Grid.Column="1" Height="23" Margin="0,139,0,0" TextWrapping="Wrap" Text="{Binding ConceptoActual.variante,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.ColumnSpan="2" IsReadOnly="True"/>
+        <TextBox x:Name="textBox1_Copy2" Grid.Column="1" Height="23" Margin="0,139,0,0" TextWrapping="Wrap" Text="{Binding ConceptoActual.variante,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <StackPanel Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="1,170,0,0" VerticalAlignment="Top" Width="218" Grid.ColumnSpan="2" Orientation="Horizontal">
             <RadioButton x:Name="radioButton" Content="Asignación" IsChecked="{Binding Path=ConceptoActual.tipo, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=1,UpdateSourceTrigger=PropertyChanged}" />
             <RadioButton x:Name="radioButton1" Content="Deducción" Margin="10,0,0,0" IsChecked="{Binding Path=ConceptoActual.tipo, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=2,UpdateSourceTrigger=PropertyChanged}" />

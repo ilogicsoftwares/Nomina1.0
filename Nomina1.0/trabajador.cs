@@ -14,6 +14,11 @@ namespace Nomina1._0
     
     public partial class trabajador
     {
+        public trabajador()
+        {
+            this.prenomina = new HashSet<prenomina>();
+        }
+    
         public int idtrabajador { get; set; }
         public string cedula { get; set; }
         public string nombres { get; set; }
@@ -36,12 +41,13 @@ namespace Nomina1._0
         public string numerocuenta { get; set; }
     
         public virtual bancos bancos { get; set; }
+        public virtual cargo cargo { get; set; }
+        public virtual departamentos departamentos { get; set; }
         public virtual estatus estatus { get; set; }
         public virtual gradointruc gradointruc { get; set; }
         public virtual nacionalidad nacionalidad { get; set; }
-        public virtual tipocuenta tipocuenta { get; set; }
-        public virtual cargo cargo { get; set; }
-        public virtual departamentos departamentos { get; set; }
         public virtual nominatype nominatype { get; set; }
+        public virtual tipocuenta tipocuenta { get; set; }
+        public virtual ICollection<prenomina> prenomina { get; set; }
     }
 }

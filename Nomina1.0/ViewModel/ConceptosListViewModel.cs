@@ -205,6 +205,14 @@ namespace Nomina1._0.ViewModel
             }
         }
 
+        public void CargaPorNomina(nominatype nomina)
+        {
+            if (nomina != null) { 
+            nominatype conceptosNom = Datos.Micontexto.nominatype.FirstOrDefault(x=>x.idnomina==nomina.idnomina);
+            this.Concepts = new ObservableCollection<string>(conceptosNom.conceptos.Split(','));
+            obtenernombres();
+            }
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

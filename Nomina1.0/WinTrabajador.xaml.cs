@@ -42,6 +42,12 @@ namespace Nomina1._0
         {
             Datos.ResetAll();
         }
+
+        private void comboNomina_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            TrabajadorViewModel tra = (TrabajadorViewModel)DataContext;
+            tra.ConceptosViewList.CargaPorNomina((nominatype)comboNomina.SelectedValue);
+        }
     }
     
 }

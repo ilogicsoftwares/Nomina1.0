@@ -81,7 +81,7 @@ namespace Nomina1._0.ViewModel
         }
         else
         {
-            ConceptoActual = new conceptos { nombre = texto };
+            ConceptoActual = new conceptos { codigo = texto };
             PrincipalViewModel.EstatusNuevo = true;
 
 

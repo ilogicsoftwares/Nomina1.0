@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Nomina1._0.ViewModel;
+using System.Linq;
+
 namespace Nomina1._0
 {
     /// <summary>
@@ -11,6 +13,7 @@ namespace Nomina1._0
         public WinConceptos()
         {
             InitializeComponent();
+         
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -30,6 +33,7 @@ namespace Nomina1._0
 
         private void MetroWindow_Activated(object sender, System.EventArgs e)
         {
+            
             PrincipalViewModel.ObjetoActual = (ConceptosViewModel)DataContext;
             Datos.WindowActual = this;
             Datos.ObjectType = "conceptos";

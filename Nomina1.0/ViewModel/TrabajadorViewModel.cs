@@ -40,11 +40,19 @@ namespace Nomina1._0.ViewModel
             get { return _TrabajadorActual; }
             set { _TrabajadorActual = value;
                 ConceptosViewList = new ConceptosListViewModel(TrabajadorActual);
-                
+                CamposViewList = new ListCamposModel(TrabajadorActual.idtrabajador);
             }
             
         }
 
+        private ListCamposModel _CamposViewList;
+        public ListCamposModel CamposViewList
+        {
+            get { return _CamposViewList;  }
+            set { _CamposViewList = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         private ConceptosListViewModel _ConceptosViewList;
         public ConceptosListViewModel ConceptosViewList
@@ -64,6 +72,19 @@ namespace Nomina1._0.ViewModel
             {
              
                 bd.trabajador.Add(TrabajadorActual);
+                bd.SaveChanges();
+                var Campos = bd.campos.ToList();
+                foreach(var camp in Campos)
+                {
+                    var camptra = new campotra
+                    {
+                        nombrecampo=camp.nombre,
+                        idtrabajador=TrabajadorActual.idtrabajador,
+                        valor=(decimal)camp.valorinicial
+                    };
+                    bd.campotra.Add(camptra);
+                }
+                
                 bd.SaveChanges();
                 Datos.Guardado();
                 Nuevo();

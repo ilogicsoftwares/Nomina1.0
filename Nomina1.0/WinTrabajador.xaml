@@ -75,7 +75,7 @@
         <TextBox x:Name="txthijos" Grid.Column="3" Height="26" Margin="0,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="13" Text="{Binding TrabajadorActual.Nhijos, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="label_Copy13" Content="Datos Laborales" Margin="0,276,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Left" Grid.ColumnSpan="3" FontWeight="Bold" HorizontalAlignment="Left" Width="374"/>
         <Label x:Name="label_Copy14" Content="Nomina:" Margin="0,307,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
-        <ComboBox x:Name="comboNomina" Grid.Column="1" Margin="0,307,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lnomina}"  SelectedValue="{Binding TrabajadorActual.nominatype, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="17"/>
+        <ComboBox x:Name="comboNomina" Grid.Column="1" Margin="0,307,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lnomina}"  SelectedValue="{Binding TrabajadorActual.nominatype, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="17" SelectionChanged="comboNomina_SelectionChanged"/>
         <Label x:Name="label_Copy15" Content="Tel. Local:" Margin="0,213,0,0" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88" Grid.Column="2"/>
         <TextBox x:Name="txtLocal" Grid.Column="3" Height="26" Margin="0,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="15" Text="{Binding TrabajadorActual.telefonolocal, Mode=TwoWay}"/>
         <Label x:Name="label_Copy16" Content="Tel. Celular:" Margin="0,182,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88" Grid.Column="2"/>
@@ -100,9 +100,9 @@
         <ComboBox x:Name="comboBoxestatus_Copy1" Grid.Column="3" Margin="0,416,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Ltipoc}"  SelectedValue="{Binding TrabajadorActual.tipocuenta, Mode=TwoWay}" Height="26" TabIndex="26"/>
         <Label x:Name="label_Copy26" Content="Conceptos:" Margin="59,0,240,136" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56" Grid.ColumnSpan="2" Height="28" VerticalAlignment="Bottom"/>
         <Label x:Name="label_Copy27" Content="Campos:" Margin="124,0,65,136" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56" Grid.Column="1" Height="25" VerticalAlignment="Bottom"/>
-        <ListBox x:Name="listBox_Copy" Margin="124,0,116,31" BorderBrush="Teal" BorderThickness="1" ItemsSource="{Binding Concepts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextOptions.TextHintingMode="Animated" SelectionMode="Multiple" Grid.Column="1" Grid.ColumnSpan="2" Height="105" VerticalAlignment="Bottom" />
+        <ListBox x:Name="listBox_Copy" Margin="124,0,116,31" BorderBrush="Teal" BorderThickness="1" ItemsSource="{Binding CamposViewList.ListaCampos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextOptions.TextHintingMode="Animated" SelectionMode="Single" Grid.Column="1" Grid.ColumnSpan="2" Height="105" VerticalAlignment="Bottom" DisplayMemberPath="nombrecampo"/>
         <Label x:Name="label_Copy28" Content="Datos de la Nomina" Margin="1,426,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" FontWeight="Bold" HorizontalAlignment="Left" Width="372"/>
-        <Button x:Name="CommandNuevo_Copy1" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Modificar Campo" Margin="10,0,0,101" Grid.Column="2" Height="35" VerticalAlignment="Bottom">
+        <Button x:Name="CommandNuevo_Copy1" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Modificar Campo" Margin="10,0,0,101" Grid.Column="2" Height="35" VerticalAlignment="Bottom" Command="{Binding CamposViewList.ChangeValueCommand}" CommandParameter="{Binding SelectedValue ,ElementName=listBox_Copy}">
             <Rectangle Width="15"
         		Height="15"
         		Fill="Teal">
@@ -113,7 +113,7 @@
             </Rectangle>
         </Button>
         <ListBox x:Name="listBox" Margin="59,0,165,31" BorderBrush="Teal" BorderThickness="1" ItemsSource="{Binding ConceptosViewList.FullConcepts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="codigo" DisplayMemberPath="nombre" TextOptions.TextHintingMode="Animated" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="105" VerticalAlignment="Bottom" SelectedIndex="{Binding ConceptosViewList.ItemActual}" Grid.ColumnSpan="2" />
-        <Button x:Name="CommandNuevo_Copy2" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Mover Arriba" Margin="82,0,0,103" Grid.Column="1" Height="35" VerticalAlignment="Bottom" Command="{Binding ConceptosViewList.MoveUpCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}">
+        <Button x:Name="CommandNuevo_Copy2" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Mover Arriba" Margin="82,0,0,108" Grid.Column="1" Height="35" VerticalAlignment="Bottom" Command="{Binding ConceptosViewList.MoveUpCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}">
             <Rectangle Width="15"
         		Height="15"
         		Fill="Teal">
@@ -123,7 +123,7 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Button x:Name="CommandNuevo_Copy3" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Mover Abajo" Margin="82,0,0,75" Grid.Column="1" Height="35" VerticalAlignment="Bottom" Command="{Binding ConceptosViewList.MoveDownCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}">
+        <Button x:Name="CommandNuevo_Copy3" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Mover Abajo" Margin="82,0,0,80" Grid.Column="1" Height="35" VerticalAlignment="Bottom" Command="{Binding ConceptosViewList.MoveDownCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}">
             <Rectangle Width="15"
         		Height="15"
         		Fill="Teal">
@@ -133,7 +133,7 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Button x:Name="CommandNuevo" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Agregar Concepto" Margin="19,0,0,-2" Grid.Column="1" Height="35" VerticalAlignment="Bottom" Command="{Binding ConceptosViewList.AddConceptCommand}">
+        <Button x:Name="CommandNuevo" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Agregar Concepto" Margin="82,0,0,52" Grid.Column="1" Height="35" VerticalAlignment="Bottom" Command="{Binding ConceptosViewList.AddConceptCommand}">
             <Rectangle Width="15"
         		Height="15"
         		Fill="Teal">
@@ -143,7 +143,7 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <Button x:Name="CommandNuevo_Copy"  Command="{Binding ConceptosViewList.RemoveConceptCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}"  HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Eliminar Concepto" Margin="47,0,0,-2" Grid.Column="1" Height="35" VerticalAlignment="Bottom">
+        <Button x:Name="CommandNuevo_Copy"  Command="{Binding ConceptosViewList.RemoveConceptCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}"  HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Eliminar Concepto" Margin="82,0,0,24" Grid.Column="1" Height="35" VerticalAlignment="Bottom">
             <Rectangle Width="15"
         		Height="15"
         		Fill="Red" RenderTransformOrigin="0.5,0.5">

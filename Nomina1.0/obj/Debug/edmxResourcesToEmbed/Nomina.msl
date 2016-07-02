@@ -1,50 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="nominaModelStoreContainer" CdmEntityContainer="nominaEntities">
-    <EntitySetMapping Name="usermenu">
-      <EntityTypeMapping TypeName="nominaModel.usermenu">
-        <MappingFragment StoreEntitySet="usermenu">
-          <ScalarProperty Name="Idmenu" ColumnName="Idmenu" />
-          <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
-          <ScalarProperty Name="Editar" ColumnName="Editar" />
-          <ScalarProperty Name="Guardar" ColumnName="Guardar" />
-          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
-          <ScalarProperty Name="hijos" ColumnName="hijos" />
-          <ScalarProperty Name="Seleccionado" ColumnName="Seleccionado" />
-          <ScalarProperty Name="Parametros" ColumnName="Parametros" />
-          <ScalarProperty Name="Accion" ColumnName="Accion" />
-          <ScalarProperty Name="Pariente" ColumnName="Pariente" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="nominaModel.users">
-        <MappingFragment StoreEntitySet="users">
-          <ScalarProperty Name="Vigenciadesde" ColumnName="Vigenciadesde" />
-          <ScalarProperty Name="Desactivar" ColumnName="Desactivar" />
-          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
-          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="keyCi" ColumnName="keyCi" />
-          <ScalarProperty Name="tipoid" ColumnName="tipoid" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="usertype">
-      <EntityTypeMapping TypeName="nominaModel.usertype">
-        <MappingFragment StoreEntitySet="usertype">
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="usertypeid" ColumnName="usertypeid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="bancos">
       <EntityTypeMapping TypeName="nominaModel.bancos">
         <MappingFragment StoreEntitySet="bancos">
@@ -61,6 +17,36 @@
           <ScalarProperty Name="valorinicial" ColumnName="valorinicial" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="idcampo" ColumnName="idcampo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="campotra">
+      <EntityTypeMapping TypeName="nominaModel.campotra">
+        <MappingFragment StoreEntitySet="campotra">
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="nombrecampo" ColumnName="nombrecampo" />
+          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+          <ScalarProperty Name="idcampotra" ColumnName="idcampotra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cargo">
+      <EntityTypeMapping TypeName="nominaModel.cargo">
+        <MappingFragment StoreEntitySet="cargo">
+          <ScalarProperty Name="sidcargo" ColumnName="sidcargo" />
+          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departamentos">
+      <EntityTypeMapping TypeName="nominaModel.departamentos">
+        <MappingFragment StoreEntitySet="departamentos">
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -118,6 +104,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="nominatype">
+      <EntityTypeMapping TypeName="nominaModel.nominatype">
+        <MappingFragment StoreEntitySet="nominatype">
+          <ScalarProperty Name="scodigo" ColumnName="scodigo" />
+          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+          <ScalarProperty Name="intervalo" ColumnName="intervalo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idnomina" ColumnName="idnomina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="nominauni">
       <EntityTypeMapping TypeName="nominaModel.nominauni">
         <MappingFragment StoreEntitySet="nominauni">
@@ -135,39 +132,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="prenomina">
-      <EntityTypeMapping TypeName="nominaModel.prenomina">
-        <MappingFragment StoreEntitySet="prenomina">
-          <ScalarProperty Name="tipoconcepto" ColumnName="tipoconcepto" />
-          <ScalarProperty Name="valorvar" ColumnName="valorvar" />
-          <ScalarProperty Name="valorconcepto" ColumnName="valorconcepto" />
-          <ScalarProperty Name="nombrecon" ColumnName="nombrecon" />
-          <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
-          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-          <ScalarProperty Name="idnominatype" ColumnName="idnominatype" />
-          <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tipocuenta">
       <EntityTypeMapping TypeName="nominaModel.tipocuenta">
         <MappingFragment StoreEntitySet="tipocuenta">
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="varsys">
-      <EntityTypeMapping TypeName="nominaModel.varsys">
-        <MappingFragment StoreEntitySet="varsys">
-          <ScalarProperty Name="vDFI" ColumnName="vDFI" />
-          <ScalarProperty Name="vHR" ColumnName="vHR" />
-          <ScalarProperty Name="vDF" ColumnName="vDF" />
-          <ScalarProperty Name="vVHIJOS" ColumnName="vVHIJOS" />
-          <ScalarProperty Name="vDLAB" ColumnName="vDLAB" />
-          <ScalarProperty Name="vDIASDES" ColumnName="vDIASDES" />
-          <ScalarProperty Name="cedula" ColumnName="cedula" />
-          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -197,6 +166,64 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="usermenu">
+      <EntityTypeMapping TypeName="nominaModel.usermenu">
+        <MappingFragment StoreEntitySet="usermenu">
+          <ScalarProperty Name="Idmenu" ColumnName="Idmenu" />
+          <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
+          <ScalarProperty Name="Editar" ColumnName="Editar" />
+          <ScalarProperty Name="Guardar" ColumnName="Guardar" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="hijos" ColumnName="hijos" />
+          <ScalarProperty Name="Seleccionado" ColumnName="Seleccionado" />
+          <ScalarProperty Name="Parametros" ColumnName="Parametros" />
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="Pariente" ColumnName="Pariente" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="nominaModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="Vigenciadesde" ColumnName="Vigenciadesde" />
+          <ScalarProperty Name="Desactivar" ColumnName="Desactivar" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="FechaNac" ColumnName="FechaNac" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="keyCi" ColumnName="keyCi" />
+          <ScalarProperty Name="tipoid" ColumnName="tipoid" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usertype">
+      <EntityTypeMapping TypeName="nominaModel.usertype">
+        <MappingFragment StoreEntitySet="usertype">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="usertypeid" ColumnName="usertypeid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="varsys">
+      <EntityTypeMapping TypeName="nominaModel.varsys">
+        <MappingFragment StoreEntitySet="varsys">
+          <ScalarProperty Name="vDFI" ColumnName="vDFI" />
+          <ScalarProperty Name="vHR" ColumnName="vHR" />
+          <ScalarProperty Name="vDF" ColumnName="vDF" />
+          <ScalarProperty Name="vVHIJOS" ColumnName="vVHIJOS" />
+          <ScalarProperty Name="vDLAB" ColumnName="vDLAB" />
+          <ScalarProperty Name="vDIASDES" ColumnName="vDIASDES" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="Trabajadoridbanco" TypeName="nominaModel.Trabajadoridbanco" StoreEntitySet="trabajador">
       <EndProperty Name="trabajador">
         <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
@@ -205,6 +232,33 @@
         <ScalarProperty Name="Idbanco" ColumnName="idbanco" />
       </EndProperty>
       <Condition ColumnName="idbanco" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="cargodepart" TypeName="nominaModel.cargodepart" StoreEntitySet="cargo">
+      <EndProperty Name="cargo">
+        <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+      </EndProperty>
+      <EndProperty Name="departamentos">
+        <ScalarProperty Name="iddepartamentos" ColumnName="Iddepartamentos" />
+      </EndProperty>
+      <Condition ColumnName="Iddepartamentos" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TrabajadorCargo" TypeName="nominaModel.TrabajadorCargo" StoreEntitySet="trabajador">
+      <EndProperty Name="trabajador">
+        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+      </EndProperty>
+      <EndProperty Name="cargo">
+        <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+      </EndProperty>
+      <Condition ColumnName="idcargo" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TrabajadorDepart" TypeName="nominaModel.TrabajadorDepart" StoreEntitySet="trabajador">
+      <EndProperty Name="trabajador">
+        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+      </EndProperty>
+      <EndProperty Name="departamentos">
+        <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
+      </EndProperty>
+      <Condition ColumnName="iddepartamentos" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="TrabajadorEstatus" TypeName="nominaModel.TrabajadorEstatus" StoreEntitySet="trabajador">
       <EndProperty Name="trabajador">
@@ -233,6 +287,15 @@
       </EndProperty>
       <Condition ColumnName="nacionalidad" IsNull="false" />
     </AssociationSetMapping>
+    <AssociationSetMapping Name="TrabajadorNomina" TypeName="nominaModel.TrabajadorNomina" StoreEntitySet="trabajador">
+      <EndProperty Name="trabajador">
+        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+      </EndProperty>
+      <EndProperty Name="nominatype">
+        <ScalarProperty Name="idnomina" ColumnName="Idnomina" />
+      </EndProperty>
+      <Condition ColumnName="Idnomina" IsNull="false" />
+    </AssociationSetMapping>
     <AssociationSetMapping Name="TrabajadorTipoc" TypeName="nominaModel.TrabajadorTipoc" StoreEntitySet="trabajador">
       <EndProperty Name="trabajador">
         <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
@@ -242,72 +305,34 @@
       </EndProperty>
       <Condition ColumnName="idtipocuenta" IsNull="false" />
     </AssociationSetMapping>
-    <EntitySetMapping Name="cargo">
-      <EntityTypeMapping TypeName="nominaModel.cargo">
-        <MappingFragment StoreEntitySet="cargo">
-          <ScalarProperty Name="sidcargo" ColumnName="sidcargo" />
-          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+    <EntitySetMapping Name="prenomina">
+      <EntityTypeMapping TypeName="nominaModel.prenomina">
+        <MappingFragment StoreEntitySet="prenomina">
+          <ScalarProperty Name="tipoconcepto" ColumnName="tipoconcepto" />
+          <ScalarProperty Name="valorvar" ColumnName="valorvar" />
+          <ScalarProperty Name="valorconcepto" ColumnName="valorconcepto" />
+          <ScalarProperty Name="nombrecon" ColumnName="nombrecon" />
+          <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+          <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="departamentos">
-      <EntityTypeMapping TypeName="nominaModel.departamentos">
-        <MappingFragment StoreEntitySet="departamentos">
-          <ScalarProperty Name="codigo" ColumnName="codigo" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="cargodepart" TypeName="nominaModel.cargodepart" StoreEntitySet="cargo">
-      <EndProperty Name="cargo">
-        <ScalarProperty Name="idcargo" ColumnName="idcargo" />
-      </EndProperty>
-      <EndProperty Name="departamentos">
-        <ScalarProperty Name="iddepartamentos" ColumnName="Iddepartamentos" />
-      </EndProperty>
-      <Condition ColumnName="Iddepartamentos" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TrabajadorCargo" TypeName="nominaModel.TrabajadorCargo" StoreEntitySet="trabajador">
-      <EndProperty Name="trabajador">
-        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-      </EndProperty>
-      <EndProperty Name="cargo">
-        <ScalarProperty Name="idcargo" ColumnName="idcargo" />
-      </EndProperty>
-      <Condition ColumnName="idcargo" IsNull="false" />
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TrabajadorDepart" TypeName="nominaModel.TrabajadorDepart" StoreEntitySet="trabajador">
-      <EndProperty Name="trabajador">
-        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-      </EndProperty>
-      <EndProperty Name="departamentos">
-        <ScalarProperty Name="iddepartamentos" ColumnName="iddepartamentos" />
-      </EndProperty>
-      <Condition ColumnName="iddepartamentos" IsNull="false" />
-    </AssociationSetMapping>
-    <EntitySetMapping Name="nominatype">
-      <EntityTypeMapping TypeName="nominaModel.nominatype">
-        <MappingFragment StoreEntitySet="nominatype">
-          <ScalarProperty Name="scodigo" ColumnName="scodigo" />
-          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-          <ScalarProperty Name="intervalo" ColumnName="intervalo" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="idnomina" ColumnName="idnomina" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="TrabajadorNomina" TypeName="nominaModel.TrabajadorNomina" StoreEntitySet="trabajador">
-      <EndProperty Name="trabajador">
-        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+    <AssociationSetMapping Name="PrenominaType" TypeName="nominaModel.PrenominaType" StoreEntitySet="prenomina">
+      <EndProperty Name="prenomina">
+        <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
       </EndProperty>
       <EndProperty Name="nominatype">
-        <ScalarProperty Name="idnomina" ColumnName="Idnomina" />
+        <ScalarProperty Name="idnomina" ColumnName="idnominatype" />
       </EndProperty>
-      <Condition ColumnName="Idnomina" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PrenominaTraid" TypeName="nominaModel.PrenominaTraid" StoreEntitySet="prenomina">
+      <EndProperty Name="prenomina">
+        <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
+      </EndProperty>
+      <EndProperty Name="trabajador">
+        <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+      </EndProperty>
+      <Condition ColumnName="idtrabajador" IsNull="false" />
     </AssociationSetMapping>
     <EntitySetMapping Name="conceptos">
       <EntityTypeMapping TypeName="nominaModel.conceptos">

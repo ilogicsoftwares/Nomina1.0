@@ -14,9 +14,18 @@
     </Key>
     <Property Name="idcampo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="valorinicial" Type="int" />
+    <Property Name="valorinicial" Type="decimal" Precision="11" Scale="2" />
     <Property Name="esReiniciado" Type="int" />
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="campotra">
+    <Key>
+      <PropertyRef Name="idcampotra" />
+    </Key>
+    <Property Name="idcampotra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idtrabajador" Type="int" Nullable="false" />
+    <Property Name="nombrecampo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="valor" Type="decimal" Precision="11" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="cargo">
     <Key>
@@ -35,10 +44,10 @@
     </Key>
     <Property Name="idconcepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="50" />
-    <Property Name="variante" Type="varchar" MaxLength="50" />
+    <Property Name="variante" Type="char" MaxLength="50" />
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
     <Property Name="tipo" Type="int" />
-    <Property Name="Valor" Type="varchar" MaxLength="100" />
+    <Property Name="Valor" Type="char" MaxLength="100" />
     <Property Name="codigo" Type="varchar" MaxLength="15" Nullable="false" />
   </EntityType>
   <EntityType Name="departamentos">
@@ -245,6 +254,30 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="PrenominaTraid">
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1" />
+    <End Role="prenomina" Type="Self.prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrenominaType">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+    <End Role="prenomina" Type="Self.prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idnominatype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="TrabajadorCargo">
     <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
     <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -344,6 +377,7 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
   <EntityContainer Name="nominaModelStoreContainer">
     <EntitySet Name="bancos" EntityType="Self.bancos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="campos" EntityType="Self.campos" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="campotra" EntityType="Self.campotra" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
@@ -375,6 +409,14 @@ FROM `varsys` AS `varsys`</DefiningQuery>
     <AssociationSet Name="cargodepart" Association="Self.cargodepart">
       <End Role="departamentos" EntitySet="departamentos" />
       <End Role="cargo" EntitySet="cargo" />
+    </AssociationSet>
+    <AssociationSet Name="PrenominaTraid" Association="Self.PrenominaTraid">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="prenomina" EntitySet="prenomina" />
+    </AssociationSet>
+    <AssociationSet Name="PrenominaType" Association="Self.PrenominaType">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="prenomina" EntitySet="prenomina" />
     </AssociationSet>
     <AssociationSet Name="TrabajadorCargo" Association="Self.TrabajadorCargo">
       <End Role="cargo" EntitySet="cargo" />

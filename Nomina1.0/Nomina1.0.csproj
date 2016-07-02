@@ -93,6 +93,9 @@
     <Compile Include="campos.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="campotra.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
     <Compile Include="cargo.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
@@ -109,6 +112,7 @@
     <Compile Include="gradointruc.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="IlogicEval.cs" />
     <Compile Include="IProcedimientos.cs" />
     <Compile Include="jornada.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
@@ -128,6 +132,7 @@
     <Compile Include="prenomina.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="Procs.cs" />
     <Compile Include="tipocuenta.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
@@ -142,8 +147,10 @@
     <Compile Include="ViewModel\ConceptosListViewModel.cs" />
     <Compile Include="ViewModel\ConceptosViewModel.cs" />
     <Compile Include="ViewModel\DepartViewModel.cs" />
+    <Compile Include="ViewModel\ListCamposModel.cs" />
     <Compile Include="ViewModel\ModelBase.cs" />
     <Compile Include="ViewModel\NominaViewModel.cs" />
+    <Compile Include="ViewModel\PrenominaViewModel.cs" />
     <Compile Include="ViewModel\PrincipalViewModel.cs" />
     <Compile Include="ViewModel\TrabajadorViewModel.cs" />
     <Compile Include="ViewModel\LogingViewModel.cs" />
@@ -177,17 +184,26 @@
     <Compile Include="WinCargo.xaml.cs">
       <DependentUpon>WinCargo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinChangeValues.xaml.cs">
+      <DependentUpon>WinChangeValues.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinConceptos.xaml.cs">
       <DependentUpon>WinConceptos.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinDepartamento.xaml.cs">
       <DependentUpon>WinDepartamento.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinGenNomina.xaml.cs">
+      <DependentUpon>WinGenNomina.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinJornada.xaml.cs">
       <DependentUpon>WinJornada.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinNomina.xaml.cs">
       <DependentUpon>WinNomina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinPrenomina.xaml.cs">
+      <DependentUpon>WinPrenomina.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinTrabajador.xaml.cs">
       <DependentUpon>WinTrabajador.xaml</DependentUpon>
@@ -228,6 +244,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinChangeValues.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinConceptos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -236,11 +256,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinGenNomina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinJornada.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinNomina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinPrenomina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

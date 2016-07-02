@@ -22,6 +22,13 @@ namespace Nomina1._0
         {
             PrincipalViewModel.ObjetoActual = (CamposViewModel)DataContext;
             Datos.WindowActual = this;
+            Datos.SelectQuery = "new(idcampo as ID,Nombre,Descripcion,valorinicial as Valor,esReiniciado as Reiniciar)";
+            Datos.ObjectType = "campos";
+        }
+
+        private void MetroWindow_Closed(object sender, System.EventArgs e)
+        {
+            Datos.ResetAll();
         }
     }
 }

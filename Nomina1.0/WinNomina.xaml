@@ -35,7 +35,7 @@
         <StackPanel Grid.Column="1" Height="60" Margin="5,91,0,0" VerticalAlignment="Top" UseLayoutRounding="False" >
 
             <RadioButton x:Name="radioButton" Content="Dias" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding Path=NominaActual.intervalo, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=1,UpdateSourceTrigger=PropertyChanged}"/>
-            <RadioButton x:Name="radioButton_Copy" Content="Semanal" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding Path=NominaActual.intervalo, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=2,UpdateSourceTrigger=PropertyChanged}"/>
+            <RadioButton x:Name="radioButton_Copy" Content="Quincenal" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding Path=NominaActual.intervalo, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=2,UpdateSourceTrigger=PropertyChanged}"/>
             <RadioButton x:Name="radioButton_Copy1" Content="Mensual" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="{Binding Path=NominaActual.intervalo, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=3,UpdateSourceTrigger=PropertyChanged}"/>
 
         </StackPanel>

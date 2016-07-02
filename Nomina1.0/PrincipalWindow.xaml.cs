@@ -27,8 +27,20 @@ namespace Nomina1._0
         private void CommandGuardar_Copy_Click(object sender, RoutedEventArgs e)
         {
             if (Datos.ObjectType == string.Empty || Datos.SelectQuery == string.Empty) { return; }
-            WinBusqueda busqueda = new WinBusqueda("Buscar",Datos.ObjectType,Datos.SelectQuery);
-           busqueda.ShowDialog();
+            try
+            {
+                WinBusqueda busqueda = new WinBusqueda("Buscar",Datos.ObjectType,Datos.SelectQuery);
+           
+                busqueda.ShowDialog();
+            }catch
+            {
+                
+                
+             MessageBox.Show("No Existe Información", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                   
+               
+            }
+
         }
     }
 }

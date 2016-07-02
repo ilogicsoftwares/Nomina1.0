@@ -16,7 +16,7 @@ namespace Nomina1._0
     {
         public int idcampo { get; set; }
         public string nombre { get; set; }
-        public Nullable<int> valorinicial { get; set; }
+        public Nullable<decimal> valorinicial { get; set; }
         public Nullable<int> esReiniciado { get; set; }
         public string descripcion { get; set; }
     }

@@ -1,16 +1,10 @@
 ﻿using MahApps.Metro.Controls;
-using MahApps.Metro;
-using System.Reflection;
-using System.Collections;
 using System.Linq;
 using System.Linq.Dynamic;
 using System.Windows.Controls;
-using MahApps.Metro.Controls.Dialogs;
 using Nomina1._0.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Windows.Documents;
-using System.Linq.Expressions;
 using System.Windows;
 
 
@@ -93,11 +87,14 @@ namespace Nomina1._0
             IEnumerable<dynamic> y = z.Select(select) as IEnumerable<dynamic>;
           
             ConsultaInicial = y;
+           
             dataGrid.DataContext = y.ToArray();
             object[] campos= y.ToArray();
+            
             comboBox.ItemsSource=campos[0].GetType().GetProperties()
                 .Select(x => x.Name);
-
+           
+           
         }
 
         private void filtrarpor(string Campo,object valor)

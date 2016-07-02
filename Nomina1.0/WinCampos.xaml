@@ -13,7 +13,7 @@
                       ResizeMode="CanResizeWithGrip"
                       TextOptions.TextFormattingMode="Display"
                       WindowStartupLocation="CenterScreen"
-        Title="WinCampos" Height="232.331" Width="439.849" Activated="MetroWindow_Activated">
+        Title="WinCampos" Height="232.331" Width="439.849" Activated="MetroWindow_Activated" Closed="MetroWindow_Closed">
     <Window.DataContext>
         <vm:CamposViewModel/>
     </Window.DataContext>

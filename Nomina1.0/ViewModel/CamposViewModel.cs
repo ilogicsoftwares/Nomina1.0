@@ -44,6 +44,19 @@ namespace Nomina1._0.ViewModel
             {
                 bd.campos.Add(CampoActual);
                 bd.SaveChanges();
+                var Trabajadores = Datos.Micontexto.trabajador.ToList();
+                foreach(var tra in Trabajadores)
+                {
+                    var nuevoCampoTra = new campotra
+                    {
+                        nombrecampo=CampoActual.nombre,
+                        idtrabajador=tra.idtrabajador,
+                        valor=(decimal)CampoActual.valorinicial
+                        
+                    };
+                    bd.campotra.Add(nuevoCampoTra);
+                }
+                bd.SaveChanges();
                 Datos.Guardado();
                 Nuevo();
             }
@@ -87,7 +100,18 @@ namespace Nomina1._0.ViewModel
             }
         }
         #endregion
+        public void Filtro(string id)
+        {
 
+            int esto = Int32.Parse(id);
+            var bt = bd.campos.FirstOrDefault(x => x.idcampo == esto);
+            bd.Entry(bt).Reload();
+            CampoActual = bt;
+            PrincipalViewModel.EstatusNuevo = false;
+            NotifyPropertyChanged("CampoActual");
+
+
+        }
 
 
 
