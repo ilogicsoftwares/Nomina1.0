@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Nomina1.0\Nomina1.0\App.xaml
-15162835772
+161897833942
 21167798043
-601423022087
-28-2009750811
-MainWindow.xaml;PrincipalWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;WinBusqueda.xaml;WinCampos.xaml;WinCargo.xaml;WinChangeValues.xaml;WinConceptos.xaml;WinDepartamento.xaml;WinGenNomina.xaml;WinJornada.xaml;WinNomina.xaml;WinPrenomina.xaml;WinTrabajador.xaml;
+61-1710157812
+29-464747872
+MainWindow.xaml;PrincipalWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;WinBusqueda.xaml;WinCampos.xaml;WinCargo.xaml;WinChangeValues.xaml;WinConceptos.xaml;WinDepartamento.xaml;WinGenNomina.xaml;WinJornada.xaml;WinNomina.xaml;WinPrenomina.xaml;WinReport.xaml;WinTrabajador.xaml;
 
 False
 

@@ -212,7 +212,40 @@ namespace Nomina1._0
                 MessageBox.Show("Error Inesperado: " + ex.ToString());
             }
         }
+        public static MessageBoxResult Msg(string Message, string Title="", string Type = "I",MessageBoxButton Botones=MessageBoxButton.OK)
+        {
+            MessageBoxImage image = MessageBoxImage.Information;
+            if (Type=="E")
+            {
+                image = MessageBoxImage.Error;
+            }
+            if (Type == "P")
+            {
+                image = MessageBoxImage.Question;
+            }
+
+            return MessageBox.Show(Message,Title,Botones,image);
+
+        }
     }
 
-    
+    public class PNominaGen
+    {
+        public int TrabID { get; set; }
+        public string TrabNombre { get; set; }
+        public string TrabCedula { get; set; }
+        public string Departamento { get; set; }
+        public string Cargo { get; set; }
+        public DateTime? FechaIng { get; set; }
+        public decimal? SueldoBase { get; set; }
+        public decimal? SueldoDiario { get { return SueldoBase / 30; } set { } }
+        public int? IdConcepto { get; set; }
+        public string NombreConcepto { get; set; }
+        public decimal? Variante { get; set; }
+        public int? ConceptoTipo { get; set; }
+        public decimal? Valor { get; set; }
+        public string Nomina { get; set; }
+        public DateTime FD { get; set; }
+        public DateTime FH { get; set; }
+    }
 }

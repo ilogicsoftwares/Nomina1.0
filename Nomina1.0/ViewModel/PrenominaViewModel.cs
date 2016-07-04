@@ -18,11 +18,12 @@ namespace Nomina1._0.ViewModel
     {
         private DateTime today = DateTime.Now;
         public List<nominatype> Lnominas { get { return Datos.Micontexto.nominatype.ToList(); } }
-       
         public decimal TotalAsig { get; set; }
         public decimal TotalDeduc { get; set; }
         public decimal TotalNomina { get; set; }
         public object[] Trabajadores { get; set; }
+        public static DateTime FechaD { get; set; }
+        public static DateTime FechaA { get; set; }
         public int TotalTra { get; set; }
         public RelayCommand GenerarPrenominaCommand { get; set; }
         public PrenominaViewModel()
@@ -61,6 +62,7 @@ namespace Nomina1._0.ViewModel
         {
             get { return _FDesde; }
             set { _FDesde = value;
+                FechaD = value;
                 NotifyPropertyChanged();
             }
 
@@ -70,6 +72,7 @@ namespace Nomina1._0.ViewModel
         {
             get { return _FHasta; }
             set { _FHasta = value;
+                FechaA = value;
                 NotifyPropertyChanged();
             }
 
@@ -106,7 +109,7 @@ namespace Nomina1._0.ViewModel
 
         public void GenerarPrenomina(object nomina)
         {
-            try { 
+           // try { 
             nominaEntities paraconcepto = new nominaEntities();
             var idx= ((nominatype)nomina).idnomina;
              var TrabInNomina = Datos.Micontexto.trabajador.Where(x=>x.nominatype.idnomina==idx);
@@ -141,7 +144,12 @@ namespace Nomina1._0.ViewModel
                             MessageBox.Show("Error en Trabajador " + trab.cedula + " en el Concepto " + idcon, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                             PreNom.nombrecon = xa.nombre;
+                           try { 
                             PreNom.valorconcepto = LeerConcepto(xa.Valor, trab.idtrabajador);
+                                 }catch
+                    {
+                        Datos.Msg("Error en el Trabajador " + trab.cedula.Trim() + " " + trab.nombres.Trim(), "Error", "E");
+                    }
                             PreNom.valorvar = decimal.Parse(LeerCampo(xa.variante, trab.idtrabajador));
                             PreNom.tipoconcepto = xa.tipo;
                             Datos.Micontexto.prenomina.Add(PreNom);
@@ -155,11 +163,11 @@ namespace Nomina1._0.ViewModel
             nuevaprenomina.Owner = Datos._PrincipalWindow;
                nuevaprenomina.ShowInTaskbar = false;
                 nuevaprenomina.ShowDialog();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error",MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            //}
+           // catch(Exception ex)
+           // {
+              //  MessageBox.Show(ex.ToString(), "Error",MessageBoxButton.OK, MessageBoxImage.Error);
+           // }
             }
            
       
@@ -179,8 +187,11 @@ namespace Nomina1._0.ViewModel
                 if (item.Contains('@'))
                 {
                     var itemn = item.Remove(0, 1);
-                    var j= EjecutarProc(itemn, idx.ToString());
-                    valorconvertido = valorconvertido.Replace(item, j);
+                   
+                        var j = EjecutarProc(itemn, idx.ToString());
+                        valorconvertido = valorconvertido.Replace(item, j);
+                                           
+                                         
 
                 }
 
@@ -188,18 +199,26 @@ namespace Nomina1._0.ViewModel
             valorconvertido = valorconvertido.Replace(',', '.');
             NCalc.Expression e = new NCalc.Expression(valorconvertido);
             return decimal.Parse( e.Evaluate().ToString()); ;
+        
         }
 
         public static string LeerCampo(string campo,int idx)
         {
-            nominaEntities paraconcepto = new nominaEntities();
-            var itemn = campo.Remove(0, 1);
+            if (campo == null)
+            {
+                return "0";
+            }
+            else
+            {
+                nominaEntities paraconcepto = new nominaEntities();
+                var itemn = campo.Remove(0, 1);
 
-            var r = paraconcepto.campotra.Where(x => x.idtrabajador == idx)
-                                         .Where(x => x.nombrecampo == itemn)
-                                         .Select(x => x.valor).SingleOrDefault().ToString();
-          
-            return r;
+                var r = paraconcepto.campotra.Where(x => x.idtrabajador == idx)
+                                             .Where(x => x.nombrecampo == itemn)
+                                             .Select(x => x.valor).SingleOrDefault().ToString();
+
+                return r;
+            }
         }
 
         private static string EjecutarProc(string accion, string parametros)

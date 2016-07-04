@@ -21,8 +21,7 @@ namespace Nomina1._0
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-           if ( Datos.ValidarDatos(grid1))
-            {
+         
                 if (passwordBox.Password.Trim() == comboBox.SelectedValuePath.ToString().Trim())
                 {
                     LogingViewModel.UsuarioActivo = initUser.UsuarioActual;
@@ -36,7 +35,7 @@ namespace Nomina1._0
                 {
                     Mensaje.Content=("Clave Invalida...");
                 }
-            }
+            
 
         }
     }

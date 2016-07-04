@@ -230,6 +230,8 @@ namespace Nomina1._0.ViewModel
         public string codigo { get; set; }
         public string nombre { get; set; }
         public string formula { get; set; }
+        public int? tipo { get; set; }
+
     }
   
 }

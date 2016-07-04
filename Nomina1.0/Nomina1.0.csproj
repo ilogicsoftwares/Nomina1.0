@@ -47,6 +47,7 @@
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="NCalc, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NCalc-Edge.1.4.1.0\lib\NCalc.dll</HintPath>
       <Private>True</Private>
@@ -205,6 +206,9 @@
     <Compile Include="WinPrenomina.xaml.cs">
       <DependentUpon>WinPrenomina.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinReport.xaml.cs">
+      <DependentUpon>WinReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinTrabajador.xaml.cs">
       <DependentUpon>WinTrabajador.xaml</DependentUpon>
     </Compile>
@@ -272,6 +276,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinTrabajador.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -305,6 +313,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\NominaGeneral.rdlc" />
+    <EmbeddedResource Include="Reports\ReciboPago.rdlc" />
     <EntityDeploy Include="Nomina.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Nomina.Designer.cs</LastGenOutput>
@@ -315,7 +325,9 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Nomina1._0.ViewModel.PrenominaViewModel.datasource" />
     <None Include="Properties\DataSources\nominaEntities.datasource" />
+    <None Include="Properties\DataSources\PNominaGen.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -337,6 +349,8 @@
       <DependentUpon>Nomina.edmx</DependentUpon>
       <LastGenOutput>Nomina.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\COLEGIO.BMP" />
+    <Resource Include="Resources\ILOGICICON.png" />
     <Resource Include="Resources\Entypo-license.txt" />
     <Resource Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>
