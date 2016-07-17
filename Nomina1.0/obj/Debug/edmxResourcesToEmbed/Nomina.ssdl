@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="nominaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="nominaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="bancos">
     <Key>
       <PropertyRef Name="Idbanco" />
@@ -38,6 +38,19 @@
     <Property Name="Iddepartamentos" Type="int" />
     <Property Name="sidcargo" Type="varchar" MaxLength="7" Nullable="false" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.company' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="company">
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Rif" Type="varchar" MaxLength="10" />
+          <Property Name="Direccion" Type="varchar" MaxLength="250" />
+          <Property Name="Telefono1" Type="varchar" MaxLength="20" />
+          <Property Name="Telefono2" Type="varchar" MaxLength="20" />
+          <Property Name="Telefono3" Type="varchar" MaxLength="20" />
+          <Property Name="Representante" Type="varchar" MaxLength="50" />
+          <Property Name="Logo" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+        </EntityType>-->
   <EntityType Name="conceptos">
     <Key>
       <PropertyRef Name="idconcepto" />
@@ -58,6 +71,21 @@
     <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="codigo" Type="varchar" MaxLength="10" Nullable="false" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.empresa' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="empresa">
+          <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
+          <Property Name="Rif" Type="varchar" MaxLength="11" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Telefonos" Type="varchar" MaxLength="11" />
+          <Property Name="TipodeLicencia" Type="varchar" MaxLength="50" />
+          <Property Name="NumerodeLicencia" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Contacto" Type="varchar" MaxLength="50" />
+          <Property Name="Logo" Type="varchar" MaxLength="100" />
+          <Property Name="Detallelogo" Type="varchar" MaxLength="100" />
+          <Property Name="Idempresa" Type="int" />
+        </EntityType>-->
   <EntityType Name="estatus">
     <Key>
       <PropertyRef Name="idestatus" />
@@ -91,6 +119,29 @@
     <Property Name="Descansohasta" Type="varchar" MaxLength="10" />
     <Property Name="descanso" Type="int" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.menu' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="menu">
+          <Property Name="id" Type="char" MaxLength="25" />
+          <Property Name="Nombre" Type="char" MaxLength="50" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Pariente" Type="char" MaxLength="25" />
+          <Property Name="Accion" Type="char" MaxLength="100" />
+          <Property Name="Parameters" Type="varchar" MaxLength="50" />
+          <Property Name="Seleccionado" Type="int" />
+          <Property Name="hijos" Type="int" />
+        </EntityType>-->
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.menulimited' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="menulimited">
+          <Property Name="id" Type="char" MaxLength="25" />
+          <Property Name="Nombre" Type="char" MaxLength="50" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Pariente" Type="char" MaxLength="25" />
+          <Property Name="Accion" Type="char" MaxLength="100" />
+          <Property Name="Seleccionado" Type="int" />
+          <Property Name="hijos" Type="int" />
+        </EntityType>-->
   <EntityType Name="nacionalidad">
     <Key>
       <PropertyRef Name="idnacionalidad" />
@@ -98,6 +149,25 @@
     <Property Name="idnacionalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="45" />
   </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.nominagen' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="nominagen">
+          <Property Name="id" Type="int" />
+          <Property Name="idtype" Type="int" />
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="cedula" Type="varchar" MaxLength="12" />
+          <Property Name="conceptos" Type="varchar" MaxLength="50" />
+          <Property Name="montos" Type="varchar" MaxLength="50" />
+          <Property Name="basico" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="totalded" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="totalasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="neto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="varvacaciones" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="varutilidades" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="otrasasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="desde" Type="date" />
+          <Property Name="hasta" Type="date" />
+        </EntityType>-->
   <EntityType Name="nominaini">
     <Key>
       <PropertyRef Name="id" />
@@ -145,7 +215,57 @@
     <Property Name="valorconcepto" Type="decimal" Precision="10" Scale="0" />
     <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
     <Property Name="tipoconcepto" Type="int" />
+    <Property Name="idnominagen" Type="int" />
   </EntityType>
+  <EntityType Name="prenominagen">
+    <Key>
+      <PropertyRef Name="idprenomina" />
+    </Key>
+    <Property Name="idprenomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Idnominagen" Type="int" Nullable="false" />
+    <Property Name="idnominatype" Type="int" Nullable="false" />
+    <Property Name="idtrabajador" Type="int" />
+    <Property Name="idconcepto" Type="int" />
+    <Property Name="nombrecon" Type="varchar" MaxLength="50" />
+    <Property Name="valorconcepto" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="tipoconcepto" Type="int" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.presmanual' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="presmanual">
+          <Property Name="idpres" Type="int" />
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="idmes" Type="int" />
+          <Property Name="mes" Type="date" />
+          <Property Name="Salbase" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="otrasasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Salmen" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Saldia" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="diasdev" Type="int" />
+          <Property Name="AlicuotaV" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="diasdeu" Type="int" />
+          <Property Name="AlicuotaU" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Salarioint" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Dias" Type="int" />
+          <Property Name="TotalMes" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Tasa" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Interes" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Anticipo" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Acumulado" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>-->
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.sueldos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="sueldos">
+          <Property Name="fecha" Type="date" />
+          <Property Name="monto" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>-->
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.tasas' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="tasas">
+          <Property Name="fecha" Type="date" />
+          <Property Name="tasa" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>-->
   <EntityType Name="tipocuenta">
     <Key>
       <PropertyRef Name="idtipocuenta" />
@@ -251,6 +371,30 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
       </Principal>
       <Dependent Role="cargo">
         <PropertyRef Name="Iddepartamentos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="prenominagen_ibfk_1">
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1" />
+    <End Role="prenominagen" Type="Self.prenominagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="prenominagen">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="prenominagen_ibfk_2">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+    <End Role="prenominagen" Type="Self.prenominagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="prenominagen">
+        <PropertyRef Name="idnominatype" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -389,6 +533,7 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
     <EntitySet Name="nominatype" EntityType="Self.nominatype" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="nominauni" EntityType="Self.nominauni" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="prenomina" EntityType="Self.prenomina" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="prenominagen" EntityType="Self.prenominagen" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="tipocuenta" EntityType="Self.tipocuenta" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="trabajador" EntityType="Self.trabajador" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="usermenu" EntityType="Self.usermenu" Schema="nomina" store:Type="Tables" />
@@ -409,6 +554,14 @@ FROM `varsys` AS `varsys`</DefiningQuery>
     <AssociationSet Name="cargodepart" Association="Self.cargodepart">
       <End Role="departamentos" EntitySet="departamentos" />
       <End Role="cargo" EntitySet="cargo" />
+    </AssociationSet>
+    <AssociationSet Name="prenominagen_ibfk_1" Association="Self.prenominagen_ibfk_1">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="prenominagen" EntitySet="prenominagen" />
+    </AssociationSet>
+    <AssociationSet Name="prenominagen_ibfk_2" Association="Self.prenominagen_ibfk_2">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="prenominagen" EntitySet="prenominagen" />
     </AssociationSet>
     <AssociationSet Name="PrenominaTraid" Association="Self.PrenominaTraid">
       <End Role="trabajador" EntitySet="trabajador" />

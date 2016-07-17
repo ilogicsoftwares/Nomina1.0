@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="nominaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="nominaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="bancos">
           <Key>
             <PropertyRef Name="Idbanco" />
@@ -43,6 +43,19 @@
           <Property Name="Iddepartamentos" Type="int" />
           <Property Name="sidcargo" Type="varchar" MaxLength="7" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.company' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="company">
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Rif" Type="varchar" MaxLength="10" />
+          <Property Name="Direccion" Type="varchar" MaxLength="250" />
+          <Property Name="Telefono1" Type="varchar" MaxLength="20" />
+          <Property Name="Telefono2" Type="varchar" MaxLength="20" />
+          <Property Name="Telefono3" Type="varchar" MaxLength="20" />
+          <Property Name="Representante" Type="varchar" MaxLength="50" />
+          <Property Name="Logo" Type="varchar" MaxLength="50" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" />
+        </EntityType>-->
         <EntityType Name="conceptos">
           <Key>
             <PropertyRef Name="idconcepto" />
@@ -63,6 +76,21 @@
           <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="codigo" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.empresa' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="empresa">
+          <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
+          <Property Name="Rif" Type="varchar" MaxLength="11" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="Telefonos" Type="varchar" MaxLength="11" />
+          <Property Name="TipodeLicencia" Type="varchar" MaxLength="50" />
+          <Property Name="NumerodeLicencia" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Contacto" Type="varchar" MaxLength="50" />
+          <Property Name="Logo" Type="varchar" MaxLength="100" />
+          <Property Name="Detallelogo" Type="varchar" MaxLength="100" />
+          <Property Name="Idempresa" Type="int" />
+        </EntityType>-->
         <EntityType Name="estatus">
           <Key>
             <PropertyRef Name="idestatus" />
@@ -96,6 +124,29 @@
           <Property Name="Descansohasta" Type="varchar" MaxLength="10" />
           <Property Name="descanso" Type="int" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.menu' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="menu">
+          <Property Name="id" Type="char" MaxLength="25" />
+          <Property Name="Nombre" Type="char" MaxLength="50" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Pariente" Type="char" MaxLength="25" />
+          <Property Name="Accion" Type="char" MaxLength="100" />
+          <Property Name="Parameters" Type="varchar" MaxLength="50" />
+          <Property Name="Seleccionado" Type="int" />
+          <Property Name="hijos" Type="int" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.menulimited' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="menulimited">
+          <Property Name="id" Type="char" MaxLength="25" />
+          <Property Name="Nombre" Type="char" MaxLength="50" />
+          <Property Name="Tipo" Type="int" />
+          <Property Name="Pariente" Type="char" MaxLength="25" />
+          <Property Name="Accion" Type="char" MaxLength="100" />
+          <Property Name="Seleccionado" Type="int" />
+          <Property Name="hijos" Type="int" />
+        </EntityType>-->
         <EntityType Name="nacionalidad">
           <Key>
             <PropertyRef Name="idnacionalidad" />
@@ -103,6 +154,25 @@
           <Property Name="idnacionalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="45" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.nominagen' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="nominagen">
+          <Property Name="id" Type="int" />
+          <Property Name="idtype" Type="int" />
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="cedula" Type="varchar" MaxLength="12" />
+          <Property Name="conceptos" Type="varchar" MaxLength="50" />
+          <Property Name="montos" Type="varchar" MaxLength="50" />
+          <Property Name="basico" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="totalded" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="totalasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="neto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="varvacaciones" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="varutilidades" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="otrasasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="desde" Type="date" />
+          <Property Name="hasta" Type="date" />
+        </EntityType>-->
         <EntityType Name="nominaini">
           <Key>
             <PropertyRef Name="id" />
@@ -150,7 +220,57 @@
           <Property Name="valorconcepto" Type="decimal" Precision="10" Scale="0" />
           <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
           <Property Name="tipoconcepto" Type="int" />
+          <Property Name="idnominagen" Type="int" />
         </EntityType>
+        <EntityType Name="prenominagen">
+          <Key>
+            <PropertyRef Name="idprenomina" />
+          </Key>
+          <Property Name="idprenomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Idnominagen" Type="int" Nullable="false" />
+          <Property Name="idnominatype" Type="int" Nullable="false" />
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="idconcepto" Type="int" />
+          <Property Name="nombrecon" Type="varchar" MaxLength="50" />
+          <Property Name="valorconcepto" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="tipoconcepto" Type="int" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.presmanual' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="presmanual">
+          <Property Name="idpres" Type="int" />
+          <Property Name="idtrabajador" Type="int" />
+          <Property Name="idmes" Type="int" />
+          <Property Name="mes" Type="date" />
+          <Property Name="Salbase" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="otrasasig" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Salmen" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Saldia" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="diasdev" Type="int" />
+          <Property Name="AlicuotaV" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="diasdeu" Type="int" />
+          <Property Name="AlicuotaU" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Salarioint" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Dias" Type="int" />
+          <Property Name="TotalMes" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Tasa" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Interes" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Anticipo" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Acumulado" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.sueldos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="sueldos">
+          <Property Name="fecha" Type="date" />
+          <Property Name="monto" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>-->
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'nomina.tasas' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="tasas">
+          <Property Name="fecha" Type="date" />
+          <Property Name="tasa" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>-->
         <EntityType Name="tipocuenta">
           <Key>
             <PropertyRef Name="idtipocuenta" />
@@ -256,6 +376,30 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
             </Principal>
             <Dependent Role="cargo">
               <PropertyRef Name="Iddepartamentos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="prenominagen_ibfk_1">
+          <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1" />
+          <End Role="prenominagen" Type="Self.prenominagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trabajador">
+              <PropertyRef Name="idtrabajador" />
+            </Principal>
+            <Dependent Role="prenominagen">
+              <PropertyRef Name="idtrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="prenominagen_ibfk_2">
+          <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+          <End Role="prenominagen" Type="Self.prenominagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nominatype">
+              <PropertyRef Name="idnomina" />
+            </Principal>
+            <Dependent Role="prenominagen">
+              <PropertyRef Name="idnominatype" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -394,6 +538,7 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
           <EntitySet Name="nominatype" EntityType="Self.nominatype" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="nominauni" EntityType="Self.nominauni" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="prenomina" EntityType="Self.prenomina" Schema="nomina" store:Type="Tables" />
+          <EntitySet Name="prenominagen" EntityType="Self.prenominagen" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="tipocuenta" EntityType="Self.tipocuenta" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="trabajador" EntityType="Self.trabajador" Schema="nomina" store:Type="Tables" />
           <EntitySet Name="usermenu" EntityType="Self.usermenu" Schema="nomina" store:Type="Tables" />
@@ -414,6 +559,14 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <AssociationSet Name="cargodepart" Association="Self.cargodepart">
             <End Role="departamentos" EntitySet="departamentos" />
             <End Role="cargo" EntitySet="cargo" />
+          </AssociationSet>
+          <AssociationSet Name="prenominagen_ibfk_1" Association="Self.prenominagen_ibfk_1">
+            <End Role="trabajador" EntitySet="trabajador" />
+            <End Role="prenominagen" EntitySet="prenominagen" />
+          </AssociationSet>
+          <AssociationSet Name="prenominagen_ibfk_2" Association="Self.prenominagen_ibfk_2">
+            <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="prenominagen" EntitySet="prenominagen" />
           </AssociationSet>
           <AssociationSet Name="PrenominaTraid" Association="Self.PrenominaTraid">
             <End Role="trabajador" EntitySet="trabajador" />
@@ -472,20 +625,31 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <EntitySet Name="nacionalidad" EntityType="nominaModel.nacionalidad" />
           <EntitySet Name="nominaini" EntityType="nominaModel.nominaini" />
           <EntitySet Name="nominatype" EntityType="nominaModel.nominatype" />
-          <EntitySet Name="nominauni" EntityType="nominaModel.nominauni" />
           <EntitySet Name="tipocuenta" EntityType="nominaModel.tipocuenta" />
-          <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
           <EntitySet Name="usermenu" EntityType="nominaModel.usermenu" />
           <EntitySet Name="users" EntityType="nominaModel.users" />
           <EntitySet Name="usertype" EntityType="nominaModel.usertype" />
           <EntitySet Name="varsys" EntityType="nominaModel.varsys" />
-          <AssociationSet Name="Trabajadoridbanco" Association="nominaModel.Trabajadoridbanco">
-            <End Role="bancos" EntitySet="bancos" />
-            <End Role="trabajador" EntitySet="trabajador" />
-          </AssociationSet>
           <AssociationSet Name="cargodepart" Association="nominaModel.cargodepart">
             <End Role="departamentos" EntitySet="departamentos" />
             <End Role="cargo" EntitySet="cargo" />
+          </AssociationSet>
+          <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
+          <EntitySet Name="nominauni" EntityType="nominaModel.nominauni" />
+          <EntitySet Name="prenominagen" EntityType="nominaModel.prenominagen" />
+          <AssociationSet Name="prenominagen_ibfk_2" Association="nominaModel.prenominagen_ibfk_2">
+            <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="prenominagen" EntitySet="prenominagen" />
+          </AssociationSet>
+          <EntitySet Name="prenomina" EntityType="nominaModel.prenomina" />
+          <AssociationSet Name="PrenominaType" Association="nominaModel.PrenominaType">
+            <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="prenomina" EntitySet="prenomina" />
+          </AssociationSet>
+          <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
+          <AssociationSet Name="Trabajadoridbanco" Association="nominaModel.Trabajadoridbanco">
+            <End Role="bancos" EntitySet="bancos" />
+            <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
           <AssociationSet Name="TrabajadorCargo" Association="nominaModel.TrabajadorCargo">
             <End Role="cargo" EntitySet="cargo" />
@@ -511,20 +675,18 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="nominatype" EntitySet="nominatype" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
-          <AssociationSet Name="TrabajadorTipoc" Association="nominaModel.TrabajadorTipoc">
-            <End Role="tipocuenta" EntitySet="tipocuenta" />
-            <End Role="trabajador" EntitySet="trabajador" />
-          </AssociationSet>
-          <EntitySet Name="prenomina" EntityType="nominaModel.prenomina" />
-          <AssociationSet Name="PrenominaType" Association="nominaModel.PrenominaType">
-            <End Role="nominatype" EntitySet="nominatype" />
-            <End Role="prenomina" EntitySet="prenomina" />
-          </AssociationSet>
           <AssociationSet Name="PrenominaTraid" Association="nominaModel.PrenominaTraid">
             <End Role="trabajador" EntitySet="trabajador" />
             <End Role="prenomina" EntitySet="prenomina" />
           </AssociationSet>
-          <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
+          <AssociationSet Name="prenominagen_ibfk_1" Association="nominaModel.prenominagen_ibfk_1">
+            <End Role="trabajador" EntitySet="trabajador" />
+            <End Role="prenominagen" EntitySet="prenominagen" />
+          </AssociationSet>
+          <AssociationSet Name="TrabajadorTipoc" Association="nominaModel.TrabajadorTipoc">
+            <End Role="tipocuenta" EntitySet="tipocuenta" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="bancos">
           <Key>
@@ -637,24 +799,9 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="intervalo" Type="Int32" Nullable="false" />
           <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="scodigo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
+          <NavigationProperty Name="prenominagen" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="nominatype" ToRole="prenominagen" />
           <NavigationProperty Name="prenomina" Relationship="nominaModel.PrenominaType" FromRole="nominatype" ToRole="prenomina" />
-        </EntityType>
-        <EntityType Name="nominauni">
-          <Key>
-            <PropertyRef Name="idnomina" />
-          </Key>
-          <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nominatype" Type="Int32" />
-          <Property Name="desde" Type="DateTime" />
-          <Property Name="hasta" Type="DateTime" />
-          <Property Name="totalnomina" Type="Decimal" />
-          <Property Name="totalasignaciones" Type="Decimal" />
-          <Property Name="totaldeducciones" Type="Decimal" />
-          <Property Name="estatus" Type="Int32" />
-          <Property Name="fecha" Type="DateTime" />
-          <Property Name="user" Type="Int32" />
-          <Property Name="cantidadt" Type="Int32" />
+          <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
         </EntityType>
         <EntityType Name="tipocuenta">
           <Key>
@@ -663,40 +810,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="idtipocuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorTipoc" FromRole="tipocuenta" ToRole="trabajador" />
-        </EntityType>
-        <EntityType Name="trabajador">
-          <Key>
-            <PropertyRef Name="idtrabajador" />
-          </Key>
-          <Property Name="idtrabajador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="cedula" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="telefonocel" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="telefonolocal" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="telefonocontacto" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="nombrecontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Sueldo" Type="Decimal" />
-          <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="sexo" Type="Int32" />
-          <Property Name="Fechaing" Type="DateTime" />
-          <Property Name="fechanac" Type="DateTime" />
-          <Property Name="edocivil" Type="Int32" />
-          <Property Name="Nhijos" Type="Int32" />
-          <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="numerocuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="bancos" Relationship="nominaModel.Trabajadoridbanco" FromRole="trabajador" ToRole="bancos" />
-          <NavigationProperty Name="cargo" Relationship="nominaModel.TrabajadorCargo" FromRole="trabajador" ToRole="cargo" />
-          <NavigationProperty Name="departamentos" Relationship="nominaModel.TrabajadorDepart" FromRole="trabajador" ToRole="departamentos" />
-          <NavigationProperty Name="estatus" Relationship="nominaModel.TrabajadorEstatus" FromRole="trabajador" ToRole="estatus" />
-          <NavigationProperty Name="gradointruc" Relationship="nominaModel.Trabajadorgrado" FromRole="trabajador" ToRole="gradointruc" />
-          <NavigationProperty Name="nacionalidad" Relationship="nominaModel.TrabajadorNac" FromRole="trabajador" ToRole="nacionalidad" />
-          <NavigationProperty Name="nominatype" Relationship="nominaModel.TrabajadorNomina" FromRole="trabajador" ToRole="nominatype" />
-          <NavigationProperty Name="tipocuenta" Relationship="nominaModel.TrabajadorTipoc" FromRole="trabajador" ToRole="tipocuenta" />
-          <NavigationProperty Name="prenomina" Relationship="nominaModel.PrenominaTraid" FromRole="trabajador" ToRole="prenomina" />
         </EntityType>
         <EntityType Name="usermenu">
           <Key>
@@ -752,13 +865,112 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="vHR" Type="Decimal" />
           <Property Name="vDFI" Type="Decimal" />
         </EntityType>
-        <Association Name="Trabajadoridbanco">
-          <End Type="nominaModel.bancos" Role="bancos" Multiplicity="0..1" />
-          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
-        </Association>
         <Association Name="cargodepart">
           <End Type="nominaModel.departamentos" Role="departamentos" Multiplicity="0..1" />
           <End Type="nominaModel.cargo" Role="cargo" Multiplicity="*" />
+        </Association>
+        <EntityType Name="conceptos">
+          <Key>
+            <PropertyRef Name="idconcepto" />
+          </Key>
+          <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="variante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="Int32" />
+          <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="nominauni">
+          <Key>
+            <PropertyRef Name="idnomina" />
+          </Key>
+          <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nominatype" Type="Int32" />
+          <Property Name="desde" Type="DateTime" />
+          <Property Name="hasta" Type="DateTime" />
+          <Property Name="totalnomina" Type="Decimal" />
+          <Property Name="totalasignaciones" Type="Decimal" />
+          <Property Name="totaldeducciones" Type="Decimal" />
+          <Property Name="estatus" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" />
+          <Property Name="user" Type="Int32" />
+          <Property Name="cantidadt" Type="Int32" />
+        </EntityType>
+        <EntityType Name="prenominagen">
+          <Key>
+            <PropertyRef Name="idprenomina" />
+          </Key>
+          <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Idnominagen" Type="Int32" Nullable="false" />
+          <Property Name="idconcepto" Type="Int32" />
+          <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="valorconcepto" Type="Decimal" />
+          <Property Name="valorvar" Type="Decimal" />
+          <Property Name="tipoconcepto" Type="Int32" />
+          <NavigationProperty Name="nominatype" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="prenominagen" ToRole="nominatype" />
+          <NavigationProperty Name="trabajador" Relationship="nominaModel.prenominagen_ibfk_1" FromRole="prenominagen" ToRole="trabajador" />
+        </EntityType>
+        <Association Name="prenominagen_ibfk_2">
+          <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
+          <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
+        </Association>
+        <EntityType Name="prenomina">
+          <Key>
+            <PropertyRef Name="idprenomina" />
+          </Key>
+          <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idconcepto" Type="Int32" />
+          <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="valorconcepto" Type="Decimal" />
+          <Property Name="valorvar" Type="Decimal" />
+          <Property Name="tipoconcepto" Type="Int32" />
+          <Property Name="idnominagen" Type="Int32" />
+          <NavigationProperty Name="nominatype" Relationship="nominaModel.PrenominaType" FromRole="prenomina" ToRole="nominatype" />
+          <NavigationProperty Name="trabajador" Relationship="nominaModel.PrenominaTraid" FromRole="prenomina" ToRole="trabajador" />
+        </EntityType>
+        <Association Name="PrenominaType">
+          <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
+          <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
+        </Association>
+        <EntityType Name="trabajador">
+          <Key>
+            <PropertyRef Name="idtrabajador" />
+          </Key>
+          <Property Name="idtrabajador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cedula" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="telefonocel" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="telefonolocal" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="telefonocontacto" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="nombrecontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sueldo" Type="Decimal" />
+          <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="sexo" Type="Int32" />
+          <Property Name="Fechaing" Type="DateTime" />
+          <Property Name="fechanac" Type="DateTime" />
+          <Property Name="edocivil" Type="Int32" />
+          <Property Name="Nhijos" Type="Int32" />
+          <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="numerocuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bancos" Relationship="nominaModel.Trabajadoridbanco" FromRole="trabajador" ToRole="bancos" />
+          <NavigationProperty Name="cargo" Relationship="nominaModel.TrabajadorCargo" FromRole="trabajador" ToRole="cargo" />
+          <NavigationProperty Name="departamentos" Relationship="nominaModel.TrabajadorDepart" FromRole="trabajador" ToRole="departamentos" />
+          <NavigationProperty Name="estatus" Relationship="nominaModel.TrabajadorEstatus" FromRole="trabajador" ToRole="estatus" />
+          <NavigationProperty Name="gradointruc" Relationship="nominaModel.Trabajadorgrado" FromRole="trabajador" ToRole="gradointruc" />
+          <NavigationProperty Name="nacionalidad" Relationship="nominaModel.TrabajadorNac" FromRole="trabajador" ToRole="nacionalidad" />
+          <NavigationProperty Name="nominatype" Relationship="nominaModel.TrabajadorNomina" FromRole="trabajador" ToRole="nominatype" />
+          <NavigationProperty Name="prenomina" Relationship="nominaModel.PrenominaTraid" FromRole="trabajador" ToRole="prenomina" />
+          <NavigationProperty Name="prenominagen" Relationship="nominaModel.prenominagen_ibfk_1" FromRole="trabajador" ToRole="prenominagen" />
+          <NavigationProperty Name="tipocuenta" Relationship="nominaModel.TrabajadorTipoc" FromRole="trabajador" ToRole="tipocuenta" />
+        </EntityType>
+        <Association Name="Trabajadoridbanco">
+          <End Type="nominaModel.bancos" Role="bancos" Multiplicity="0..1" />
+          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
         </Association>
         <Association Name="TrabajadorCargo">
           <End Type="nominaModel.cargo" Role="cargo" Multiplicity="0..1" />
@@ -784,43 +996,18 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="0..1" />
           <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
         </Association>
-        <Association Name="TrabajadorTipoc">
-          <End Type="nominaModel.tipocuenta" Role="tipocuenta" Multiplicity="0..1" />
-          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
-        </Association>
-        <EntityType Name="prenomina">
-          <Key>
-            <PropertyRef Name="idprenomina" />
-          </Key>
-          <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idconcepto" Type="Int32" />
-          <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="valorconcepto" Type="Decimal" />
-          <Property Name="valorvar" Type="Decimal" />
-          <Property Name="tipoconcepto" Type="Int32" />
-          <NavigationProperty Name="nominatype" Relationship="nominaModel.PrenominaType" FromRole="prenomina" ToRole="nominatype" />
-          <NavigationProperty Name="trabajador" Relationship="nominaModel.PrenominaTraid" FromRole="prenomina" ToRole="trabajador" />
-        </EntityType>
-        <Association Name="PrenominaType">
-          <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
-          <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
-        </Association>
         <Association Name="PrenominaTraid">
           <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="0..1" />
           <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
         </Association>
-        <EntityType Name="conceptos">
-          <Key>
-            <PropertyRef Name="idconcepto" />
-          </Key>
-          <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="variante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="tipo" Type="Int32" />
-          <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="codigo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-        </EntityType>
+        <Association Name="prenominagen_ibfk_1">
+          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="0..1" />
+          <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
+        </Association>
+        <Association Name="TrabajadorTipoc">
+          <End Type="nominaModel.tipocuenta" Role="tipocuenta" Multiplicity="0..1" />
+          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -941,54 +1128,11 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="nominauni">
-            <EntityTypeMapping TypeName="nominaModel.nominauni">
-              <MappingFragment StoreEntitySet="nominauni">
-                <ScalarProperty Name="cantidadt" ColumnName="cantidadt" />
-                <ScalarProperty Name="user" ColumnName="user" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="estatus" ColumnName="estatus" />
-                <ScalarProperty Name="totaldeducciones" ColumnName="totaldeducciones" />
-                <ScalarProperty Name="totalasignaciones" ColumnName="totalasignaciones" />
-                <ScalarProperty Name="totalnomina" ColumnName="totalnomina" />
-                <ScalarProperty Name="hasta" ColumnName="hasta" />
-                <ScalarProperty Name="desde" ColumnName="desde" />
-                <ScalarProperty Name="nominatype" ColumnName="nominatype" />
-                <ScalarProperty Name="idnomina" ColumnName="idnomina" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tipocuenta">
             <EntityTypeMapping TypeName="nominaModel.tipocuenta">
               <MappingFragment StoreEntitySet="tipocuenta">
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="trabajador">
-            <EntityTypeMapping TypeName="nominaModel.trabajador">
-              <MappingFragment StoreEntitySet="trabajador">
-                <ScalarProperty Name="numerocuenta" ColumnName="numerocuenta" />
-                <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
-                <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
-                <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
-                <ScalarProperty Name="edocivil" ColumnName="edocivil" />
-                <ScalarProperty Name="fechanac" ColumnName="fechanac" />
-                <ScalarProperty Name="Fechaing" ColumnName="Fechaing" />
-                <ScalarProperty Name="sexo" ColumnName="sexo" />
-                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-                <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
-                <ScalarProperty Name="correo" ColumnName="correo" />
-                <ScalarProperty Name="nombrecontacto" ColumnName="nombrecontacto" />
-                <ScalarProperty Name="telefonocontacto" ColumnName="telefonocontacto" />
-                <ScalarProperty Name="telefonolocal" ColumnName="telefonolocal" />
-                <ScalarProperty Name="telefonocel" ColumnName="telefonocel" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
-                <ScalarProperty Name="nombres" ColumnName="nombres" />
-                <ScalarProperty Name="cedula" ColumnName="cedula" />
-                <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1050,15 +1194,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Trabajadoridbanco" TypeName="nominaModel.Trabajadoridbanco" StoreEntitySet="trabajador">
-            <EndProperty Name="trabajador">
-              <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-            </EndProperty>
-            <EndProperty Name="bancos">
-              <ScalarProperty Name="Idbanco" ColumnName="idbanco" />
-            </EndProperty>
-            <Condition ColumnName="idbanco" IsNull="false" />
-          </AssociationSetMapping>
           <AssociationSetMapping Name="cargodepart" TypeName="nominaModel.cargodepart" StoreEntitySet="cargo">
             <EndProperty Name="cargo">
               <ScalarProperty Name="idcargo" ColumnName="idcargo" />
@@ -1067,6 +1202,113 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               <ScalarProperty Name="iddepartamentos" ColumnName="Iddepartamentos" />
             </EndProperty>
             <Condition ColumnName="Iddepartamentos" IsNull="false" />
+          </AssociationSetMapping>
+          <EntitySetMapping Name="conceptos">
+            <EntityTypeMapping TypeName="nominaModel.conceptos">
+              <MappingFragment StoreEntitySet="conceptos">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="variante" ColumnName="variante" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nominauni">
+            <EntityTypeMapping TypeName="nominaModel.nominauni">
+              <MappingFragment StoreEntitySet="nominauni">
+                <ScalarProperty Name="cantidadt" ColumnName="cantidadt" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="totaldeducciones" ColumnName="totaldeducciones" />
+                <ScalarProperty Name="totalasignaciones" ColumnName="totalasignaciones" />
+                <ScalarProperty Name="totalnomina" ColumnName="totalnomina" />
+                <ScalarProperty Name="hasta" ColumnName="hasta" />
+                <ScalarProperty Name="desde" ColumnName="desde" />
+                <ScalarProperty Name="nominatype" ColumnName="nominatype" />
+                <ScalarProperty Name="idnomina" ColumnName="idnomina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prenominagen">
+            <EntityTypeMapping TypeName="nominaModel.prenominagen">
+              <MappingFragment StoreEntitySet="prenominagen">
+                <ScalarProperty Name="tipoconcepto" ColumnName="tipoconcepto" />
+                <ScalarProperty Name="valorvar" ColumnName="valorvar" />
+                <ScalarProperty Name="valorconcepto" ColumnName="valorconcepto" />
+                <ScalarProperty Name="nombrecon" ColumnName="nombrecon" />
+                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+                <ScalarProperty Name="Idnominagen" ColumnName="Idnominagen" />
+                <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="prenominagen_ibfk_2" TypeName="nominaModel.prenominagen_ibfk_2" StoreEntitySet="prenominagen">
+            <EndProperty Name="prenominagen">
+              <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
+            </EndProperty>
+            <EndProperty Name="nominatype">
+              <ScalarProperty Name="idnomina" ColumnName="idnominatype" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="prenomina">
+            <EntityTypeMapping TypeName="nominaModel.prenomina">
+              <MappingFragment StoreEntitySet="prenomina">
+                <ScalarProperty Name="idnominagen" ColumnName="idnominagen" />
+                <ScalarProperty Name="tipoconcepto" ColumnName="tipoconcepto" />
+                <ScalarProperty Name="valorvar" ColumnName="valorvar" />
+                <ScalarProperty Name="valorconcepto" ColumnName="valorconcepto" />
+                <ScalarProperty Name="nombrecon" ColumnName="nombrecon" />
+                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+                <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PrenominaType" TypeName="nominaModel.PrenominaType" StoreEntitySet="prenomina">
+            <EndProperty Name="prenomina">
+              <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
+            </EndProperty>
+            <EndProperty Name="nominatype">
+              <ScalarProperty Name="idnomina" ColumnName="idnominatype" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="trabajador">
+            <EntityTypeMapping TypeName="nominaModel.trabajador">
+              <MappingFragment StoreEntitySet="trabajador">
+                <ScalarProperty Name="numerocuenta" ColumnName="numerocuenta" />
+                <ScalarProperty Name="dirfoto" ColumnName="dirfoto" />
+                <ScalarProperty Name="lugarnac" ColumnName="lugarnac" />
+                <ScalarProperty Name="Nhijos" ColumnName="Nhijos" />
+                <ScalarProperty Name="edocivil" ColumnName="edocivil" />
+                <ScalarProperty Name="fechanac" ColumnName="fechanac" />
+                <ScalarProperty Name="Fechaing" ColumnName="Fechaing" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+                <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="nombrecontacto" ColumnName="nombrecontacto" />
+                <ScalarProperty Name="telefonocontacto" ColumnName="telefonocontacto" />
+                <ScalarProperty Name="telefonolocal" ColumnName="telefonolocal" />
+                <ScalarProperty Name="telefonocel" ColumnName="telefonocel" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Trabajadoridbanco" TypeName="nominaModel.Trabajadoridbanco" StoreEntitySet="trabajador">
+            <EndProperty Name="trabajador">
+              <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+            </EndProperty>
+            <EndProperty Name="bancos">
+              <ScalarProperty Name="Idbanco" ColumnName="idbanco" />
+            </EndProperty>
+            <Condition ColumnName="idbanco" IsNull="false" />
           </AssociationSetMapping>
           <AssociationSetMapping Name="TrabajadorCargo" TypeName="nominaModel.TrabajadorCargo" StoreEntitySet="trabajador">
             <EndProperty Name="trabajador">
@@ -1122,35 +1364,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             </EndProperty>
             <Condition ColumnName="Idnomina" IsNull="false" />
           </AssociationSetMapping>
-          <AssociationSetMapping Name="TrabajadorTipoc" TypeName="nominaModel.TrabajadorTipoc" StoreEntitySet="trabajador">
-            <EndProperty Name="trabajador">
-              <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-            </EndProperty>
-            <EndProperty Name="tipocuenta">
-              <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
-            </EndProperty>
-            <Condition ColumnName="idtipocuenta" IsNull="false" />
-          </AssociationSetMapping>
-          <EntitySetMapping Name="prenomina">
-            <EntityTypeMapping TypeName="nominaModel.prenomina">
-              <MappingFragment StoreEntitySet="prenomina">
-                <ScalarProperty Name="tipoconcepto" ColumnName="tipoconcepto" />
-                <ScalarProperty Name="valorvar" ColumnName="valorvar" />
-                <ScalarProperty Name="valorconcepto" ColumnName="valorconcepto" />
-                <ScalarProperty Name="nombrecon" ColumnName="nombrecon" />
-                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
-                <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="PrenominaType" TypeName="nominaModel.PrenominaType" StoreEntitySet="prenomina">
-            <EndProperty Name="prenomina">
-              <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
-            </EndProperty>
-            <EndProperty Name="nominatype">
-              <ScalarProperty Name="idnomina" ColumnName="idnominatype" />
-            </EndProperty>
-          </AssociationSetMapping>
           <AssociationSetMapping Name="PrenominaTraid" TypeName="nominaModel.PrenominaTraid" StoreEntitySet="prenomina">
             <EndProperty Name="prenomina">
               <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
@@ -1160,19 +1373,24 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             </EndProperty>
             <Condition ColumnName="idtrabajador" IsNull="false" />
           </AssociationSetMapping>
-          <EntitySetMapping Name="conceptos">
-            <EntityTypeMapping TypeName="nominaModel.conceptos">
-              <MappingFragment StoreEntitySet="conceptos">
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="Valor" ColumnName="Valor" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="variante" ColumnName="variante" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <AssociationSetMapping Name="prenominagen_ibfk_1" TypeName="nominaModel.prenominagen_ibfk_1" StoreEntitySet="prenominagen">
+            <EndProperty Name="prenominagen">
+              <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
+            </EndProperty>
+            <EndProperty Name="trabajador">
+              <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+            </EndProperty>
+            <Condition ColumnName="idtrabajador" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TrabajadorTipoc" TypeName="nominaModel.TrabajadorTipoc" StoreEntitySet="trabajador">
+            <EndProperty Name="trabajador">
+              <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+            </EndProperty>
+            <EndProperty Name="tipocuenta">
+              <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
+            </EndProperty>
+            <Condition ColumnName="idtipocuenta" IsNull="false" />
+          </AssociationSetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

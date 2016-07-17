@@ -32,10 +32,16 @@ namespace Nomina1._0
             InitializeComponent();
             DataContext = nomina;
         }
-
+        public WinPrenomina()
+        {
+            InitializeComponent();
+            button_Copy.Content = "Ver";
+        }
         private void button_Copy_Click(object sender, RoutedEventArgs e)
         {
-
+            if (button_Copy.Content.ToString() != "Ver")
+            { nomina.GenerarNomina(); }
+          
             var dt = from trabs in nomina.NominaActual
                      select new PNominaGen
                      {
@@ -61,8 +67,15 @@ namespace Nomina1._0
 
             WinReport report = new WinReport(dt.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\ReciboPago.rdlc");
             report.ShowDialog();
+            if (checkBox.IsChecked==true)
+            { 
             WinReport report2 = new WinReport(dt.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\NominaGeneral.rdlc");
             report2.ShowDialog();
+            }
+            if (checkBox_Copy.IsChecked==true)
+            {
+                nomina.CrearTxt();
+            }
         }
     }
 }

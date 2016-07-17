@@ -111,7 +111,20 @@ namespace Nomina1._0.ViewModel
 
               }
           }
-
+        public void Eliminar()
+        {
+            try
+            {
+                Datos.Micontexto.nominatype.Remove(NominaActual);
+                Datos.Micontexto.SaveChanges();
+                Datos.Msg("Item eliminado", "Eliminado", "I");
+                Nuevo();
+            }
+            catch (Exception es)
+            {
+                Datos.Msg("No se puede eliminar el Item, Se han generado procesos con el mismo" , "Error", "E");
+            }
+        }
         public void Filtro(string id)
         {
             

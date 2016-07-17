@@ -41,6 +41,7 @@ namespace Nomina1._0.ViewModel
             set { _TrabajadorActual = value;
                 ConceptosViewList = new ConceptosListViewModel(TrabajadorActual);
                 CamposViewList = new ListCamposModel(TrabajadorActual.idtrabajador);
+                NotifyPropertyChanged();
             }
             
         }
@@ -112,6 +113,21 @@ namespace Nomina1._0.ViewModel
 
         }
 
+        public void Eliminar()
+        {
+            try
+            { 
+            Datos.Micontexto.trabajador.Remove(TrabajadorActual);
+            Datos.Micontexto.SaveChanges();
+            Datos.Msg("Item eliminado", "Eliminado", "I");
+                Nuevo();
+                ConceptosViewList = null;
+            }
+            catch(Exception es)
+            {
+                Datos.Msg("No se puede eliminar el Item, Se han generado procesos con el mismo", "Error", "E");
+            }
+        }
         public void Buscar(string cedulax)
         {
            

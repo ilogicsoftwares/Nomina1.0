@@ -36,14 +36,15 @@ namespace Nomina1._0
         public DbSet<nacionalidad> nacionalidad { get; set; }
         public DbSet<nominaini> nominaini { get; set; }
         public DbSet<nominatype> nominatype { get; set; }
-        public DbSet<nominauni> nominauni { get; set; }
         public DbSet<tipocuenta> tipocuenta { get; set; }
-        public DbSet<trabajador> trabajador { get; set; }
         public DbSet<usermenu> usermenu { get; set; }
         public DbSet<users> users { get; set; }
         public DbSet<usertype> usertype { get; set; }
         public DbSet<varsys> varsys { get; set; }
-        public DbSet<prenomina> prenomina { get; set; }
         public DbSet<conceptos> conceptos { get; set; }
+        public DbSet<nominauni> nominauni { get; set; }
+        public DbSet<prenominagen> prenominagen { get; set; }
+        public DbSet<prenomina> prenomina { get; set; }
+        public DbSet<trabajador> trabajador { get; set; }
     }
 }

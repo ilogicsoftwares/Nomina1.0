@@ -20,6 +20,7 @@ namespace Nomina1._0
         public Nullable<decimal> valorconcepto { get; set; }
         public Nullable<decimal> valorvar { get; set; }
         public Nullable<int> tipoconcepto { get; set; }
+        public Nullable<int> idnominagen { get; set; }
     
         public virtual nominatype nominatype { get; set; }
         public virtual trabajador trabajador { get; set; }

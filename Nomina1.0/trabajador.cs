@@ -17,6 +17,7 @@ namespace Nomina1._0
         public trabajador()
         {
             this.prenomina = new HashSet<prenomina>();
+            this.prenominagen = new HashSet<prenominagen>();
         }
     
         public int idtrabajador { get; set; }
@@ -47,7 +48,8 @@ namespace Nomina1._0
         public virtual gradointruc gradointruc { get; set; }
         public virtual nacionalidad nacionalidad { get; set; }
         public virtual nominatype nominatype { get; set; }
-        public virtual tipocuenta tipocuenta { get; set; }
         public virtual ICollection<prenomina> prenomina { get; set; }
+        public virtual ICollection<prenominagen> prenominagen { get; set; }
+        public virtual tipocuenta tipocuenta { get; set; }
     }
 }

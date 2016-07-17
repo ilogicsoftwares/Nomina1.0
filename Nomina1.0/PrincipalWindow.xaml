@@ -52,6 +52,24 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
+            <Button x:Name="CommandNuevo_Copy"  Command="{Binding EliminarEntidadCommand}"  HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Eliminar(Ctrl+N)" Margin="84,0,0,0" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="45.566"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Rectangle Width="15"
+            		Height="15"
+            		Fill="Red">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+            				Visual="{DynamicResource appbar_add}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
 
         </Grid>
 

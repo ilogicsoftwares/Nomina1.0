@@ -11,6 +11,7 @@ namespace Nomina1._0
 
     public partial class MainWindow:MetroWindow 
     {
+        
         public LogingViewModel initUser = new LogingViewModel();
         public MainWindow()
         {
@@ -22,7 +23,7 @@ namespace Nomina1._0
         private void button_Click(object sender, RoutedEventArgs e)
         {
          
-                if (passwordBox.Password.Trim() == comboBox.SelectedValuePath.ToString().Trim())
+                if (passwordBox.Password.Trim() == comboBox.SelectedValuePath.ToString().Trim() && passwordBox.Password.Trim()!=string.Empty)
                 {
                     LogingViewModel.UsuarioActivo = initUser.UsuarioActual;
                     Datos.AbrirWindow("Ilogic Softwares Nomina -"+" Usuario: " + LogingViewModel.UsuarioActivo.descripcion,"PrincipalWindow","0");

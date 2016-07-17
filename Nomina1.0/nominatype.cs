@@ -16,8 +16,9 @@ namespace Nomina1._0
     {
         public nominatype()
         {
-            this.trabajador = new HashSet<trabajador>();
+            this.prenominagen = new HashSet<prenominagen>();
             this.prenomina = new HashSet<prenomina>();
+            this.trabajador = new HashSet<trabajador>();
         }
     
         public int idnomina { get; set; }
@@ -26,7 +27,8 @@ namespace Nomina1._0
         public string conceptos { get; set; }
         public string scodigo { get; set; }
     
-        public virtual ICollection<trabajador> trabajador { get; set; }
+        public virtual ICollection<prenominagen> prenominagen { get; set; }
         public virtual ICollection<prenomina> prenomina { get; set; }
+        public virtual ICollection<trabajador> trabajador { get; set; }
     }
 }

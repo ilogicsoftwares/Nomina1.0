@@ -28,20 +28,20 @@
             <RowDefinition Height="96*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="52*"/>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="143*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="131*"/>
             <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
         <ComboBox x:Name="comboBox" Grid.Row="1" DisplayMemberPath="descripcion" ItemsSource="{Binding usuarios}" SelectedItem="{Binding UsuarioActual}" SelectedValuePath="{Binding UsuarioActual.keyCi}" Grid.Column="1" Height="26" VerticalAlignment="Bottom"/>
         <Label x:Name="label" Content="Seleccione Usuario" Margin="0,0,0,26" Grid.Row="1" HorizontalContentAlignment="Center" Grid.Column="1" Height="25" VerticalAlignment="Bottom"/>
         <PasswordBox x:Name="passwordBox" Grid.Row="3" Grid.Column="1" Height="27" VerticalAlignment="Bottom"/>
-        <Label x:Name="label_Copy" Content="Ingrese Clave" Margin="0,0,0,29" Grid.Row="3" HorizontalContentAlignment="Center" Grid.Column="1"/>
-        <Button x:Name="button" Content="Ingresar" Margin="85,0,0,10" Grid.Row="4" Grid.Column="1" IsDefault="True" Click="button_Click"/>
-        <Label x:Name="label1" Content="Nomina " VerticalAlignment="Top" Height="32" FontFamily="Microsoft Sans Serif" FontSize="22" FontWeight="Bold" TextOptions.TextFormattingMode="Display" Foreground="Gray" Grid.Column="1" HorizontalContentAlignment="Center" FontStyle="Italic" Margin="0,86,0,0" Grid.RowSpan="2"/>
+        <Label x:Name="label_Copy" Content="Ingrese Clave" Margin="0,0,0,27" Grid.Row="3" HorizontalContentAlignment="Center" Grid.Column="1"/>
+        <Button x:Name="button" Content="Ingresar" Margin="85,0,0,0" Grid.Row="4" Grid.Column="1" IsDefault="True" Click="button_Click" Height="31" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Nomina " VerticalAlignment="Top" Height="32" FontFamily="Microsoft Sans Serif" FontSize="22" FontWeight="Bold" TextOptions.TextFormattingMode="Display" Foreground="Gray" Grid.Column="1" HorizontalContentAlignment="Center" FontStyle="Italic" Grid.Row="1" Margin="0,12,0,0"/>
         <TextBlock x:Name="textBlock" Grid.Row="6" TextWrapping="Wrap" FontSize="10" FontStretch="ExtraCondensed" TextAlignment="Center" Foreground="White" Background="#FF424242" Grid.ColumnSpan="3"><Run Text="Este Sistema esta protegido por las Leyes Venezolanas e "/><Run Text="I"/><Run Text="nternacionesles"/><Run Text="."/><LineBreak/><Run Text="Ilogic Softwares"/><Run FontFamily="Arial" Text="©"/><Run FontFamily="Arial" Text=" 2016"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
-        <Image x:Name="image" Height="68" Margin="43,3,44,0" VerticalAlignment="Top" Source="Resources/ILOGICICON.png" Grid.Column="1"/>
+        <Image x:Name="image" Height="68" Margin="43,21,44,0" VerticalAlignment="Top" Source="Resources/ILOGICICON.png" Grid.Column="1"/>
         <Label x:Name="Mensaje" Content="" Grid.Column="1" Margin="0,31,0,0" Grid.Row="4" RenderTransformOrigin="0.895,0.038" HorizontalContentAlignment="Right" Foreground="Red"/>
-        <Label x:Name="label1_Copy" Content="Ilogic Softwares" Margin="64,61,57,0" VerticalAlignment="Top" Height="42" FontFamily="Microsoft Sans Serif" FontSize="29.333" FontWeight="Bold" TextOptions.TextFormattingMode="Display" Foreground="Gray" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label1_Copy" Content="Ilogic Softwares" Margin="64,79,57,0" VerticalAlignment="Top" Height="42" FontFamily="Microsoft Sans Serif" FontSize="29.333" FontWeight="Bold" TextOptions.TextFormattingMode="Display" Foreground="Gray" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Controls:MetroWindow>

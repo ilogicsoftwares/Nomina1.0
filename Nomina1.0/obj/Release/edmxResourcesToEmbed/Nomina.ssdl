@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nominaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bancos">
+    <Key>
+      <PropertyRef Name="Idbanco" />
+    </Key>
+    <Property Name="Idbanco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="campos">
+    <Key>
+      <PropertyRef Name="idcampo" />
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="idcampo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="valorinicial" Type="decimal" Precision="11" Scale="2" />
+    <Property Name="esReiniciado" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="campotra">
+    <Key>
+      <PropertyRef Name="idcampotra" />
+    </Key>
+    <Property Name="idcampotra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idtrabajador" Type="int" Nullable="false" />
+    <Property Name="nombrecampo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="valor" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cargo">
+    <Key>
+      <PropertyRef Name="idcargo" />
+    </Key>
+    <Property Name="idcargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+    <Property Name="conceptos" Type="varchar" MaxLength="100" />
+    <Property Name="Iddepartamentos" Type="int" />
+    <Property Name="sidcargo" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="conceptos">
+    <Key>
+      <PropertyRef Name="idconcepto" />
+    </Key>
+    <Property Name="idconcepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="variante" Type="char" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="tipo" Type="int" />
+    <Property Name="Valor" Type="char" MaxLength="100" />
+    <Property Name="codigo" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="departamentos">
+    <Key>
+      <PropertyRef Name="iddepartamentos" />
+    </Key>
+    <Property Name="iddepartamentos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="estatus">
+    <Key>
+      <PropertyRef Name="idestatus" />
+    </Key>
+    <Property Name="idestatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="gradointruc">
+    <Key>
+      <PropertyRef Name="idgrado" />
+    </Key>
+    <Property Name="idgrado" Type="int" Nullable="false" />
+    <Property Name="grado" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="jornada">
+    <Key>
+      <PropertyRef Name="idjornada" />
+    </Key>
+    <Property Name="idjornada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Lunes" Type="int" />
+    <Property Name="Martes" Type="int" />
+    <Property Name="Miercoles" Type="int" />
+    <Property Name="Jueves" Type="int" />
+    <Property Name="Viernes" Type="int" />
+    <Property Name="Sabado" Type="int" />
+    <Property Name="Domingo" Type="int" />
+    <Property Name="Horariodesde" Type="varchar" MaxLength="10" />
+    <Property Name="Horariohasta" Type="varchar" MaxLength="10" />
+    <Property Name="Descansodesde" Type="varchar" MaxLength="10" />
+    <Property Name="Descansohasta" Type="varchar" MaxLength="10" />
+    <Property Name="descanso" Type="int" />
+  </EntityType>
+  <EntityType Name="nacionalidad">
+    <Key>
+      <PropertyRef Name="idnacionalidad" />
+    </Key>
+    <Property Name="idnacionalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="nominaini">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="desde" Type="date" />
+    <Property Name="hasta" Type="date" />
+    <Property Name="estatus" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="nominatype">
+    <Key>
+      <PropertyRef Name="idnomina" />
+    </Key>
+    <Property Name="idnomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="intervalo" Type="int" Nullable="false" />
+    <Property Name="conceptos" Type="varchar" MaxLength="250" />
+    <Property Name="scodigo" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="nominauni">
+    <Key>
+      <PropertyRef Name="idnomina" />
+    </Key>
+    <Property Name="idnomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nominatype" Type="int" />
+    <Property Name="desde" Type="date" />
+    <Property Name="hasta" Type="date" />
+    <Property Name="totalnomina" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="totalasignaciones" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="totaldeducciones" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="estatus" Type="int" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="user" Type="int" />
+    <Property Name="cantidadt" Type="int" />
+  </EntityType>
+  <EntityType Name="prenomina">
+    <Key>
+      <PropertyRef Name="idprenomina" />
+    </Key>
+    <Property Name="idprenomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idnominatype" Type="int" Nullable="false" />
+    <Property Name="idtrabajador" Type="int" />
+    <Property Name="idconcepto" Type="int" />
+    <Property Name="nombrecon" Type="varchar" MaxLength="50" />
+    <Property Name="valorconcepto" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="tipoconcepto" Type="int" />
+    <Property Name="idnominagen" Type="int" />
+  </EntityType>
+  <EntityType Name="prenominagen">
+    <Key>
+      <PropertyRef Name="idprenomina" />
+    </Key>
+    <Property Name="idprenomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Idnominagen" Type="int" Nullable="false" />
+    <Property Name="idnominatype" Type="int" Nullable="false" />
+    <Property Name="idtrabajador" Type="int" />
+    <Property Name="idconcepto" Type="int" />
+    <Property Name="nombrecon" Type="varchar" MaxLength="50" />
+    <Property Name="valorconcepto" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="tipoconcepto" Type="int" />
+  </EntityType>
+  <EntityType Name="tipocuenta">
+    <Key>
+      <PropertyRef Name="idtipocuenta" />
+    </Key>
+    <Property Name="idtipocuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="trabajador">
+    <Key>
+      <PropertyRef Name="idtrabajador" />
+    </Key>
+    <Property Name="idtrabajador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cedula" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="nombres" Type="varchar" MaxLength="50" />
+    <Property Name="apellidos" Type="varchar" MaxLength="50" />
+    <Property Name="idcargo" Type="int" />
+    <Property Name="iddepartamentos" Type="int" />
+    <Property Name="direccion" Type="varchar" MaxLength="250" />
+    <Property Name="telefonocel" Type="varchar" MaxLength="12" />
+    <Property Name="telefonolocal" Type="varchar" MaxLength="12" />
+    <Property Name="telefonocontacto" Type="varchar" MaxLength="12" />
+    <Property Name="nombrecontacto" Type="varchar" MaxLength="50" />
+    <Property Name="correo" Type="varchar" MaxLength="50" />
+    <Property Name="Sueldo" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="idstatus" Type="int" />
+    <Property Name="conceptos" Type="varchar" MaxLength="250" />
+    <Property Name="sexo" Type="int" />
+    <Property Name="Fechaing" Type="datetime" Precision="0" />
+    <Property Name="fechanac" Type="datetime" Precision="0" />
+    <Property Name="edocivil" Type="int" />
+    <Property Name="Nhijos" Type="int" />
+    <Property Name="nacionalidad" Type="int" />
+    <Property Name="idgrado" Type="int" />
+    <Property Name="lugarnac" Type="varchar" MaxLength="50" />
+    <Property Name="dirfoto" Type="varchar" MaxLength="100" />
+    <Property Name="Idnomina" Type="int" />
+    <Property Name="numerocuenta" Type="varchar" MaxLength="20" />
+    <Property Name="idbanco" Type="int" />
+    <Property Name="idtipocuenta" Type="int" />
+  </EntityType>
+  <EntityType Name="usermenu">
+    <Key>
+      <PropertyRef Name="Idmenu" />
+    </Key>
+    <Property Name="id" Type="char" MaxLength="25" />
+    <Property Name="Nombre" Type="char" MaxLength="50" />
+    <Property Name="Tipo" Type="int" />
+    <Property Name="Pariente" Type="char" MaxLength="25" />
+    <Property Name="Accion" Type="char" MaxLength="100" />
+    <Property Name="Parametros" Type="varchar" MaxLength="100" />
+    <Property Name="Seleccionado" Type="int" />
+    <Property Name="hijos" Type="int" />
+    <Property Name="idusuario" Type="int" />
+    <Property Name="Guardar" Type="int" />
+    <Property Name="Editar" Type="int" />
+    <Property Name="Eliminar" Type="int" />
+    <Property Name="Idmenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="tipoid" Type="int" Nullable="false" />
+    <Property Name="keyCi" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Cedula" Type="varchar" MaxLength="10" />
+    <Property Name="FechaNac" Type="date" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+    <Property Name="Desactivar" Type="int" />
+    <Property Name="Vigenciadesde" Type="date" />
+  </EntityType>
+  <EntityType Name="usertype">
+    <Key>
+      <PropertyRef Name="usertypeid" />
+    </Key>
+    <Property Name="usertypeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="varsys">
+    <Key>
+      <PropertyRef Name="cedula" />
+    </Key>
+    <Property Name="idtrabajador" Type="int" />
+    <Property Name="cedula" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="vDIASDES" Type="int" />
+    <Property Name="vDLAB" Type="decimal" Precision="11" Scale="2" />
+    <Property Name="vVHIJOS" Type="decimal" Precision="11" Scale="2" />
+    <Property Name="vDF" Type="decimal" Precision="11" Scale="2" />
+    <Property Name="vHR" Type="decimal" Precision="11" Scale="2" />
+    <Property Name="vDFI" Type="decimal" Precision="11" Scale="2" />
+  </EntityType>
+  <Association Name="cargodepart">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="0..1" />
+    <End Role="cargo" Type="Self.cargo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="iddepartamentos" />
+      </Principal>
+      <Dependent Role="cargo">
+        <PropertyRef Name="Iddepartamentos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="prenominagen_ibfk_1">
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1" />
+    <End Role="prenominagen" Type="Self.prenominagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="prenominagen">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="prenominagen_ibfk_2">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+    <End Role="prenominagen" Type="Self.prenominagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="prenominagen">
+        <PropertyRef Name="idnominatype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrenominaTraid">
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1" />
+    <End Role="prenomina" Type="Self.prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrenominaType">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+    <End Role="prenomina" Type="Self.prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idnominatype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorCargo">
+    <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cargo">
+        <PropertyRef Name="idcargo" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idcargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorDepart">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="iddepartamentos" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="iddepartamentos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorEstatus">
+    <End Role="estatus" Type="Self.estatus" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estatus">
+        <PropertyRef Name="idestatus" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idstatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Trabajadorgrado">
+    <End Role="gradointruc" Type="Self.gradointruc" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gradointruc">
+        <PropertyRef Name="idgrado" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idgrado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Trabajadoridbanco">
+    <End Role="bancos" Type="Self.bancos" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bancos">
+        <PropertyRef Name="Idbanco" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idbanco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorNac">
+    <End Role="nacionalidad" Type="Self.nacionalidad" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nacionalidad">
+        <PropertyRef Name="idnacionalidad" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="nacionalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorNomina">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="Idnomina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorTipoc">
+    <End Role="tipocuenta" Type="Self.tipocuenta" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipocuenta">
+        <PropertyRef Name="idtipocuenta" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idtipocuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="nominaModelStoreContainer">
+    <EntitySet Name="bancos" EntityType="Self.bancos" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="campos" EntityType="Self.campos" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="campotra" EntityType="Self.campotra" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="estatus" EntityType="Self.estatus" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="gradointruc" EntityType="Self.gradointruc" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="jornada" EntityType="Self.jornada" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="nominaini" EntityType="Self.nominaini" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="nominatype" EntityType="Self.nominatype" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="nominauni" EntityType="Self.nominauni" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="prenomina" EntityType="Self.prenomina" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="prenominagen" EntityType="Self.prenominagen" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="tipocuenta" EntityType="Self.tipocuenta" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="trabajador" EntityType="Self.trabajador" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="usermenu" EntityType="Self.usermenu" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="usertype" EntityType="Self.usertype" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="varsys" EntityType="Self.varsys" store:Type="Tables" store:Schema="nomina">
+      <DefiningQuery>SELECT
+`varsys`.`idtrabajador`, 
+`varsys`.`cedula`, 
+`varsys`.`vDIASDES`, 
+`varsys`.`vDLAB`, 
+`varsys`.`vVHIJOS`, 
+`varsys`.`vDF`, 
+`varsys`.`vHR`, 
+`varsys`.`vDFI`
+FROM `varsys` AS `varsys`</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="cargodepart" Association="Self.cargodepart">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="cargo" EntitySet="cargo" />
+    </AssociationSet>
+    <AssociationSet Name="prenominagen_ibfk_1" Association="Self.prenominagen_ibfk_1">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="prenominagen" EntitySet="prenominagen" />
+    </AssociationSet>
+    <AssociationSet Name="prenominagen_ibfk_2" Association="Self.prenominagen_ibfk_2">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="prenominagen" EntitySet="prenominagen" />
+    </AssociationSet>
+    <AssociationSet Name="PrenominaTraid" Association="Self.PrenominaTraid">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="prenomina" EntitySet="prenomina" />
+    </AssociationSet>
+    <AssociationSet Name="PrenominaType" Association="Self.PrenominaType">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="prenomina" EntitySet="prenomina" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorCargo" Association="Self.TrabajadorCargo">
+      <End Role="cargo" EntitySet="cargo" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorDepart" Association="Self.TrabajadorDepart">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorEstatus" Association="Self.TrabajadorEstatus">
+      <End Role="estatus" EntitySet="estatus" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="Trabajadorgrado" Association="Self.Trabajadorgrado">
+      <End Role="gradointruc" EntitySet="gradointruc" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="Trabajadoridbanco" Association="Self.Trabajadoridbanco">
+      <End Role="bancos" EntitySet="bancos" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorNac" Association="Self.TrabajadorNac">
+      <End Role="nacionalidad" EntitySet="nacionalidad" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorNomina" Association="Self.TrabajadorNomina">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorTipoc" Association="Self.TrabajadorTipoc">
+      <End Role="tipocuenta" EntitySet="tipocuenta" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
