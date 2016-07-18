@@ -212,6 +212,9 @@
     <Compile Include="WinPrenomina.xaml.cs">
       <DependentUpon>WinPrenomina.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinProcedures.xaml.cs">
+      <DependentUpon>WinProcedures.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinReport.xaml.cs">
       <DependentUpon>WinReport.xaml</DependentUpon>
     </Compile>
@@ -279,6 +282,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinPrenomina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinProcedures.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

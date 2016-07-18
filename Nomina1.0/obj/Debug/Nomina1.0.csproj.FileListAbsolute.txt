@@ -141,6 +141,7 @@ C:\Nomina1.0\Nomina1.0\obj\Debug\WinGenNomina.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinJornada.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinNomina.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinPrenomina.g.cs
+C:\Nomina1.0\Nomina1.0\obj\Debug\WinProcedures.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinReport.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinTrabajador.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\App.g.cs
@@ -161,6 +162,7 @@ C:\Nomina1.0\Nomina1.0\obj\Debug\WinGenNomina.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinJornada.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinNomina.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinPrenomina.baml
+C:\Nomina1.0\Nomina1.0\obj\Debug\WinProcedures.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinReport.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinTrabajador.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.g.resources

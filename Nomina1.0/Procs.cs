@@ -4,19 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nomina1._0.ViewModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Nomina1._0
 {
     class Procs
-    {
+    { 
         nominaEntities newenti = new nominaEntities();
+        [Display (Description ="Calcula el sueldo base")]
         public string SUELDOBASE(string idtra)
         {
             var idx=int.Parse(idtra);
             var r = newenti.trabajador.Where(x => x.idtrabajador == idx).Select(x=>x.Sueldo).SingleOrDefault().ToString();
             return r;
         }
-
+        [Display(Description = "Calcula la cantidad de lunes en intervalo de nomina")]
         public string LUNESDELINTERVALO(string idtra)
         {
             var fechadesde = PrenominaViewModel.FechaD;
@@ -32,6 +34,7 @@ namespace Nomina1._0
             }
             return canlunes.ToString();
         }
+        [Display(Description = "Calcula el sueldo integral")]
         public string SUELDOINTEGRAL(string idtra)
         {
             decimal acumasig=0;
