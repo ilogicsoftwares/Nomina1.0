@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Nomina1._0
 {
-    class Procs
+   public class Procs
     { 
         nominaEntities newenti = new nominaEntities();
         [Display (Description ="Calcula el sueldo base")]

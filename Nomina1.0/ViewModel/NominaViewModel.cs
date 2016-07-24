@@ -62,7 +62,7 @@ namespace Nomina1._0.ViewModel
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.ToString());
+                Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
             }
         }
 

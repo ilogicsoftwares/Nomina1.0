@@ -1,0 +1,28 @@
+﻿<Controls:MetroWindow x:Class="Nomina1._0.WinModifyPrenom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nomina1._0"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="WinModifyPrenom" Height="241" Width="329" Closing="MetroWindow_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="155"/>
+            <RowDefinition Height="16"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label" DataContext="{Binding NominaActual}" Content="{Binding nominatype.descripcion}" FontSize="18" Margin="10,0,6,0"/>
+        <DataGrid x:Name="dataGrid_Copy" Margin="10,0,6,0" Grid.Row="1" BorderThickness="2" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Campo" Binding="{Binding nombrecampo}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Valor" Binding="{Binding valor}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Controls:MetroWindow>

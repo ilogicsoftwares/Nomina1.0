@@ -40,9 +40,11 @@ namespace Nomina1._0
             reportDataSource.Name = "DataSet1"; // Name of the DataSet we set in .rdlc
             reportDataSource.Value = Consulta;
             _reportViewer.LocalReport.ReportPath = Reporte;//"C:\\Nomina1.0\\Nomina1.0\\Reports\\ReciboPago.rdlc"; // Path of the rdlc file
-
+            
             _reportViewer.LocalReport.DataSources.Add(reportDataSource);
+       
             _reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
+          
             _reportViewer.RefreshReport();
         }
     }

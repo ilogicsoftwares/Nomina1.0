@@ -14,6 +14,12 @@ namespace Nomina1._0
     
     public partial class conceptos
     {
+        public conceptos()
+        {
+            this.prenominagen = new HashSet<prenominagen>();
+            this.prenomina = new HashSet<prenomina>();
+        }
+    
         public int idconcepto { get; set; }
         public string nombre { get; set; }
         public string variante { get; set; }
@@ -21,5 +27,8 @@ namespace Nomina1._0
         public Nullable<int> tipo { get; set; }
         public string Valor { get; set; }
         public string codigo { get; set; }
+    
+        public virtual ICollection<prenominagen> prenominagen { get; set; }
+        public virtual ICollection<prenomina> prenomina { get; set; }
     }
 }

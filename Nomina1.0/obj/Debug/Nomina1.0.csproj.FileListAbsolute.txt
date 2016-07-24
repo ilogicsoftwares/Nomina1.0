@@ -139,6 +139,7 @@ C:\Nomina1.0\Nomina1.0\obj\Debug\WinConceptos.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinDepartamento.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinGenNomina.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinJornada.g.cs
+C:\Nomina1.0\Nomina1.0\obj\Debug\WinModifyPrenom.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinNomina.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinPrenomina.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinProcedures.g.cs
@@ -160,6 +161,7 @@ C:\Nomina1.0\Nomina1.0\obj\Debug\WinConceptos.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinDepartamento.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinGenNomina.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinJornada.baml
+C:\Nomina1.0\Nomina1.0\obj\Debug\WinModifyPrenom.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinNomina.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinPrenomina.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinProcedures.baml

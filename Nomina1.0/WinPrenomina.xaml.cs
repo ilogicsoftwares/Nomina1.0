@@ -39,8 +39,20 @@ namespace Nomina1._0
         }
         private void button_Copy_Click(object sender, RoutedEventArgs e)
         {
+
             if (button_Copy.Content.ToString() != "Ver")
-            { nomina.GenerarNomina(); }
+            {
+               var va= MessageBox.Show("Desea generar la nomina, los Datos seran agregados al Historial", "Generar", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (va == MessageBoxResult.Yes)
+                {
+                    nomina.GenerarNomina();
+                }
+                else
+                {
+                    return;
+                }
+
+            }
           
             var dt = from trabs in nomina.NominaActual
                      select new PNominaGen
@@ -49,11 +61,11 @@ namespace Nomina1._0
                          TrabNombre = trabs.trabajador.nombres.Trim() + " " + trabs.trabajador.apellidos.Trim(),
                          TrabCedula = trabs.trabajador.cedula,
                          Departamento = trabs.trabajador.departamentos.Descripcion,
-                         Cargo = trabs.trabajador.cargo.Descripcion,
+                         Cargo = trabs.trabajador.cargo.Nombre,
                          FechaIng = trabs.trabajador.Fechaing,
                          SueldoBase = trabs.trabajador.Sueldo,
                          SueldoDiario = 1,
-                         IdConcepto = trabs.idconcepto,
+                         IdConcepto = trabs.conceptos.idconcepto,
                          NombreConcepto = trabs.nombrecon,
                          Variante = trabs.valorvar,
                          ConceptoTipo = trabs.tipoconcepto,
@@ -76,6 +88,72 @@ namespace Nomina1._0
             {
                 nomina.CrearTxt();
             }
+        }
+
+        private void CommandNuevo_Copy1_Click(object sender, RoutedEventArgs e)
+        {
+            var dt = from trabs in nomina.NominaActual
+                     select new PNominaGen
+                     {
+                         TrabID = trabs.trabajador.idtrabajador,
+                         TrabNombre = trabs.trabajador.nombres.Trim() + " " + trabs.trabajador.apellidos.Trim(),
+                         TrabCedula = trabs.trabajador.cedula,
+                         Departamento = trabs.trabajador.departamentos.Descripcion,
+                         Cargo = trabs.trabajador.cargo.Nombre,
+                         FechaIng = trabs.trabajador.Fechaing,
+                         SueldoBase = trabs.trabajador.Sueldo,
+                         SueldoDiario = 1,
+                         IdConcepto = trabs.idconcepto,
+                         NombreConcepto = trabs.nombrecon,
+                         Variante = trabs.valorvar,
+                         ConceptoTipo = trabs.tipoconcepto,
+                         Valor = trabs.valorconcepto,
+                         Nomina = trabs.nominatype.descripcion,
+                         FD = PrenominaViewModel.FechaD,
+                         FH = PrenominaViewModel.FechaA
+
+
+                     };
+
+            WinReport report = new WinReport(dt.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\ReciboPago.rdlc");
+            report.ShowDialog();
+        }
+
+        private void CommandNuevo_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (listBox.SelectedValue == null)
+            { return; }
+            dynamic selecttrab = listBox.SelectedItem;
+            WinModifyPrenom modify = new WinModifyPrenom(int.Parse(listBox.SelectedValue.ToString()), selecttrab.Nombre);
+
+            modify.ShowDialog();
+
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (listBox.SelectedValue == null)
+            { return; }
+            dynamic selecttrab = listBox.SelectedItem;
+            WinModifyPrenom modify = new WinModifyPrenom(int.Parse(listBox.SelectedValue.ToString()),selecttrab.Nombre);
+
+            modify.ShowDialog();
+        }
+
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+           
+        }
+
+        private void MetroWindow_Closed(object sender, EventArgs e)
+        {
+            
         }
     }
 }

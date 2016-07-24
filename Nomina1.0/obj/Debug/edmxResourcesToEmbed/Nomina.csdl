@@ -2,8 +2,6 @@
 <Schema Namespace="nominaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="nominaEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="bancos" EntityType="nominaModel.bancos" />
-    <EntitySet Name="campos" EntityType="nominaModel.campos" />
-    <EntitySet Name="campotra" EntityType="nominaModel.campotra" />
     <EntitySet Name="cargo" EntityType="nominaModel.cargo" />
     <EntitySet Name="departamentos" EntityType="nominaModel.departamentos" />
     <EntitySet Name="estatus" EntityType="nominaModel.estatus" />
@@ -21,18 +19,10 @@
       <End Role="departamentos" EntitySet="departamentos" />
       <End Role="cargo" EntitySet="cargo" />
     </AssociationSet>
-    <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
     <EntitySet Name="nominauni" EntityType="nominaModel.nominauni" />
-    <EntitySet Name="prenominagen" EntityType="nominaModel.prenominagen" />
-    <AssociationSet Name="prenominagen_ibfk_2" Association="nominaModel.prenominagen_ibfk_2">
-      <End Role="nominatype" EntitySet="nominatype" />
-      <End Role="prenominagen" EntitySet="prenominagen" />
-    </AssociationSet>
-    <EntitySet Name="prenomina" EntityType="nominaModel.prenomina" />
-    <AssociationSet Name="PrenominaType" Association="nominaModel.PrenominaType">
-      <End Role="nominatype" EntitySet="nominatype" />
-      <End Role="prenomina" EntitySet="prenomina" />
-    </AssociationSet>
+    <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
+    <EntitySet Name="procedures" EntityType="nominaModel.procedures" />
+    <EntitySet Name="variables" EntityType="nominaModel.variables" />
     <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
     <AssociationSet Name="Trabajadoridbanco" Association="nominaModel.Trabajadoridbanco">
       <End Role="bancos" EntitySet="bancos" />
@@ -62,18 +52,38 @@
       <End Role="nominatype" EntitySet="nominatype" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
-    <AssociationSet Name="PrenominaTraid" Association="nominaModel.PrenominaTraid">
+    <AssociationSet Name="TrabajadorTipoc" Association="nominaModel.TrabajadorTipoc">
+      <End Role="tipocuenta" EntitySet="tipocuenta" />
       <End Role="trabajador" EntitySet="trabajador" />
-      <End Role="prenomina" EntitySet="prenomina" />
+    </AssociationSet>
+    <EntitySet Name="prenominagen" EntityType="nominaModel.prenominagen" />
+    <AssociationSet Name="conceptostra" Association="nominaModel.conceptostra">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="prenominagen" EntitySet="prenominagen" />
+    </AssociationSet>
+    <AssociationSet Name="prenominagen_ibfk_2" Association="nominaModel.prenominagen_ibfk_2">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="prenominagen" EntitySet="prenominagen" />
     </AssociationSet>
     <AssociationSet Name="prenominagen_ibfk_1" Association="nominaModel.prenominagen_ibfk_1">
       <End Role="trabajador" EntitySet="trabajador" />
       <End Role="prenominagen" EntitySet="prenominagen" />
     </AssociationSet>
-    <AssociationSet Name="TrabajadorTipoc" Association="nominaModel.TrabajadorTipoc">
-      <End Role="tipocuenta" EntitySet="tipocuenta" />
-      <End Role="trabajador" EntitySet="trabajador" />
+    <EntitySet Name="prenomina" EntityType="nominaModel.prenomina" />
+    <AssociationSet Name="concepttra" Association="nominaModel.concepttra">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="prenomina" EntitySet="prenomina" />
     </AssociationSet>
+    <AssociationSet Name="PrenominaType" Association="nominaModel.PrenominaType">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="prenomina" EntitySet="prenomina" />
+    </AssociationSet>
+    <AssociationSet Name="PrenominaTraid" Association="nominaModel.PrenominaTraid">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="prenomina" EntitySet="prenomina" />
+    </AssociationSet>
+    <EntitySet Name="campos" EntityType="nominaModel.campos" />
+    <EntitySet Name="campotra" EntityType="nominaModel.campotra" />
   </EntityContainer>
   <EntityType Name="bancos">
     <Key>
@@ -82,26 +92,6 @@
     <Property Name="Idbanco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="trabajador" Relationship="nominaModel.Trabajadoridbanco" FromRole="bancos" ToRole="trabajador" />
-  </EntityType>
-  <EntityType Name="campos">
-    <Key>
-      <PropertyRef Name="idcampo" />
-      <PropertyRef Name="nombre" />
-    </Key>
-    <Property Name="idcampo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="valorinicial" Type="Decimal" />
-    <Property Name="esReiniciado" Type="Int32" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="campotra">
-    <Key>
-      <PropertyRef Name="idcampotra" />
-    </Key>
-    <Property Name="idcampotra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idtrabajador" Type="Int32" Nullable="false" />
-    <Property Name="nombrecampo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="valor" Type="Decimal" Nullable="false" />
   </EntityType>
   <EntityType Name="cargo">
     <Key>
@@ -186,9 +176,9 @@
     <Property Name="intervalo" Type="Int32" Nullable="false" />
     <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="scodigo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
     <NavigationProperty Name="prenominagen" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="nominatype" ToRole="prenominagen" />
     <NavigationProperty Name="prenomina" Relationship="nominaModel.PrenominaType" FromRole="nominatype" ToRole="prenomina" />
-    <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
   </EntityType>
   <EntityType Name="tipocuenta">
     <Key>
@@ -256,18 +246,6 @@
     <End Type="nominaModel.departamentos" Role="departamentos" Multiplicity="0..1" />
     <End Type="nominaModel.cargo" Role="cargo" Multiplicity="*" />
   </Association>
-  <EntityType Name="conceptos">
-    <Key>
-      <PropertyRef Name="idconcepto" />
-    </Key>
-    <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="variante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="tipo" Type="Int32" />
-    <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="codigo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="nominauni">
     <Key>
       <PropertyRef Name="idnomina" />
@@ -284,42 +262,38 @@
     <Property Name="user" Type="Int32" />
     <Property Name="cantidadt" Type="Int32" />
   </EntityType>
-  <EntityType Name="prenominagen">
+  <EntityType Name="conceptos">
     <Key>
-      <PropertyRef Name="idprenomina" />
+      <PropertyRef Name="idconcepto" />
     </Key>
-    <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Idnominagen" Type="Int32" Nullable="false" />
-    <Property Name="idconcepto" Type="Int32" />
-    <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="valorconcepto" Type="Decimal" />
-    <Property Name="valorvar" Type="Decimal" />
-    <Property Name="tipoconcepto" Type="Int32" />
-    <NavigationProperty Name="nominatype" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="prenominagen" ToRole="nominatype" />
-    <NavigationProperty Name="trabajador" Relationship="nominaModel.prenominagen_ibfk_1" FromRole="prenominagen" ToRole="trabajador" />
+    <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="variante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="prenominagen" Relationship="nominaModel.conceptostra" FromRole="conceptos" ToRole="prenominagen" />
+    <NavigationProperty Name="prenomina" Relationship="nominaModel.concepttra" FromRole="conceptos" ToRole="prenomina" />
   </EntityType>
-  <Association Name="prenominagen_ibfk_2">
-    <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
-    <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
-  </Association>
-  <EntityType Name="prenomina">
+  <EntityType Name="procedures">
     <Key>
-      <PropertyRef Name="idprenomina" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idconcepto" Type="Int32" />
-    <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="valorconcepto" Type="Decimal" />
-    <Property Name="valorvar" Type="Decimal" />
-    <Property Name="tipoconcepto" Type="Int32" />
-    <Property Name="idnominagen" Type="Int32" />
-    <NavigationProperty Name="nominatype" Relationship="nominaModel.PrenominaType" FromRole="prenomina" ToRole="nominatype" />
-    <NavigationProperty Name="trabajador" Relationship="nominaModel.PrenominaTraid" FromRole="prenomina" ToRole="trabajador" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
-  <Association Name="PrenominaType">
-    <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
-    <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
-  </Association>
+  <EntityType Name="variables">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="tamaño" Type="Int32" Nullable="false" />
+    <Property Name="valorinicial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="constante" Type="Int32" />
+  </EntityType>
   <EntityType Name="trabajador">
     <Key>
       <PropertyRef Name="idtrabajador" />
@@ -335,7 +309,7 @@
     <Property Name="nombrecontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Sueldo" Type="Decimal" />
-    <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="conceptos" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="sexo" Type="Int32" />
     <Property Name="Fechaing" Type="DateTime" />
     <Property Name="fechanac" Type="DateTime" />
@@ -351,9 +325,9 @@
     <NavigationProperty Name="gradointruc" Relationship="nominaModel.Trabajadorgrado" FromRole="trabajador" ToRole="gradointruc" />
     <NavigationProperty Name="nacionalidad" Relationship="nominaModel.TrabajadorNac" FromRole="trabajador" ToRole="nacionalidad" />
     <NavigationProperty Name="nominatype" Relationship="nominaModel.TrabajadorNomina" FromRole="trabajador" ToRole="nominatype" />
-    <NavigationProperty Name="prenomina" Relationship="nominaModel.PrenominaTraid" FromRole="trabajador" ToRole="prenomina" />
-    <NavigationProperty Name="prenominagen" Relationship="nominaModel.prenominagen_ibfk_1" FromRole="trabajador" ToRole="prenominagen" />
     <NavigationProperty Name="tipocuenta" Relationship="nominaModel.TrabajadorTipoc" FromRole="trabajador" ToRole="tipocuenta" />
+    <NavigationProperty Name="prenominagen" Relationship="nominaModel.prenominagen_ibfk_1" FromRole="trabajador" ToRole="prenominagen" />
+    <NavigationProperty Name="prenomina" Relationship="nominaModel.PrenominaTraid" FromRole="trabajador" ToRole="prenomina" />
   </EntityType>
   <Association Name="Trabajadoridbanco">
     <End Type="nominaModel.bancos" Role="bancos" Multiplicity="0..1" />
@@ -368,7 +342,7 @@
     <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
   </Association>
   <Association Name="TrabajadorEstatus">
-    <End Type="nominaModel.estatus" Role="estatus" Multiplicity="0..1" />
+    <End Type="nominaModel.estatus" Role="estatus" Multiplicity="1" />
     <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
   </Association>
   <Association Name="Trabajadorgrado">
@@ -380,19 +354,110 @@
     <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
   </Association>
   <Association Name="TrabajadorNomina">
-    <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="0..1" />
+    <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
     <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
-  </Association>
-  <Association Name="PrenominaTraid">
-    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="0..1" />
-    <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
-  </Association>
-  <Association Name="prenominagen_ibfk_1">
-    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="0..1" />
-    <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
   </Association>
   <Association Name="TrabajadorTipoc">
     <End Type="nominaModel.tipocuenta" Role="tipocuenta" Multiplicity="0..1" />
     <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
   </Association>
+  <EntityType Name="prenominagen">
+    <Key>
+      <PropertyRef Name="idprenomina" />
+    </Key>
+    <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Idnominagen" Type="Int32" Nullable="false" />
+    <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valorconcepto" Type="Decimal" />
+    <Property Name="valorvar" Type="Decimal" />
+    <Property Name="tipoconcepto" Type="Int32" />
+    <NavigationProperty Name="conceptos" Relationship="nominaModel.conceptostra" FromRole="prenominagen" ToRole="conceptos" />
+    <NavigationProperty Name="nominatype" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="prenominagen" ToRole="nominatype" />
+    <NavigationProperty Name="trabajador" Relationship="nominaModel.prenominagen_ibfk_1" FromRole="prenominagen" ToRole="trabajador" />
+  </EntityType>
+  <Association Name="conceptostra">
+    <End Type="nominaModel.conceptos" Role="conceptos" Multiplicity="0..1" />
+    <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
+  </Association>
+  <Association Name="prenominagen_ibfk_2">
+    <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
+    <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
+  </Association>
+  <Association Name="prenominagen_ibfk_1">
+    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="0..1" />
+    <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
+  </Association>
+  <EntityType Name="prenomina">
+    <Key>
+      <PropertyRef Name="idprenomina" />
+    </Key>
+    <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idnominatype" Type="Int32" Nullable="false" />
+    <Property Name="idtrabajador" Type="Int32" />
+    <Property Name="idconcepto" Type="Int32" />
+    <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valorconcepto" Type="Decimal" />
+    <Property Name="valorvar" Type="Decimal" />
+    <Property Name="tipoconcepto" Type="Int32" />
+    <Property Name="idnominagen" Type="Int32" />
+    <NavigationProperty Name="conceptos" Relationship="nominaModel.concepttra" FromRole="prenomina" ToRole="conceptos" />
+    <NavigationProperty Name="nominatype" Relationship="nominaModel.PrenominaType" FromRole="prenomina" ToRole="nominatype" />
+    <NavigationProperty Name="trabajador" Relationship="nominaModel.PrenominaTraid" FromRole="prenomina" ToRole="trabajador" />
+  </EntityType>
+  <Association Name="concepttra">
+    <End Type="nominaModel.conceptos" Role="conceptos" Multiplicity="0..1" />
+    <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="idconcepto" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idconcepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrenominaType">
+    <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
+    <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idnominatype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrenominaTraid">
+    <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="0..1" />
+    <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="campos">
+    <Key>
+      <PropertyRef Name="idcampo" />
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="idcampo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="valorinicial" Type="Decimal" />
+    <Property Name="esReiniciado" Type="Int32" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="campotra">
+    <Key>
+      <PropertyRef Name="idcampotra" />
+    </Key>
+    <Property Name="idcampotra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idtrabajador" Type="Int32" Nullable="false" />
+    <Property Name="nombrecampo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Decimal" Nullable="false" />
+  </EntityType>
 </Schema>

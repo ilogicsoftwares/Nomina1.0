@@ -26,8 +26,6 @@ namespace Nomina1._0
         }
     
         public DbSet<bancos> bancos { get; set; }
-        public DbSet<campos> campos { get; set; }
-        public DbSet<campotra> campotra { get; set; }
         public DbSet<cargo> cargo { get; set; }
         public DbSet<departamentos> departamentos { get; set; }
         public DbSet<estatus> estatus { get; set; }
@@ -41,10 +39,14 @@ namespace Nomina1._0
         public DbSet<users> users { get; set; }
         public DbSet<usertype> usertype { get; set; }
         public DbSet<varsys> varsys { get; set; }
-        public DbSet<conceptos> conceptos { get; set; }
         public DbSet<nominauni> nominauni { get; set; }
+        public DbSet<conceptos> conceptos { get; set; }
+        public DbSet<procedures> procedures { get; set; }
+        public DbSet<variables> variables { get; set; }
+        public DbSet<trabajador> trabajador { get; set; }
         public DbSet<prenominagen> prenominagen { get; set; }
         public DbSet<prenomina> prenomina { get; set; }
-        public DbSet<trabajador> trabajador { get; set; }
+        public DbSet<campos> campos { get; set; }
+        public DbSet<campotra> campotra { get; set; }
     }
 }

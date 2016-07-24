@@ -26,10 +26,12 @@ namespace Nomina1._0
             Procs procedures = new Procs();
             InitializeComponent();
             var proce = procedures.GetType().GetMethods()
-                .Where(x => x.IsSecurityCritical == true)
-                .Select(x => new { Nombre = x.Name, Descripcion = ((DisplayAttribute)x.GetCustomAttribute(typeof(DisplayAttribute))).Description });
+                .Where(x => x.Module.Name == "Nomina1.0.exe")
+                .Select(x => new { Nombre = x.Name, Descripcion=((DisplayAttribute)x.GetCustomAttributes(typeof(DisplayAttribute),false).First()).Description}).ToArray();
                 
             dataGrid.DataContext = proce;
         }
     }
 }
+// .Where(x => x.IsSecurityCritical == true)    
+// Descripcion=(((DisplayAttribute)x.GetCustomAttribute(typeof(DisplayAttribute),true)).Name)

@@ -56,7 +56,7 @@ namespace Nomina1._0.ViewModel
                     {
                         nominatype=items.nominatype,
                         trabajador=items.trabajador,
-                        idconcepto=items.idconcepto,
+                        conceptos=items.conceptos,
                         nombrecon=items.nombrecon,
                         valorconcepto=items.valorconcepto,
                         valorvar=items.valorvar,
@@ -179,12 +179,13 @@ namespace Nomina1._0.ViewModel
 
                         foreach (var con in concepts)
                         {
+                            
                             prenomina PreNom = new prenomina();
                             PreNom.nominatype = trab.nominatype;
                             PreNom.trabajador = trab;
 
                             var idcon = Int32.Parse(con);
-                            var xa = paraconcepto.conceptos.FirstOrDefault(x => x.idconcepto == idcon);
+                            var xa = paraconcepto.conceptos.First(x => x.idconcepto == idcon);
                         try { 
                            
                             PreNom.idconcepto = xa.idconcepto;
@@ -202,16 +203,19 @@ namespace Nomina1._0.ViewModel
                             PreNom.valorvar = decimal.Parse(LeerCampo(xa.variante, trab.idtrabajador));
                             PreNom.tipoconcepto = xa.tipo;
                             Datos.Micontexto.prenomina.Add(PreNom);
-                           
-                        }
+             
+                }
                     }
-                    Datos.Micontexto.SaveChanges();
+            Datos.Micontexto.SaveChanges();
+            Datos.WindowActual.Close();
             NominaActual =new ObservableCollection<prenomina>(Datos.Micontexto.prenomina.Where(x=>x.nominatype.idnomina==idx));
             WinPrenomina nuevaprenomina = new WinPrenomina(this);
-            nuevaprenomina.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             nuevaprenomina.Owner = Datos._PrincipalWindow;
-               nuevaprenomina.ShowInTaskbar = false;
-                nuevaprenomina.ShowDialog();
+            nuevaprenomina.WindowState = WindowState.Normal;
+            nuevaprenomina.ShowInTaskbar = false;
+            nuevaprenomina.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+              
+            nuevaprenomina.ShowDialog();
             //}
            // catch(Exception ex)
            // {
@@ -363,7 +367,7 @@ namespace Nomina1._0.ViewModel
                     Idnominagen=GenNom.idnomina,
                     nominatype=item.nominatype,
                     trabajador=item.trabajador,
-                    idconcepto=item.idconcepto,
+                    conceptos=item.conceptos,
                     nombrecon=item.nombrecon,
                     valorconcepto=item.valorconcepto,
                     valorvar=item.valorvar,
@@ -420,19 +424,22 @@ namespace Nomina1._0.ViewModel
 
                 foreach (var item in Grouping)
                 {
-                    var linelis = (item.tipoc- 1).ToString();
-                    linelis += Int32.Parse( item.trabajador.numerocuenta ??"0").ToString("D20");
-                    float Dmontoasig =item.asigs;
+                 
+                        var linelis = (item.tipoc - 1).ToString();
+                        linelis += Int32.Parse(item.trabajador.numerocuenta ?? "0").ToString("D20");
+                        float Dmontoasig = item.asigs;
 
-                    var montoasig = Dmontoasig.ToString().Replace(",", "");
-                    var lamontoasig = int.Parse(montoasig).ToString("D11");
-                    linelis += lamontoasig;
-                    linelis += (item.tipoc - 1).ToString()+770;
-                    var nomap= item.trabajador.nombres.Trim().ToUpper() + " " + item.trabajador.apellidos.Trim().ToUpper();
-                    linelis += string.Format("{0,-40}", nomap);
-                    linelis += int.Parse(item.trabajador.cedula).ToString("D10");
-                    linelis += 3291.ToString("D6");
-                    Txt.Add(linelis);
+                        var montoasig = Dmontoasig.ToString().Replace(",", "");
+                        var lamontoasig = int.Parse(montoasig).ToString("D11");
+                        linelis += lamontoasig;
+                        linelis += (item.tipoc - 1).ToString() + 770;
+                        var nomap = item.trabajador.nombres.Trim().ToUpper() + " " + item.trabajador.apellidos.Trim().ToUpper();
+                        linelis += string.Format("{0,-40}", nomap);
+                        linelis += int.Parse(item.trabajador.cedula).ToString("D10");
+                        linelis += 3291.ToString("D6");
+
+                        Txt.Add(linelis);
+                  
                 }
                try { 
                 System.IO.File.WriteAllLines(saveFileDialog1.FileName, Txt);

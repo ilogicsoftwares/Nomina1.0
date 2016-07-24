@@ -12,17 +12,10 @@ namespace Nomina1._0
     using System;
     using System.Collections.Generic;
     
-    public partial class prenominagen
+    public partial class procedures
     {
-        public int idprenomina { get; set; }
-        public int Idnominagen { get; set; }
-        public string nombrecon { get; set; }
-        public Nullable<decimal> valorconcepto { get; set; }
-        public Nullable<decimal> valorvar { get; set; }
-        public Nullable<int> tipoconcepto { get; set; }
-    
-        public virtual conceptos conceptos { get; set; }
-        public virtual nominatype nominatype { get; set; }
-        public virtual trabajador trabajador { get; set; }
+        public int id { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
     }
 }

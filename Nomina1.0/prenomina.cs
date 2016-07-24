@@ -15,6 +15,8 @@ namespace Nomina1._0
     public partial class prenomina
     {
         public int idprenomina { get; set; }
+        public int idnominatype { get; set; }
+        public Nullable<int> idtrabajador { get; set; }
         public Nullable<int> idconcepto { get; set; }
         public string nombrecon { get; set; }
         public Nullable<decimal> valorconcepto { get; set; }
@@ -22,6 +24,7 @@ namespace Nomina1._0
         public Nullable<int> tipoconcepto { get; set; }
         public Nullable<int> idnominagen { get; set; }
     
+        public virtual conceptos conceptos { get; set; }
         public virtual nominatype nominatype { get; set; }
         public virtual trabajador trabajador { get; set; }
     }

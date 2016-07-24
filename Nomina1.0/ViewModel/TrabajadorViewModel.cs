@@ -91,7 +91,7 @@ namespace Nomina1._0.ViewModel
                 Nuevo();
             }catch(Exception exc)
             {
-                MessageBox.Show(exc.ToString()); 
+                Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
             }
         }
 
@@ -118,6 +118,12 @@ namespace Nomina1._0.ViewModel
             try
             { 
             Datos.Micontexto.trabajador.Remove(TrabajadorActual);
+             var camposD = Datos.Micontexto.campotra.Where(x => x.idtrabajador == TrabajadorActual.idtrabajador);
+                foreach (campotra campo in camposD)
+                {
+                    Datos.Micontexto.campotra.Remove(campo);
+                       
+                }
             Datos.Micontexto.SaveChanges();
             Datos.Msg("Item eliminado", "Eliminado", "I");
                 Nuevo();
@@ -155,6 +161,22 @@ namespace Nomina1._0.ViewModel
             bd.Entry(bt).Reload(); // cargar sin cambios
 
             TrabajadorActual = bt;
+            if (CamposViewList.ListaCampos.Count == 0)
+            {
+                var Campos = bd.campos.ToList();
+                foreach (var camp in Campos)
+                {
+                    var camptra = new campotra
+                    {
+                        nombrecampo = camp.nombre,
+                        idtrabajador = TrabajadorActual.idtrabajador,
+                        valor = (decimal)camp.valorinicial
+                    };
+                    bd.campotra.Add(camptra);
+                    bd.SaveChanges();
+                }
+                CamposViewList = new ListCamposModel(TrabajadorActual.idtrabajador);
+            }
             PrincipalViewModel.EstatusNuevo = false;
             NotifyPropertyChanged("TrabajadorActual");
 

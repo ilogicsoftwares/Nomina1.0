@@ -62,7 +62,7 @@ namespace Nomina1._0.ViewModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
             }
         }
 
@@ -112,7 +112,21 @@ namespace Nomina1._0.ViewModel
 
 
         }
+        public void Eliminar()
+        {
+            try
+            {
 
+                Datos.Micontexto.campos.Remove(CampoActual);
+                Datos.Micontexto.SaveChanges();
+                Datos.Msg("Item eliminado", "Eliminado", "I");
+                Nuevo();
+            }
+            catch (Exception es)
+            {
+                Datos.Msg("No se puede eliminar el Item, Se han generado procesos con el mismo", "Error", "E");
+            }
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

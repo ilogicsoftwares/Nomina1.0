@@ -23,5 +23,10 @@ namespace Nomina1._0
         {
             InitializeComponent();
         }
+
+        private void MetroWindow_Activated(object sender, EventArgs e)
+        {
+            Datos.WindowActual = this;
+        }
     }
 }

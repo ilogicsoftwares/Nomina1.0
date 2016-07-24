@@ -139,11 +139,17 @@
     <Compile Include="prenominagen.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="procedures.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
     <Compile Include="Procs.cs" />
     <Compile Include="tipocuenta.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="trabajador.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
+    <Compile Include="variables.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="varsys.cs">
@@ -205,6 +211,9 @@
     </Compile>
     <Compile Include="WinJornada.xaml.cs">
       <DependentUpon>WinJornada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinModifyPrenom.xaml.cs">
+      <DependentUpon>WinModifyPrenom.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinNomina.xaml.cs">
       <DependentUpon>WinNomina.xaml</DependentUpon>
@@ -274,6 +283,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinJornada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinModifyPrenom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

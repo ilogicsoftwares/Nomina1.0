@@ -12,7 +12,7 @@
             <RowDefinition Height="37*"/>
             <RowDefinition Height="386*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,14.842,0,0" VerticalAlignment="Top" Height="361" Width="658" Grid.Row="1" ItemsSource="{Binding}"/>
+        <DataGrid x:Name="dataGrid" Margin="10,15,10,10" Grid.Row="1" ItemsSource="{Binding}" BorderThickness="2"/>
         <Label x:Name="label" Content="Lista de Procedimientos Disponibles" FontSize="22"/>
 
     </Grid>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Nomina1._0"
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms" 
         mc:Ignorable="d"
-        Title="WinReport" Height="300" Width="300" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="Reportes" Height="300" Width="300" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <WindowsFormsHost>
             <rv:ReportViewer x:Name="_reportViewer"/>
