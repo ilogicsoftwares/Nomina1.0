@@ -426,7 +426,7 @@ namespace Nomina1._0.ViewModel
                 {
                  
                         var linelis = (item.tipoc - 1).ToString();
-                        linelis += Int32.Parse(item.trabajador.numerocuenta ?? "0").ToString("D20");
+                        linelis += long.Parse(item.trabajador.numerocuenta ?? "0").ToString("D20");
                         float Dmontoasig = item.asigs;
 
                         var montoasig = Dmontoasig.ToString().Replace(",", "");

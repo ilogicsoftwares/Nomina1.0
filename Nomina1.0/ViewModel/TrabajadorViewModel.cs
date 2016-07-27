@@ -158,10 +158,11 @@ namespace Nomina1._0.ViewModel
            
             int esto = Int32.Parse(id);
             var bt = bd.trabajador.FirstOrDefault(x=>x.idtrabajador==esto);
+            var camposcount = bd.campos.Count();
             bd.Entry(bt).Reload(); // cargar sin cambios
 
             TrabajadorActual = bt;
-            if (CamposViewList.ListaCampos.Count == 0)
+            if (CamposViewList.ListaCampos.Count < camposcount)
             {
                 var Campos = bd.campos.ToList();
                 foreach (var camp in Campos)

@@ -65,7 +65,7 @@ namespace Nomina1._0
                          FechaIng = trabs.trabajador.Fechaing,
                          SueldoBase = trabs.trabajador.Sueldo,
                          SueldoDiario = 1,
-                         IdConcepto = trabs.conceptos.idconcepto,
+                         IdConcepto = trabs.idconcepto,
                          NombreConcepto = trabs.nombrecon,
                          Variante = trabs.valorvar,
                          ConceptoTipo = trabs.tipoconcepto,
