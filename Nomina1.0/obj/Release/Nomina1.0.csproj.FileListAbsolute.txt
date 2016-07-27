@@ -70,3 +70,7 @@ C:\Nomina1.0\Nomina1.0\obj\Release\RdlCompile.compiled
 C:\Nomina1.0\Nomina1.0\obj\Release\Nomina1.0.exe
 C:\Nomina1.0\Nomina1.0\obj\Release\Nomina1.0.pdb
 C:\Nomina1.0\Nomina1.0\obj\Release\Nomina1.0.csprojResolveAssemblyReference.cache
+C:\Nomina1.0\Nomina1.0\obj\Release\WinModifyPrenom.g.cs
+C:\Nomina1.0\Nomina1.0\obj\Release\WinProcedures.g.cs
+C:\Nomina1.0\Nomina1.0\obj\Release\WinModifyPrenom.baml
+C:\Nomina1.0\Nomina1.0\obj\Release\WinProcedures.baml
