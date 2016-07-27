@@ -401,16 +401,11 @@ namespace Nomina1._0.ViewModel
 
             if (saveFileDialog1.ShowDialog()== DialogResult.OK)
             {
-                List<string> Txt = new List<string>();
+                var contador = 1;
+              
                 // WriteAllLines creates a file, writes a collection of strings to the file,
                 // and then closes the file.  You do NOT need to call Flush() or Close().
-                var Nuncuenta = "01020358990000127323";
-                var Tnomina =Int32.Parse((TotalNomina.ToString()).Replace(",", ""));
-                var sTnomina= Tnomina.ToString("D13");
-                var CodeCompany = "03291";
-                var line = "HASOC CIVIL U E P COLEGIO TERESA CARRENO " + Nuncuenta + NominagenID.ToString()+ DateTime.Now.ToString("dd/MM/yy")+ sTnomina + CodeCompany;
-                Txt.Add(line);
-                var Grouping = from items in NominaActual
+                var Grouping = (from items in NominaActual
                                group items by items.trabajador into x
                                select new
                                {
@@ -418,11 +413,26 @@ namespace Nomina1._0.ViewModel
                                    asigs = (float)Math.Round((double)x.Where(t => t.tipoconcepto == 1).Sum(t => t.valorconcepto), 2),
                                    tipoc = x.First().trabajador.tipocuenta == null ? 1 : x.First().trabajador.tipocuenta.idtipocuenta
 
-                               };
+                               }).ToArray<dynamic>() ;
+                List< IEnumerable<dynamic> > division=new List<IEnumerable<dynamic>>();
+                division.Add ( Grouping.Take(Grouping.Count() / 2));
+                division.Add(Grouping.Skip(Grouping.Count() / 2));
+                
+                foreach(var x in division)
+                {
+                 var totalnomina = x.Sum(t => (float)t.asigs);
+                List<string> Txt = new List<string>();
+                var Nuncuenta = "01020358990000127323";
+                var Tnomina =Int32.Parse((totalnomina.ToString()).Replace(",", ""));
+                var sTnomina= Tnomina.ToString("D13");
+                var CodeCompany = "03291";
+                var line = "HASOC CIVIL U E P COLEGIO TERESA CARRENO " + Nuncuenta + NominagenID.ToString()+ DateTime.Now.ToString("dd/MM/yy")+ sTnomina + CodeCompany;
+                Txt.Add(line);
+               
                                
                                
 
-                foreach (var item in Grouping)
+                foreach (var item in x)
                 {
                  
                         var linelis = (item.tipoc - 1).ToString();
@@ -442,12 +452,14 @@ namespace Nomina1._0.ViewModel
                   
                 }
                try { 
-                System.IO.File.WriteAllLines(saveFileDialog1.FileName, Txt);
+                System.IO.File.WriteAllLines(saveFileDialog1.FileName.Replace(".DAT",contador.ToString()+".DAT"), Txt);
                     Datos.Msg("Txt Generado en " + saveFileDialog1.FileName);
+                        contador++;
                 }
                 catch(Exception error)
                 {
                     Datos.Msg("Error al generar el Txt, Detalles: " + error.ToString(), "Error", "E");
+                }
                 }
             }
 
