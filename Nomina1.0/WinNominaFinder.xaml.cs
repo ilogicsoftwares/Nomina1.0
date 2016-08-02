@@ -17,7 +17,7 @@ namespace Nomina1._0
     /// <summary>
     /// Lógica de interacción para WinNominaFinder.xaml
     /// </summary>
-    public partial class WinNominaFinder : Window
+    public partial class WinNominaFinder
     {
         public WinNominaFinder()
         {

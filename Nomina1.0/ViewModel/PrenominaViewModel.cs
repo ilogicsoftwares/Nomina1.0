@@ -161,7 +161,7 @@ namespace Nomina1._0.ViewModel
             {
                 return;
             }
-            var TrabInNomina = Datos.Micontexto.trabajador.Where(x=>x.nominatype.idnomina==idx);
+            var TrabInNomina = Datos.Micontexto.trabajador.Where(x=>x.nominatype.idnomina==idx).Where(x=>x.estatus.idestatus<3);
             var prenominaActual = Datos.Micontexto.prenomina.Where(x => x.nominatype.idnomina ==idx);
             
                 
