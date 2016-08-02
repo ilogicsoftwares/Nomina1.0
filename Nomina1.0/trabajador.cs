@@ -16,14 +16,16 @@ namespace Nomina1._0
     {
         public trabajador()
         {
-            this.prenominagen = new HashSet<prenominagen>();
             this.prenomina = new HashSet<prenomina>();
+            this.prenominagen = new HashSet<prenominagen>();
         }
     
         public int idtrabajador { get; set; }
         public string cedula { get; set; }
         public string nombres { get; set; }
         public string apellidos { get; set; }
+        public Nullable<int> idcargo { get; set; }
+        public Nullable<int> iddepartamentos { get; set; }
         public string direccion { get; set; }
         public string telefonocel { get; set; }
         public string telefonolocal { get; set; }
@@ -31,25 +33,31 @@ namespace Nomina1._0
         public string nombrecontacto { get; set; }
         public string correo { get; set; }
         public Nullable<decimal> Sueldo { get; set; }
+        public int idstatus { get; set; }
         public string conceptos { get; set; }
         public Nullable<int> sexo { get; set; }
         public Nullable<System.DateTime> Fechaing { get; set; }
         public Nullable<System.DateTime> fechanac { get; set; }
         public Nullable<int> edocivil { get; set; }
         public Nullable<int> Nhijos { get; set; }
+        public Nullable<int> nacionalidad { get; set; }
+        public Nullable<int> idgrado { get; set; }
         public string lugarnac { get; set; }
         public string dirfoto { get; set; }
+        public int Idnomina { get; set; }
         public string numerocuenta { get; set; }
+        public Nullable<int> idbanco { get; set; }
+        public Nullable<int> idtipocuenta { get; set; }
     
         public virtual bancos bancos { get; set; }
         public virtual cargo cargo { get; set; }
         public virtual departamentos departamentos { get; set; }
         public virtual estatus estatus { get; set; }
         public virtual gradointruc gradointruc { get; set; }
-        public virtual nacionalidad nacionalidad { get; set; }
+        public virtual nacionalidad nacionalidad1 { get; set; }
         public virtual nominatype nominatype { get; set; }
-        public virtual tipocuenta tipocuenta { get; set; }
-        public virtual ICollection<prenominagen> prenominagen { get; set; }
         public virtual ICollection<prenomina> prenomina { get; set; }
+        public virtual ICollection<prenominagen> prenominagen { get; set; }
+        public virtual tipocuenta tipocuenta { get; set; }
     }
 }

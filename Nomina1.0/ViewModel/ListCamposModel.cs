@@ -42,6 +42,8 @@ namespace Nomina1._0.ViewModel
 
         public void ChangeValue(object Campotra)
         {
+            if (Campotra==null)
+            { return; }
             var ncampo = Campotra as campotra;
             WinChangeValues cambiavalor = new WinChangeValues(ncampo, ncampo.nombrecampo);
             cambiavalor.ShowDialog();

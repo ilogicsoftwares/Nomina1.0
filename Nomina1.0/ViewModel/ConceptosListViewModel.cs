@@ -105,6 +105,8 @@ namespace Nomina1._0.ViewModel
         }
         public void MoveUp(object item)
         {
+            if(item==null)
+            { return; }
             int ind = Concepts.IndexOf(item.ToString());
 
             if (ind != 0)
@@ -126,6 +128,8 @@ namespace Nomina1._0.ViewModel
         }
         public void MoveDown(object item)
         {
+            if (item == null)
+            { return; }
             int ind = Concepts.IndexOf(item.ToString());
 
             if (ind != Concepts.Count()-1)

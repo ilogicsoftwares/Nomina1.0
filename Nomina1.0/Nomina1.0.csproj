@@ -136,6 +136,7 @@
     <Compile Include="jornada.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyMultiConverter.cs" />
     <Compile Include="nacionalidad.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
@@ -170,6 +171,7 @@
     <Compile Include="varsys.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\CamposGenViemodel.cs" />
     <Compile Include="ViewModel\CamposViewModel.cs" />
     <Compile Include="ViewModel\CargoViewModel.cs" />
     <Compile Include="ViewModel\ConceptosListViewModel.cs" />
@@ -206,6 +208,9 @@
     <Compile Include="WinBusqueda.xaml.cs">
       <DependentUpon>WinBusqueda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinCambioCampos.xaml.cs">
+      <DependentUpon>WinCambioCampos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinCampos.xaml.cs">
       <DependentUpon>WinCampos.xaml</DependentUpon>
     </Compile>
@@ -232,6 +237,9 @@
     </Compile>
     <Compile Include="WinNomina.xaml.cs">
       <DependentUpon>WinNomina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinNominaFinder.xaml.cs">
+      <DependentUpon>WinNominaFinder.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinPrenomina.xaml.cs">
       <DependentUpon>WinPrenomina.xaml</DependentUpon>
@@ -273,6 +281,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WinCambioCampos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinCampos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -306,6 +318,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinNomina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinNominaFinder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

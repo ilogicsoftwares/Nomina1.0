@@ -48,6 +48,8 @@ namespace Nomina1._0
             TrabajadorViewModel tra = (TrabajadorViewModel)DataContext;
             tra.ConceptosViewList.CargaPorNomina((nominatype)comboNomina.SelectedValue);
         }
+
+       
     }
     
 }

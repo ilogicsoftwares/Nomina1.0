@@ -155,5 +155,20 @@ namespace Nomina1._0
         {
             
         }
+
+        private void CommandNuevo_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Datos.AbrirWindow("Cambiar Campos en General", "WinCambioCampos", "1");
+           
+         
+
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            nomina.GenerarPrenomina(nomina.SelectedNomina);
+           
+        }
     }
 }

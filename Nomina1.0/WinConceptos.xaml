@@ -85,6 +85,7 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
+        <CheckBox x:Name="checkBox" Content="No Imprimir si es igual a 0" HorizontalAlignment="Left" Margin="1,201,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="239" Grid.Column="1" IsChecked="{Binding ConceptoActual.noimprimir,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </Controls:MetroWindow>

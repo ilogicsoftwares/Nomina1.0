@@ -2,6 +2,8 @@
 using System.Windows;
 using MahApps.Metro.Controls;
 using Nomina1._0.ViewModel;
+using System.Windows.Markup;
+using System.Globalization;
 
 namespace Nomina1._0
 {
@@ -11,10 +13,16 @@ namespace Nomina1._0
 
     public partial class MainWindow:MetroWindow 
     {
-        
+       
         public LogingViewModel initUser = new LogingViewModel();
         public MainWindow()
         {
+
+            //cambia la cultura en todo el proyecto a la cultura actual
+            FrameworkElement.LanguageProperty.OverrideMetadata(
+             typeof(FrameworkElement),
+            new FrameworkPropertyMetadata(XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
+            ///////
             this.WindowStyle = WindowStyle.ThreeDBorderWindow;
             InitializeComponent();
             DataContext = initUser;

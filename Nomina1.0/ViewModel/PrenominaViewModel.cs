@@ -163,14 +163,7 @@ namespace Nomina1._0.ViewModel
             }
             var TrabInNomina = Datos.Micontexto.trabajador.Where(x=>x.nominatype.idnomina==idx);
             var prenominaActual = Datos.Micontexto.prenomina.Where(x => x.nominatype.idnomina ==idx);
-            if (prenominaActual.Count() > 0)
-            {
-                var msg = System.Windows.MessageBox.Show("Existe una Pre-nomina Configurada Desea Editarla? de lo Contrario se Eliminaran los Datos", "Prenomina", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (msg == MessageBoxResult.Yes)
-                {
-                    return;
-                }
-            }
+            
                 
                     Datos.Micontexto.Database.ExecuteSqlCommand("DELETE  FROM prenomina WHERE idnominatype=@p0", ((nominatype)nomina).idnomina);
                     foreach (var trab in TrabInNomina)
@@ -202,7 +195,16 @@ namespace Nomina1._0.ViewModel
                     }
                             PreNom.valorvar = decimal.Parse(LeerCampo(xa.variante, trab.idtrabajador));
                             PreNom.tipoconcepto = xa.tipo;
+                    if (xa.noimprimir != 1)
+                    {
+                        Datos.Micontexto.prenomina.Add(PreNom);
+                    }else
+                    {
+                        if (PreNom.valorconcepto!=0)
+                        {
                             Datos.Micontexto.prenomina.Add(PreNom);
+                        }
+                    }
              
                 }
                     }
@@ -411,22 +413,23 @@ namespace Nomina1._0.ViewModel
                                {
                                    trabajador = x.First().trabajador,
                                    asigs = (float)Math.Round((double)x.Where(t => t.tipoconcepto == 1).Sum(t => t.valorconcepto), 2),
+                                   deducs= (float)Math.Round((double)x.Where(t => t.tipoconcepto == 2).Sum(t => t.valorconcepto), 2),
                                    tipoc = x.First().trabajador.tipocuenta == null ? 1 : x.First().trabajador.tipocuenta.idtipocuenta
 
                                }).ToArray<dynamic>() ;
                 List< IEnumerable<dynamic> > division=new List<IEnumerable<dynamic>>();
                 division.Add ( Grouping.Take(Grouping.Count() / 2));
-                division.Add(Grouping.Skip(Grouping.Count() / 2));
+                division.Add (Grouping.Skip(Grouping.Count() / 2));
                 
                 foreach(var x in division)
                 {
-                 var totalnomina = x.Sum(t => (float)t.asigs);
+                var totalnomina = x.Sum(t => (float)t.asigs) - x.Sum(t => (float)t.deducs);
                 List<string> Txt = new List<string>();
                 var Nuncuenta = "01020358990000127323";
                 var Tnomina =Int32.Parse((totalnomina.ToString()).Replace(",", ""));
                 var sTnomina= Tnomina.ToString("D13");
                 var CodeCompany = "03291";
-                var line = "HASOC CIVIL U E P COLEGIO TERESA CARRENO " + Nuncuenta + NominagenID.ToString()+ DateTime.Now.ToString("dd/MM/yy")+ sTnomina + CodeCompany;
+                var line = "HASOC CIVIL U E P COLEGIO TERESA CARRENO " + Nuncuenta + (Convert.ToInt32(NominagenID)).ToString("D2")+ DateTime.Now.ToString("dd/MM/yy")+ sTnomina + CodeCompany;
                 Txt.Add(line);
                
                                
@@ -437,7 +440,7 @@ namespace Nomina1._0.ViewModel
                  
                         var linelis = (item.tipoc - 1).ToString();
                         linelis += long.Parse(item.trabajador.numerocuenta ?? "0").ToString("D20");
-                        float Dmontoasig = item.asigs;
+                        float Dmontoasig = item.asigs -item.deducs;
 
                         var montoasig = Dmontoasig.ToString().Replace(",", "");
                         var lamontoasig = int.Parse(montoasig).ToString("D11");

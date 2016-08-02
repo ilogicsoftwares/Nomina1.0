@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using Nomina1._0.ViewModel;
 
 namespace Nomina1._0
 {
@@ -27,10 +28,16 @@ namespace Nomina1._0
 
             SetResourceReference(MetroWindow.GlowBrushProperty, "AccentColorBrush");
             ResizeMode = ResizeMode.CanResizeWithGrip;
+            Title = "Editar Campos en general";
+            label.Content = "Editar campos en general";
+            var busca = Datos.Micontexto.campotra.Local.Where(x => x.idtrabajador == Datos.Micontexto.trabajador.FirstOrDefault().idtrabajador).ToList();
+            dataGrid_Copy.DataContext = busca;
+
         }
 
         public WinModifyPrenom(int Trab,string TrabajadorNom)
         {
+            object busca;
             InitializeComponent();
             Owner = Datos._PrincipalWindow;
             ShowInTaskbar = false;
@@ -41,9 +48,11 @@ namespace Nomina1._0
             label.Content = TrabajadorNom;
             SetResourceReference(MetroWindow.GlowBrushProperty, "AccentColorBrush");
             ResizeMode = ResizeMode.CanResizeWithGrip;
-            var busca = Datos.Micontexto.campotra.Where(x => x.idtrabajador == Trab).ToList();
+            Title = "Editar Campos";
+            label.Content = TrabajadorNom;
+            busca = Datos.Micontexto.campotra.Where(x => x.idtrabajador == Trab).ToList();
             dataGrid_Copy.DataContext = busca;
-            
+
         }
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)

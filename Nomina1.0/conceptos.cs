@@ -27,6 +27,7 @@ namespace Nomina1._0
         public Nullable<int> tipo { get; set; }
         public string Valor { get; set; }
         public string codigo { get; set; }
+        public int noimprimir { get; set; }
     
         public virtual ICollection<prenominagen> prenominagen { get; set; }
         public virtual ICollection<prenomina> prenomina { get; set; }
