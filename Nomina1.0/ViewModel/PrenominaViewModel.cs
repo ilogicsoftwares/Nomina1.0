@@ -394,7 +394,7 @@ namespace Nomina1._0.ViewModel
 
         }
 
-        public void CrearTxt()
+        public void CrearTxt(int divisions=3)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "DAT File|*.DAT";
@@ -418,8 +418,25 @@ namespace Nomina1._0.ViewModel
 
                                }).ToArray<dynamic>() ;
                 List< IEnumerable<dynamic> > division=new List<IEnumerable<dynamic>>();
-                division.Add ( Grouping.Take(Grouping.Count() / 2));
-                division.Add (Grouping.Skip(Grouping.Count() / 2));
+              
+                int count = Grouping.Count();
+                decimal cantdiv = count/divisions;
+                int entero=(int) Math.Round(cantdiv);
+                for (int i=1; i<=divisions;i++)
+                {
+                   
+                    if (i != count)
+                    {
+                        division.Add(Grouping.Take(entero));
+                        Grouping.Skip(entero);
+                    }else
+                    {
+                        division.Add(Grouping);
+                    }
+                }
+              
+               
+           
                 
                 foreach(var x in division)
                 {
@@ -477,6 +494,8 @@ namespace Nomina1._0.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+      
     }
+   
 }
 
