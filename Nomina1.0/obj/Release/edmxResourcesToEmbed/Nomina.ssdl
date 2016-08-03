@@ -49,6 +49,7 @@
     <Property Name="tipo" Type="int" />
     <Property Name="Valor" Type="char" MaxLength="100" />
     <Property Name="codigo" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="noimprimir" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="departamentos">
     <Key>

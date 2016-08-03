@@ -74,3 +74,7 @@ C:\Nomina1.0\Nomina1.0\obj\Release\WinModifyPrenom.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Release\WinProcedures.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Release\WinModifyPrenom.baml
 C:\Nomina1.0\Nomina1.0\obj\Release\WinProcedures.baml
+C:\Nomina1.0\Nomina1.0\obj\Release\WinCambioCampos.g.cs
+C:\Nomina1.0\Nomina1.0\obj\Release\WinNominaFinder.g.cs
+C:\Nomina1.0\Nomina1.0\obj\Release\WinCambioCampos.baml
+C:\Nomina1.0\Nomina1.0\obj\Release\WinNominaFinder.baml

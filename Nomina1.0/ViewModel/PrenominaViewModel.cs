@@ -11,14 +11,14 @@ using NCalc;
 using System.Collections.ObjectModel;
 using System.Collections;
 using Nomina1._0.ViewModel;
-
+using System.ComponentModel.DataAnnotations;
 
 using System.IO;
 using System.Windows.Forms;
 
 namespace Nomina1._0.ViewModel
 {
-    
+
     class PrenominaViewModel : INotifyPropertyChanged
     {
         private DateTime today = DateTime.Now;
@@ -30,19 +30,22 @@ namespace Nomina1._0.ViewModel
         public object[] Trabajadores { get; set; }
         public static DateTime FechaD { get; set; }
         public static DateTime FechaA { get; set; }
-        public int TotalTra { get; set; }
+      
+        public static int TotalTra { get; set; }
         public int? NominagenID { get; set; }
         public RelayCommand GenerarPrenominaCommand { get; set; }
         public PrenominaViewModel()
         {
+            fechavalor = DateTime.Now;
+            txtdivision = 1;
             Fdesde= today;
             FHasta = today;
             GenerarPrenominaCommand = new RelayCommand(GenerarPrenomina);
         }
         public PrenominaViewModel(int prenominagen)
         {
-
-
+            fechavalor = DateTime.Now;
+            txtdivision = 1;
             Fdesde = today;
             FHasta = today;
             GenerarPrenominaCommand = new RelayCommand(GenerarPrenomina);
@@ -407,7 +410,7 @@ namespace Nomina1._0.ViewModel
               
                 // WriteAllLines creates a file, writes a collection of strings to the file,
                 // and then closes the file.  You do NOT need to call Flush() or Close().
-                var Grouping = (from items in NominaActual
+              var  Grouping = (from items in NominaActual
                                group items by items.trabajador into x
                                select new
                                {
@@ -416,24 +419,10 @@ namespace Nomina1._0.ViewModel
                                    deducs= (float)Math.Round((double)x.Where(t => t.tipoconcepto == 2).Sum(t => t.valorconcepto), 2),
                                    tipoc = x.First().trabajador.tipocuenta == null ? 1 : x.First().trabajador.tipocuenta.idtipocuenta
 
-                               }).ToArray<dynamic>() ;
-                List< IEnumerable<dynamic> > division=new List<IEnumerable<dynamic>>();
-              
-                int count = Grouping.Count();
-                decimal cantdiv = count/divisions;
-                int entero=(int) Math.Round(cantdiv);
-                for (int i=1; i<=divisions;i++)
-                {
-                   
-                    if (i != count)
-                    {
-                        division.Add(Grouping.Take(entero));
-                        Grouping.Skip(entero);
-                    }else
-                    {
-                        division.Add(Grouping);
-                    }
-                }
+                               }).ToList<dynamic>() ;
+               
+
+              var  division = Grouping.Split(divisions);
               
                
            
@@ -443,10 +432,10 @@ namespace Nomina1._0.ViewModel
                 var totalnomina = x.Sum(t => (float)t.asigs) - x.Sum(t => (float)t.deducs);
                 List<string> Txt = new List<string>();
                 var Nuncuenta = "01020358990000127323";
-                var Tnomina =Int32.Parse((totalnomina.ToString()).Replace(",", ""));
+                var Tnomina =Int32.Parse((totalnomina.ToString("0.00")).Replace(",", ""));
                 var sTnomina= Tnomina.ToString("D13");
                 var CodeCompany = "03291";
-                var line = "HASOC CIVIL U E P COLEGIO TERESA CARRENO " + Nuncuenta + (Convert.ToInt32(NominagenID)).ToString("D2")+ DateTime.Now.ToString("dd/MM/yy")+ sTnomina + CodeCompany;
+                var line = "HASOC CIVIL U E P COLEGIO TERESA CARRENO " + Nuncuenta + (Convert.ToInt32(contador)).ToString("D2")+ fechavalor.ToString("dd/MM/yy")+ sTnomina + CodeCompany;
                 Txt.Add(line);
                
                                
@@ -454,13 +443,15 @@ namespace Nomina1._0.ViewModel
 
                 foreach (var item in x)
                 {
-                 
+                       
                         var linelis = (item.tipoc - 1).ToString();
                         linelis += long.Parse(item.trabajador.numerocuenta ?? "0").ToString("D20");
-                        float Dmontoasig = item.asigs -item.deducs;
-
-                        var montoasig = Dmontoasig.ToString().Replace(",", "");
-                        var lamontoasig = int.Parse(montoasig).ToString("D11");
+                       float Dmontoasig = item.asigs -item.deducs;
+                                          
+                        var montoasig = Dmontoasig.ToString("0.00");
+                        var sincoma = montoasig.Replace(",", ""); 
+                      
+                        var lamontoasig = int.Parse(sincoma).ToString("D11");
                         linelis += lamontoasig;
                         linelis += (item.tipoc - 1).ToString() + 770;
                         var nomap = item.trabajador.nombres.Trim().ToUpper() + " " + item.trabajador.apellidos.Trim().ToUpper();
@@ -484,6 +475,40 @@ namespace Nomina1._0.ViewModel
             }
 
         }
+        private int _txtdivision;
+        
+        public int txtdivision {
+
+            get
+            {
+                return _txtdivision ;
+            }
+            set {
+                if (value > TotalTra && TotalTra!=0)
+                {
+                    Datos.Msg("La division no puede ser mayor a la cantidad de items", "Error", "E");
+                }else
+                {
+                    _txtdivision = value;
+                    NotifyPropertyChanged();
+                }
+                }
+
+        }
+        private DateTime _fechavalor;
+            public DateTime fechavalor
+        {
+            get
+            {
+                return _fechavalor;
+            }
+            set
+            {
+                _fechavalor = value;
+                NotifyPropertyChanged();
+            }
+        }
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -86,7 +86,7 @@ namespace Nomina1._0
             }
             if (checkBox_Copy.IsChecked==true)
             {
-                nomina.CrearTxt();
+                nomina.CrearTxt(nomina.txtdivision);
             }
         }
 
