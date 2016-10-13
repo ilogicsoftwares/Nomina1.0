@@ -165,6 +165,15 @@
     <Compile Include="trabajador.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="usermenu.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
+    <Compile Include="users.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usertype.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
     <Compile Include="variables.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
@@ -182,6 +191,7 @@
     <Compile Include="ViewModel\NominaViewModel.cs" />
     <Compile Include="ViewModel\PrenominaViewModel.cs" />
     <Compile Include="ViewModel\PrincipalViewModel.cs" />
+    <Compile Include="ViewModel\ReportNominaViewModel.cs" />
     <Compile Include="ViewModel\TrabajadorViewModel.cs" />
     <Compile Include="ViewModel\LogingViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
@@ -196,15 +206,6 @@
     </Compile>
     <Compile Include="RadioBoolToIntConverter.cs" />
     <Compile Include="RelayCommand.cs" />
-    <Compile Include="usermenu.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
-    </Compile>
-    <Compile Include="users.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
-    </Compile>
-    <Compile Include="usertype.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
-    </Compile>
     <Compile Include="WinBusqueda.xaml.cs">
       <DependentUpon>WinBusqueda.xaml</DependentUpon>
     </Compile>
@@ -249,6 +250,9 @@
     </Compile>
     <Compile Include="WinReport.xaml.cs">
       <DependentUpon>WinReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinRepRecibos.xaml.cs">
+      <DependentUpon>WinRepRecibos.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinTrabajador.xaml.cs">
       <DependentUpon>WinTrabajador.xaml</DependentUpon>
@@ -334,6 +338,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinRepRecibos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

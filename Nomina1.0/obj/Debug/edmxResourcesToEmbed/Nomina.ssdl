@@ -120,10 +120,10 @@
   </EntityType>
   <EntityType Name="nominauni">
     <Key>
-      <PropertyRef Name="idnomina" />
+      <PropertyRef Name="idnominauni" />
     </Key>
-    <Property Name="idnomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nominatype" Type="int" />
+    <Property Name="idnominauni" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idnominatype" Type="int" />
     <Property Name="desde" Type="date" />
     <Property Name="hasta" Type="date" />
     <Property Name="totalnomina" Type="decimal" Precision="10" Scale="2" />
@@ -201,7 +201,7 @@
     <Property Name="fechanac" Type="datetime" Precision="0" />
     <Property Name="edocivil" Type="int" />
     <Property Name="Nhijos" Type="int" />
-    <Property Name="nacionalidad" Type="int" />
+    <Property Name="idnacionalidad" Type="int" />
     <Property Name="idgrado" Type="int" />
     <Property Name="lugarnac" Type="varchar" MaxLength="50" />
     <Property Name="dirfoto" Type="varchar" MaxLength="100" />
@@ -261,8 +261,8 @@
     <Property Name="valorinicial" Type="varchar" MaxLength="50" />
     <Property Name="constante" Type="int" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'nomina.varsys' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="varsys">
     <Key>
       <PropertyRef Name="cedula" />
@@ -428,7 +428,7 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
         <PropertyRef Name="idnacionalidad" />
       </Principal>
       <Dependent Role="trabajador">
-        <PropertyRef Name="nacionalidad" />
+        <PropertyRef Name="idnacionalidad" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

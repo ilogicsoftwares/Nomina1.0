@@ -303,7 +303,7 @@ namespace Nomina1._0.ViewModel
            
             var result = false;
             
-            var Gen = Datos.Micontexto.nominauni.Where(x=>x.nominatype==SelectedNomina.idnomina);
+            var Gen = Datos.Micontexto.nominauni.Where(x=>x.idnominatype==SelectedNomina.idnomina);
           
             if ((FHasta-Fdesde).TotalDays < CantDays || (FHasta- Fdesde).TotalDays >CantDays+3)
             {
@@ -341,7 +341,7 @@ namespace Nomina1._0.ViewModel
         {
             nominauni GenNom = new nominauni();
 
-            GenNom.nominatype = NominaActual.FirstOrDefault().nominatype.idnomina;
+            GenNom.idnominatype = NominaActual.FirstOrDefault().nominatype.idnomina;
             GenNom.desde = this.Fdesde;
             GenNom.hasta = this.FHasta;
             GenNom.totalasignaciones = TotalAsig;
@@ -357,7 +357,7 @@ namespace Nomina1._0.ViewModel
                 Datos.Micontexto.nominauni.Add(GenNom);
               
                 Datos.Micontexto.SaveChanges();
-                NominagenID = GenNom.idnomina;
+                NominagenID = GenNom.idnominauni;
             }
             catch(Exception EX)
             {
@@ -369,7 +369,7 @@ namespace Nomina1._0.ViewModel
             {
                 prenominagen itennom = new prenominagen
                 {
-                    Idnominagen=GenNom.idnomina,
+                    Idnominagen=GenNom.idnominauni,
                     nominatype=item.nominatype,
                     trabajador=item.trabajador,
                     conceptos=item.conceptos,
@@ -391,8 +391,8 @@ namespace Nomina1._0.ViewModel
                 Datos.Msg("Error Al Generar la nomina, Detalle: " + EX.ToString(), "Error", "E");
                 return;
             }
-            Datos.Micontexto.Database.ExecuteSqlCommand("DELETE  FROM prenomina WHERE idnominatype=@p0", GenNom.nominatype);
-            Datos.Msg("Nomina " + GenNom.idnomina.ToString().Trim() + " Generada", "Nomina Generada");
+            Datos.Micontexto.Database.ExecuteSqlCommand("DELETE  FROM prenomina WHERE idnominatype=@p0", GenNom.idnominatype);
+            Datos.Msg("Nomina " + GenNom.idnominauni.ToString().Trim() + " Generada", "Nomina Generada");
 
 
         }
