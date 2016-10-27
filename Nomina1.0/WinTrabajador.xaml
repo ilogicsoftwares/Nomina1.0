@@ -29,7 +29,7 @@
     <Window.DataContext>
         <vm:TrabajadorViewModel/>
     </Window.DataContext>
-    <Grid Name="Grid1">
+    <Grid Name="Grid1" Margin="0,-2,0,2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="126*"/>
             <ColumnDefinition Width="247*"/>
@@ -73,9 +73,9 @@
         <Grid Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="91,121,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="label_Copy12" Content="Hijos:" Margin="0,150,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88" Grid.Column="2"/>
         <TextBox x:Name="txthijos" Grid.Column="3" Height="26" Margin="0,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="13" Text="{Binding TrabajadorActual.Nhijos, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-        <Label x:Name="label_Copy13" Content="Datos Laborales" Margin="0,276,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Left" Grid.ColumnSpan="3" FontWeight="Bold" HorizontalAlignment="Left" Width="374"/>
-        <Label x:Name="label_Copy14" Content="Nomina:" Margin="0,307,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
-        <ComboBox x:Name="comboNomina" Grid.Column="1" Margin="0,307,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lnomina}"  SelectedValue="{Binding TrabajadorActual.nominatype, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="17" SelectionChanged="comboNomina_SelectionChanged"/>
+        <Label x:Name="label_Copy13" Content="Datos Laborales" Margin="0,266,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Left" Grid.ColumnSpan="3" FontWeight="Bold" HorizontalAlignment="Left" Width="374"/>
+        <Label x:Name="label_Copy14" Content="Nomina:" Margin="0,291,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
+        <ComboBox x:Name="comboNomina" Grid.Column="1" Margin="0,291,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Lnomina}"  SelectedValue="{Binding TrabajadorActual.nominatype, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="17" SelectionChanged="comboNomina_SelectionChanged"/>
         <Label x:Name="label_Copy15" Content="Tel. Local:" Margin="0,213,0,0" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88" Grid.Column="2"/>
         <TextBox x:Name="txtLocal" Grid.Column="3" Height="26" Margin="0,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="15" Text="{Binding TrabajadorActual.telefonolocal, Mode=TwoWay}"/>
         <Label x:Name="label_Copy16" Content="Tel. Celular:" Margin="0,182,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88" Grid.Column="2"/>
@@ -84,12 +84,12 @@
         <TextBox x:Name="txtContacto" Grid.Column="3" Height="26" Margin="0,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="151" Text="{Binding TrabajadorActual.telefonocontacto, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
         <Label x:Name="label_Copy18" Content="Contacto:" Margin="0,245,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="88"/>
         <TextBox x:Name="txtContacton" Grid.Column="1" Height="26" Margin="1,245,124,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="16" Text="{Binding TrabajadorActual.nombrecontacto, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
-        <Label x:Name="label_Copy19" Content="Cargo :" Margin="1,369,246,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="comboCargo" Grid.Column="1" Margin="0,369,0,0" VerticalAlignment="Top" DisplayMemberPath="Nombre" ItemsSource="{Binding Lcargo}"  SelectedValue="{Binding TrabajadorActual.cargo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="19"/>
-        <Label x:Name="label_Copy20" Content="Sueldo Base Mensual:" Margin="0,401,0,0" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56"/>
-        <TextBox x:Name="cedula_Copy5" Grid.Column="1" Height="26" Margin="0,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="20" Text="{Binding TrabajadorActual.Sueldo, Mode=TwoWay , StringFormat=N,UpdateSourceTrigger=PropertyChanged}"/>
-        <Label x:Name="label_Copy21" Content="Departamento:" Margin="0,338,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
-        <ComboBox x:Name="comboBoxnacional_Copy2" Grid.Column="1" Margin="0,338,0,0" VerticalAlignment="Top" DisplayMemberPath="Descripcion" ItemsSource="{Binding Ldepart}"  SelectedValue="{Binding TrabajadorActual.departamentos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="18"/>
+        <Label x:Name="label_Copy19" Content="Cargo :" Margin="1,384,246,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="comboCargo" Grid.Column="1" Margin="0,385,0,0" VerticalAlignment="Top" DisplayMemberPath="Nombre" ItemsSource="{Binding Lcargo}"  SelectedValue="{Binding TrabajadorActual.cargo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="19"/>
+        <Label x:Name="label_Copy20" Content="Sueldo Base Mensual:" Margin="0,416,0,0" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56"/>
+        <TextBox x:Name="cedula_Copy5" Grid.Column="1" Height="26" Margin="0,416,0,0" TextWrapping="Wrap" VerticalAlignment="Top" TabIndex="20" Text="{Binding TrabajadorActual.Sueldo, Mode=TwoWay , StringFormat=N,UpdateSourceTrigger=PropertyChanged}"/>
+        <Label x:Name="label_Copy21" Content="Departamento:" Margin="0,353,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
+        <ComboBox x:Name="comboBoxnacional_Copy2" Grid.Column="1" Margin="0,353,0,0" VerticalAlignment="Top" DisplayMemberPath="Descripcion" ItemsSource="{Binding Ldepart}"  SelectedValue="{Binding TrabajadorActual.departamentos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="18"/>
         <Label x:Name="label_Copy22" Content="Fecha de Ingreso:" Margin="0,321,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" Grid.Column="2"/>
         <DatePicker Grid.Column="3" Margin="0,321,0,0" VerticalAlignment="Top" Height="26"  SelectedDate="{Binding TrabajadorActual.Fechaing, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" TabIndex="22"/>
         <Label x:Name="label_Copy23" Content="Numero de Cuenta:" Margin="1,385,0,0" VerticalAlignment="Top" Height="25" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56" Grid.Column="2"/>
@@ -101,7 +101,7 @@
         <Label x:Name="label_Copy26" Content="Conceptos:" Margin="59,0,240,136" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56" Grid.ColumnSpan="2" Height="28" VerticalAlignment="Bottom"/>
         <Label x:Name="label_Copy27" Content="Campos:" Margin="124,0,65,136" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56" Grid.Column="1" Height="25" VerticalAlignment="Bottom"/>
         <ListBox x:Name="listBox_Copy" Margin="124,0,116,31" BorderBrush="Teal" BorderThickness="1" ItemsSource="{Binding CamposViewList.ListaCampos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextOptions.TextHintingMode="Animated" SelectionMode="Single" Grid.Column="1" Grid.ColumnSpan="2" Height="105" VerticalAlignment="Bottom" DisplayMemberPath="nombrecampo"/>
-        <Label x:Name="label_Copy28" Content="Datos de la Nomina" Margin="1,426,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" FontWeight="Bold" HorizontalAlignment="Left" Width="372"/>
+        <Label x:Name="label_Copy28" Content="Datos de la Nomina" Margin="0,436,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Left" Grid.ColumnSpan="2" FontWeight="Bold" HorizontalAlignment="Left" Width="372"/>
         <Button x:Name="CommandNuevo_Copy1" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Modificar Campo" Margin="10,0,0,101" Grid.Column="2" Height="35" VerticalAlignment="Bottom" Command="{Binding CamposViewList.ChangeValueCommand}" CommandParameter="{Binding SelectedValue ,ElementName=listBox_Copy}">
             <Rectangle Width="15"
         		Height="15"
@@ -161,6 +161,8 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
+        <Label x:Name="label_Copy29" Content="Nomina de Bonos:" Margin="0,319,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
+        <ComboBox x:Name="comboNomina_Copy" Grid.Column="1" Margin="0,321,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Bnomina}"  SelectedValue="{Binding TrabajadorActual.nominatype1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="17"/>
 
     </Grid>
 </Controls:MetroWindow>

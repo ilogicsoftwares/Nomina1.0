@@ -14,6 +14,8 @@ namespace Nomina1._0.ViewModel
         #region Builder
         public ReportNominaViewModel()
         {
+            Dividir = 1;
+            Fecha = DateTime.Now;
             Nuevo();
         }
 
@@ -32,11 +34,31 @@ namespace Nomina1._0.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        private DateTime _Fecha;
+        public DateTime Fecha
+        {
+            get { return _Fecha; }
+            set
+            {
+                _Fecha = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _Dividir;
+        public int Dividir
+        {
+            get { return _Dividir; }
+            set
+            {
+                _Dividir = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         #endregion
 
         #region Editores
-        
+
 
         public void Nuevo()
         {
@@ -49,6 +71,12 @@ namespace Nomina1._0.ViewModel
 
         public void Buscar(string texto)
         {
+            int num;
+           if (!int.TryParse(texto,out num))
+            {
+                return;
+            }
+
             var texttoInt = int.Parse(texto);
             var bt = bd.nominauni.FirstOrDefault(x => x.idnominauni == texttoInt);
 

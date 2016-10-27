@@ -6,26 +6,35 @@
           xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Nomina1._0"
         xmlns:vm="clr-namespace:Nomina1._0.ViewModel"
+                      xmlns:sys="clr-namespace:System;assembly=mscorlib"
                       mc:Ignorable="d"
-        Title="WinRepRecibos" Height="223.309" Width="348.496" Activated="MetroWindow_Activated" Closed="MetroWindow_Closed">
+        Title="WinRepRecibos" Height="274.484" Width="401.496" Activated="MetroWindow_Activated" Closed="MetroWindow_Closed">
+
     <Window.DataContext>
         <vm:ReportNominaViewModel x:Name="reportNominaViewModel"/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="86*"/>
-            <ColumnDefinition Width="227*"/>
-            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="268*"/>
+            <ColumnDefinition Width="25*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="152,158,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Height="25"/>
-        <Label x:Name="label" Content="Nomina N°:" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Right" Height="26"/>
-        <TextBox x:Name="textBox_Copy" Height="26" Margin="0,56,0,0" TextWrapping="Wrap" Text="{Binding NominaActual.idnominauni}" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label x:Name="label_Copy" Content="Tipo:" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Right" Height="26"/>
-        <TextBox x:Name="textBox_Copy1" Height="26" Margin="0,87,0,0" TextWrapping="Wrap" Text="{Binding NominaActual.desde}" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label x:Name="label_Copy1" Content="Desde:" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Right" Height="26"/>
-        <TextBox x:Name="textBox_Copy2" Height="26" Margin="0,118,0,0" TextWrapping="Wrap" Text="{Binding NominaActual.hasta}" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label x:Name="label_Copy2" Content="Hasta:" HorizontalAlignment="Left" Margin="11,117,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Right" Height="26"/>
-        <TextBox x:Name="textBox_Copy3" Height="26" Margin="0,24,144,0" TextWrapping="Wrap" Text="{Binding NominaActual.idnominauni}" VerticalAlignment="Top" Grid.Column="1" LostFocus="textBox_Copy3_LostFocus"/>
+        <Button x:Name="button" Content="Inprimir" HorizontalAlignment="Left" Margin="193,209,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Height="25" Click="button_Click"/>
+        <Label x:Name="label" Content="Nomina N°:" HorizontalAlignment="Left" Margin="26,22,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Right" Height="26"/>
+        <TextBox x:Name="textBox_Copy" Height="26" Margin="0,56,0,0" TextWrapping="Wrap" Text="{Binding NominaActual.nominatype.descripcion}" VerticalAlignment="Top" Grid.Column="1" IsReadOnly="True"/>
+        <Label x:Name="label_Copy" Content="Tipo:" HorizontalAlignment="Left" Margin="26,53,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Right" Height="26"/>
+        <TextBox x:Name="textBox_Copy1" Height="26" Margin="0,87,0,0" TextWrapping="Wrap" Text="{Binding NominaActual.desde}" VerticalAlignment="Top" Grid.Column="1" IsReadOnly="True"/>
+        <Label x:Name="label_Copy1" Content="Desde:" HorizontalAlignment="Left" Margin="26,84,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Right" Height="26"/>
+        <TextBox x:Name="textBox_Copy2" Height="26" Margin="0,118,0,0" TextWrapping="Wrap" Text="{Binding NominaActual.hasta}" VerticalAlignment="Top" Grid.Column="1" IsReadOnly="True"/>
+        <Label x:Name="label_Copy2" Content="Hasta:" HorizontalAlignment="Left" Margin="27,115,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Right" Height="26"/>
+        <TextBox x:Name="textBox_Copy3" Height="26" Margin="0,24,144,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" LostFocus="textBox_Copy3_LostFocus" PreviewTextInput="NumberValidationTextBox" SnapsToDevicePixels="True" Text="{Binding NominaActual.idnominauni,Mode=OneWay}" />
+        <CheckBox x:Name="recibos" Content="Recibos" Grid.Column="1" HorizontalAlignment="Left" Margin="0,149,0,0" VerticalAlignment="Top" Height="18" Width="65"/>
+        <CheckBox x:Name="resumen" Content="Resumen" Grid.Column="1" HorizontalAlignment="Left" Margin="70,149,0,0" VerticalAlignment="Top" Height="18" Width="73"/>
+        <CheckBox x:Name="txt" Content="Txt" Grid.Column="1" HorizontalAlignment="Left" Margin="147,149,0,0" VerticalAlignment="Top" Height="18" Width="40"/>
+        <Label x:Name="label_Copy3" Content="Fecha Valor:" HorizontalAlignment="Left" Margin="27,172,0,0" VerticalAlignment="Top" Width="73" HorizontalContentAlignment="Right" Height="26"/>
+        <DatePicker x:Name="fechita" Margin="1,172,144,0" VerticalAlignment="Top" Height="26" SelectedDate="{Binding Fecha}" Grid.Column="1" IsEnabled="{Binding IsChecked, ElementName=txt}"/>
+        <Label x:Name="label_Copy4" Content="Dividir:" HorizontalAlignment="Left" Margin="125,172,0,0" VerticalAlignment="Top" Width="46" HorizontalContentAlignment="Right" Height="26" Grid.Column="1"/>
+        <TextBox x:Name="divide" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="171,172,0,0" TextWrapping="Wrap" Text="{Binding Dividir}" VerticalAlignment="Top" Width="97" HorizontalContentAlignment="Right"  PreviewTextInput="NumberValidationTextBox" IsEnabled="{Binding IsChecked, ElementName=txt}"/>
 
     </Grid>
 </Controls:MetroWindow>

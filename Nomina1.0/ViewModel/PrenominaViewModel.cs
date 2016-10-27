@@ -30,7 +30,7 @@ namespace Nomina1._0.ViewModel
         public object[] Trabajadores { get; set; }
         public static DateTime FechaD { get; set; }
         public static DateTime FechaA { get; set; }
-      
+        public IEnumerable<PNominaGen> DataForReport { get; set; }
         public static int TotalTra { get; set; }
         public int? NominagenID { get; set; }
         public RelayCommand GenerarPrenominaCommand { get; set; }
@@ -38,9 +38,10 @@ namespace Nomina1._0.ViewModel
         {
             fechavalor = DateTime.Now;
             txtdivision = 1;
-            Fdesde= today;
+            Fdesde = today;
             FHasta = today;
             GenerarPrenominaCommand = new RelayCommand(GenerarPrenomina);
+          
         }
         public PrenominaViewModel(int prenominagen)
         {
@@ -50,47 +51,86 @@ namespace Nomina1._0.ViewModel
             FHasta = today;
             GenerarPrenominaCommand = new RelayCommand(GenerarPrenomina);
             Carganomina(prenominagen);
+
         }
+
+        internal void GenerarResumen()
+        {
+            WinReport report2 = new WinReport(DataForReport.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\NominaGeneral.rdlc");
+            report2.ShowDialog();
+        }
+
         private void Carganomina(int prenominagen)
         {
-            var z = from items in Datos.Micontexto.prenominagen
-                    where items.Idnominagen == prenominagen
-                    select new prenomina
-                    {
-                        nominatype=items.nominatype,
-                        trabajador=items.trabajador,
-                        conceptos=items.conceptos,
-                        nombrecon=items.nombrecon,
-                        valorconcepto=items.valorconcepto,
-                        valorvar=items.valorvar,
-                        tipoconcepto=items.tipoconcepto,
-                        idnominagen=items.Idnominagen
-                        
-                    };
-            NominaActual = new ObservableCollection<prenomina>(z);
-            SelectedNomina = z.First().nominatype;
-            NominagenID = z.First().idnominagen;
+
+            var z = Datos.Micontexto.prenominagen.Where(x => x.Idnominagen == prenominagen).ToList();
+            var newpre = new List<prenomina>();
+            foreach (var x in z)
+            {
+                var newp = new prenomina
+                {
+                    nominatype = x.nominatype,
+                    trabajador = x.trabajador,
+                    conceptos = x.conceptos,
+                    nombrecon = x.nombrecon,
+                    valorconcepto = x.valorconcepto,
+                    valorvar = x.valorvar,
+                    tipoconcepto = x.tipoconcepto,
+                    idnominagen = x.Idnominagen
+                };
+                newpre.Add(newp);
+            }
+            NominaActual = new ObservableCollection<prenomina>(newpre);
+            SelectedNomina = newpre.First().nominatype;
+            NominagenID = newpre.First().idnominagen;
         }
         private nominatype _SelecteNomina;
         public nominatype SelectedNomina
         {
             get { return _SelecteNomina; }
-            set { _SelecteNomina = value as nominatype;
+            set
+            {
+                _SelecteNomina = value as nominatype;
                 CargarFechas(value.intervalo);
                 NotifyPropertyChanged();
             }
         }
         private ObservableCollection<prenomina> _NominaActual;
-        public ObservableCollection<prenomina> NominaActual {
+        public ObservableCollection<prenomina> NominaActual
+        {
             get { return _NominaActual; }
-            set { _NominaActual = value;
+            set
+            {
+                _NominaActual = value;
                 NotifyPropertyChanged();
                 TotalAsig = NominaActual.Where(x => x.tipoconcepto == 1).Sum(x => x.valorconcepto).Value;
                 TotalDeduc = NominaActual.Where(x => x.tipoconcepto == 2).Sum(x => x.valorconcepto).Value;
-                TotalNomina = decimal.Round(( TotalAsig - TotalDeduc),2);
-                var a= NominaActual.Select(x => new { Nombre = x.trabajador.nombres.Trim() + " " + x.trabajador.apellidos.Trim(),ID = x.trabajador.idtrabajador }).Distinct() as IEnumerable<object>;
-                Trabajadores =a.ToArray();
+                TotalNomina = decimal.Round((TotalAsig - TotalDeduc), 2);
+                var a = NominaActual.Select(x => new { Nombre = x.trabajador.nombres.Trim() + " " + x.trabajador.apellidos.Trim(), ID = x.trabajador.idtrabajador }).Distinct() as IEnumerable<object>;
+                Trabajadores = a.ToArray();
                 TotalTra = Trabajadores.Count();
+                DataForReport = from trabs in NominaActual
+                                select new PNominaGen
+                                {
+                                    TrabID = trabs.trabajador.idtrabajador,
+                                    TrabNombre = trabs.trabajador.nombres.Trim() + " " + trabs.trabajador.apellidos.Trim(),
+                                    TrabCedula = trabs.trabajador.cedula,
+                                    Departamento = trabs.trabajador.departamentos.Descripcion,
+                                    Cargo = trabs.trabajador.cargo.Nombre,
+                                    FechaIng = trabs.trabajador.Fechaing,
+                                    SueldoBase = trabs.trabajador.Sueldo,
+                                    SueldoDiario = 1,
+                                    IdConcepto = trabs.idconcepto,
+                                    NombreConcepto = trabs.nombrecon,
+                                    Variante = trabs.valorvar,
+                                    ConceptoTipo = trabs.tipoconcepto,
+                                    Valor = trabs.valorconcepto,
+                                    Nomina = trabs.nominatype.descripcion,
+                                    FD = PrenominaViewModel.FechaD,
+                                    FH = PrenominaViewModel.FechaA
+
+
+                                };
             }
 
         }
@@ -100,7 +140,9 @@ namespace Nomina1._0.ViewModel
         public DateTime Fdesde
         {
             get { return _FDesde; }
-            set { _FDesde = value;
+            set
+            {
+                _FDesde = value;
                 FechaD = value;
                 NotifyPropertyChanged();
             }
@@ -110,7 +152,9 @@ namespace Nomina1._0.ViewModel
         public DateTime FHasta
         {
             get { return _FHasta; }
-            set { _FHasta = value;
+            set
+            {
+                _FHasta = value;
                 FechaA = value;
                 NotifyPropertyChanged();
             }
@@ -119,24 +163,26 @@ namespace Nomina1._0.ViewModel
 
         private void CargarFechas(int Intervaltype)
         {
-           
-            if (Intervaltype==1)
+
+            if (Intervaltype == 1)
             {
                 Fdesde = today;
                 FHasta = today;
                 CantDays = 6;
-            }else if(Intervaltype == 2)
+            }
+            else if (Intervaltype == 2)
             {
                 CantDays = 14;
-                if(today.Day<=15)
+                if (today.Day <= 15)
                 {
                     Fdesde = new DateTime(today.Year, today.Month, 1);
                     FHasta = Fdesde.AddDays(14);
-                  
-                }else
+
+                }
+                else
                 {
                     Fdesde = new DateTime(today.Year, today.Month, 16);
-                    FHasta = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year,today.Month));
+                    FHasta = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
                 }
 
             }
@@ -144,9 +190,9 @@ namespace Nomina1._0.ViewModel
             {
                 CantDays = 28;
                 Fdesde = new DateTime(today.Year, today.Month, 1);
-                FHasta= new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year,today.Month));
+                FHasta = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
             }
-            
+
 
         }
 
@@ -159,108 +205,137 @@ namespace Nomina1._0.ViewModel
                 return;
             }
             nominaEntities paraconcepto = new nominaEntities();
-            var idx= ((nominatype)nomina).idnomina;
+            var nominax = nomina as nominatype;
+            var idx = ((nominatype)nomina).idnomina;
+            var topox = ((nominatype)nomina).idnomina;
             if (ValidateDates())
             {
                 return;
             }
-            var TrabInNomina = Datos.Micontexto.trabajador.Where(x=>x.nominatype.idnomina==idx).Where(x=>x.estatus.idestatus<3);
-            var prenominaActual = Datos.Micontexto.prenomina.Where(x => x.nominatype.idnomina ==idx);
-            
-                
-                    Datos.Micontexto.Database.ExecuteSqlCommand("DELETE  FROM prenomina WHERE idnominatype=@p0", ((nominatype)nomina).idnomina);
-                    foreach (var trab in TrabInNomina)
+            IEnumerable<trabajador> TrabInNomina;
+            if (nominax.tipo == 2)
+            {
+                TrabInNomina = Datos.Micontexto.trabajador.Where(x => x.nominatype1.idnomina == idx).Where(x => x.estatus.idestatus < 3);
+
+            }
+            else
+            {
+                TrabInNomina = Datos.Micontexto.trabajador.Where(x => x.nominatype.idnomina == idx).Where(x => x.estatus.idestatus < 3);
+            }
+            var prenominaActual = Datos.Micontexto.prenomina.Where(x => x.nominatype.idnomina == idx);
+
+            Datos.Micontexto.Database.ExecuteSqlCommand("DELETE  FROM prenomina WHERE idnominatype=@p0", ((nominatype)nomina).idnomina);
+            string[] concepts;
+            foreach (var trab in TrabInNomina)
+            {
+
+                if (nominax.tipo == 1)
+                {
+                    concepts = trab.conceptos.Split(',');
+                }
+                else
+                {
+                    concepts = trab.conceptosbonos.Split(',');
+                }
+                foreach (var con in concepts)
+                {
+
+                    prenomina PreNom = new prenomina();
+                    if (nominax.tipo == 1)
                     {
-                        var concepts = trab.conceptos.Split(',');
+                        PreNom.nominatype = trab.nominatype;
+                    }else
+                    {
+                        PreNom.nominatype = trab.nominatype1;
+                    }
+                    PreNom.trabajador = trab;
 
-                        foreach (var con in concepts)
-                        {
-                            
-                            prenomina PreNom = new prenomina();
-                            PreNom.nominatype = trab.nominatype;
-                            PreNom.trabajador = trab;
+                    var idcon = Int32.Parse(con);
+                    var xa = paraconcepto.conceptos.First(x => x.idconcepto == idcon);
+                    try
+                    {
 
-                            var idcon = Int32.Parse(con);
-                            var xa = paraconcepto.conceptos.First(x => x.idconcepto == idcon);
-                        try { 
-                           
-                            PreNom.idconcepto = xa.idconcepto;
-                        }catch
-                        {
+                        PreNom.idconcepto = xa.idconcepto;
+                    }
+                    catch
+                    {
                         System.Windows.MessageBox.Show("Error en Trabajador " + trab.cedula + " en el Concepto " + idcon, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                            PreNom.nombrecon = xa.nombre;
-                           try { 
-                            PreNom.valorconcepto = LeerConcepto(xa.Valor, trab.idtrabajador);
-                                 }catch
+                    }
+                    PreNom.nombrecon = xa.nombre;
+                    try
+                    {
+                        PreNom.valorconcepto = LeerConcepto(xa.Valor, trab.idtrabajador);
+                    }
+                    catch
                     {
                         Datos.Msg("Error en el Trabajador " + trab.cedula.Trim() + " " + trab.nombres.Trim(), "Error", "E");
                     }
-                            PreNom.valorvar = decimal.Parse(LeerCampo(xa.variante, trab.idtrabajador));
-                            PreNom.tipoconcepto = xa.tipo;
+                    PreNom.valorvar = decimal.Parse(LeerCampo(xa.variante, trab.idtrabajador));
+                    PreNom.tipoconcepto = xa.tipo;
                     if (xa.noimprimir != 1)
                     {
                         Datos.Micontexto.prenomina.Add(PreNom);
-                    }else
+                    }
+                    else
                     {
-                        if (PreNom.valorconcepto!=0)
+                        if (PreNom.valorconcepto != 0)
                         {
                             Datos.Micontexto.prenomina.Add(PreNom);
                         }
                     }
-             
+
                 }
-                    }
+            }
             Datos.Micontexto.SaveChanges();
             Datos.WindowActual.Close();
-            NominaActual =new ObservableCollection<prenomina>(Datos.Micontexto.prenomina.Where(x=>x.nominatype.idnomina==idx));
+            NominaActual = new ObservableCollection<prenomina>(Datos.Micontexto.prenomina.Where(x => x.nominatype.idnomina == idx));
             WinPrenomina nuevaprenomina = new WinPrenomina(this);
             nuevaprenomina.Owner = Datos._PrincipalWindow;
             nuevaprenomina.WindowState = WindowState.Normal;
             nuevaprenomina.ShowInTaskbar = false;
             nuevaprenomina.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-              
+
             nuevaprenomina.ShowDialog();
             //}
-           // catch(Exception ex)
-           // {
-              //  MessageBox.Show(ex.ToString(), "Error",MessageBoxButton.OK, MessageBoxImage.Error);
-           // }
-            }
-           
-      
-        public static decimal LeerConcepto(string conceptvalue,int idx)
+            // catch(Exception ex)
+            // {
+            //  MessageBox.Show(ex.ToString(), "Error",MessageBoxButton.OK, MessageBoxImage.Error);
+            // }
+        }
+
+
+        public static decimal LeerConcepto(string conceptvalue, int idx)
         {
             var divconcept = conceptvalue.Split('*', '+', '-', '/', '(', ')');
-            string valorconvertido=conceptvalue;
+            string valorconvertido = conceptvalue;
             nominaEntities paraconcepto = new nominaEntities();
-        
+
             foreach (var item in divconcept)
             {
                 if (item.Contains('$'))
                 {
-                    var y=LeerCampo(item, idx);
+                    var y = LeerCampo(item, idx);
                     valorconvertido = valorconvertido.Replace(item, y);
                 }
                 if (item.Contains('@'))
                 {
                     var itemn = item.Remove(0, 1);
-                   
-                        var j = EjecutarProc(itemn, idx.ToString());
-                        valorconvertido = valorconvertido.Replace(item, j);
-                                           
-                                         
+
+                    var j = EjecutarProc(itemn, idx.ToString());
+                    valorconvertido = valorconvertido.Replace(item, j);
+
+
 
                 }
 
             }
             valorconvertido = valorconvertido.Replace(',', '.');
             NCalc.Expression e = new NCalc.Expression(valorconvertido);
-            return decimal.Parse( e.Evaluate().ToString()); ;
-        
+            return decimal.Parse(e.Evaluate().ToString()); ;
+
         }
 
-        public static string LeerCampo(string campo,int idx)
+        public static string LeerCampo(string campo, int idx)
         {
             if (campo == null)
             {
@@ -281,56 +356,56 @@ namespace Nomina1._0.ViewModel
 
         private static string EjecutarProc(string accion, string parametros)
         {
-           
 
-                object[] param = null;
-                if (parametros != null)
-                {
 
-                    param = parametros.Split(',');
+            object[] param = null;
+            if (parametros != null)
+            {
 
-                }
-                Type type = typeof(Procs);
-                object instance = Activator.CreateInstance(type);
-                MethodInfo method = type.GetMethod(accion);
-                return (method.Invoke(instance, param)).ToString();
-            
-           
+                param = parametros.Split(',');
+
+            }
+            Type type = typeof(Procs);
+            object instance = Activator.CreateInstance(type);
+            MethodInfo method = type.GetMethod(accion);
+            return (method.Invoke(instance, param)).ToString();
+
+
         }
-         private bool  ValidateDates()
+        private bool ValidateDates()
         {
 
-           
+
             var result = false;
-            
-            var Gen = Datos.Micontexto.nominauni.Where(x=>x.idnominatype==SelectedNomina.idnomina);
-          
-            if ((FHasta-Fdesde).TotalDays < CantDays || (FHasta- Fdesde).TotalDays >CantDays+3)
+
+            var Gen = Datos.Micontexto.nominauni.Where(x => x.nominatype.idnomina == SelectedNomina.idnomina);
+
+            if ((FHasta - Fdesde).TotalDays < CantDays || (FHasta - Fdesde).TotalDays > CantDays + 3)
             {
-                Datos.Msg("La cantidad de dias entre una y otra fecha debe de ser de " + CantDays.ToString() +" y no mayor de " +(CantDays+2).ToString()   , "Error");
+                Datos.Msg("La cantidad de dias entre una y otra fecha debe de ser de " + CantDays.ToString() + " y no mayor de " + (CantDays + 2).ToString(), "Error");
                 result = true;
-            return result;
+                return result;
 
 
             }
 
-            var nominasGen = Gen.Where(x => x.desde <= Fdesde && x.hasta>= Fdesde);
-            if  (nominasGen.Count()>0)
-            { 
-            Datos.Msg("La fecha de inicio no puede estar incluida en el periodo de una Nomina generada", "Error");
+            var nominasGen = Gen.Where(x => x.desde <= Fdesde && x.hasta >= Fdesde);
+            if (nominasGen.Count() > 0)
+            {
+                Datos.Msg("La fecha de inicio no puede estar incluida en el periodo de una Nomina generada", "Error");
                 var x = Environment.ExitCode;
                 result = true;
-            return result;
+                return result;
 
             }
 
 
             var nominasGen2 = Gen.Where(x => x.desde <= FHasta && x.hasta >= FHasta);
-                if (nominasGen2.Count() > 0)
-                {
-                    Datos.Msg("La fecha final no puede estar incluida en el periodo de una Nomina generada", "Error");
-                    result = true;
-            return result;
+            if (nominasGen2.Count() > 0)
+            {
+                Datos.Msg("La fecha final no puede estar incluida en el periodo de una Nomina generada", "Error");
+                result = true;
+                return result;
 
             }
 
@@ -341,7 +416,7 @@ namespace Nomina1._0.ViewModel
         {
             nominauni GenNom = new nominauni();
 
-            GenNom.idnominatype = NominaActual.FirstOrDefault().nominatype.idnomina;
+            GenNom.nominatype = NominaActual.FirstOrDefault().nominatype;
             GenNom.desde = this.Fdesde;
             GenNom.hasta = this.FHasta;
             GenNom.totalasignaciones = TotalAsig;
@@ -355,29 +430,29 @@ namespace Nomina1._0.ViewModel
             try
             {
                 Datos.Micontexto.nominauni.Add(GenNom);
-              
+
                 Datos.Micontexto.SaveChanges();
                 NominagenID = GenNom.idnominauni;
             }
-            catch(Exception EX)
+            catch (Exception EX)
             {
                 Datos.Msg("Error Al Generar la nomina, Detalle: " + EX.ToString(), "Error", "E");
                 return;
             }
             nominaEntities newentiry = new nominaEntities();
-            foreach(var item in NominaActual)
+            foreach (var item in NominaActual)
             {
                 prenominagen itennom = new prenominagen
                 {
-                    Idnominagen=GenNom.idnominauni,
-                    nominatype=item.nominatype,
-                    trabajador=item.trabajador,
-                    conceptos=item.conceptos,
-                    nombrecon=item.nombrecon,
-                    valorconcepto=item.valorconcepto,
-                    valorvar=item.valorvar,
-                    tipoconcepto=item.tipoconcepto
-                    
+                    Idnominagen = GenNom.idnominauni,
+                    nominatype = item.nominatype,
+                    trabajador = item.trabajador,
+                    conceptos = item.conceptos,
+                    nombrecon = item.nombrecon,
+                    valorconcepto = item.valorconcepto,
+                    valorvar = item.valorvar,
+                    tipoconcepto = item.tipoconcepto
+
                 };
                 Datos.Micontexto.prenominagen.Add(itennom);
             }
@@ -391,66 +466,66 @@ namespace Nomina1._0.ViewModel
                 Datos.Msg("Error Al Generar la nomina, Detalle: " + EX.ToString(), "Error", "E");
                 return;
             }
-            Datos.Micontexto.Database.ExecuteSqlCommand("DELETE  FROM prenomina WHERE idnominatype=@p0", GenNom.idnominatype);
+            Datos.Micontexto.Database.ExecuteSqlCommand("DELETE  FROM prenomina WHERE idnominatype=@p0", GenNom.nominatype.idnomina);
             Datos.Msg("Nomina " + GenNom.idnominauni.ToString().Trim() + " Generada", "Nomina Generada");
 
 
         }
 
-        public void CrearTxt(int divisions=3)
+        public void CrearTxt(DateTime fechavalue,int divisions = 3)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "DAT File|*.DAT";
             saveFileDialog1.Title = "Guardar Archivo TXT Bancario";
 
 
-            if (saveFileDialog1.ShowDialog()== DialogResult.OK)
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 var contador = 1;
-              
+
                 // WriteAllLines creates a file, writes a collection of strings to the file,
                 // and then closes the file.  You do NOT need to call Flush() or Close().
-              var  Grouping = (from items in NominaActual
-                               group items by items.trabajador into x
-                               select new
-                               {
-                                   trabajador = x.First().trabajador,
-                                   asigs = (float)Math.Round((double)x.Where(t => t.tipoconcepto == 1).Sum(t => t.valorconcepto), 2),
-                                   deducs= (float)Math.Round((double)x.Where(t => t.tipoconcepto == 2).Sum(t => t.valorconcepto), 2),
-                                   tipoc = x.First().trabajador.tipocuenta == null ? 1 : x.First().trabajador.tipocuenta.idtipocuenta
+                var Grouping = (from items in NominaActual
+                                group items by items.trabajador into x
+                                select new
+                                {
+                                    trabajador = x.First().trabajador,
+                                    asigs = (float)Math.Round((double)x.Where(t => t.tipoconcepto == 1).Sum(t => t.valorconcepto), 2),
+                                    deducs = (float)Math.Round((double)x.Where(t => t.tipoconcepto == 2).Sum(t => t.valorconcepto), 2),
+                                    tipoc = x.First().trabajador.tipocuenta == null ? 1 : x.First().trabajador.tipocuenta.idtipocuenta
 
-                               }).ToList<dynamic>() ;
-               
+                                }).ToList<dynamic>();
 
-              var  division = Grouping.Split(divisions);
-              
-               
-           
-                
-                foreach(var x in division)
+
+                var division = Grouping.Split(divisions);
+
+
+
+
+                foreach (var x in division)
                 {
-                var totalnomina = x.Sum(t => (float)t.asigs) - x.Sum(t => (float)t.deducs);
-                List<string> Txt = new List<string>();
-                var Nuncuenta = "01020358990000127323";
-                var Tnomina =Int32.Parse((totalnomina.ToString("0.00")).Replace(",", ""));
-                var sTnomina= Tnomina.ToString("D13");
-                var CodeCompany = "03291";
-                var line = "HASOC CIVIL U E P COLEGIO TERESA CARRENO " + Nuncuenta + (Convert.ToInt32(contador)).ToString("D2")+ fechavalor.ToString("dd/MM/yy")+ sTnomina + CodeCompany;
-                Txt.Add(line);
-               
-                               
-                               
+                    var totalnomina = x.Sum(t => (float)t.asigs) - x.Sum(t => (float)t.deducs);
+                    List<string> Txt = new List<string>();
+                    var Nuncuenta = "01020358990000127323";
+                    var Tnomina = Int32.Parse((totalnomina.ToString("0.00")).Replace(",", ""));
+                    var sTnomina = Tnomina.ToString("D13");
+                    var CodeCompany = "03291";
+                    var line = "HASOC CIVIL U E P COLEGIO TERESA CARRENO " + Nuncuenta + (Convert.ToInt32(contador)).ToString("D2") + fechavalue.ToString("dd/MM/yy") + sTnomina + CodeCompany;
+                    Txt.Add(line);
 
-                foreach (var item in x)
-                {
-                       
+
+
+
+                    foreach (var item in x)
+                    {
+
                         var linelis = (item.tipoc - 1).ToString();
                         linelis += long.Parse(item.trabajador.numerocuenta ?? "0").ToString("D20");
-                       float Dmontoasig = item.asigs -item.deducs;
-                                          
+                        float Dmontoasig = item.asigs - item.deducs;
+
                         var montoasig = Dmontoasig.ToString("0.00");
-                        var sincoma = montoasig.Replace(",", ""); 
-                      
+                        var sincoma = montoasig.Replace(",", "");
+
                         var lamontoasig = int.Parse(sincoma).ToString("D11");
                         linelis += lamontoasig;
                         linelis += (item.tipoc - 1).ToString() + 770;
@@ -460,43 +535,47 @@ namespace Nomina1._0.ViewModel
                         linelis += 3291.ToString("D6");
 
                         Txt.Add(linelis);
-                  
-                }
-               try { 
-                System.IO.File.WriteAllLines(saveFileDialog1.FileName.Replace(".DAT",contador.ToString()+".DAT"), Txt);
-                    Datos.Msg("Txt Generado en " + saveFileDialog1.FileName);
+
+                    }
+                    try
+                    {
+                        System.IO.File.WriteAllLines(saveFileDialog1.FileName.Replace(".DAT", contador.ToString() + ".DAT"), Txt);
+                        Datos.Msg("Txt Generado en " + saveFileDialog1.FileName);
                         contador++;
-                }
-                catch(Exception error)
-                {
-                    Datos.Msg("Error al generar el Txt, Detalles: " + error.ToString(), "Error", "E");
-                }
+                    }
+                    catch (Exception error)
+                    {
+                        Datos.Msg("Error al generar el Txt, Detalles: " + error.ToString(), "Error", "E");
+                    }
                 }
             }
 
         }
         private int _txtdivision;
-        
-        public int txtdivision {
+
+        public int txtdivision
+        {
 
             get
             {
-                return _txtdivision ;
+                return _txtdivision;
             }
-            set {
-                if (value > TotalTra && TotalTra!=0)
+            set
+            {
+                if (value > TotalTra && TotalTra != 0)
                 {
                     Datos.Msg("La division no puede ser mayor a la cantidad de items", "Error", "E");
-                }else
+                }
+                else
                 {
                     _txtdivision = value;
                     NotifyPropertyChanged();
                 }
-                }
+            }
 
         }
         private DateTime _fechavalor;
-            public DateTime fechavalor
+        public DateTime fechavalor
         {
             get
             {
@@ -508,7 +587,14 @@ namespace Nomina1._0.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        public void GenerarRecibos()
+        {
+   
 
+            WinReport report = new WinReport(DataForReport.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\ReciboPago.rdlc");
+            report.ShowDialog();
+        }
+        
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -519,8 +605,8 @@ namespace Nomina1._0.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-      
+
     }
-   
+
 }
 

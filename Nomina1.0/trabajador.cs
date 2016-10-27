@@ -48,6 +48,8 @@ namespace Nomina1._0
         public string numerocuenta { get; set; }
         public Nullable<int> idbanco { get; set; }
         public Nullable<int> idtipocuenta { get; set; }
+        public Nullable<int> idnominadebonos { get; set; }
+        public string conceptosbonos { get; set; }
     
         public virtual bancos bancos { get; set; }
         public virtual cargo cargo { get; set; }
@@ -56,6 +58,7 @@ namespace Nomina1._0
         public virtual gradointruc gradointruc { get; set; }
         public virtual nacionalidad nacionalidad { get; set; }
         public virtual nominatype nominatype { get; set; }
+        public virtual nominatype nominatype1 { get; set; }
         public virtual ICollection<prenomina> prenomina { get; set; }
         public virtual ICollection<prenominagen> prenominagen { get; set; }
         public virtual tipocuenta tipocuenta { get; set; }

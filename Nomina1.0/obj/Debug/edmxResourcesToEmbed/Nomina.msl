@@ -87,17 +87,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="nominatype">
-      <EntityTypeMapping TypeName="nominaModel.nominatype">
-        <MappingFragment StoreEntitySet="nominatype">
-          <ScalarProperty Name="scodigo" ColumnName="scodigo" />
-          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-          <ScalarProperty Name="intervalo" ColumnName="intervalo" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="idnomina" ColumnName="idnomina" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="prenomina">
       <EntityTypeMapping TypeName="nominaModel.prenomina">
         <MappingFragment StoreEntitySet="prenomina">
@@ -236,9 +225,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="nominaini">
+      <EntityTypeMapping TypeName="nominaModel.nominaini">
+        <MappingFragment StoreEntitySet="nominaini">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="desde" ColumnName="desde" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nominatype">
+      <EntityTypeMapping TypeName="nominaModel.nominatype">
+        <MappingFragment StoreEntitySet="nominatype">
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="scodigo" ColumnName="scodigo" />
+          <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+          <ScalarProperty Name="intervalo" ColumnName="intervalo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idnomina" ColumnName="idnomina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="trabajador">
       <EntityTypeMapping TypeName="nominaModel.trabajador">
         <MappingFragment StoreEntitySet="trabajador">
+          <ScalarProperty Name="conceptosbonos" ColumnName="conceptosbonos" />
+          <ScalarProperty Name="idnominadebonos" ColumnName="idnominadebonos" />
           <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
           <ScalarProperty Name="idbanco" ColumnName="idbanco" />
           <ScalarProperty Name="numerocuenta" ColumnName="numerocuenta" />
@@ -270,19 +283,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="nominaini">
-      <EntityTypeMapping TypeName="nominaModel.nominaini">
-        <MappingFragment StoreEntitySet="nominaini">
-          <ScalarProperty Name="estatus" ColumnName="estatus" />
-          <ScalarProperty Name="hasta" ColumnName="hasta" />
-          <ScalarProperty Name="desde" ColumnName="desde" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="nominauni">
       <EntityTypeMapping TypeName="nominaModel.nominauni">
         <MappingFragment StoreEntitySet="nominauni">
+          <ScalarProperty Name="idnomina" ColumnName="idnomina" />
           <ScalarProperty Name="cantidadt" ColumnName="cantidadt" />
           <ScalarProperty Name="user" ColumnName="user" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
@@ -292,7 +296,6 @@
           <ScalarProperty Name="totalnomina" ColumnName="totalnomina" />
           <ScalarProperty Name="hasta" ColumnName="hasta" />
           <ScalarProperty Name="desde" ColumnName="desde" />
-          <ScalarProperty Name="idnominatype" ColumnName="idnominatype" />
           <ScalarProperty Name="idnominauni" ColumnName="idnominauni" />
         </MappingFragment>
       </EntityTypeMapping>

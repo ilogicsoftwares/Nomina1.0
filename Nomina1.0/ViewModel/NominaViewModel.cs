@@ -81,11 +81,30 @@ namespace Nomina1._0.ViewModel
             var msg = MessageBox.Show("Desea Actualizar lo Conceptos en todos los Trabajadores de la nomina", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (msg == MessageBoxResult.Yes)
             {
-                var trabajads = bd.trabajador.Where(x => x.nominatype.idnomina == NominaActual.idnomina);
-                foreach (var tra in trabajads)
+                IEnumerable<trabajador> trabajads;
+                 if (NominaActual.tipo == 1)
                 {
-                    tra.conceptos = NominaActual.conceptos;
+                    trabajads = bd.trabajador.Where(x => x.nominatype.idnomina == NominaActual.idnomina);
+                    foreach (var tra in trabajads)
+                    {
+
+                        tra.conceptos = NominaActual.conceptos;
+
+
+                    }
                 }
+                else
+                {
+                    trabajads = bd.trabajador.Where(x => x.nominatype1.idnomina == NominaActual.idnomina);
+                    foreach (var tra in trabajads)
+                    {
+
+                        tra.conceptosbonos = NominaActual.conceptos;
+
+
+                    }
+                }
+               
             }
             bd.SaveChanges();
             Datos.Actualizado();

@@ -15,7 +15,6 @@ namespace Nomina1._0
     public partial class nominauni
     {
         public int idnominauni { get; set; }
-        public Nullable<int> idnominatype { get; set; }
         public Nullable<System.DateTime> desde { get; set; }
         public Nullable<System.DateTime> hasta { get; set; }
         public Nullable<decimal> totalnomina { get; set; }
@@ -25,5 +24,8 @@ namespace Nomina1._0
         public Nullable<System.DateTime> fecha { get; set; }
         public Nullable<int> user { get; set; }
         public Nullable<int> cantidadt { get; set; }
+        public int idnomina { get; set; }
+    
+        public virtual nominatype nominatype { get; set; }
     }
 }

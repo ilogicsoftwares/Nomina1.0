@@ -117,13 +117,13 @@
     <Property Name="intervalo" Type="int" Nullable="false" />
     <Property Name="conceptos" Type="varchar" MaxLength="250" />
     <Property Name="scodigo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="tipo" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="nominauni">
     <Key>
       <PropertyRef Name="idnominauni" />
     </Key>
     <Property Name="idnominauni" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idnominatype" Type="int" />
     <Property Name="desde" Type="date" />
     <Property Name="hasta" Type="date" />
     <Property Name="totalnomina" Type="decimal" Precision="10" Scale="2" />
@@ -133,6 +133,7 @@
     <Property Name="fecha" Type="datetime" Precision="0" />
     <Property Name="user" Type="int" />
     <Property Name="cantidadt" Type="int" />
+    <Property Name="idnomina" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="prenomina">
     <Key>
@@ -209,6 +210,8 @@
     <Property Name="numerocuenta" Type="varchar" MaxLength="20" />
     <Property Name="idbanco" Type="int" />
     <Property Name="idtipocuenta" Type="int" />
+    <Property Name="idnominadebonos" Type="int" />
+    <Property Name="conceptosbonos" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="usermenu">
     <Key>
@@ -309,6 +312,18 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
       </Principal>
       <Dependent Role="prenomina">
         <PropertyRef Name="idconcepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="nominaType1">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+    <End Role="nominauni" Type="Self.nominauni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="nominauni">
+        <PropertyRef Name="idnomina" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -444,6 +459,18 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="TrabajadorNominaBonos">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idnominadebonos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="TrabajadorTipoc">
     <End Role="tipocuenta" Type="Self.tipocuenta" Multiplicity="0..1" />
     <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -503,6 +530,10 @@ FROM `varsys` AS `varsys`</DefiningQuery>
       <End Role="conceptos" EntitySet="conceptos" />
       <End Role="prenomina" EntitySet="prenomina" />
     </AssociationSet>
+    <AssociationSet Name="nominaType1" Association="Self.nominaType1">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="nominauni" EntitySet="nominauni" />
+    </AssociationSet>
     <AssociationSet Name="prenominagen_ibfk_1" Association="Self.prenominagen_ibfk_1">
       <End Role="trabajador" EntitySet="trabajador" />
       <End Role="prenominagen" EntitySet="prenominagen" />
@@ -544,6 +575,10 @@ FROM `varsys` AS `varsys`</DefiningQuery>
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
     <AssociationSet Name="TrabajadorNomina" Association="Self.TrabajadorNomina">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorNominaBonos" Association="Self.TrabajadorNominaBonos">
       <End Role="nominatype" EntitySet="nominatype" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>

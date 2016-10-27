@@ -53,40 +53,15 @@ namespace Nomina1._0
                 }
 
             }
-          
-            var dt = from trabs in nomina.NominaActual
-                     select new PNominaGen
-                     {
-                         TrabID = trabs.trabajador.idtrabajador,
-                         TrabNombre = trabs.trabajador.nombres.Trim() + " " + trabs.trabajador.apellidos.Trim(),
-                         TrabCedula = trabs.trabajador.cedula,
-                         Departamento = trabs.trabajador.departamentos.Descripcion,
-                         Cargo = trabs.trabajador.cargo.Nombre,
-                         FechaIng = trabs.trabajador.Fechaing,
-                         SueldoBase = trabs.trabajador.Sueldo,
-                         SueldoDiario = 1,
-                         IdConcepto = trabs.idconcepto,
-                         NombreConcepto = trabs.nombrecon,
-                         Variante = trabs.valorvar,
-                         ConceptoTipo = trabs.tipoconcepto,
-                         Valor = trabs.valorconcepto,
-                         Nomina = trabs.nominatype.descripcion,
-                         FD = PrenominaViewModel.FechaD,
-                         FH = PrenominaViewModel.FechaA
 
-
-                     };
-
-            WinReport report = new WinReport(dt.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\ReciboPago.rdlc");
-            report.ShowDialog();
+            nomina.GenerarRecibos();   
             if (checkBox.IsChecked==true)
-            { 
-            WinReport report2 = new WinReport(dt.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\NominaGeneral.rdlc");
-            report2.ShowDialog();
+            {
+                nomina.GenerarResumen();
             }
             if (checkBox_Copy.IsChecked==true)
             {
-                nomina.CrearTxt(nomina.txtdivision);
+                nomina.CrearTxt(nomina.fechavalor,nomina.txtdivision);
             }
         }
 

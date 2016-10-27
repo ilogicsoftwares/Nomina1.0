@@ -122,13 +122,13 @@
           <Property Name="intervalo" Type="int" Nullable="false" />
           <Property Name="conceptos" Type="varchar" MaxLength="250" />
           <Property Name="scodigo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="tipo" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="nominauni">
           <Key>
             <PropertyRef Name="idnominauni" />
           </Key>
           <Property Name="idnominauni" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idnominatype" Type="int" />
           <Property Name="desde" Type="date" />
           <Property Name="hasta" Type="date" />
           <Property Name="totalnomina" Type="decimal" Precision="10" Scale="2" />
@@ -138,6 +138,7 @@
           <Property Name="fecha" Type="datetime" Precision="0" />
           <Property Name="user" Type="int" />
           <Property Name="cantidadt" Type="int" />
+          <Property Name="idnomina" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="prenomina">
           <Key>
@@ -214,6 +215,8 @@
           <Property Name="numerocuenta" Type="varchar" MaxLength="20" />
           <Property Name="idbanco" Type="int" />
           <Property Name="idtipocuenta" Type="int" />
+          <Property Name="idnominadebonos" Type="int" />
+          <Property Name="conceptosbonos" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="usermenu">
           <Key>
@@ -314,6 +317,18 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
             </Principal>
             <Dependent Role="prenomina">
               <PropertyRef Name="idconcepto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="nominaType1">
+          <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+          <End Role="nominauni" Type="Self.nominauni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nominatype">
+              <PropertyRef Name="idnomina" />
+            </Principal>
+            <Dependent Role="nominauni">
+              <PropertyRef Name="idnomina" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -449,6 +464,18 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="TrabajadorNominaBonos">
+          <End Role="nominatype" Type="Self.nominatype" Multiplicity="0..1" />
+          <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nominatype">
+              <PropertyRef Name="idnomina" />
+            </Principal>
+            <Dependent Role="trabajador">
+              <PropertyRef Name="idnominadebonos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="TrabajadorTipoc">
           <End Role="tipocuenta" Type="Self.tipocuenta" Multiplicity="0..1" />
           <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -508,6 +535,10 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="conceptos" EntitySet="conceptos" />
             <End Role="prenomina" EntitySet="prenomina" />
           </AssociationSet>
+          <AssociationSet Name="nominaType1" Association="Self.nominaType1">
+            <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="nominauni" EntitySet="nominauni" />
+          </AssociationSet>
           <AssociationSet Name="prenominagen_ibfk_1" Association="Self.prenominagen_ibfk_1">
             <End Role="trabajador" EntitySet="trabajador" />
             <End Role="prenominagen" EntitySet="prenominagen" />
@@ -552,6 +583,10 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="nominatype" EntitySet="nominatype" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
+          <AssociationSet Name="TrabajadorNominaBonos" Association="Self.TrabajadorNominaBonos">
+            <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
           <AssociationSet Name="TrabajadorTipoc" Association="Self.TrabajadorTipoc">
             <End Role="tipocuenta" EntitySet="tipocuenta" />
             <End Role="trabajador" EntitySet="trabajador" />
@@ -570,7 +605,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <EntitySet Name="estatus" EntityType="nominaModel.estatus" />
           <EntitySet Name="gradointruc" EntityType="nominaModel.gradointruc" />
           <EntitySet Name="jornada" EntityType="nominaModel.jornada" />
-          <EntitySet Name="nominatype" EntityType="nominaModel.nominatype" />
           <EntitySet Name="prenomina" EntityType="nominaModel.prenomina" />
           <EntitySet Name="prenominagen" EntityType="nominaModel.prenominagen" />
           <EntitySet Name="procedures" EntityType="nominaModel.procedures" />
@@ -584,14 +618,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="departamentos" EntitySet="departamentos" />
             <End Role="cargo" EntitySet="cargo" />
           </AssociationSet>
-          <AssociationSet Name="prenominagen_ibfk_2" Association="nominaModel.prenominagen_ibfk_2">
-            <End Role="nominatype" EntitySet="nominatype" />
-            <End Role="prenominagen" EntitySet="prenominagen" />
-          </AssociationSet>
-          <AssociationSet Name="PrenominaType" Association="nominaModel.PrenominaType">
-            <End Role="nominatype" EntitySet="nominatype" />
-            <End Role="prenomina" EntitySet="prenomina" />
-          </AssociationSet>
           <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
           <AssociationSet Name="conceptostra" Association="nominaModel.conceptostra">
             <End Role="conceptos" EntitySet="conceptos" />
@@ -602,6 +628,8 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="prenomina" EntitySet="prenomina" />
           </AssociationSet>
           <EntitySet Name="nacionalidad" EntityType="nominaModel.nacionalidad" />
+          <EntitySet Name="nominaini" EntityType="nominaModel.nominaini" />
+          <EntitySet Name="nominatype" EntityType="nominaModel.nominatype" />
           <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
           <AssociationSet Name="Trabajadoridbanco" Association="nominaModel.Trabajadoridbanco">
             <End Role="bancos" EntitySet="bancos" />
@@ -627,7 +655,19 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="nacionalidad" EntitySet="nacionalidad" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
+          <AssociationSet Name="prenominagen_ibfk_2" Association="nominaModel.prenominagen_ibfk_2">
+            <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="prenominagen" EntitySet="prenominagen" />
+          </AssociationSet>
+          <AssociationSet Name="PrenominaType" Association="nominaModel.PrenominaType">
+            <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="prenomina" EntitySet="prenomina" />
+          </AssociationSet>
           <AssociationSet Name="TrabajadorNomina" Association="nominaModel.TrabajadorNomina">
+            <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="trabajador" EntitySet="trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="TrabajadorNominaBonos" Association="nominaModel.TrabajadorNominaBonos">
             <End Role="nominatype" EntitySet="nominatype" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
@@ -643,8 +683,11 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="tipocuenta" EntitySet="tipocuenta" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
-          <EntitySet Name="nominaini" EntityType="nominaModel.nominaini" />
           <EntitySet Name="nominauni" EntityType="nominaModel.nominauni" />
+          <AssociationSet Name="nominaType1" Association="nominaModel.nominaType1">
+            <End Role="nominatype" EntitySet="nominatype" />
+            <End Role="nominauni" EntitySet="nominauni" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="bancos">
           <Key>
@@ -732,19 +775,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="Descansohasta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="descanso" Type="Int32" />
         </EntityType>
-        <EntityType Name="nominatype">
-          <Key>
-            <PropertyRef Name="idnomina" />
-          </Key>
-          <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="intervalo" Type="Int32" Nullable="false" />
-          <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="scodigo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="prenominagen" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="nominatype" ToRole="prenominagen" />
-          <NavigationProperty Name="prenomina" Relationship="nominaModel.PrenominaType" FromRole="nominatype" ToRole="prenomina" />
-          <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
-        </EntityType>
         <EntityType Name="prenomina">
           <Key>
             <PropertyRef Name="idprenomina" />
@@ -758,8 +788,8 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="valorvar" Type="Decimal" />
           <Property Name="tipoconcepto" Type="Int32" />
           <Property Name="idnominagen" Type="Int32" />
-          <NavigationProperty Name="nominatype" Relationship="nominaModel.PrenominaType" FromRole="prenomina" ToRole="nominatype" />
           <NavigationProperty Name="conceptos" Relationship="nominaModel.concepttra" FromRole="prenomina" ToRole="conceptos" />
+          <NavigationProperty Name="nominatype" Relationship="nominaModel.PrenominaType" FromRole="prenomina" ToRole="nominatype" />
           <NavigationProperty Name="trabajador" Relationship="nominaModel.PrenominaTraid" FromRole="prenomina" ToRole="trabajador" />
         </EntityType>
         <EntityType Name="prenominagen">
@@ -775,8 +805,8 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="valorconcepto" Type="Decimal" />
           <Property Name="valorvar" Type="Decimal" />
           <Property Name="tipoconcepto" Type="Int32" />
-          <NavigationProperty Name="nominatype" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="prenominagen" ToRole="nominatype" />
           <NavigationProperty Name="conceptos" Relationship="nominaModel.conceptostra" FromRole="prenominagen" ToRole="conceptos" />
+          <NavigationProperty Name="nominatype" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="prenominagen" ToRole="nominatype" />
           <NavigationProperty Name="trabajador" Relationship="nominaModel.prenominagen_ibfk_1" FromRole="prenominagen" ToRole="trabajador" />
         </EntityType>
         <EntityType Name="procedures">
@@ -871,30 +901,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="prenominagen_ibfk_2">
-          <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
-          <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="nominatype">
-              <PropertyRef Name="idnomina" />
-            </Principal>
-            <Dependent Role="prenominagen">
-              <PropertyRef Name="idnominatype" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PrenominaType">
-          <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
-          <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="nominatype">
-              <PropertyRef Name="idnomina" />
-            </Principal>
-            <Dependent Role="prenomina">
-              <PropertyRef Name="idnominatype" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="conceptos">
           <Key>
             <PropertyRef Name="idconcepto" />
@@ -942,6 +948,31 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNac" FromRole="nacionalidad" ToRole="trabajador" />
         </EntityType>
+        <EntityType Name="nominaini">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="desde" Type="DateTime" />
+          <Property Name="hasta" Type="DateTime" />
+          <Property Name="estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="nominatype">
+          <Key>
+            <PropertyRef Name="idnomina" />
+          </Key>
+          <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="intervalo" Type="Int32" Nullable="false" />
+          <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="scodigo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="prenominagen" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="nominatype" ToRole="prenominagen" />
+          <NavigationProperty Name="prenomina" Relationship="nominaModel.PrenominaType" FromRole="nominatype" ToRole="prenomina" />
+          <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
+          <NavigationProperty Name="trabajador1" Relationship="nominaModel.TrabajadorNominaBonos" FromRole="nominatype" ToRole="trabajador" />
+          <NavigationProperty Name="nominauni" Relationship="nominaModel.nominaType1" FromRole="nominatype" ToRole="nominauni" />
+        </EntityType>
         <EntityType Name="trabajador">
           <Key>
             <PropertyRef Name="idtrabajador" />
@@ -974,6 +1005,8 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="numerocuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="idbanco" Type="Int32" />
           <Property Name="idtipocuenta" Type="Int32" />
+          <Property Name="idnominadebonos" Type="Int32" />
+          <Property Name="conceptosbonos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="bancos" Relationship="nominaModel.Trabajadoridbanco" FromRole="trabajador" ToRole="bancos" />
           <NavigationProperty Name="cargo" Relationship="nominaModel.TrabajadorCargo" FromRole="trabajador" ToRole="cargo" />
           <NavigationProperty Name="departamentos" Relationship="nominaModel.TrabajadorDepart" FromRole="trabajador" ToRole="departamentos" />
@@ -981,6 +1014,7 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <NavigationProperty Name="gradointruc" Relationship="nominaModel.Trabajadorgrado" FromRole="trabajador" ToRole="gradointruc" />
           <NavigationProperty Name="nacionalidad" Relationship="nominaModel.TrabajadorNac" FromRole="trabajador" ToRole="nacionalidad" />
           <NavigationProperty Name="nominatype" Relationship="nominaModel.TrabajadorNomina" FromRole="trabajador" ToRole="nominatype" />
+          <NavigationProperty Name="nominatype1" Relationship="nominaModel.TrabajadorNominaBonos" FromRole="trabajador" ToRole="nominatype" />
           <NavigationProperty Name="prenomina" Relationship="nominaModel.PrenominaTraid" FromRole="trabajador" ToRole="prenomina" />
           <NavigationProperty Name="prenominagen" Relationship="nominaModel.prenominagen_ibfk_1" FromRole="trabajador" ToRole="prenominagen" />
           <NavigationProperty Name="tipocuenta" Relationship="nominaModel.TrabajadorTipoc" FromRole="trabajador" ToRole="tipocuenta" />
@@ -1057,6 +1091,30 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="prenominagen_ibfk_2">
+          <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
+          <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nominatype">
+              <PropertyRef Name="idnomina" />
+            </Principal>
+            <Dependent Role="prenominagen">
+              <PropertyRef Name="idnominatype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PrenominaType">
+          <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
+          <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nominatype">
+              <PropertyRef Name="idnomina" />
+            </Principal>
+            <Dependent Role="prenomina">
+              <PropertyRef Name="idnominatype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="TrabajadorNomina">
           <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
           <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
@@ -1066,6 +1124,18 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             </Principal>
             <Dependent Role="trabajador">
               <PropertyRef Name="Idnomina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TrabajadorNominaBonos">
+          <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="0..1" />
+          <End Type="nominaModel.trabajador" Role="trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nominatype">
+              <PropertyRef Name="idnomina" />
+            </Principal>
+            <Dependent Role="trabajador">
+              <PropertyRef Name="idnominadebonos" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1105,21 +1175,11 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="nominaini">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="desde" Type="DateTime" />
-          <Property Name="hasta" Type="DateTime" />
-          <Property Name="estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="nominauni">
           <Key>
             <PropertyRef Name="idnominauni" />
           </Key>
           <Property Name="idnominauni" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idnominatype" Type="Int32" />
           <Property Name="desde" Type="DateTime" />
           <Property Name="hasta" Type="DateTime" />
           <Property Name="totalnomina" Type="Decimal" />
@@ -1129,7 +1189,21 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="fecha" Type="DateTime" />
           <Property Name="user" Type="Int32" />
           <Property Name="cantidadt" Type="Int32" />
+          <Property Name="idnomina" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="nominatype" Relationship="nominaModel.nominaType1" FromRole="nominauni" ToRole="nominatype" />
         </EntityType>
+        <Association Name="nominaType1">
+          <End Type="nominaModel.nominatype" Role="nominatype" Multiplicity="1" />
+          <End Type="nominaModel.nominauni" Role="nominauni" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nominatype">
+              <PropertyRef Name="idnomina" />
+            </Principal>
+            <Dependent Role="nominauni">
+              <PropertyRef Name="idnomina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1219,17 +1293,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
                 <ScalarProperty Name="Lunes" ColumnName="Lunes" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="idjornada" ColumnName="idjornada" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="nominatype">
-            <EntityTypeMapping TypeName="nominaModel.nominatype">
-              <MappingFragment StoreEntitySet="nominatype">
-                <ScalarProperty Name="scodigo" ColumnName="scodigo" />
-                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
-                <ScalarProperty Name="intervalo" ColumnName="intervalo" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="idnomina" ColumnName="idnomina" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1371,9 +1434,33 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="nominaini">
+            <EntityTypeMapping TypeName="nominaModel.nominaini">
+              <MappingFragment StoreEntitySet="nominaini">
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="hasta" ColumnName="hasta" />
+                <ScalarProperty Name="desde" ColumnName="desde" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nominatype">
+            <EntityTypeMapping TypeName="nominaModel.nominatype">
+              <MappingFragment StoreEntitySet="nominatype">
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="scodigo" ColumnName="scodigo" />
+                <ScalarProperty Name="conceptos" ColumnName="conceptos" />
+                <ScalarProperty Name="intervalo" ColumnName="intervalo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="idnomina" ColumnName="idnomina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="trabajador">
             <EntityTypeMapping TypeName="nominaModel.trabajador">
               <MappingFragment StoreEntitySet="trabajador">
+                <ScalarProperty Name="conceptosbonos" ColumnName="conceptosbonos" />
+                <ScalarProperty Name="idnominadebonos" ColumnName="idnominadebonos" />
                 <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
                 <ScalarProperty Name="idbanco" ColumnName="idbanco" />
                 <ScalarProperty Name="numerocuenta" ColumnName="numerocuenta" />
@@ -1405,19 +1492,10 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="nominaini">
-            <EntityTypeMapping TypeName="nominaModel.nominaini">
-              <MappingFragment StoreEntitySet="nominaini">
-                <ScalarProperty Name="estatus" ColumnName="estatus" />
-                <ScalarProperty Name="hasta" ColumnName="hasta" />
-                <ScalarProperty Name="desde" ColumnName="desde" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="nominauni">
             <EntityTypeMapping TypeName="nominaModel.nominauni">
               <MappingFragment StoreEntitySet="nominauni">
+                <ScalarProperty Name="idnomina" ColumnName="idnomina" />
                 <ScalarProperty Name="cantidadt" ColumnName="cantidadt" />
                 <ScalarProperty Name="user" ColumnName="user" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
@@ -1427,7 +1505,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
                 <ScalarProperty Name="totalnomina" ColumnName="totalnomina" />
                 <ScalarProperty Name="hasta" ColumnName="hasta" />
                 <ScalarProperty Name="desde" ColumnName="desde" />
-                <ScalarProperty Name="idnominatype" ColumnName="idnominatype" />
                 <ScalarProperty Name="idnominauni" ColumnName="idnominauni" />
               </MappingFragment>
             </EntityTypeMapping>
