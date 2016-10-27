@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>16.55292cm</Width>
+              <Width>17.12441cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -34,7 +34,7 @@
                           <rd:DefaultName>TrabNombre</rd:DefaultName>
                           <Top>0.02646cm</Top>
                           <Height>0.6cm</Height>
-                          <Width>6.23063cm</Width>
+                          <Width>6.28354cm</Width>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -65,7 +65,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <Top>0.02646cm</Top>
-                          <Left>6.75579cm</Left>
+                          <Left>8.66079cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.72108cm</Width>
                           <ZIndex>1</ZIndex>
@@ -99,7 +99,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <Top>0.01323cm</Top>
-                          <Left>9.87896cm</Left>
+                          <Left>11.46646cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.62583cm</Width>
                           <ZIndex>2</ZIndex>
@@ -134,10 +134,42 @@
                             </Paragraph>
                           </Paragraphs>
                           <Top>0.01323cm</Top>
-                          <Left>13.46671cm</Left>
+                          <Left>14.10171cm</Left>
                           <Height>0.6cm</Height>
                           <Width>3.0227cm</Width>
                           <ZIndex>3</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="TrabNombre2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!TrabCedula.Value.ToString().Trim()</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TrabNombre</rd:DefaultName>
+                          <Top>0.01323cm</Top>
+                          <Left>5.92314cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>2.56126cm</Width>
+                          <ZIndex>4</ZIndex>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -181,7 +213,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.03528cm</Top>
         <Height>0.62646cm</Height>
-        <Width>16.55292cm</Width>
+        <Width>17.12441cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -190,9 +222,9 @@
       </Tablix>
       <Line Name="Line1">
         <Top>4.42383cm</Top>
-        <Left>16.5862cm</Left>
+        <Left>18.35891cm</Left>
         <Height>0cm</Height>
-        <Width>-16.5862cm</Width>
+        <Width>-18.35891cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -288,7 +320,7 @@
         <Top>4.52614cm</Top>
         <Left>9.87896cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.62583cm</Width>
+        <Width>3.02271cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -320,7 +352,7 @@
           </Paragraph>
         </Paragraphs>
         <Top>4.52967cm</Top>
-        <Left>13.46671cm</Left>
+        <Left>13.78421cm</Left>
         <Height>0.6cm</Height>
         <Width>3.0227cm</Width>
         <ZIndex>5</ZIndex>
@@ -338,7 +370,7 @@
     <Height>2.01956in</Height>
     <Style />
   </Body>
-  <Width>6.53565in</Width>
+  <Width>7.28in</Width>
   <Page>
     <PageHeader>
       <Height>4.48945cm</Height>
@@ -349,7 +381,7 @@
           <Source>Embedded</Source>
           <Value>COLEGIO</Value>
           <Sizing>FitProportional</Sizing>
-          <Height>1.90252cm</Height>
+          <Height>2.20266cm</Height>
           <Width>0.865cm</Width>
           <Style>
             <Border>
@@ -373,10 +405,19 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
               </TextRuns>
               <Style />
             </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Rif: J29445762-2</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox5</rd:DefaultName>
           <Left>0.97083cm</Left>
-          <Height>1.90252cm</Height>
+          <Height>2.20266cm</Height>
           <Width>8.50604cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
@@ -409,7 +450,7 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.82627cm</Top>
-          <Left>10.31558cm</Left>
+          <Left>10.95058cm</Left>
           <Height>0.6cm</Height>
           <Width>5.91312cm</Width>
           <ZIndex>2</ZIndex>
@@ -441,7 +482,7 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>1.60266cm</Top>
-          <Left>12.80266cm</Left>
+          <Left>13.43766cm</Left>
           <Height>0.6cm</Height>
           <Width>3.42604cm</Width>
           <ZIndex>3</ZIndex>
@@ -476,7 +517,7 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
           <Top>2.36375cm</Top>
-          <Left>9.59117cm</Left>
+          <Left>10.22617cm</Left>
           <Height>0.6cm</Height>
           <Width>6.63753cm</Width>
           <ZIndex>4</ZIndex>
@@ -510,7 +551,7 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
           </Paragraphs>
           <rd:DefaultName>Variante</rd:DefaultName>
           <Top>3.15709cm</Top>
-          <Left>9.59117cm</Left>
+          <Left>10.22617cm</Left>
           <Height>0.6cm</Height>
           <Width>2.36338cm</Width>
           <ZIndex>5</ZIndex>
@@ -542,7 +583,7 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
           <Top>3.15709cm</Top>
-          <Left>6.83481cm</Left>
+          <Left>7.46981cm</Left>
           <Height>0.6cm</Height>
           <Width>2.72108cm</Width>
           <ZIndex>6</ZIndex>
@@ -574,7 +615,7 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
           <Top>3.15709cm</Top>
-          <Left>12.27205cm</Left>
+          <Left>12.90705cm</Left>
           <Height>0.6cm</Height>
           <Width>1.52129cm</Width>
           <ZIndex>7</ZIndex>
@@ -608,7 +649,7 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
           </Paragraphs>
           <rd:DefaultName>Variante</rd:DefaultName>
           <Top>3.15709cm</Top>
-          <Left>13.82862cm</Left>
+          <Left>14.46362cm</Left>
           <Height>0.6cm</Height>
           <Width>2.36338cm</Width>
           <ZIndex>8</ZIndex>
@@ -642,7 +683,8 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Left>6.75579cm</Left>
+              <Top>0.02652cm</Top>
+              <Left>8.66079cm</Left>
               <Height>0.6cm</Height>
               <Width>2.72108cm</Width>
               <Style>
@@ -672,7 +714,8 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Left>9.78371cm</Left>
+              <Top>0.02652cm</Top>
+              <Left>11.37121cm</Left>
               <Height>0.6cm</Height>
               <Width>2.72108cm</Width>
               <ZIndex>1</ZIndex>
@@ -703,7 +746,7 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Left>13.46671cm</Left>
+              <Left>14.08112cm</Left>
               <Height>0.6cm</Height>
               <Width>3.04329cm</Width>
               <ZIndex>2</ZIndex>
@@ -717,11 +760,43 @@ Telefonos: (0243) 246.89.02 / 246.81.97</Value>
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Textbox Name="Textbox18">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Cedula</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox7</rd:DefaultName>
+              <Top>0.02652cm</Top>
+              <Left>5.81525cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.72108cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <KeepTogether>true</KeepTogether>
-          <Top>3.85417cm</Top>
-          <Height>0.6cm</Height>
-          <Width>16.60054cm</Width>
+          <Top>3.82765cm</Top>
+          <Height>0.62652cm</Height>
+          <Width>17.12441cm</Width>
           <ZIndex>9</ZIndex>
           <Style>
             <Border>
