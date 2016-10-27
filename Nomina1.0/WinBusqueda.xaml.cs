@@ -69,6 +69,7 @@ namespace Nomina1._0
             {
 
                 dataGrid.DataContext = ConsultaInicial.ToArray();
+                count.Content = ConsultaInicial.ToArray().Count().ToString();
             }
             else
             {
@@ -89,6 +90,8 @@ namespace Nomina1._0
             ConsultaInicial = y;
            
             dataGrid.DataContext = y.ToArray();
+            
+            count.Content = y.ToArray().Count().ToString();
             object[] campos= y.ToArray();
             
             comboBox.ItemsSource=campos[0].GetType().GetProperties()
@@ -105,11 +108,14 @@ namespace Nomina1._0
             {
                 IEnumerable<dynamic> x = ConsultaInicial.Where(Campo + ".Contains(@0)", valor) as IEnumerable<dynamic>;
                 dataGrid.DataContext = x.ToArray();
-            }catch (Exception ex)
+                count.Content = x.ToArray().Count().ToString();
+            }
+            catch (Exception ex)
             {
                 valor = Int32.Parse(valor.ToString());
                 IEnumerable<dynamic> x = ConsultaInicial.Where(Campo + "==@0", valor) as IEnumerable<dynamic>;
                 dataGrid.DataContext = x.ToArray();
+                count.Content = x.ToArray().Count().ToString();
             }
 
 

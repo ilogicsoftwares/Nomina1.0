@@ -17,22 +17,23 @@ namespace Nomina1._0
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            //works for tab into textbox
+          /*  //works for tab into textbox
             EventManager.RegisterClassHandler(typeof(TextBox),
                 TextBox.GotFocusEvent,
                 new RoutedEventHandler(TextBox_GotFocus));
             //works for click textbox
-            EventManager.RegisterClassHandler(typeof(Window),Window.GotMouseCaptureEvent,new RoutedEventHandler(Window_MouseCapture));
+            EventManager.RegisterClassHandler(typeof(Window),Window.GotMouseCaptureEvent,new RoutedEventHandler(Window_MouseCapture));*/
             /// hacer override al evento PreviewKeyDownEvent de los grid del proyecto para colocar enter como tab
             EventManager.RegisterClassHandler(typeof(Grid),Grid.PreviewKeyDownEvent, new KeyEventHandler(Grid_PreviewKeyDown));
             base.OnStartup(e);
 
             ////
         }
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            (sender as TextBox).SelectAll();
-        }
+       //seleccionar todo el contenido del texbox
+      //  private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+       // {
+           // (sender as TextBox).SelectAll();
+       // }
 
         private void Window_MouseCapture(object sender, RoutedEventArgs e)
         {

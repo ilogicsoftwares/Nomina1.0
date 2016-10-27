@@ -99,8 +99,9 @@ namespace Nomina1._0.ViewModel
         public void Nuevo()
         {
             TrabajadorActual = new trabajador();
-           
-           
+
+            TrabajadorActual.direccion = "";
+            
                     
             NotifyPropertyChanged("TrabajadorActual");
             PrincipalViewModel.EstatusNuevo = true;
@@ -109,11 +110,25 @@ namespace Nomina1._0.ViewModel
        public  void Editar()
 
         {
-            bd.SaveChanges();
+            try
+            {
+                bd.SaveChanges();
             Datos.Actualizado();
-
+            }catch(DbEntityValidationException e)
+            {
+              
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Datos.Msg("- Property: " + ve.PropertyName + ", Error: " + ve.ErrorMessage, "Error", "E");
+                    }
+                }
+                throw;
+            }
         }
-
         public void Eliminar()
         {
             try
