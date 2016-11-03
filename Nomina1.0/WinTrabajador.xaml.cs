@@ -49,7 +49,11 @@ namespace Nomina1._0
             tra.ConceptosViewList.CargaPorNomina((nominatype)comboNomina.SelectedValue);
         }
 
-       
+        private void comboNomina_Copy_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            TrabajadorViewModel tra = (TrabajadorViewModel)DataContext;
+            tra.BonosConceptosViewList.CargaPorNomina((nominatype)comboNomina_Copy.SelectedValue);
+        }
     }
     
 }

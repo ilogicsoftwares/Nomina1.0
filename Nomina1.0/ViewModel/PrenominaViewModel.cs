@@ -105,7 +105,7 @@ namespace Nomina1._0.ViewModel
                 NotifyPropertyChanged();
                 TotalAsig = NominaActual.Where(x => x.tipoconcepto == 1).Sum(x => x.valorconcepto).Value;
                 TotalDeduc = NominaActual.Where(x => x.tipoconcepto == 2).Sum(x => x.valorconcepto).Value;
-                TotalNomina = decimal.Round((TotalAsig - TotalDeduc), 2);
+                TotalNomina = TotalAsig - TotalDeduc;
                 var a = NominaActual.Select(x => new { Nombre = x.trabajador.nombres.Trim() + " " + x.trabajador.apellidos.Trim(), ID = x.trabajador.idtrabajador }).Distinct() as IEnumerable<object>;
                 Trabajadores = a.ToArray();
                 TotalTra = Trabajadores.Count();
@@ -331,7 +331,7 @@ namespace Nomina1._0.ViewModel
             }
             valorconvertido = valorconvertido.Replace(',', '.');
             NCalc.Expression e = new NCalc.Expression(valorconvertido);
-            return decimal.Parse(e.Evaluate().ToString()); ;
+            return Decimal.Round(decimal.Parse(e.Evaluate().ToString()),2); ;
 
         }
 
@@ -490,8 +490,8 @@ namespace Nomina1._0.ViewModel
                                 select new
                                 {
                                     trabajador = x.First().trabajador,
-                                    asigs = (float)Math.Round((double)x.Where(t => t.tipoconcepto == 1).Sum(t => t.valorconcepto), 2),
-                                    deducs = (float)Math.Round((double)x.Where(t => t.tipoconcepto == 2).Sum(t => t.valorconcepto), 2),
+                                    asigs = x.Where(t => t.tipoconcepto == 1).Sum(t => t.valorconcepto),
+                                    deducs = x.Where(t => t.tipoconcepto == 2).Sum(t => t.valorconcepto),
                                     tipoc = x.First().trabajador.tipocuenta == null ? 1 : x.First().trabajador.tipocuenta.idtipocuenta
 
                                 }).ToList<dynamic>();
@@ -504,7 +504,7 @@ namespace Nomina1._0.ViewModel
 
                 foreach (var x in division)
                 {
-                    var totalnomina = x.Sum(t => (float)t.asigs) - x.Sum(t => (float)t.deducs);
+                    var totalnomina = this.TotalNomina;
                     List<string> Txt = new List<string>();
                     var Nuncuenta = "01020358990000127323";
                     var Tnomina = Int32.Parse((totalnomina.ToString("0.00")).Replace(",", ""));
@@ -521,7 +521,7 @@ namespace Nomina1._0.ViewModel
 
                         var linelis = (item.tipoc - 1).ToString();
                         linelis += long.Parse(item.trabajador.numerocuenta ?? "0").ToString("D20");
-                        float Dmontoasig = item.asigs - item.deducs;
+                        Decimal Dmontoasig = item.asigs - item.deducs;
 
                         var montoasig = Dmontoasig.ToString("0.00");
                         var sincoma = montoasig.Replace(",", "");

@@ -380,6 +380,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\NominaGeneral.rdlc" />
     <EmbeddedResource Include="Reports\ReciboPago.rdlc" />
+    <EmbeddedResource Include="Reports\RepGeneralTrabajad.rdlc" />
     <EntityDeploy Include="Nomina.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Nomina.Designer.cs</LastGenOutput>

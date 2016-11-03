@@ -162,7 +162,7 @@
             </Rectangle>
         </Button>
         <Label x:Name="label_Copy29" Content="Nomina de Bonos:" Margin="0,319,0,0" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right"/>
-        <ComboBox x:Name="comboNomina_Copy" Grid.Column="1" Margin="0,321,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Bnomina}"  SelectedValue="{Binding TrabajadorActual.nominatype1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="19"/>
+        <ComboBox x:Name="comboNomina_Copy" Grid.Column="1" Margin="0,321,0,0" VerticalAlignment="Top" DisplayMemberPath="descripcion" ItemsSource="{Binding Bnomina}"  SelectedValue="{Binding TrabajadorActual.nominatype1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="26" TabIndex="19" SelectionChanged="comboNomina_Copy_SelectionChanged"/>
 
     </Grid>
 </Controls:MetroWindow>

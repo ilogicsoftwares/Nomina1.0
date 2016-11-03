@@ -133,6 +133,12 @@ namespace Nomina1._0
         {
             Application.Current.Shutdown();
         }
+        public static void AbrirReportTra()
+        {
+             List<trabajador> tra = Datos.Micontexto.trabajador.ToList();
+            WinReport report = new WinReport(tra, "C:\\Nomina1.0\\Nomina1.0\\Reports\\RepGeneralTrabajad.rdlc");
+            report.ShowDialog();
+        }
 
         public static void NuevoObjeto(string objeto)
         {

@@ -23,10 +23,10 @@ namespace Nomina1._0
     {
         private object Consulta;
         private string Reporte;
-        public WinReport(object consulta,string report)
+        public WinReport(object ConsultaLista,string report)
         {
             InitializeComponent();
-            Consulta = consulta;
+            Consulta = ConsultaLista;
             Reporte = report;
             _reportViewer.Load += ReportViewer_Load;
         }

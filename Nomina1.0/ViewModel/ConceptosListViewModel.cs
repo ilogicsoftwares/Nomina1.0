@@ -19,9 +19,10 @@ namespace Nomina1._0.ViewModel
         public RelayCommand AddConceptCommand { get; set; }
         public RelayCommand MoveUpCommand { get; set; }
         public RelayCommand MoveDownCommand { get; set; }
-        
-        public ConceptosListViewModel(dynamic objeto)
+        public int ListTipo  { get; set; }
+    public ConceptosListViewModel(dynamic objeto,int Tipo=1)
         {
+            ListTipo = Tipo;
             this.objeto = objeto;
               if (objeto.conceptos != string.Empty && objeto.conceptos != null)
                {
@@ -39,6 +40,7 @@ namespace Nomina1._0.ViewModel
             AddConceptCommand = new RelayCommand(AddNew);
             MoveDownCommand = new RelayCommand(MoveDown);
             MoveUpCommand = new RelayCommand(MoveUp);
+         
         }
         private int _ItemActual;
         public int ItemActual {
@@ -65,14 +67,33 @@ namespace Nomina1._0.ViewModel
             set
             {
                 _Concepts = value;
-                if (value != null)
+
+                if (ListTipo == 1)
                 {
-                    objeto.conceptos = string.Join(",", value);
+                  
+                    if (value != null)
+                    {
+                        objeto.conceptos = string.Join(",", value);
+                    }
+                    else
+                    {
+                        objeto.conceptos = string.Empty;
+                    }
                 }
                 else
                 {
-                    objeto.conceptos = string.Empty;
+                 
+                    if (value != null)
+                    {
+                        objeto.conceptosbonos = string.Join(",", value);
+                    }
+                    else
+                    {
+                        objeto.conceptosbonos = string.Empty;
+                    }
                 }
+              
+               
                 NotifyPropertyChanged("Concepts");
 
             }
@@ -211,12 +232,14 @@ namespace Nomina1._0.ViewModel
 
         public void CargaPorNomina(nominatype nomina)
         {
+           
             if (nomina != null) { 
             nominatype conceptosNom = Datos.Micontexto.nominatype.FirstOrDefault(x=>x.idnomina==nomina.idnomina);
             this.Concepts = new ObservableCollection<string>(conceptosNom.conceptos.Split(','));
             obtenernombres();
             }
         }
+      
 
 
         public event PropertyChangedEventHandler PropertyChanged;

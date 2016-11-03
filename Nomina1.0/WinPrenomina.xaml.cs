@@ -145,5 +145,22 @@ namespace Nomina1._0
             nomina.GenerarPrenomina(nomina.SelectedNomina);
            
         }
+
+        private void textBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
+            var comparision = StringComparison.InvariantCultureIgnoreCase;
+            string myString = textBox2.Text;
+            List<dynamic> index = listBox.Items.SourceCollection.OfType<dynamic>().Where(x=>x.Nombre.StartsWith(myString,comparision)).ToList();
+            if (index.Count > 0) { 
+            listBox.SelectedItem= index.First();
+               
+           // var listBoxItem = (ListBoxItem)listBox.ItemContainerGenerator.ContainerFromItem(listBox.SelectedItem);
+                listBox.ScrollIntoView(listBox.SelectedItem);
+            //    listBox.UpdateLayout();
+            
+            }
+            // listBox.SelectedIndex = index;
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace Nomina1._0.ViewModel
             set { _TrabajadorActual = value;
                 ConceptosViewList = new ConceptosListViewModel(TrabajadorActual);
                 CamposViewList = new ListCamposModel(TrabajadorActual.idtrabajador);
+                BonosConceptosViewList= new ConceptosListViewModel(TrabajadorActual,2);
                 NotifyPropertyChanged();
             }
             
@@ -67,6 +68,16 @@ namespace Nomina1._0.ViewModel
             }
         }
 
+        private ConceptosListViewModel _BonosConceptosViewList;
+        public ConceptosListViewModel BonosConceptosViewList
+        {
+            get { return _BonosConceptosViewList; }
+            set
+            {
+                _BonosConceptosViewList = value;
+                NotifyPropertyChanged("BonosConceptosViewList");
+            }
+        }
 
         public void Guardar()
         {
@@ -90,9 +101,24 @@ namespace Nomina1._0.ViewModel
                 bd.SaveChanges();
                 Datos.Guardado();
                 Nuevo();
-            }catch(Exception exc)
+            }
+            catch (Exception e)
             {
-                Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
+                if (e is DbEntityValidationException)
+                {
+                    var ex = e as DbEntityValidationException;
+                    foreach (var eve in ex.EntityValidationErrors)
+                    {
+                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Datos.Msg("Inserte los datos importantes");
+                        }
+                    }
+
+
+                }
             }
         }
 
