@@ -392,20 +392,38 @@ namespace Nomina1._0.ViewModel
             var nominasGen = Gen.Where(x => x.desde <= Fdesde && x.hasta >= Fdesde);
             if (nominasGen.Count() > 0)
             {
-                Datos.Msg("La fecha de inicio no puede estar incluida en el periodo de una Nomina generada", "Error");
-                var x = Environment.ExitCode;
-                result = true;
-                return result;
+               MessageBoxResult msg= Datos.Msg("La fecha de inicio no puede estar incluida en el periodo de una Nomina generada, Desea Continuar", "Info","I", MessageBoxButton.YesNo);
 
+               
+                 var x = Environment.ExitCode;
+                if (msg == MessageBoxResult.Yes)
+                {
+                    result = false;
+                }else
+                {
+                    result = true;
+                }
+                return result;
+                
             }
 
 
             var nominasGen2 = Gen.Where(x => x.desde <= FHasta && x.hasta >= FHasta);
             if (nominasGen2.Count() > 0)
             {
-                Datos.Msg("La fecha final no puede estar incluida en el periodo de una Nomina generada", "Error");
-                result = true;
-                return result;
+                MessageBoxResult msg2 = Datos.Msg("La fecha de inicio no puede estar incluida en el periodo de una Nomina generada, Desea Continuar", "Info", "I", MessageBoxButton.YesNo);
+               
+                msg2 = Datos.Msg("La fecha final no puede estar incluida en el periodo de una Nomina generada", "Info", "I", MessageBoxButton.YesNo);
+                    if (msg2 == MessageBoxResult.Yes)
+                    {
+                        result = false;
+                    }
+                    else
+                    {
+                        result = true;
+                    }
+                    return result;
+                
 
             }
 
