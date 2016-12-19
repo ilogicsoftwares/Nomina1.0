@@ -136,6 +136,8 @@
     <Compile Include="jornada.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="MetroToolWindowBase.cs" />
+    <Compile Include="MetroWindowBase.cs" />
     <Compile Include="MyMultiConverter.cs" />
     <Compile Include="nacionalidad.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
