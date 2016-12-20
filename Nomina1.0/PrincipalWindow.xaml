@@ -22,7 +22,7 @@
 
     <Grid Name="grid1" Height="29" VerticalAlignment="Top">
         <Grid Height="35" Margin="0,31,1,-37" VerticalAlignment="Top">
-            <Button x:Name="CommandGuardar"  HorizontalAlignment="Left" Width="35" Margin="28,0,0,0" Command="{Binding GuardarEntidadCommand}" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Guardar(Ctrl+G)" Click="CommandGuardar_Click">
+            <Button x:Name="CommandGuardar"  HorizontalAlignment="Left" Width="35" Margin="28,0,0,0" Command="{Binding GuardarEntidadCommand}" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Guardar(Ctrl+G)">
                 <Rectangle Width="15"
                 Height="15"
                 Fill="Teal">

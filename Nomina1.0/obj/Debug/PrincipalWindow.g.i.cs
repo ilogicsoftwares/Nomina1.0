@@ -129,12 +129,6 @@ namespace Nomina1._0 {
             return;
             case 3:
             this.CommandGuardar = ((System.Windows.Controls.Button)(target));
-            
-            #line 25 "..\..\PrincipalWindow.xaml"
-            this.CommandGuardar.Click += new System.Windows.RoutedEventHandler(this.CommandGuardar_Click);
-            
-            #line default
-            #line hidden
             return;
             case 4:
             this.CommandNuevo = ((System.Windows.Controls.Button)(target));
