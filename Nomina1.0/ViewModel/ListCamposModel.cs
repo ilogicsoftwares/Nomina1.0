@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Nomina1._0.ViewModel
 {
-    class ListCamposModel: INotifyPropertyChanged
+   public class ListCamposModel: INotifyPropertyChanged
     {
         public RelayCommand ChangeValueCommand { get; set; }
         public ListCamposModel(int idtrabajador)

@@ -206,6 +206,7 @@
     </Compile>
     <Compile Include="RadioBoolToIntConverter.cs" />
     <Compile Include="RelayCommand.cs" />
+    <Compile Include="MetroToolWindowBase.cs" />
     <Compile Include="WinBusqueda.xaml.cs">
       <DependentUpon>WinBusqueda.xaml</DependentUpon>
     </Compile>
@@ -223,6 +224,9 @@
     </Compile>
     <Compile Include="WinConceptos.xaml.cs">
       <DependentUpon>WinConceptos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinConfigNomina.xaml.cs">
+      <DependentUpon>WinConfigNomina.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinDepartamento.xaml.cs">
       <DependentUpon>WinDepartamento.xaml</DependentUpon>
@@ -302,6 +306,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinConceptos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinConfigNomina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

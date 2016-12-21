@@ -12,7 +12,7 @@ using System.Windows.Controls;
 
 namespace Nomina1._0.ViewModel
 {
-    class TrabajadorViewModel:trabajador,INotifyPropertyChanged
+    public class TrabajadorViewModel:trabajador,INotifyPropertyChanged
     {
 
         public static List<departamentos> Ldepart { get { return Datos.Micontexto.departamentos.ToList();}}
@@ -24,17 +24,28 @@ namespace Nomina1._0.ViewModel
         public static List<gradointruc> Lgrado { get { return Datos.Micontexto.gradointruc.ToList(); }}
         public static List<bancos> Lbanco { get { return Datos.Micontexto.bancos.ToList();}}
         public static List<tipocuenta> Ltipoc { get { return Datos.Micontexto.tipocuenta.ToList(); } }
-
+        public RelayCommand ConfigNominaCommand { get; set; }
 
         nominaEntities bd = Datos.Micontexto;
         
         public TrabajadorViewModel()
         {
             Nuevo();
+            ConfigNominaCommand = new RelayCommand(ConfigNomina);
 
         }
 
-     
+        private void ConfigNomina(object obj)
+        {
+            if (TrabajadorActual.idtrabajador==0)
+            {
+                return;
+            }
+            WinConfigNomina confignomina = new WinConfigNomina(this,int.Parse(obj.ToString()));
+            confignomina.Owner = Datos._PrincipalWindow;
+            confignomina.ShowDialog();
+        }
+
         private trabajador _TrabajadorActual;
         public trabajador TrabajadorActual
         {

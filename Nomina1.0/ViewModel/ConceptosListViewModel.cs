@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace Nomina1._0.ViewModel
 {
-    class ConceptosListViewModel: INotifyPropertyChanged
+   public class ConceptosListViewModel: INotifyPropertyChanged
     {
 
         private dynamic objeto { get; set; }
@@ -26,12 +26,18 @@ namespace Nomina1._0.ViewModel
             this.objeto = objeto;
               if (objeto.conceptos != string.Empty && objeto.conceptos != null)
                {
+                if (Tipo == 1)
 
-                  
-                   this.Concepts = new ObservableCollection<string>(objeto.conceptos.Trim().Split(','));
-                   obtenernombres();
-                   NotifyPropertyChanged("Concepts");
-               }else
+                {
+                    this.Concepts = new ObservableCollection<string>(objeto.conceptos.Trim().Split(','));
+                   
+                }else
+                {
+                    this.Concepts = new ObservableCollection<string>(objeto.conceptosbonos.Trim().Split(','));
+                }
+                obtenernombres();
+                NotifyPropertyChanged("Concepts");
+            } else
                {
                    this.Concepts = new ObservableCollection<string>();
                }
@@ -252,7 +258,7 @@ namespace Nomina1._0.ViewModel
         }
        
     }
-    class xconcepto
+    public class xconcepto
     {
         public string codigo { get; set; }
         public string nombre { get; set; }

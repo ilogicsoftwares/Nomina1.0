@@ -180,3 +180,5 @@ C:\Nomina1.0\Nomina1.0\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 C:\Nomina1.0\Nomina1.0\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 C:\Nomina1.0\Nomina1.0\obj\Debug\RdlCompile.cache
 C:\Nomina1.0\Nomina1.0\obj\Debug\RdlCompile.compiled
+C:\Nomina1.0\Nomina1.0\obj\Debug\WinConfigNomina.g.cs
+C:\Nomina1.0\Nomina1.0\obj\Debug\WinConfigNomina.baml

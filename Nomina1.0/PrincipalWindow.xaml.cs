@@ -30,7 +30,7 @@ namespace Nomina1._0
             try
             {
                 WinBusqueda busqueda = new WinBusqueda("Buscar",Datos.ObjectType,Datos.SelectQuery);
-           
+                busqueda.Owner=this;
                 busqueda.ShowDialog();
             }catch
             {
