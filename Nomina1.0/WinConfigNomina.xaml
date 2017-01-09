@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Nomina1._0"
         mc:Ignorable="d"
         Title="WinConfigNomina" Height="204.448" Width="397.791">
-    <Grid Margin="0,0,2,7">
+    <Grid Margin="0,0,2,-2">
         <Label x:Name="label_Copy26" Content="Conceptos:" Margin="16,0,305,122" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56" Height="28" VerticalAlignment="Bottom"/>
-        <Label x:Name="label_Copy27" Content="Campos:" Margin="207,0,130,122" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56" Height="25" VerticalAlignment="Bottom"/>
+        <Label x:Name="label_Copy27" Content="Campos:" Margin="207,0,117,122" HorizontalContentAlignment="Right" RenderTransformOrigin="0.517,0.56" Height="25" VerticalAlignment="Bottom"/>
         <ListBox x:Name="listBox_Copy" Margin="207,0,49,17" BorderBrush="Teal" BorderThickness="1" ItemsSource="{Binding ListaCampos, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextOptions.TextHintingMode="Animated" SelectionMode="Single" Height="105" VerticalAlignment="Bottom" DisplayMemberPath="nombrecampo"/>
         <Button x:Name="BtnFolder" HorizontalAlignment="Right" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Modificar Campo" Margin="0,0,13,86" Height="35" VerticalAlignment="Bottom" Command="{Binding CamposViewList.ChangeValueCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox_Copy}">
             <Rectangle Width="15"

@@ -274,13 +274,16 @@ namespace Nomina1._0.ViewModel
                     PreNom.tipoconcepto = xa.tipo;
                     if (xa.noimprimir != 1)
                     {
-                        Datos.Micontexto.prenomina.Add(PreNom);
+                        if (xa.desactivar != 1)
+                        { Datos.Micontexto.prenomina.Add(PreNom); }
+                       
                     }
                     else
                     {
                         if (PreNom.valorconcepto != 0)
                         {
-                            Datos.Micontexto.prenomina.Add(PreNom);
+                            if (xa.desactivar != 1)
+                            { Datos.Micontexto.prenomina.Add(PreNom); }
                         }
                     }
 
@@ -476,8 +479,18 @@ namespace Nomina1._0.ViewModel
             }
             try
             {
+                var CamposAReiniciar = Datos.Micontexto.campos.Where(x => x.esReiniciado == 1);
+                var CamposTra = Datos.Micontexto.campotra.ToList();
+                
 
+                
+                    foreach (var campo in CamposAReiniciar)
+                    {
+                    CamposTra.Where(x => x.nombrecampo.Contains(campo.nombre)).ToList().ForEach(x => x.valor = campo.valorinicial.Value);
+                    }
+                
                 Datos.Micontexto.SaveChanges();
+                
             }
             catch (Exception EX)
             {

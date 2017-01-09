@@ -85,7 +85,8 @@
                 </Rectangle.OpacityMask>
             </Rectangle>
         </Button>
-        <CheckBox x:Name="checkBox" Content="No Imprimir si es igual a 0" HorizontalAlignment="Left" Margin="1,201,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="239" Grid.Column="1" IsChecked="{Binding ConceptoActual.noimprimir,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox x:Name="checkBox" Content="No Imprimir si es igual a 0" HorizontalAlignment="Left" Margin="50,201,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="167" IsChecked="{Binding ConceptoActual.noimprimir,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox x:Name="checkBox_Copy" Content="Desactivar" HorizontalAlignment="Left" Margin="32,201,0,0" VerticalAlignment="Top" Width="86" IsChecked="{Binding ConceptoActual.desactivar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2"/>
 
     </Grid>
 </Controls:MetroWindow>

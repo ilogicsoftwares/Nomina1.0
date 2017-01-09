@@ -24,7 +24,7 @@ namespace Nomina1._0
             //works for click textbox
             EventManager.RegisterClassHandler(typeof(Window),Window.GotMouseCaptureEvent,new RoutedEventHandler(Window_MouseCapture));*/
             /// hacer override al evento PreviewKeyDownEvent de los grid del proyecto para colocar enter como tab
-            EventManager.RegisterClassHandler(typeof(Grid),Grid.PreviewKeyDownEvent, new KeyEventHandler(Grid_PreviewKeyDown));
+           // EventManager.RegisterClassHandler(typeof(Grid),Grid.PreviewKeyDownEvent, new KeyEventHandler(Grid_PreviewKeyDown));
             base.OnStartup(e);
 
             ////
@@ -78,5 +78,7 @@ namespace Nomina1._0
                 position += size;
             }
         }
+
+        
     }
 }

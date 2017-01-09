@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MahApps.Metro.Controls;
 using Nomina1._0.ViewModel;
 using System.Reflection;
+using System.Windows;
 
 namespace Nomina1._0
 {
@@ -44,7 +45,7 @@ namespace Nomina1._0
                 PrincipalViewModel.ObjetoActual = Convert.ChangeType(DataContext, type);
             }catch(Exception)
             {
-
+               // MessageBox.Show("error");
             }
             Datos.WindowActual = this;
             Datos.SelectQuery = Query;

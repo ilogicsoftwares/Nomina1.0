@@ -7,7 +7,6 @@
       <Diagram DiagramId="886ee8db099e47848900dbd82ffd1e50" Name="Diagram1" ZoomLevel="71">
         <EntityTypeShape EntityType="nominaModel.bancos" Width="1.5" PointX="0.75" PointY="2.75" />
         <EntityTypeShape EntityType="nominaModel.campos" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="nominaModel.campotra" Width="1.5" PointX="5.75" PointY="3.75" />
         <EntityTypeShape EntityType="nominaModel.cargo" Width="1.5" PointX="0.75" PointY="19.5" />
         <EntityTypeShape EntityType="nominaModel.departamentos" Width="1.5" PointX="1.5" PointY="23.75" />
         <EntityTypeShape EntityType="nominaModel.estatus" Width="1.5" PointX="0.75" PointY="17.125" />
@@ -23,28 +22,35 @@
         <EntityTypeShape EntityType="nominaModel.variables" Width="1.5" PointX="5.75" PointY="12.75" />
         <EntityTypeShape EntityType="nominaModel.varsys" Width="1.5" PointX="12.75" PointY="7.75" />
         <AssociationConnector Association="nominaModel.cargodepart" />
-        <EntityTypeShape EntityType="nominaModel.conceptos" Width="1.5" PointX="13.375" PointY="12" />
-        <AssociationConnector Association="nominaModel.conceptostra" />
-        <AssociationConnector Association="nominaModel.concepttra" />
         <EntityTypeShape EntityType="nominaModel.nacionalidad" Width="1.5" PointX="6.5" PointY="18.5" />
         <EntityTypeShape EntityType="nominaModel.nominaini" Width="1.5" PointX="14.375" PointY="0.75" />
         <EntityTypeShape EntityType="nominaModel.nominatype" Width="1.5" PointX="0.75" PointY="8.5" />
-        <EntityTypeShape EntityType="nominaModel.trabajador" Width="1.5" PointX="3" PointY="5.5" />
+        <AssociationConnector Association="nominaModel.prenominagen_ibfk_2" />
+        <AssociationConnector Association="nominaModel.PrenominaType" />
+        <EntityTypeShape EntityType="nominaModel.nominauni" Width="1.5" PointX="3" PointY="15.375" />
+        <AssociationConnector Association="nominaModel.nominaType1" />
+        <EntityTypeShape EntityType="nominaModel.conceptos" Width="1.5" PointX="13.375" PointY="12" />
+        <AssociationConnector Association="nominaModel.conceptostra" />
+        <AssociationConnector Association="nominaModel.concepttra" />
+        <EntityTypeShape EntityType="nominaModel.estatusasis" Width="1.5" PointX="6.5" PointY="21.5" />
+        <EntityTypeShape EntityType="nominaModel.trabajador" Width="1.5" PointX="8.75" PointY="15.625" />
         <AssociationConnector Association="nominaModel.Trabajadoridbanco" />
         <AssociationConnector Association="nominaModel.TrabajadorCargo" />
         <AssociationConnector Association="nominaModel.TrabajadorDepart" />
         <AssociationConnector Association="nominaModel.TrabajadorEstatus" />
+        <AssociationConnector Association="nominaModel.TrabajadorStatatusAsis" />
         <AssociationConnector Association="nominaModel.Trabajadorgrado" />
         <AssociationConnector Association="nominaModel.TrabajadorNac" />
-        <AssociationConnector Association="nominaModel.prenominagen_ibfk_2" />
-        <AssociationConnector Association="nominaModel.PrenominaType" />
         <AssociationConnector Association="nominaModel.TrabajadorNomina" />
         <AssociationConnector Association="nominaModel.TrabajadorNominaBonos" />
         <AssociationConnector Association="nominaModel.PrenominaTraid" />
         <AssociationConnector Association="nominaModel.prenominagen_ibfk_1" />
         <AssociationConnector Association="nominaModel.TrabajadorTipoc" />
-        <EntityTypeShape EntityType="nominaModel.nominauni" Width="1.5" PointX="3" PointY="15.375" />
-        <AssociationConnector Association="nominaModel.nominaType1" />
+        <EntityTypeShape EntityType="nominaModel.controlconfig" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="nominaModel.campotra" Width="1.5" PointX="11" PointY="23.5" />
+        <AssociationConnector Association="nominaModel.Trabajacampo" />
+        <EntityTypeShape EntityType="nominaModel.controlasist" Width="1.5" PointX="11" PointY="18.75" />
+        <AssociationConnector Association="nominaModel.TrabajadorTra" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

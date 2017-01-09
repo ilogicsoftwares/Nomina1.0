@@ -122,10 +122,19 @@
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="Consultas.cs" />
+    <Compile Include="controlasist.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
+    <Compile Include="controlconfig.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
     <Compile Include="departamentos.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="estatus.cs">
+      <DependentUpon>Nomina.tt</DependentUpon>
+    </Compile>
+    <Compile Include="estatusasis.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="gradointruc.cs">
@@ -180,11 +189,14 @@
     <Compile Include="varsys.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AsigConceptoViewModel.cs" />
+    <Compile Include="ViewModel\AsigNominaViewModel.cs" />
     <Compile Include="ViewModel\CamposGenViemodel.cs" />
     <Compile Include="ViewModel\CamposViewModel.cs" />
     <Compile Include="ViewModel\CargoViewModel.cs" />
     <Compile Include="ViewModel\ConceptosListViewModel.cs" />
     <Compile Include="ViewModel\ConceptosViewModel.cs" />
+    <Compile Include="ViewModel\ControlAsistViewModel.cs" />
     <Compile Include="ViewModel\DepartViewModel.cs" />
     <Compile Include="ViewModel\ListCamposModel.cs" />
     <Compile Include="ViewModel\ModelBase.cs" />
@@ -207,6 +219,12 @@
     <Compile Include="RadioBoolToIntConverter.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="MetroToolWindowBase.cs" />
+    <Compile Include="WinAsigCon.xaml.cs">
+      <DependentUpon>WinAsigCon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinAsigNomina.xaml.cs">
+      <DependentUpon>WinAsigNomina.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinBusqueda.xaml.cs">
       <DependentUpon>WinBusqueda.xaml</DependentUpon>
     </Compile>
@@ -227,6 +245,9 @@
     </Compile>
     <Compile Include="WinConfigNomina.xaml.cs">
       <DependentUpon>WinConfigNomina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinControlAsist.xaml.cs">
+      <DependentUpon>WinControlAsist.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinDepartamento.xaml.cs">
       <DependentUpon>WinDepartamento.xaml</DependentUpon>
@@ -251,6 +272,9 @@
     </Compile>
     <Compile Include="WinProcedures.xaml.cs">
       <DependentUpon>WinProcedures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinRepFicha.xaml.cs">
+      <DependentUpon>WinRepFicha.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinReport.xaml.cs">
       <DependentUpon>WinReport.xaml</DependentUpon>
@@ -285,6 +309,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="WinAsigCon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinAsigNomina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WinBusqueda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -310,6 +342,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinConfigNomina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinControlAsist.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,6 +378,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinProcedures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinRepFicha.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -415,8 +455,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\foto richard CV.png" />
     <Resource Include="ILOGICICONhd.ico" />
     <Resource Include="ILOGICICON.ico" />
+    <Resource Include="Image1.png" />
     <Content Include="Nomina.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Nomina.edmx</DependentUpon>

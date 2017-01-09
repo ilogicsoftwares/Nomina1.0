@@ -18,9 +18,9 @@ namespace Nomina1._0
         {
             this.prenominagen = new HashSet<prenominagen>();
             this.prenomina = new HashSet<prenomina>();
+            this.nominauni = new HashSet<nominauni>();
             this.trabajador = new HashSet<trabajador>();
             this.trabajador1 = new HashSet<trabajador>();
-            this.nominauni = new HashSet<nominauni>();
         }
     
         public int idnomina { get; set; }
@@ -32,8 +32,8 @@ namespace Nomina1._0
     
         public virtual ICollection<prenominagen> prenominagen { get; set; }
         public virtual ICollection<prenomina> prenomina { get; set; }
+        public virtual ICollection<nominauni> nominauni { get; set; }
         public virtual ICollection<trabajador> trabajador { get; set; }
         public virtual ICollection<trabajador> trabajador1 { get; set; }
-        public virtual ICollection<nominauni> nominauni { get; set; }
     }
 }

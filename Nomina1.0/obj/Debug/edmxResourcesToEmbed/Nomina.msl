@@ -20,16 +20,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="campotra">
-      <EntityTypeMapping TypeName="nominaModel.campotra">
-        <MappingFragment StoreEntitySet="campotra">
-          <ScalarProperty Name="valor" ColumnName="valor" />
-          <ScalarProperty Name="nombrecampo" ColumnName="nombrecampo" />
-          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-          <ScalarProperty Name="idcampotra" ColumnName="idcampotra" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="cargo">
       <EntityTypeMapping TypeName="nominaModel.cargo">
         <MappingFragment StoreEntitySet="cargo">
@@ -203,20 +193,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="conceptos">
-      <EntityTypeMapping TypeName="nominaModel.conceptos">
-        <MappingFragment StoreEntitySet="conceptos">
-          <ScalarProperty Name="noimprimir" ColumnName="noimprimir" />
-          <ScalarProperty Name="codigo" ColumnName="codigo" />
-          <ScalarProperty Name="Valor" ColumnName="Valor" />
-          <ScalarProperty Name="tipo" ColumnName="tipo" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="variante" ColumnName="variante" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="nacionalidad">
       <EntityTypeMapping TypeName="nominaModel.nacionalidad">
         <MappingFragment StoreEntitySet="nacionalidad">
@@ -247,9 +223,50 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="nominauni">
+      <EntityTypeMapping TypeName="nominaModel.nominauni">
+        <MappingFragment StoreEntitySet="nominauni">
+          <ScalarProperty Name="idnomina" ColumnName="idnomina" />
+          <ScalarProperty Name="cantidadt" ColumnName="cantidadt" />
+          <ScalarProperty Name="user" ColumnName="user" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="totaldeducciones" ColumnName="totaldeducciones" />
+          <ScalarProperty Name="totalasignaciones" ColumnName="totalasignaciones" />
+          <ScalarProperty Name="totalnomina" ColumnName="totalnomina" />
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="desde" ColumnName="desde" />
+          <ScalarProperty Name="idnominauni" ColumnName="idnominauni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="conceptos">
+      <EntityTypeMapping TypeName="nominaModel.conceptos">
+        <MappingFragment StoreEntitySet="conceptos">
+          <ScalarProperty Name="desactivar" ColumnName="desactivar" />
+          <ScalarProperty Name="noimprimir" ColumnName="noimprimir" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="variante" ColumnName="variante" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estatusasis">
+      <EntityTypeMapping TypeName="nominaModel.estatusasis">
+        <MappingFragment StoreEntitySet="estatusasis">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="trabajador">
       <EntityTypeMapping TypeName="nominaModel.trabajador">
         <MappingFragment StoreEntitySet="trabajador">
+          <ScalarProperty Name="idestatusasis" ColumnName="idestatusasis" />
           <ScalarProperty Name="conceptosbonos" ColumnName="conceptosbonos" />
           <ScalarProperty Name="idnominadebonos" ColumnName="idnominadebonos" />
           <ScalarProperty Name="idtipocuenta" ColumnName="idtipocuenta" />
@@ -283,20 +300,49 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="nominauni">
-      <EntityTypeMapping TypeName="nominaModel.nominauni">
-        <MappingFragment StoreEntitySet="nominauni">
-          <ScalarProperty Name="idnomina" ColumnName="idnomina" />
-          <ScalarProperty Name="cantidadt" ColumnName="cantidadt" />
-          <ScalarProperty Name="user" ColumnName="user" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="estatus" ColumnName="estatus" />
-          <ScalarProperty Name="totaldeducciones" ColumnName="totaldeducciones" />
-          <ScalarProperty Name="totalasignaciones" ColumnName="totalasignaciones" />
-          <ScalarProperty Name="totalnomina" ColumnName="totalnomina" />
-          <ScalarProperty Name="hasta" ColumnName="hasta" />
-          <ScalarProperty Name="desde" ColumnName="desde" />
-          <ScalarProperty Name="idnominauni" ColumnName="idnominauni" />
+    <EntitySetMapping Name="controlconfig">
+      <EntityTypeMapping TypeName="nominaModel.controlconfig">
+        <MappingFragment StoreEntitySet="controlconfig">
+          <ScalarProperty Name="MaxTimeCheck" ColumnName="MaxTimeCheck" />
+          <ScalarProperty Name="MaxEntradas" ColumnName="MaxEntradas" />
+          <ScalarProperty Name="WInasistencia" ColumnName="WInasistencia" />
+          <ScalarProperty Name="WDiaF" ColumnName="WDiaF" />
+          <ScalarProperty Name="WHorasEx" ColumnName="WHorasEx" />
+          <ScalarProperty Name="WHorasN" ColumnName="WHorasN" />
+          <ScalarProperty Name="WDia" ColumnName="WDia" />
+          <ScalarProperty Name="WHorasD" ColumnName="WHorasD" />
+          <ScalarProperty Name="idcontrol" ColumnName="idcontrol" />
+          <ScalarProperty Name="IniJorNocTurna" ColumnName="IniJorNocTurna" />
+          <ScalarProperty Name="IniJorDiurna" ColumnName="IniJorDiurna" />
+          <ScalarProperty Name="MaxHorasDia" ColumnName="MaxHorasDia" />
+          <ScalarProperty Name="MinHorasDia" ColumnName="MinHorasDia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="campotra">
+      <EntityTypeMapping TypeName="nominaModel.campotra">
+        <MappingFragment StoreEntitySet="campotra">
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="nombrecampo" ColumnName="nombrecampo" />
+          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+          <ScalarProperty Name="idcampotra" ColumnName="idcampotra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="controlasist">
+      <EntityTypeMapping TypeName="nominaModel.controlasist">
+        <MappingFragment StoreEntitySet="controlasist">
+          <ScalarProperty Name="Inasistencia" ColumnName="Inasistencia" />
+          <ScalarProperty Name="DiaF" ColumnName="DiaF" />
+          <ScalarProperty Name="HorasEx" ColumnName="HorasEx" />
+          <ScalarProperty Name="HorasN" ColumnName="HorasN" />
+          <ScalarProperty Name="Dia" ColumnName="Dia" />
+          <ScalarProperty Name="HorasD" ColumnName="HorasD" />
+          <ScalarProperty Name="Salidas" ColumnName="Salidas" />
+          <ScalarProperty Name="Entradas" ColumnName="Entradas" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

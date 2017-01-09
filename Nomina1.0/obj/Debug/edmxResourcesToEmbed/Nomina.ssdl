@@ -50,6 +50,41 @@
     <Property Name="Valor" Type="char" MaxLength="100" />
     <Property Name="codigo" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="noimprimir" Type="int" Nullable="false" />
+    <Property Name="desactivar" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="controlasist">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idtrabajador" Type="int" />
+    <Property Name="date" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Entradas" Type="varchar" MaxLength="200" />
+    <Property Name="Salidas" Type="varchar" MaxLength="200" />
+    <Property Name="HorasD" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Dia" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="HorasN" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="HorasEx" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DiaF" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Inasistencia" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="controlconfig">
+    <Key>
+      <PropertyRef Name="idcontrol" />
+    </Key>
+    <Property Name="MinHorasDia" Type="decimal" Precision="11" Scale="2" />
+    <Property Name="MaxHorasDia" Type="decimal" Precision="11" Scale="2" />
+    <Property Name="IniJorDiurna" Type="datetime" Precision="0" />
+    <Property Name="IniJorNocTurna" Type="datetime" Precision="0" />
+    <Property Name="idcontrol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WHorasD" Type="varchar" MaxLength="50" />
+    <Property Name="WDia" Type="varchar" MaxLength="50" />
+    <Property Name="WHorasN" Type="varchar" MaxLength="50" />
+    <Property Name="WHorasEx" Type="varchar" MaxLength="50" />
+    <Property Name="WDiaF" Type="varchar" MaxLength="50" />
+    <Property Name="WInasistencia" Type="varchar" MaxLength="50" />
+    <Property Name="MaxEntradas" Type="int" />
+    <Property Name="MaxTimeCheck" Type="int" />
   </EntityType>
   <EntityType Name="departamentos">
     <Key>
@@ -65,6 +100,13 @@
     </Key>
     <Property Name="idestatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="estatusasis">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="gradointruc">
     <Key>
@@ -159,7 +201,7 @@
     <Property Name="idtrabajador" Type="int" />
     <Property Name="idconcepto" Type="int" />
     <Property Name="nombrecon" Type="varchar" MaxLength="50" />
-    <Property Name="valorconcepto" Type="decimal" Precision="10" Scale="0" />
+    <Property Name="valorconcepto" Type="decimal" Precision="10" Scale="2" />
     <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
     <Property Name="tipoconcepto" Type="int" />
   </EntityType>
@@ -189,9 +231,9 @@
     <Property Name="idcargo" Type="int" />
     <Property Name="iddepartamentos" Type="int" />
     <Property Name="direccion" Type="varchar" MaxLength="250" />
-    <Property Name="telefonocel" Type="varchar" MaxLength="12" />
-    <Property Name="telefonolocal" Type="varchar" MaxLength="12" />
-    <Property Name="telefonocontacto" Type="varchar" MaxLength="12" />
+    <Property Name="telefonocel" Type="varchar" MaxLength="20" />
+    <Property Name="telefonolocal" Type="varchar" MaxLength="20" />
+    <Property Name="telefonocontacto" Type="varchar" MaxLength="20" />
     <Property Name="nombrecontacto" Type="varchar" MaxLength="50" />
     <Property Name="correo" Type="varchar" MaxLength="50" />
     <Property Name="Sueldo" Type="decimal" Precision="10" Scale="2" />
@@ -212,6 +254,7 @@
     <Property Name="idtipocuenta" Type="int" />
     <Property Name="idnominadebonos" Type="int" />
     <Property Name="conceptosbonos" Type="varchar" MaxLength="200" />
+    <Property Name="idestatusasis" Type="int" />
   </EntityType>
   <EntityType Name="usermenu">
     <Key>
@@ -375,6 +418,18 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="Trabajacampo">
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="1" />
+    <End Role="campotra" Type="Self.campotra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="campotra">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="TrabajadorCargo">
     <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
     <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -471,6 +526,18 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="TrabajadorStatatusAsis">
+    <End Role="estatusasis" Type="Self.estatusasis" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estatusasis">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idestatusasis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="TrabajadorTipoc">
     <End Role="tipocuenta" Type="Self.tipocuenta" Multiplicity="0..1" />
     <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -483,14 +550,29 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="TrabajadorTra">
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1" />
+    <End Role="controlasist" Type="Self.controlasist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="controlasist">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="nominaModelStoreContainer">
     <EntitySet Name="bancos" EntityType="Self.bancos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="campos" EntityType="Self.campos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="campotra" EntityType="Self.campotra" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="conceptos" EntityType="Self.conceptos" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="controlasist" EntityType="Self.controlasist" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="controlconfig" EntityType="Self.controlconfig" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="estatus" EntityType="Self.estatus" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="estatusasis" EntityType="Self.estatusasis" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="gradointruc" EntityType="Self.gradointruc" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="jornada" EntityType="Self.jornada" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" Schema="nomina" store:Type="Tables" />
@@ -550,6 +632,10 @@ FROM `varsys` AS `varsys`</DefiningQuery>
       <End Role="nominatype" EntitySet="nominatype" />
       <End Role="prenomina" EntitySet="prenomina" />
     </AssociationSet>
+    <AssociationSet Name="Trabajacampo" Association="Self.Trabajacampo">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="campotra" EntitySet="campotra" />
+    </AssociationSet>
     <AssociationSet Name="TrabajadorCargo" Association="Self.TrabajadorCargo">
       <End Role="cargo" EntitySet="cargo" />
       <End Role="trabajador" EntitySet="trabajador" />
@@ -582,9 +668,17 @@ FROM `varsys` AS `varsys`</DefiningQuery>
       <End Role="nominatype" EntitySet="nominatype" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
+    <AssociationSet Name="TrabajadorStatatusAsis" Association="Self.TrabajadorStatatusAsis">
+      <End Role="estatusasis" EntitySet="estatusasis" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
     <AssociationSet Name="TrabajadorTipoc" Association="Self.TrabajadorTipoc">
       <End Role="tipocuenta" EntitySet="tipocuenta" />
       <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorTra" Association="Self.TrabajadorTra">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="controlasist" EntitySet="controlasist" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

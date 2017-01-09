@@ -88,9 +88,10 @@ namespace Nomina1._0
         {
             try
             {
-
+              
                 Type ventana = Type.GetType("Nomina1._0." + window);
                 MetroWindow nventana = (MetroWindow)Activator.CreateInstance(ventana);
+               
                 nventana.Title = title;
                 nventana.ShowInTaskbar = false;
                 nventana.WindowStyle = WindowStyle.ToolWindow;

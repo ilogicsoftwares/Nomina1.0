@@ -18,5 +18,7 @@ namespace Nomina1._0
         public int idtrabajador { get; set; }
         public string nombrecampo { get; set; }
         public decimal valor { get; set; }
+    
+        public virtual trabajador trabajador { get; set; }
     }
 }

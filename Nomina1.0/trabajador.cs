@@ -18,6 +18,8 @@ namespace Nomina1._0
         {
             this.prenomina = new HashSet<prenomina>();
             this.prenominagen = new HashSet<prenominagen>();
+            this.campotra = new HashSet<campotra>();
+            this.controlasist = new HashSet<controlasist>();
         }
     
         public int idtrabajador { get; set; }
@@ -50,11 +52,13 @@ namespace Nomina1._0
         public Nullable<int> idtipocuenta { get; set; }
         public Nullable<int> idnominadebonos { get; set; }
         public string conceptosbonos { get; set; }
+        public Nullable<int> idestatusasis { get; set; }
     
         public virtual bancos bancos { get; set; }
         public virtual cargo cargo { get; set; }
         public virtual departamentos departamentos { get; set; }
         public virtual estatus estatus { get; set; }
+        public virtual estatusasis estatusasis { get; set; }
         public virtual gradointruc gradointruc { get; set; }
         public virtual nacionalidad nacionalidad { get; set; }
         public virtual nominatype nominatype { get; set; }
@@ -62,5 +66,7 @@ namespace Nomina1._0
         public virtual ICollection<prenomina> prenomina { get; set; }
         public virtual ICollection<prenominagen> prenominagen { get; set; }
         public virtual tipocuenta tipocuenta { get; set; }
+        public virtual ICollection<campotra> campotra { get; set; }
+        public virtual ICollection<controlasist> controlasist { get; set; }
     }
 }

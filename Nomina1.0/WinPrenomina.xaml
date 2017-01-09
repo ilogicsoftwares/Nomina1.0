@@ -24,7 +24,7 @@
             <RowDefinition Height="227*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="listBox" ItemsSource="{Binding Trabajadores}" DisplayMemberPath="Nombre" BorderBrush="Teal" BorderThickness="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="228" VerticalAlignment="Top" SelectedValuePath="ID" SelectionChanged="listBox_SelectionChanged" MouseDoubleClick="listBox_MouseDoubleClick"/>
+        <ListBox x:Name="listBox" ItemsSource="{Binding Trabajadores}" DisplayMemberPath="Nombre" BorderBrush="Teal" BorderThickness="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Height="228" VerticalAlignment="Bottom" SelectedValuePath="ID" SelectionChanged="listBox_SelectionChanged" MouseDoubleClick="listBox_MouseDoubleClick" Margin="0,0,0,33"/>
         <Label x:Name="label" DataContext="{Binding NominaActual}" Content="{Binding nominatype.descripcion}" Margin="0,3,0,0" VerticalAlignment="Top" FontSize="22" Grid.ColumnSpan="4" Grid.Column="1" Height="39"/>
         <Label x:Name="label1" Content="Desde:" Grid.Column="2" HorizontalAlignment="Right" Margin="0,55,89,0" VerticalAlignment="Top" Width="53" HorizontalContentAlignment="Right" Height="26" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <DatePicker Grid.Column="3" Margin="23,55,0,0" VerticalAlignment="Top" Height="26" IsEnabled="False" Grid.ColumnSpan="2" SelectedDate="{Binding Fdesde}" Grid.RowSpan="2"/>
