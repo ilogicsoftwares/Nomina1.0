@@ -9,7 +9,7 @@
         xmlns:metro="clr-namespace:MahApps.Metro;assembly=MahApps.Metro"
         
         mc:Ignorable="d"
-        Title="Ilogic Softwares Nomina - Ingresar" Height="523.643" Width="361.225" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow"
+        Title="Ilogic Nomina 1.0" IsMaxRestoreButtonEnabled="False" Height="523.643" Width="361.225" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow"
                        GlowBrush="{DynamicResource AccentColorBrush}"
                       RenderOptions.ClearTypeHint="Enabled"
                       ResizeMode="CanResizeWithGrip"

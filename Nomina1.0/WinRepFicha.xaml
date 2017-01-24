@@ -4,9 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nomina1._0"
+        xmlns:vm="clr-namespace:Nomina1._0.ViewModel"
+         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="WinRepFicha" Height="147" Width="432">
-    <Grid>
+        Title="WinRepFicha" Height="126" Width="428" Activated="MetroToolWindowBase_Activated" Closed="MetroToolWindowBase_Closed">
+    <Window.DataContext>
+        <vm:TrabajadorViewModel x:Name="trabajad"/>
+    </Window.DataContext>
+    <Grid Height="96" VerticalAlignment="Top">
+        <xctk:WatermarkTextBox Text="{Binding TrabajadorActual.cedula}" Watermark="Cedula" x:Name="cedula" HorizontalAlignment="Left" Height="23" Margin="10,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" RenderTransformOrigin="0.4,0.654" LostFocus="cedula_LostFocus" TextChanged="cedula_TextChanged" />
+        <xctk:WatermarkTextBox Text="{Binding NombreCompleto,Mode=OneWay}" IsReadOnly="True" Watermark="Nombre" x:Name="Nombre" HorizontalAlignment="Left" Height="23" Margin="98,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="316" RenderTransformOrigin="0.4,0.654">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.068"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </xctk:WatermarkTextBox>
+        <Button x:Name="button" Content="IMPRIMIR" HorizontalAlignment="Left" Margin="335,61,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
 
     </Grid>
 </local:MetroToolWindowBase>

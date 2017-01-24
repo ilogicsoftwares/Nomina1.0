@@ -1,0 +1,2138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>16.95254cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>19.19868cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="Rectangle1">
+                      <ReportItems>
+                        <Rectangle Name="Rectangle2">
+                          <ReportItems>
+                            <Line Name="Line2">
+                              <Top>0.02646cm</Top>
+                              <Left>4.68313cm</Left>
+                              <Height>1.79599cm</Height>
+                              <Width>0cm</Width>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line3">
+                              <Top>0.01323cm</Top>
+                              <Left>9.08844cm</Left>
+                              <Height>3.50573cm</Height>
+                              <Width>0cm</Width>
+                              <ZIndex>1</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line4">
+                              <Top>0.01323cm</Top>
+                              <Left>13.53344cm</Left>
+                              <Height>1.80922cm</Height>
+                              <Width>0cm</Width>
+                              <ZIndex>2</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox14">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>FECHA DE INGRESO</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>0.02646cm</Top>
+                              <Height>0.49165cm</Height>
+                              <Width>4.54202cm</Width>
+                              <ZIndex>3</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox15">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>CEDULA DE IDENTIDAD</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Left>4.68313cm</Left>
+                              <Height>0.51811cm</Height>
+                              <Width>4.22892cm</Width>
+                              <ZIndex>4</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox16">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>SEXO</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>0.02646cm</Top>
+                              <Left>9.08844cm</Left>
+                              <Height>0.49165cm</Height>
+                              <Width>2.5cm</Width>
+                              <ZIndex>5</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox17">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>EDO. CIVIL</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Left>13.56872cm</Left>
+                              <Height>0.51811cm</Height>
+                              <Width>2.5cm</Width>
+                              <ZIndex>6</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line12">
+                              <Top>1.82245cm</Top>
+                              <Left>0.08819cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.78278cm</Width>
+                              <ZIndex>7</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line13">
+                              <Top>3.51896cm</Top>
+                              <Left>0.02646cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.84451cm</Width>
+                              <ZIndex>8</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox18">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>APELLIDOS</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>1.89301cm</Top>
+                              <Height>0.57354cm</Height>
+                              <Width>2.5cm</Width>
+                              <ZIndex>9</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox19">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>NOMBRES</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>1.82245cm</Top>
+                              <Left>9.08844cm</Left>
+                              <Height>0.57354cm</Height>
+                              <Width>2.5cm</Width>
+                              <ZIndex>10</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="apellidos">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!apellidos.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>apellidos</rd:DefaultName>
+                              <Top>2.74257cm</Top>
+                              <Left>0.05292cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>8.92969cm</Width>
+                              <ZIndex>11</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="nombres">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!nombres.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>nombres</rd:DefaultName>
+                              <Top>2.74257cm</Top>
+                              <Left>9.19427cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>7.09493cm</Width>
+                              <ZIndex>12</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="cedula">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!cedula.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>cedula</rd:DefaultName>
+                              <Top>1.08134cm</Top>
+                              <Left>4.68313cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>4.33475cm</Width>
+                              <ZIndex>13</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Fechaing">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Fechaing.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                        <Format>dd/MM/yyyy</Format>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Left</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Fechaing</rd:DefaultName>
+                              <Top>1.08134cm</Top>
+                              <Left>0.05292cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>4.55965cm</Width>
+                              <ZIndex>14</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="cargo">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=iif(Fields!sexo.Value=1,"Masculino","Femenino")</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>cargo</rd:DefaultName>
+                              <Top>1.04606cm</Top>
+                              <Left>9.22954cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>4.23334cm</Width>
+                              <ZIndex>15</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Sueldo">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=iif(Fields!edocivil.Value=1,"Casado","Soltero")</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Sueldo</rd:DefaultName>
+                              <Top>1.04606cm</Top>
+                              <Left>13.32177cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>2.92365cm</Width>
+                              <ZIndex>16</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line14">
+                              <Top>5.31561cm</Top>
+                              <Height>0cm</Height>
+                              <Width>16.87097cm</Width>
+                              <ZIndex>17</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line5">
+                              <Top>3.51896cm</Top>
+                              <Left>4.68313cm</Left>
+                              <Height>1.80922cm</Height>
+                              <Width>0cm</Width>
+                              <ZIndex>18</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line6">
+                              <Top>3.51896cm</Top>
+                              <Left>11.58844cm</Left>
+                              <Height>1.80922cm</Height>
+                              <Width>0cm</Width>
+                              <ZIndex>19</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox20">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>F.NACIMIENTO</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>3.69535cm</Top>
+                              <Left>0.05292cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>4.55965cm</Width>
+                              <ZIndex>20</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox21">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>L.NACIMIENTO</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>3.69535cm</Top>
+                              <Left>4.85952cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>4.55965cm</Width>
+                              <ZIndex>21</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="fechanac">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!fechanac.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                        <Format>dd/MM/yyyy</Format>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>fechanac</rd:DefaultName>
+                              <Top>4.5745cm</Top>
+                              <Height>0.6cm</Height>
+                              <Width>4.50674cm</Width>
+                              <ZIndex>22</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="lugarnac">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!lugarnac.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>lugarnac</rd:DefaultName>
+                              <Top>4.5745cm</Top>
+                              <Left>4.85952cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>6.44266cm</Width>
+                              <ZIndex>23</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox22">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>NACIONALIDAD</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>3.69535cm</Top>
+                              <Left>11.72955cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>4.55965cm</Width>
+                              <ZIndex>24</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line15">
+                              <Top>7.17525cm</Top>
+                              <Left>0.01323cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.85774cm</Width>
+                              <ZIndex>25</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line7">
+                              <Top>5.31561cm</Top>
+                              <Left>10.00094cm</Left>
+                              <Height>1.85964cm</Height>
+                              <Width>0cm</Width>
+                              <ZIndex>26</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox23">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>DIRECCION</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>5.492cm</Top>
+                              <Left>0.05292cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>4.55965cm</Width>
+                              <ZIndex>27</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox24">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>TELEFONOS</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>5.492cm</Top>
+                              <Left>10.10677cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>2.93278cm</Width>
+                              <ZIndex>28</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line16">
+                              <Top>9.07521cm</Top>
+                              <Left>0.01323cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.85774cm</Width>
+                              <ZIndex>29</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line9">
+                              <Top>7.17525cm</Top>
+                              <Left>3.48406cm</Left>
+                              <Height>1.89996cm</Height>
+                              <Width>0cm</Width>
+                              <ZIndex>30</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox26">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>HIJOS</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>7.35164cm</Top>
+                              <Left>0.02646cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>2.37652cm</Width>
+                              <ZIndex>31</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox28">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>CARGO</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>14.56594cm</Top>
+                              <Left>0.12348cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>4.41854cm</Width>
+                              <ZIndex>32</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox29">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>PERSONA DE CONTACTO</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>9.38627cm</Top>
+                              <Height>0.61764cm</Height>
+                              <Width>16.52765cm</Width>
+                              <ZIndex>33</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line17">
+                              <Top>9.99243cm</Top>
+                              <Left>0.01323cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.85774cm</Width>
+                              <ZIndex>34</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line18">
+                              <Top>11.57993cm</Top>
+                              <Left>0.01323cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.85774cm</Width>
+                              <ZIndex>35</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox30">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>NOMBRE COMPLETO</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>10.16882cm</Top>
+                              <Left>0.12348cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>7.05965cm</Width>
+                              <ZIndex>36</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line11">
+                              <Top>9.99495cm</Top>
+                              <Left>8.2731cm</Left>
+                              <Height>1.58498cm</Height>
+                              <Width>0cm</Width>
+                              <ZIndex>37</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox31">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>TELEFONO</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>10.1803cm</Top>
+                              <Left>8.44949cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>8.07816cm</Width>
+                              <ZIndex>38</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="nacionalidad">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!nacionalidad.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>nacionalidad</rd:DefaultName>
+                              <Top>4.53922cm</Top>
+                              <Left>11.72955cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>4.55965cm</Width>
+                              <ZIndex>39</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="direccion">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!direccion.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>direccion</rd:DefaultName>
+                              <Top>6.08444cm</Top>
+                              <Left>0.05292cm</Left>
+                              <Height>0.91442cm</Height>
+                              <Width>9.84219cm</Width>
+                              <ZIndex>40</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Nhijos">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Nhijos.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Nhijos</rd:DefaultName>
+                              <Top>8.29882cm</Top>
+                              <Left>0.05292cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>3.39586cm</Width>
+                              <ZIndex>41</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="gradointruc">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!gradointruc.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>gradointruc</rd:DefaultName>
+                              <Top>8.29882cm</Top>
+                              <Left>3.66045cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>12.8672cm</Width>
+                              <ZIndex>42</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="telefonocel">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!telefonocel.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>telefonocel</rd:DefaultName>
+                              <Top>5.62555cm</Top>
+                              <Left>13.21594cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>3.3117cm</Width>
+                              <ZIndex>43</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="telefonolocal">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!telefonolocal.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>telefonolocal</rd:DefaultName>
+                              <Top>6.40194cm</Top>
+                              <Left>13.21594cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>3.3117cm</Width>
+                              <ZIndex>44</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="telefonocontacto">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!telefonocontacto.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>telefonocontacto</rd:DefaultName>
+                              <Top>10.87857cm</Top>
+                              <Left>8.44949cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>8.07816cm</Width>
+                              <ZIndex>45</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="nombrecontacto">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!nombrecontacto.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>nombrecontacto</rd:DefaultName>
+                              <Top>10.59188cm</Top>
+                              <Left>0.12348cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>7.97323cm</Width>
+                              <ZIndex>46</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox32">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>DATOS DE LA NOMINA</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>11.8406cm</Top>
+                              <Height>0.61764cm</Height>
+                              <Width>16.52765cm</Width>
+                              <ZIndex>47</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line19">
+                              <Top>12.61055cm</Top>
+                              <Left>0.00661cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.86435cm</Width>
+                              <ZIndex>48</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line20">
+                              <Top>14.42483cm</Top>
+                              <Left>0.00661cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.86435cm</Width>
+                              <ZIndex>49</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox33">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>NOMINA ACTUAL</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>12.75166cm</Top>
+                              <Left>0.12348cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>7.05965cm</Width>
+                              <ZIndex>50</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line21">
+                              <Top>12.61055cm</Top>
+                              <Left>7.5211cm</Left>
+                              <Height>3.41942cm</Height>
+                              <Width>0cm</Width>
+                              <ZIndex>51</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox34">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>DEPARTATAMENTO</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>12.75166cm</Top>
+                              <Left>7.62693cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>8.90071cm</Width>
+                              <ZIndex>52</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line22">
+                              <Top>16.02997cm</Top>
+                              <Left>0.00661cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.86435cm</Width>
+                              <ZIndex>53</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox36">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>SUELDO</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>14.56594cm</Top>
+                              <Left>7.59165cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>3.12845cm</Width>
+                              <ZIndex>54</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Sueldo1">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Sueldo.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Sueldo1</rd:DefaultName>
+                              <Top>15.35037cm</Top>
+                              <Left>7.62693cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>4.87873cm</Width>
+                              <ZIndex>55</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="cargo1">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!cargo.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>cargo1</rd:DefaultName>
+                              <Top>15.32414cm</Top>
+                              <Left>0.12348cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>7.22123cm</Width>
+                              <ZIndex>56</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="nominatype">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!nominatype.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>nominatype</rd:DefaultName>
+                              <Top>13.52049cm</Top>
+                              <Left>0.08819cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>7.09494cm</Width>
+                              <ZIndex>57</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="departamentos">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!departamentos.Value</Value>
+                                      <Style>
+                                        <FontSize>9pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>departamentos</rd:DefaultName>
+                              <Top>13.48521cm</Top>
+                              <Left>7.66221cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>8.86544cm</Width>
+                              <ZIndex>58</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Textbox35">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>GRADO DE INSTRUCCION</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>7.35164cm</Top>
+                              <Left>3.66045cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>7.05965cm</Width>
+                              <ZIndex>59</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line23">
+                              <Top>16.99003cm</Top>
+                              <Left>0.00331cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.86435cm</Width>
+                              <ZIndex>60</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line24">
+                              <Top>17.62503cm</Top>
+                              <Left>0.00331cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.86435cm</Width>
+                              <ZIndex>61</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Line Name="Line25">
+                              <Top>18.3835cm</Top>
+                              <Left>0.08819cm</Left>
+                              <Height>0cm</Height>
+                              <Width>16.86435cm</Width>
+                              <ZIndex>62</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox37">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>Notas:</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>16.29176cm</Top>
+                              <Left>0.12348cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>4.41854cm</Width>
+                              <ZIndex>63</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Line Name="Line26">
+                              <Top>14.44499cm</Top>
+                              <Left>12.68205cm</Left>
+                              <Height>1.58498cm</Height>
+                              <Width>0cm</Width>
+                              <ZIndex>64</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>Dotted</Style>
+                                </Border>
+                              </Style>
+                            </Line>
+                            <Textbox Name="Textbox38">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>ESTATUS</Value>
+                                      <Style>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Textbox14</rd:DefaultName>
+                              <Top>14.56594cm</Top>
+                              <Left>12.82316cm</Left>
+                              <Height>0.59244cm</Height>
+                              <Width>3.12845cm</Width>
+                              <ZIndex>65</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="estatus">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!estatus.Value</Value>
+                                      <Style />
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>estatus</rd:DefaultName>
+                              <Top>15.28886cm</Top>
+                              <Left>12.82316cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>2.5cm</Width>
+                              <ZIndex>66</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                          <Top>0.10583cm</Top>
+                          <Left>0cm</Left>
+                          <Height>18.98701cm</Height>
+                          <Width>16.95254cm</Width>
+                          <Style>
+                            <Border>
+                              <Style>Dotted</Style>
+                              <Width>1.25pt</Width>
+                            </Border>
+                          </Style>
+                        </Rectangle>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DataSet1</DataSetName>
+        <Top>0.14111cm</Top>
+        <Height>19.19868cm</Height>
+        <Width>16.95254cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>7.61409in</Height>
+    <Style />
+  </Body>
+  <Width>6.67423in</Width>
+  <Page>
+    <PageHeader>
+      <Height>4.07458cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox5">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Asociación Civil Unidad
+Educativa Colegio "Teresa Carreño"
+Segunda A. Nº 01, Urbanización La Esperanza
+Telefonos: (0243) 246.89.02 / 246.81.97</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Rif: J29445762-2</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox5</rd:DefaultName>
+          <Left>1.28833cm</Left>
+          <Height>2.20266cm</Height>
+          <Width>8.50604cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Image Name="Image1">
+          <Source>Embedded</Source>
+          <Value>COLEGIO</Value>
+          <Sizing>FitProportional</Sizing>
+          <Left>0.3175cm</Left>
+          <Height>2.20266cm</Height>
+          <Width>0.865cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="Fecha:"+DateTime.Now.ToShortDateString</Value>
+                  <Style>
+                    <Format>d</Format>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>1.60266cm</Top>
+          <Left>13.41911cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.10854cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>FICHA DEL TRABAJADOR</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>3.16604cm</Top>
+          <Left>5.38906cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.91312cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageHeight>27.94cm</PageHeight>
+    <PageWidth>21.59cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="Nomina1_0">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>3255fd96-68d8-47b7-b046-bf5a73ed36b2</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="Nomina1_01">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>d06deb65-40ed-4c94-86b1-a1edc800eeeb</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>Nomina1_01</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="apellidos">
+          <DataField>apellidos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="bancos">
+          <DataField>bancos</DataField>
+          <rd:TypeName>Nomina1._0.bancos</rd:TypeName>
+        </Field>
+        <Field Name="cargo">
+          <DataField>cargo</DataField>
+          <rd:TypeName>Nomina1._0.cargo</rd:TypeName>
+        </Field>
+        <Field Name="cedula">
+          <DataField>cedula</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="conceptos">
+          <DataField>conceptos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="conceptosbonos">
+          <DataField>conceptosbonos</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="correo">
+          <DataField>correo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="departamentos">
+          <DataField>departamentos</DataField>
+          <rd:TypeName>Nomina1._0.departamentos</rd:TypeName>
+        </Field>
+        <Field Name="direccion">
+          <DataField>direccion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="dirfoto">
+          <DataField>dirfoto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="edocivil">
+          <DataField>edocivil</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="estatus">
+          <DataField>estatus</DataField>
+          <rd:TypeName>Nomina1._0.estatus</rd:TypeName>
+        </Field>
+        <Field Name="estatusasis">
+          <DataField>estatusasis</DataField>
+          <rd:TypeName>Nomina1._0.estatusasis</rd:TypeName>
+        </Field>
+        <Field Name="Fechaing">
+          <DataField>Fechaing</DataField>
+          <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="fechanac">
+          <DataField>fechanac</DataField>
+          <rd:TypeName>System.Nullable`1[[System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="gradointruc">
+          <DataField>gradointruc</DataField>
+          <rd:TypeName>Nomina1._0.gradointruc</rd:TypeName>
+        </Field>
+        <Field Name="idbanco">
+          <DataField>idbanco</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="idcargo">
+          <DataField>idcargo</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="iddepartamentos">
+          <DataField>iddepartamentos</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="idestatusasis">
+          <DataField>idestatusasis</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="idgrado">
+          <DataField>idgrado</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="idnacionalidad">
+          <DataField>idnacionalidad</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="Idnomina">
+          <DataField>Idnomina</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="idnominadebonos">
+          <DataField>idnominadebonos</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="idstatus">
+          <DataField>idstatus</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="idtipocuenta">
+          <DataField>idtipocuenta</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="idtrabajador">
+          <DataField>idtrabajador</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="lugarnac">
+          <DataField>lugarnac</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nacionalidad">
+          <DataField>nacionalidad</DataField>
+          <rd:TypeName>Nomina1._0.nacionalidad</rd:TypeName>
+        </Field>
+        <Field Name="Nhijos">
+          <DataField>Nhijos</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="nombrecontacto">
+          <DataField>nombrecontacto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nombres">
+          <DataField>nombres</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="nominatype">
+          <DataField>nominatype</DataField>
+          <rd:TypeName>Nomina1._0.nominatype</rd:TypeName>
+        </Field>
+        <Field Name="nominatype1">
+          <DataField>nominatype1</DataField>
+          <rd:TypeName>Nomina1._0.nominatype</rd:TypeName>
+        </Field>
+        <Field Name="numerocuenta">
+          <DataField>numerocuenta</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="sexo">
+          <DataField>sexo</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="Sueldo">
+          <DataField>Sueldo</DataField>
+          <rd:TypeName>System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]</rd:TypeName>
+        </Field>
+        <Field Name="telefonocel">
+          <DataField>telefonocel</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="telefonocontacto">
+          <DataField>telefonocontacto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="telefonolocal">
+          <DataField>telefonolocal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tipocuenta">
+          <DataField>tipocuenta</DataField>
+          <rd:TypeName>Nomina1._0.tipocuenta</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Nomina1._0</rd:DataSetName>
+        <rd:TableName>trabajador</rd:TableName>
+        <rd:ObjectDataSourceType>Nomina1._0.trabajador, Nomina1.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <EmbeddedImages>
+    <EmbeddedImage Name="COLEGIO">
+      <MIMEType>image/bmp</MIMEType>
+      <ImageData>Qk3KPwAAAAAAAD4AAAAoAAAA0AAAAEUCAAABAAEAAAAAAIw/AAAAAAAAAAAAAAIAAAAAAAAAAAAAAP///wD//////////////////////////////////wAA//////////////////////////////////8AAP//////////////////////////////////AAD//////////////////////////////////wAA//////////////////////////////////8AAP//////////////////////////////////AAD//////////////////////////////////wAA//////////////////////////////////8AAP//////////////////////////////////AAD//////////////////////////////////wAA//////////////////////////////////8AAP//////////////AAA/////////////////AAD/////////////wAAAAL///////////////wAA/////////////gAAAAAH//////////////8AAP////////////AAAAAAAP//////////////AAD///////////+AAAAAAAAf/////////////wAA///////////+AAAAAAAAB/////////////8AAP//////////+AAAAAAAAAH/////////////AAD//////////+AAAAAAAAAAf////////////wAA//////////+AAAAAAAAAAB////////////8AAP/////////+AAAAAAAAAAAH////////////AAD//////////AAAAAAAAAAAA////////////wAA//////////AAAAAAAAAAAAH///////////8AAP/////////gAAAAf//gAAAAf///////////AAD/////////wAAAB////wAA
+AD///////////wAA/////////wAAAB/////gAAAP//////////8AAP////////4AAAA/////+AAAB///////////AAD////////8AAAA//////8AAAP//////////wAA////////+AAAAf//////wAAB//////////8AAP////////AAAAf///////AAAP//////////AAD////////gAAAP///////4AAB//////////wAA////////wAAAH////////gAAP/////////8AAP///////4AAAD////////+AAB//////////AAD///////+AAAA/////////wAAf/////////wAA////////AAAAA////////+AAD/////////8AAP///////gAAAAAH///////4AAf/////////AAD///////4AAAAAAf//////+AAH/////////wAA///////8AAAAAAB///////wAA/////////8AAP///////AAAAAAAH//////+AAP/////////AAD///////gAAAAAAA///////wAB/////////wAA///////wAAAAAAAD//////+AAP////////8AAP//////8AAAAAAAAf//////wAD/////////AAD///////AAAAAAAAD//////8AAf////////wAA///////gAAAAAAAAf//////gAH////////8AAP//////4AAAAAAAAD//////8AA/////////AAD//////8AAAAAAAAAf//////AAP////////wAA///////AAAAAAAAAD//////4AD////////8AAP//////wAAAAAAAAA//////+AAf////////AAD//////4AAAAAAAAAH//////wAH////////wAA//////+AAAAAAAAAB//////8AA////////8AAP//////gAAAAAAAAAP//////gAP////////AAD//////4AAAAAA
+AAAD//////4AD////////wAA//////+AAAAAAAAAAf/////+AA////////8AAP//////AAAAAAAAAAH//////gAH////////AAD//////wAAAAAAAAAA//////8AB////////wAA//////8AAAAAAAAAAP//////AAf///////8AAP//////AAAAAAAAAAD//////wAH////////AAD//////wAAAAAAAAAAf/////8AB////////wAA//////8AAAAAAAAAAH//////gAP///////8AAP//////AAAAAAAAAAB//////4AD////////AAD//////wAAAAAAAAAAf/////+AA////////wAA//////8AAAAAAAAAAH//////gAP///////8AAP//////AAAAAAAAAAB//////4AD////////AAD//////4AAAAAAAAAAf/////+AA////////wAA//////+AAAAAAAAAAH//////wAP///////8AAP//////gAAAAAAAAAB//////8AD////////AAD//////4AAAAAAAAAAf/////+AA////////wAA//////+AAAAAAAAAAH//////wAP///////8AAP//////gAAAAAAAAAB//////8AD////////AAD//////8AAAAAAAAAAf//////AA////////wAA///////AAAAAAAAAAH//////wAP///////8AAP//////wAAAAAAAAAD//////8AD////////AAD//////+AAAAAAAAAA///////AA////////wAA///////gAAAAAAAAAP//////wAP///////8AAP//////8AAAAAAAAAD//////8AD////////AAD///////AAAAAAAAAB///////AA////////wAA///////4AAAAAAAAAf//////wAP///////8AAP//////+AAAAAAAAAH//////8AD////////AAD/////
+//gAAAAAAAAD///////AA////////wAA///////8AAAAAAAAA///////wAP///////8AAP///////AAAAAAAAAf//////8AD////////AAD///////4AAAAAAAAH///////AA////////wAA///////+AAAAAAAAD///////wAf///////8AAP///////wAAAAAAAB///////8AH////////AAD///////+AAAAAAAAf//////+AB////////wAA////////wAAAAAAAP///////gAf///////8AAP///////8AAAAAAAH///////4AH////////AAD////////gAAAAAAD///////+AD////////wAA////////8AAAAAAB////////gA////////8AAP////////gAAAAAA////////4AP////////AAD////////8AAAAAAf///////+AD////////wAA/////////wAAAAAP////////gA////////8AAP////////+AAAAAH////////wAP////////AAD/////////wAAAAH////////8AD////////wAA/////////+AAAAD/////////AA////////8AAP/////////4AAAD/////////wAf////////AAD//////////wAAH/////////8AH////////wAA///////////wAP/////////+AB////////8AAP///////////////////////gAf////////AAD///////////////////////4AH////////wAA///////////////////////+AB////////8AAP///////////////////////AA/////////AAD///////////////////////wAP////////wAA///////////////////////8AD////////8AAP///////////////////////AA/////////
+AAD///////////////////////wAf////////wAA///////////////////////4AH////////8AAP//////////////////////+AB/////////AAD///////////////////////gAf////////wAA///////////////////////4AH////////8AAP//////////////////////+AD/////////AAD///////////////////////gA/////////wAA///////////////////////wAP////////8AAP//////////////////////8AD/////////AAD///////////////////////AA/////////wAA///////////////////////gAf////////8AAP//////////////////////4AH/////////AAD//////////////////////+AB/////////wAA///////////////////////gAf////////8AAP//////////////////////wAP/////////AAD//////////////////////8AD/////////wAA///////////////////////AA/////////8AAP//////////////////////wAP/////////AAD//////////////////////4AD/////////wAA//////////////////////+AB/////////8AAP//////////////////////gAf/////////AAD//////////////////////4AH/////////wAA//////////////////////+AB/////////8AAP//////////////////////AAf/////////AAD//////////////////////wAP/////////wAA//////////////////////8AD/////////8AAP/////////////////////+AA//
+////////AAD//////////////////////gAP/////////wAA//////////////////////4AH/////////8AAP/////////////////////+AB//////////AAD//////////////////////gAf/////////wAA//////////////////////wAH/////////8AAP/////////////////////8AB//////////AAD//////////////////////AA//////////wAA//////////////////////wAP/////////8AAP/////////////////////4AD//////////AAD//////////////8AAAAG/+AA//////////wAA//////////////gAAAAAAfgAP/////////8AAP////////////8AAAAAAAAAAH//////////AAD////////////4AAAAAAAAAAB//////////wAA////////////wAAAAAAAAAAAf/////////8AAP///////////wAAAAAAAAAAAH//////////AAD///////////wAAAAAAAAAAAB//////////wAA///////////wAAAAAAAAAAAAf/////////8AAP//////////wAAAAAAAAAAAAB//////////AAD//////////wAAAAAAAAAAAAAD/////////wAA//////////4AAAAAAAAAAAAAAP////////8AAP/////////4AAAAA///gAAAAAA/////////AAD/////////8AAAAP////4AAAAAD////////wAA/////////8AAAB//////+AAAAAP///////8AAP////////+AAAH///////+AAAAA////////AAD/////////AAAP////////wAAAAH///////wAA/////////AAAf////////8AAAAAf//////8AAP////////gAA///////
+///AAAAAD///////AAD////////wAA//////////wAAAAAf//////wAA////////4AA//////////8ADAAAB//////8AAP///////4AA//////////+AA8AAAP//////AAD///////8AA///////////gAPwAAB//////wAA///////+AA///////////4AH+AAAP/////8AAP///////AAf//////////+AB/4AAB//////AAD///////gAf///////////gAf/gAAH/////wAA///////wAP///////////4AH/8AAA/////8AAP//////4AH///////////8AD//gAAH/////AAD//////4AH////////////AA//8AAA/////wAA//////8AD////////////wAP//wAAH////8AAP/////+AD////////////8AD//+AAA/////AAD//////AB/////////////AA///gAAP////wAA//////wA/////////////gAf//8AAB////8AAP/////4Af////////////4AH///gAAP////AAD/////8AP////////////+AB///8AAB////wAA/////8AH/////////////gAf///AAAP///8AAP/////AH/////////////4AH///4AAD////AAD/////gB/////////////8AD////AAAf///wAA/////wA/////////9////AA////wAAH///8AAP////4Af////////wD///wAP///+AAA////AAD////8AP////////wA///8AD////gAAH///wAA/////AH////////gAP///AB////8AAB///8AAP////gD////////gAD///gAf////AAAP///AAD////wA////////gAB///4AH////4AAB///wAA////8Af///////gAA///+AB/////AAAf//8AAP///+AP////
+///wAA////gAf////wAAD///AAD////AH///////wAA////4AP////8AAA///wAA////gD///////4AA////+AD/////gAAH//8AAP///4B///////4AA/////AA/////4AAB///AAD///8Af//////8AAf////wAP////+AAAf//wAA///+AP//////+AAP////8AD/////wAAD//8AAP///gD///////AAP/////AB/////8AAA///AAD///wB///////gAH/////wAf/////AAAH//wAA///4Af//////wAD/////8AH/////4AAB//8AAP//+AP//////4AB/////+AB/////+AAAP//AAD///AH//////8AA//////gAf/////gAAD//wAA///wB//////+AAP/////4AP/////4AAA//8AAP//4A///////AAH/////+AD/////+AAAP//AAD//+AP//////wAD//////gA//////wAAB//wAA///AD//////4AA//////wAP/////8AAAf/8AAP//wB//////8AAf/////8AD//////AAAH//AAD//4Af/////+AAH//////AB//////wAAA//wAA//+AP//////gAD//////wAf/////8AAAP/8AAP//AD//////wAA//////8AH//////AAAD//AAD//wB//////4AAf/////+AB//////wAAA//wAA//4Af/////+AAH//////gAf/////+AAAH/8AAP/+AH//////AAD//////4AH//////gAAB//AAD//gD//////wAA//////+AD//////4AAAf/wAA//wA//////4AAf//////gA//////+AAAH/8AAP/8AP/////+AAH//////wAP//////gAAB//AAD/+AD//////AAB//////8AD//////4AAAP/wAA//gA//////wAA///////AB//////+AAAD/8AAP/w
+Af/////4AAP//////wAf//////gAAA//AAD/8AH/////+AAD//////8AH//////4AAAP/wAA//AB//////gAB//////+AB//////+AAAD/8AAP/gA//////wAAf//////gAf//////gAAA//AAD/4AP/////8AAH//////4AP//////4AAAP/wAA/8AD//////AAB//////+AD//////8AAAD/8AAP/AA//////gAAf//////gA///////AAAA//AAD/wAP/////4AAH//////wAP//////wAAAP/wAA/4AD/////+AAB//////8AD//////8AAAD/8AAP+AA//////AAAf//////AB///////AAAA//AAD/gAf/////wAAH//////wAf//////gAAAP/wAA/4AH/////8AAB//////8AH//////4AAAB/8AAP8AB//////AAAf/////+AB//////+AAAA//AAD/AAf/////wAAH//////gAf//////gAAAP/wAA/wAH/////8AAB//////4AP//////wAAAD/8AAP8AB//////AAAf/////+AD//////8AAAA//AAD/AAf/////wAAD//////gA///////AAAAP/wAA/wAH/////4AAA//////4AP//////gAAAD/8AAP4AD/////+AAAP/////8AD//////4AAAA//AAD+AA//////gAAD//////AB//////8AAAAP/wAA/gAP/////4AAAf/////wAf//////AAAAD/8AAP4AD/////+AAAH/////8AH//////wAAAA//AAD+AA//////gAAB//////AB//////8AAAAP/wAA/gAP/////4AAAP/////gAf/////+AAAAH/8AAP4AD/////+AAAD/////4AP//////AAAAB//AAD8AA//////gAAAf////+AD//////wAAAAf/wAA/AAP/////4AAAH/////gA//////4AAAA
+H/8AAPwAD/////+AAAA/////4AP/////8AAAAB//AAD8AA//////wAAAP////8AD//////AAAAAf/wAA/AAP/////8AAAB/////AB//////gAAAAH/8AAPwAD//////AAAAf////wAf/////4AAAAD//AAD8AA//////wAAAD////8AH/////8AAAAA//wAA/AAP/////8AAAAf////AB/////+AAAAAP/8AAPwAD//////AAAAD////wAf/////AAAAAD//AAD8AA//////wAAAAf///4AP/////gAAAAB//wAA/AAP/////+AAAAD///+AD/////4AAAAAf/8AAPwAD//////gAAAA////gA/////8AAAAAH//AAD8AA//////4AAAAH///4AP////+AAAAAD//wAA/AAP/////+AAAAA///8AH/////AAAAAA//8AAPwAD//////wAAAAH///AB/////gAAAAAP//AAD8AAf/////8AAAAA///wAf////gAAAAAD//wAA/AAH//////AAAAAH//8AH////wAAAAAB//8AAPwAB//////wAAAAAf//AB////4AAAAAAf//AAD8AAf/////+AAAAAD//gAf///4AAAAAAH//wAA/AAH//////gAAAAAf/4AP///8AAAAAAD//8AAPwAB//////8AAAAAD/+AD///8AAAAAAA///AAD8AAf//////AAAAAAP/gA///+AAAAAAAf//wAA/AAH//////wAAAAAA/4AP//+AAAAAAAH//8AAPwAB//////+AAAAAAH8AD//8AAAAAAAB///AAD8AAf//////gAAAAAAfAA//8AAAAAAAA///wAA/gAD//////8AAAAAAAAAf/4AAAAAAAAP//8AAP4AA///////AAAAAAAAAH8AAAAAAAAAH///AAD+AAP//////4AAAAAAAAAAAAAAAAAAAB///wAA/gAD//////+AAAAAAAAAAAAA
+AAAAAAA///8AAP4AAf//////wAAAAAAAAAAAAAAAAAAAP///AAD+AAH//////8AAAAAAAAAAAAAAAAAAAH///wAA/gAB///////gAAAAAAAAAAAAAAAAAAD///8AAP4AAf//////4AAAAAAAAAAAAAAAAAAA////AAD+AAH///////AAAAAAAAAAAAAAAAAAAf///wAA/gAA///////wAAAAAAAAAAAAAAAAAAP///8AAP8AAP//////+AAAAAAAAAAAAAAAAAAD////AAD/AAD///////wAAAAAAAAAAAAAAAAAB////wAA/wAAf//////8AAAAAAAAAAAAAAAAAA////8AAP8AAH///////gAAAAAAAAAAAAAAAAAP////AAD/AAB///////8AAAAAAAAAAAAAAAAAH////wAA/4AAf///////gAAAAAAAAAAAAAAAAD////8AAP+AAD///////4AAAAAAAAAAAAAAAAA/////AAD/gAA////////AAAAAAAAAAAAAAAAAf////wAA/4AAP///////4AAAAAAAAAAAAAAAAP////8AAP+AAB////////AAAAAAAAAAAAAAAAH/////AAD/wAAf///////4AAAAAAAAAAAAAAAD/////wAA/8AAH////////AAAAAAAAAAAAAAAB/////8AAP/AAA////////4AAAAAAAAAAAAAAA//////AAD/4AAP////////AAAAAAAAAAAAAAAP/////wAA/+AAD////////4AAAAAAAAAAAAAAP/////8AAP/gAAf////////AAAAAAAAAAAAAAH//////AAD/8AAH////////4AAAAAAAAAAAAAD//////wAA//AAB/////////gAAAAAAAAAAAAB//////8AAP/wAAP////////8AAAAAAAAAAAAB///////AAD/8AAD/////////gAAAAAAAAAAAA///////wAA//gAA/////////8A
+AAAAAAAAAAA///////8AAP/4AAH/////////wAAAAAAAAAAAf///////AAD//AAB/////////+AAAAAAAAAAAP///////wAA//wAAP/////////4AAAAAAAAAAP///////8AAP/8AAD//////////gAAAAAAAAAH////////AAD//gAA//////////+AAAAAAAAAH////////wAA//4AAH//////////4AAAAAAAAH////////8AAP/+AAB///////////gAAAAAAAP/////////AAD//gAAf//////////4AAAAAAAf/////////wAA//8AAD//////////+AAAAAAA//////////8AAP//AAA///////////gAAAAAH///////////AAD//wAAH//////////4AD4AA////////////wAA//+AAB//////////+AB///////////////8AAP//gAAP//////////gAf///////////////AAD//8AAD//////////4AH///////////////wAA///AAAf/////////8AD///////////////8AAP//4AAH//////////AA////////////////AAD//+AAA//////////wAP///////////////wAA///gAAH/////////8AD///////////////8AAP//8AAB//////////AA////////////////AAD///AAAP/////////wAf///////////////wAA///4AAD/////////4AH///////////////8AAP//+AAAf////////+AB////////////////AAD///wAAH/////////gAf///////////////wAA///8AAA/////////4AH///////////////8AAP///gAAH////////+AD////////////////AAD///4AAB/////////gA////////////////wAA////AAAP
+////////wAP///////////////8AAP///wAAD////////8AD////////////////AAD///8AAAf////////AA////////////////wAA////gAAD////////wAP///////////////8AAP///8AAA////////8AH////////////////AAD////AAAH///////+AB////////////////wAA////wAAB////////gAf///////////////8AAP///+AAAP///////4AH////////////////AAD////gAAB///////+AD////////////////wAA////8AAAf///////gA////////////////8AAP////AAAD///////4AP////////////////AAD////4AAAf//////8AD////////////////wAA/////AAAH///////AA////////////////8AAP////wAAA///////wAP////////////////AAD////+AAAH//////8AH////////////////wAA/////wAAB///////AB////////////////8AAP////8AAAP//////wAf////////////////AAD/////gAAB//////8AH////////////////wAA/////8AAAP/////+AB////////////////8AAP/////AAAB//////gA/////////////////AAD/////4AAAf/////4AP////////////////wAA//////AAAD/////+AD////////////////8AAP/////wAAAf/////AA/////////////////AAD/////+AAAD/////wAP////////////////wAA//////gAAA/////8AH////////////////8AAP/////8AAAH/////AB/////////////////AAD//////gAAA/////wAf////////////////wAA
+//////8AAAH////8AH////////////////8AAP//////AAAA////+AD/////////////////AAD//////4AAAH////gA/////////////////wAA///////AAAA////4AP////////////////8AAP//////4AAAH///+AD/////////////////AAD///////AAAB////gB/////////////////wAA///////4AAAH///4Af////////////////8AAP///////AAAA///8AH/////////////////AAD///////wAAAP///AB/////////////////wAA///////+AAAA///wAf////////////////8AAP///////wAAAH//8AH/////////////////AAD///////+AAAA///AB/////////////////wAA////////wAAAH//gA/////////////////8AAP///////8AAAA//4AP/////////////////AAD////////gAAAH/+AD/////////////////wAA////////8AAAA//gA/////////////////8AAP////////gAAAH/4Af/////////////////AAD////////8AAAA/+AH/////////////////wAA/////////gAAAH/AB/////////////////8AAP////////8AAAA/wAf/////////////////AAD/////////gAAAH8AP/////////////////wAA/////////8AAAAfAD/////////////////8AAP/////////gAAADwA//////////////////AAD/////////8AAAAIAP/////////////////wAA//////////gAAAAAD/////////////////8AAP/////////8AAAAAA//////////////////AAD//////////gAAAAAf////////////
+/////wAA//////////8AAAAAH/////////////////8AAP//////////gAAAAB//////////////////AAD//////////8AAAAAf/////////////////wAA///////////gAAAAH/////////////////8AAP//////////8AAAAB//////////////////AAD///////////gAAAAf/////////////////wAA///////////8AAAAD/////////////////8AAP///////////gAAAAf/////////////////AAD///////////8AAAAD/////////////////wAA////////////AAAAAf////////////////8AAP///////////8AAAAD/////////////////AAD////////////gAAAA/////////////////wAA////////////8AAAAH////////////////8AAP////////////gAAAA/////////////////AAD////////////8AAAAH////////////////wAA/////////////gAAAA////////////////8AAP////////////8AAAAH////////////////AAD/////////////gAAAA////////////////wAA/////////////8AAAAH///////////////8AAP/////////////gAAAA////////////////AAD/////////////4AAAAH///////////////wAA/////////////+AAAAA///////////////8AAP/////////////gAAAAH///////////////AAD/////////////wAAAAA///////////////wAA/////////////8AAAAAH//////////////8AAP////////////+AAAAAA///////////////AAD/////////////gAAAAAP/
+/////////////wAA/////////////4AAAAAB//////////////8AAP////////////+AAAAAAP//////////////AAD/////////////gAAAAAB//////////////wAA/////////////wAAAAAAf/////////////8AAP////////////8ABwAAAD//////////////AAD/////////////AAeAAAAf/////////////wAA/////////////wAH4AAAD/////////////8AAP////////////4AD/AAAAf/////////////AAD////////////+AA/4AAAH/////////////wAA/////////////gAf/AAAA/////////////8AAP////////////4AH/4AAAH/////////////AAD////////////+AB//AAAA/////////////wAA/////////////gA//4AAAP////////////8AAP////////////wAP//AAAB/////////////AAD////////////8AD//wAAAP////////////wAA/////////////AA//+AAAD////////////8AAP////////////wAf//wAAAf////////////AAD////////////4AH//+AAAD////////////wAA////////////+AB///gAAAf///////////8AAP////////////gAf//8AAAH////////////AAD////////////4AH///gAAA////////////wAA////////////+AD///8AAAH///////////8AAP////////////gA////AAAB////////////AAD////////////4AP///4AAAP///////////wAA////////////8AD////AAAD///////////8AAP////////////AA////wAAAf///////////AAD////////////w
+AP///+AAAD///////////wAA////////////8AD////wAAA///////////8AAP////////////AB////8AAAH///////////AAD////////////gAf////gAAB///////////wAA////////////4AH////8AAAP//////////8AAP///////////+AB/////AAAB///////////AAD////////////gAf////4AAAf//////////wAA////////////4AH////+AAAD//////////8AAP///////////+AB/////wAAA///////////AAD////////////gAf////+AAAH//////////wAA////////////4AH/////gAAB//////////8AAP///////////+AB/////4AAAP//////////AAD////////////gA//////AAAD//////////wAA////////////4AP/////wAAAf/////////8AAP///////////8AD/////+AAAH//////////AAD////////////AA//////gAAA//////////wAA////////////wAP/////8AAAP/////////8AAP///////////8AD//////AAAB//////////AAD////////////AA//////4AAAf/////////wAA////////////wAP//////AAAH/////////8AAP///////////8AD//////wAAA//////////AAD////////////AA//////+AAAP/////////wAA////////////wAH//////gAAD/////////8AAP///////////8AB//////8AAAf/////////AAD///////////+AAf//////AAAH/////////wAA////////////gAH//////4AAB/////////8AAP///////////4AB//////+AAAP/////////AAD/////
+//////+AAf//////gAAD/////////wAA////////////gAH//////8AAA/////////8AAP///////////4AB///////AAAH/////////AAD///////////+AAP//////wAAB/////////wAA////////////gAD//////+AAAP////////8AAP///////////wAA///////gAAD/////////AAD///////////+AAP//////8AAA/////////wAA////////////gAD///////AAAP////////8AAP///////////4AA///////wAAD/////////AAD///////////+AAP//////+AAAf////////wAA////////////gAD///////gAAH////////8AAP///////////wAAf//////8AAB/////////AAD///////////8AAH///////AAAP////////wAA////////////gAB///////wAAD////////8AAP///////////4AAf//////+AAA/////////AAD///////////8AAD///////gAAP////////wAA////////////AAA///////8AAD////////8AAP///////////wAAP///////AAA/////////AAD///////////8AAD///////4AAH////////wAA////////////AAAf//////+AAB////////8AAP///////////wAAH///////gAAf////////AAD///////////+AAB///////4AAH////////wAA////////////gAAP///////AAB////////8AAP///////////wAAD///////wAAf////////AAD///////////8AAA///////8AAH////////wAA////////////AAAP///////gAB////////8AAP///////////4AAB///////4AAf////////
+AAD///////////+AAAf//////+AAD////////wAA////////////gAAH///////wAA////////8AAP///////////4AAA///////8AAP////////AAD///////////+AAAP///////AAD////////wAA////////////gAAD///////wAA////////8AAP///////////4AAAf//////8AAP////////AAD///////////+AAAH///////AAD////////wAA////////////gAAB///////4AA////////8AAP///////////4AAAP//////+AAP////////AAD////////////AAAD///////gAD////////wAA////////////wAAAf//////4AA////////8AAP///////////8AAAH//////+AAP////////AAD////////////AAAB///////gAD////////wAA////////////wAAAP//////8AA////////8AAP///////////8AAAD///////AAP////////AAD////////////gAAAf//////gAD////////wAA////////////4AAAH//////4AB////////8AAP///////////+AAAB//////+AAf////////AAD////////////gAAAP//////gAH////////wAA////////////4AAAD//////4AB////////8AAP///////////+AAAA//////+AAf////////AAD////////////gAAAH//////gAH////////wAA////////////8AAAB//////4AB////////8AAP////////////AAAAP/////+AAf////////AAD////////////wAAAB//////gAH////////wAA////////////8AAAAf/////4AB////////8AAP////////////AAAAD/////+AAf
+////////AAD////////////wAAAA//////gAP////////wAA////////////+AAAAH/////wAD////////8AAP////////////gAAAB/////8AA/////////AAD////////////4AAAAP/////AAP////////wAA/////////////AAAAB/////wAD////////8AAP////////////wAAAAP////4AB/////////AAD////////////8AAAAB////+AAf////////wAA/////////////AAAAAP////gAH////////8AAP////////////4AAAAB////wAB/////////AAD////////////+AAAAAP///4AA/////////wAA/////////////gAAAAA///+AAP////////8AAP////////////8AAAAAH///AAD/////////AAD/////////////AAAAAA///AAB/////////wAA/////////////wAAAAAD//gAAf////////8AAP////////////8AAAAAAH/AAAH/////////AAD/////////////gAAAAAAAAAAB/////////wAA/////////////4AAAAAAAAAAA/////////8AAP////////////+AAAAAAAAAAAP/////////AAD/////////////wAAAAAAAAAAD/////////wAA/////////////8AAAAAAAAAAB/////////8AAP/////////////AAAAAAAAAAAf/////////AAD/////////////4AAAAAAAAAAH/////////wAA/////////////+AAAAAAAAAAD/////////8AAP/////////////gAAAAAAAAAA//////////AAD/////////////8AAAAAAAAAAf/////////wAA//////////////AAAAAAAAAAH/////////8AAP/////////////4AAAA
+AAAAAB//////////AAD//////////////AAAAAAAAAA//////////wAA//////////////wAAAAAAAAAP/////////8AAP/////////////8AAAAAAAAAD//////////AAD//////////////gAAAAAAAAB//////////wAA//////////////4AAAAAAAAAf/////////8AAP//////////////AAAAAAAAAP//////////AAD//////////////wAAAAAAAAD//////////wAA//////////////+AAAAAAAAB//////////8AAP//////////////gAAAAAAAAf//////////AAD//////////////8AAAAAAAAP//////////wAA///////////////AAAAAAAAD//////////8AAP//////////////4AAAAAAAB///////////AAD///////////////AAAAAAAAf//////////wAA///////////////wAAAAAAAP//////////8AAP//////////////+AAAAAAAD///////////AAD///////////////gAAAAAAB///////////wAA///////////////8AAAAAAAf//////////8AAP///////////////gAAAAAAP///////////AAD///////////////8AAAAAAH///////////wAA////////////////AAAAAAB///////////8AAP///////////////4AAAAAA////////////AAD////////////////AAAAAAP///////////wAA////////////////4AAAAAH///////////8AAP////////////////AAAAAD////////////AAD////////////////4AAAAA////////////wAA////////////////+AAAAAf///////////8AAP//////////
+//////wAAAAP////////////AAD////////////////+AAAAD////////////wAA/////////////////4AAAB////////////8AAP/////////////////AAAAf////////////AAD/////////////////8AAAP////////////wAA//////////////////gAAH////////////8AAP/////////////////8AAD/////////////AAD//////////////////wAB/////////////wAA///////////////////AA/////////////8AAP//////////////////4Af/////////////AAD///////////////////gf/////////////wAA//////////////////////////////////8AAP//////////////////////////////////AAD//////////////////////////////////wAA//////////////////////////////////8AAP//////////////////////////////////AAD//////////////////////////////////wAA//////////////////////////////////8AAP//////////////////////////////////AAD//////////////////////////////////wAA//////////////////////////////////8AAA==</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>2ec3f35e-4051-47d5-a99c-061ecea7c6bd</rd:ReportID>
+</Report>

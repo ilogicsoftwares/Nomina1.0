@@ -26,7 +26,7 @@ namespace Nomina1._0
         public WinReport(object ConsultaLista,string report)
         {
             InitializeComponent();
-            Consulta = ConsultaLista;
+            Consulta = ConsultaLista as IEnumerable<dynamic>;
             Reporte = report;
             _reportViewer.Load += ReportViewer_Load;
         }
@@ -39,13 +39,17 @@ namespace Nomina1._0
             ReportDataSource reportDataSource = new ReportDataSource();
             reportDataSource.Name = "DataSet1"; // Name of the DataSet we set in .rdlc
             reportDataSource.Value = Consulta;
+           
             _reportViewer.LocalReport.ReportPath = Reporte;//"C:\\Nomina1.0\\Nomina1.0\\Reports\\ReciboPago.rdlc"; // Path of the rdlc file
             
             _reportViewer.LocalReport.DataSources.Add(reportDataSource);
        
             _reportViewer.SetDisplayMode(DisplayMode.PrintLayout);
-          
+            _reportViewer.ZoomMode = ZoomMode.Percent;
+
+            _reportViewer.ZoomPercent = 100;
             _reportViewer.RefreshReport();
+            
         }
     }
 }

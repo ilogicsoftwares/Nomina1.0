@@ -84,14 +84,21 @@ namespace Nomina1._0
         }
 
 
-        public static void AbrirWindow(string title, string window, string isModal = "1")
+        public static void AbrirWindow(string title, string window, string isModal = "1", string WinParams="x")
         {
             try
             {
               
                 Type ventana = Type.GetType("Nomina1._0." + window);
+                var datos = WinParams.Split(',');
                 MetroWindow nventana = (MetroWindow)Activator.CreateInstance(ventana);
+                if (WinParams != "x")
+                {
+                   nventana = (MetroWindow)Activator.CreateInstance(ventana, datos);
+                }
                
+                  
+                
                 nventana.Title = title;
                 nventana.ShowInTaskbar = false;
                 nventana.WindowStyle = WindowStyle.ToolWindow;
@@ -254,5 +261,12 @@ namespace Nomina1._0
         public string Nomina { get; set; }
         public DateTime FD { get; set; }
         public DateTime FH { get; set; }
+    }
+
+    public class RTrabajador
+    {
+        public string nombres { get; set; }
+        public string apellidos { get; set; }
+
     }
 }

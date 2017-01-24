@@ -51,18 +51,21 @@ namespace Nomina1._0.ViewModel
 
         public void Guardar()
         {
-            try
+            using (nominaEntities bd = new nominaEntities())
             {
+                try
+                {
 
-                bd.nominatype.Add(NominaActual);
-               
-                bd.SaveChanges();
-                Datos.Guardado();
-                Nuevo();
-            }
-            catch (Exception exc)
-            {
-                Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
+                    bd.nominatype.Add(NominaActual);
+
+                    bd.SaveChanges();
+                    Datos.Guardado();
+                    Nuevo();
+                }
+                catch (Exception exc)
+                {
+                    Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
+                }
             }
         }
 

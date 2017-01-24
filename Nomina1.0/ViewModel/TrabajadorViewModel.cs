@@ -12,36 +12,37 @@ using System.Windows.Controls;
 
 namespace Nomina1._0.ViewModel
 {
-    public class TrabajadorViewModel:trabajador,INotifyPropertyChanged
+    public class TrabajadorViewModel : trabajador, INotifyPropertyChanged
     {
 
-        public static List<departamentos> Ldepart { get { return Datos.Micontexto.departamentos.ToList();}}
-        public static List<estatus> Lestatus { get { return Datos.Micontexto.estatus.ToList();}}
-        public static List<cargo> Lcargo { get { return Datos.Micontexto.cargo.ToList(); }}
+        public static List<departamentos> Ldepart { get { return Datos.Micontexto.departamentos.ToList(); } }
+        public static List<estatus> Lestatus { get { return Datos.Micontexto.estatus.ToList(); } }
+        public static List<cargo> Lcargo { get { return Datos.Micontexto.cargo.ToList(); } }
         public static List<nominatype> Lnomina { get { return Datos.Micontexto.nominatype.Where(x => x.tipo == 1).ToList(); } }
-        public static List<nominatype> Bnomina { get { return Datos.Micontexto.nominatype.Where(x=>x.tipo==2).ToList(); } }
-        public static List<nacionalidad> Lnac {get { return Datos.Micontexto.nacionalidad.ToList(); }}
-        public static List<gradointruc> Lgrado { get { return Datos.Micontexto.gradointruc.ToList(); }}
-        public static List<bancos> Lbanco { get { return Datos.Micontexto.bancos.ToList();}}
+        public static List<nominatype> Bnomina { get { return Datos.Micontexto.nominatype.Where(x => x.tipo == 2).ToList(); } }
+        public static List<nacionalidad> Lnac { get { return Datos.Micontexto.nacionalidad.ToList(); } }
+        public static List<gradointruc> Lgrado { get { return Datos.Micontexto.gradointruc.ToList(); } }
+        public static List<bancos> Lbanco { get { return Datos.Micontexto.bancos.ToList(); } }
         public static List<tipocuenta> Ltipoc { get { return Datos.Micontexto.tipocuenta.ToList(); } }
         public RelayCommand ConfigNominaCommand { get; set; }
 
         nominaEntities bd = Datos.Micontexto;
-        
+
         public TrabajadorViewModel()
         {
             Nuevo();
+          
             ConfigNominaCommand = new RelayCommand(ConfigNomina);
 
         }
 
         private void ConfigNomina(object obj)
         {
-            if (TrabajadorActual.idtrabajador==0)
+            if (TrabajadorActual.idtrabajador == 0)
             {
                 return;
             }
-            WinConfigNomina confignomina = new WinConfigNomina(this,int.Parse(obj.ToString()));
+            WinConfigNomina confignomina = new WinConfigNomina(this, int.Parse(obj.ToString()));
             confignomina.Owner = Datos._PrincipalWindow;
             confignomina.ShowDialog();
         }
@@ -50,20 +51,49 @@ namespace Nomina1._0.ViewModel
         public trabajador TrabajadorActual
         {
             get { return _TrabajadorActual; }
-            set { _TrabajadorActual = value;
+            set
+            {
+                _TrabajadorActual = value;
                 ConceptosViewList = new ConceptosListViewModel(TrabajadorActual);
                 CamposViewList = new ListCamposModel(TrabajadorActual.idtrabajador);
-                BonosConceptosViewList= new ConceptosListViewModel(TrabajadorActual,2);
+                NombreCompleto = null;
+                if (TrabajadorActual.nombres!=null)
+                {
+                    NombreCompleto += TrabajadorActual.nombres.Trim();
+                }
+                if (TrabajadorActual.apellidos != null)
+                {
+                    NombreCompleto += " "+TrabajadorActual.apellidos.Trim();
+                }
+
+                BonosConceptosViewList = new ConceptosListViewModel(TrabajadorActual, 2);
                 NotifyPropertyChanged();
             }
-            
+
+        }
+
+        private string _NombreCompleto;
+        public string NombreCompleto
+        {
+            get
+            {
+
+                return _NombreCompleto;
+            }
+            set
+            {
+                _NombreCompleto = value;
+                NotifyPropertyChanged();
+            }
         }
 
         private ListCamposModel _CamposViewList;
         public ListCamposModel CamposViewList
         {
-            get { return _CamposViewList;  }
-            set { _CamposViewList = value;
+            get { return _CamposViewList; }
+            set
+            {
+                _CamposViewList = value;
                 NotifyPropertyChanged();
             }
         }
@@ -92,43 +122,46 @@ namespace Nomina1._0.ViewModel
 
         public void Guardar()
         {
-            try
+            using (nominaEntities bd = new nominaEntities())
             {
-             
-                bd.trabajador.Add(TrabajadorActual);
-                bd.SaveChanges();
-                var Campos = bd.campos.ToList();
-                foreach(var camp in Campos)
+                try
                 {
-                    var camptra = new campotra
+
+                    bd.trabajador.Add(TrabajadorActual);
+                    bd.SaveChanges();
+                    var Campos = bd.campos.ToList();
+                    foreach (var camp in Campos)
                     {
-                        nombrecampo=camp.nombre,
-                        idtrabajador=TrabajadorActual.idtrabajador,
-                        valor=(decimal)camp.valorinicial
-                    };
-                    bd.campotra.Add(camptra);
-                }
-                
-                bd.SaveChanges();
-                Datos.Guardado();
-                Nuevo();
-            }
-            catch (Exception e)
-            {
-                if (e is DbEntityValidationException)
-                {
-                    var ex = e as DbEntityValidationException;
-                    foreach (var eve in ex.EntityValidationErrors)
-                    {
-                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                        foreach (var ve in eve.ValidationErrors)
+                        var camptra = new campotra
                         {
-                            Datos.Msg("Inserte los datos importantes");
-                        }
+                            nombrecampo = camp.nombre,
+                            idtrabajador = TrabajadorActual.idtrabajador,
+                            valor = (decimal)camp.valorinicial
+                        };
+                        bd.campotra.Add(camptra);
                     }
 
+                    bd.SaveChanges();
+                    Datos.Guardado();
+                    Nuevo();
+                }
+                catch (Exception e)
+                {
+                    if (e is DbEntityValidationException)
+                    {
+                        var ex = e as DbEntityValidationException;
+                        foreach (var eve in ex.EntityValidationErrors)
+                        {
+                            Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                                eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                            foreach (var ve in eve.ValidationErrors)
+                            {
+                                Datos.Msg("Inserte los datos importantes");
+                            }
+                        }
 
+
+                    }
                 }
             }
         }
@@ -138,22 +171,22 @@ namespace Nomina1._0.ViewModel
             TrabajadorActual = new trabajador();
 
             TrabajadorActual.direccion = "";
-            
-                    
+           
             NotifyPropertyChanged("TrabajadorActual");
             PrincipalViewModel.EstatusNuevo = true;
         }
 
-       public  void Editar()
+        public void Editar()
 
         {
             try
             {
                 bd.SaveChanges();
-            Datos.Actualizado();
-            }catch(DbEntityValidationException e)
+                Datos.Actualizado();
+            }
+            catch (DbEntityValidationException e)
             {
-              
+
                 foreach (var eve in e.EntityValidationErrors)
                 {
                     Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
@@ -169,27 +202,27 @@ namespace Nomina1._0.ViewModel
         public void Eliminar()
         {
             try
-            { 
-            Datos.Micontexto.trabajador.Remove(TrabajadorActual);
-             var camposD = Datos.Micontexto.campotra.Where(x => x.idtrabajador == TrabajadorActual.idtrabajador);
+            {
+                Datos.Micontexto.trabajador.Remove(TrabajadorActual);
+                var camposD = Datos.Micontexto.campotra.Where(x => x.idtrabajador == TrabajadorActual.idtrabajador);
                 foreach (campotra campo in camposD)
                 {
                     Datos.Micontexto.campotra.Remove(campo);
-                       
+
                 }
-            Datos.Micontexto.SaveChanges();
-            Datos.Msg("Item eliminado", "Eliminado", "I");
+                Datos.Micontexto.SaveChanges();
+                Datos.Msg("Item eliminado", "Eliminado", "I");
                 Nuevo();
                 ConceptosViewList = null;
             }
-            catch(Exception es)
+            catch (Exception es)
             {
                 Datos.Msg("No se puede eliminar el Item, Se han generado procesos con el mismo", "Error", "E");
             }
         }
         public void Buscar(string cedulax)
         {
-           
+
             var bt = bd.trabajador.FirstOrDefault(x => x.cedula == cedulax);
             if (bt != null)
             {
@@ -199,23 +232,24 @@ namespace Nomina1._0.ViewModel
             }
             else
             {
-                TrabajadorActual = new trabajador {cedula=cedulax };
+                TrabajadorActual = new trabajador { cedula = cedulax };
                 PrincipalViewModel.EstatusNuevo = true;
                 NotifyPropertyChanged("TrabajadorActual");
-                
+
             }
         }
 
         public void Filtro(string id)
         {
-           
+
             int esto = Int32.Parse(id);
-            var bt = bd.trabajador.FirstOrDefault(x=>x.idtrabajador==esto);
+            var bt = bd.trabajador.FirstOrDefault(x => x.idtrabajador == esto);
             var camposcount = bd.campos.Count();
             try
             {
                 bd.Entry(bt).Reload(); // cargar sin cambios
-            }catch
+            }
+            catch
             {
 
             }

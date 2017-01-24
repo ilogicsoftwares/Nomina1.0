@@ -46,17 +46,22 @@ namespace Nomina1._0.ViewModel
         #region Editores
          public void Guardar()
           {
-              try
-              {
-                  bd.cargo.Add(CargoActual);
-                  bd.SaveChanges();
-                  MessageBox.Show("Datos Guardados Exitosamente");
-                  Nuevo();
-              }
-              catch (Exception )
-              {
-                Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
-            }
+          
+                using (nominaEntities bd = new nominaEntities())
+                {
+                    try
+                    {
+                        bd.cargo.Add(CargoActual);
+                        bd.SaveChanges();
+                        MessageBox.Show("Datos Guardados Exitosamente");
+                        Nuevo();
+                    }
+                    catch (Exception)
+                    {
+                        Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
+                    }
+                }
+            
           }
 
           public void Nuevo()
@@ -69,10 +74,17 @@ namespace Nomina1._0.ViewModel
          public void Editar()
 
           {
-              bd.SaveChanges();
-              MessageBox.Show("Datos Actualizados");
+            try
+            {
+                bd.SaveChanges();
+                Datos.Actualizado();
+            }
+            catch (Exception)
+            {
+                Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
+            }
 
-          }
+        }
           
           public void Buscar(string texto)
           {

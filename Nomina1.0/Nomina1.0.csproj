@@ -100,6 +100,30 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -168,6 +192,9 @@
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
     <Compile Include="Procs.cs" />
+    <Compile Include="RepByNominaWin.xaml.cs">
+      <DependentUpon>RepByNominaWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="tipocuenta.cs">
       <DependentUpon>Nomina.tt</DependentUpon>
     </Compile>
@@ -203,6 +230,7 @@
     <Compile Include="ViewModel\NominaViewModel.cs" />
     <Compile Include="ViewModel\PrenominaViewModel.cs" />
     <Compile Include="ViewModel\PrincipalViewModel.cs" />
+    <Compile Include="ViewModel\ReportByNominaViewModel.cs" />
     <Compile Include="ViewModel\ReportNominaViewModel.cs" />
     <Compile Include="ViewModel\TrabajadorViewModel.cs" />
     <Compile Include="ViewModel\LogingViewModel.cs" />
@@ -298,6 +326,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PrincipalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RepByNominaWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -426,6 +458,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <AdditionalFiles Include="Reports\FichaTrabajador.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </AdditionalFiles>
     <EmbeddedResource Include="Reports\NominaGeneral.rdlc" />
     <EmbeddedResource Include="Reports\ReciboPago.rdlc" />
     <EmbeddedResource Include="Reports\RepGeneralTrabajad.rdlc" />
@@ -442,6 +477,8 @@
     <None Include="Properties\DataSources\Nomina1._0.ViewModel.PrenominaViewModel.datasource" />
     <None Include="Properties\DataSources\nominaEntities.datasource" />
     <None Include="Properties\DataSources\PNominaGen.datasource" />
+    <None Include="Properties\DataSources\RTrabajador.datasource" />
+    <None Include="Properties\DataSources\trabajador.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

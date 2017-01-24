@@ -45,8 +45,9 @@ namespace Nomina1._0
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            objetoActual = dataGrid.SelectedValue;
+           
+                objetoActual = dataGrid.SelectedValue;
+            
 
 
         }
@@ -54,12 +55,17 @@ namespace Nomina1._0
         private void dataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             //  Datos.AFuncion(PrincipalViewModel.ObjetoActual, "Filtro",selectedObject.GetType().GetProperty("Id").GetValue(selectedObject).ToString());
-            
+            try { 
             var _id = objetoActual.ID;
             if (_id != 0)
             {
                 Datos.AFuncion(PrincipalViewModel.ObjetoActual, "Filtro", _id.ToString());
                 Close();
+            }
+            }
+            catch
+            {
+
             }
         }
 

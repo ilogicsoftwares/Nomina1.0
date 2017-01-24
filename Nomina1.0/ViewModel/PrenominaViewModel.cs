@@ -340,7 +340,7 @@ namespace Nomina1._0.ViewModel
 
         public static string LeerCampo(string campo, int idx)
         {
-            if (campo == null)
+            if (campo == null || campo==string.Empty)
             {
                 return "0";
             }

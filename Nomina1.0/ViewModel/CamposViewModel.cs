@@ -40,29 +40,32 @@ namespace Nomina1._0.ViewModel
         #region Editores
         public void Guardar()
         {
-            try
+            using (nominaEntities bd = new nominaEntities())
             {
-                bd.campos.Add(CampoActual);
-                bd.SaveChanges();
-                var Trabajadores = Datos.Micontexto.trabajador.ToList();
-                foreach(var tra in Trabajadores)
+                try
                 {
-                    var nuevoCampoTra = new campotra
+                    bd.campos.Add(CampoActual);
+                    bd.SaveChanges();
+                    var Trabajadores = Datos.Micontexto.trabajador.ToList();
+                    foreach (var tra in Trabajadores)
                     {
-                        nombrecampo=CampoActual.nombre,
-                        idtrabajador=tra.idtrabajador,
-                        valor=(decimal)CampoActual.valorinicial
-                        
-                    };
-                    bd.campotra.Add(nuevoCampoTra);
+                        var nuevoCampoTra = new campotra
+                        {
+                            nombrecampo = CampoActual.nombre,
+                            idtrabajador = tra.idtrabajador,
+                            valor = (decimal)CampoActual.valorinicial
+
+                        };
+                        bd.campotra.Add(nuevoCampoTra);
+                    }
+                    bd.SaveChanges();
+                    Datos.Guardado();
+                    Nuevo();
                 }
-                bd.SaveChanges();
-                Datos.Guardado();
-                Nuevo();
-            }
-            catch (Exception ex)
-            {
-                Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
+                catch (Exception ex)
+                {
+                    Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
+                }
             }
         }
 
@@ -76,8 +79,15 @@ namespace Nomina1._0.ViewModel
         public void Editar()
 
         {
-            bd.SaveChanges();
-            Datos.Actualizado();
+            try
+            {
+                bd.SaveChanges();
+                Datos.Actualizado();
+            }
+            catch (Exception)
+            {
+                Datos.Msg("Error al guardar verifique y/o complete los datos", "Error Al Guardar", "E");
+            }
 
         }
 
