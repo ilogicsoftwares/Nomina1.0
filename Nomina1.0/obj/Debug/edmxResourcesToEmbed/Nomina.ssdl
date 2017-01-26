@@ -67,6 +67,7 @@
     <Property Name="HorasEx" Type="decimal" Precision="10" Scale="2" />
     <Property Name="DiaF" Type="decimal" Precision="10" Scale="2" />
     <Property Name="Inasistencia" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Retraso" Type="decimal" Precision="10" Scale="2" />
   </EntityType>
   <EntityType Name="controlconfig">
     <Key>
@@ -85,6 +86,8 @@
     <Property Name="WInasistencia" Type="varchar" MaxLength="50" />
     <Property Name="MaxEntradas" Type="int" />
     <Property Name="MaxTimeCheck" Type="int" />
+    <Property Name="MinRetrasos" Type="decimal" Precision="11" Scale="0" />
+    <Property Name="HoraEntrada" Type="datetime" Precision="0" />
   </EntityType>
   <EntityType Name="departamentos">
     <Key>

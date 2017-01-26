@@ -48,8 +48,8 @@ namespace Nomina1._0
         public DbSet<conceptos> conceptos { get; set; }
         public DbSet<estatusasis> estatusasis { get; set; }
         public DbSet<trabajador> trabajador { get; set; }
-        public DbSet<controlconfig> controlconfig { get; set; }
         public DbSet<campotra> campotra { get; set; }
         public DbSet<controlasist> controlasist { get; set; }
+        public DbSet<controlconfig> controlconfig { get; set; }
     }
 }

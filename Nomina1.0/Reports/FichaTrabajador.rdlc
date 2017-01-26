@@ -364,41 +364,6 @@
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
-                            <Textbox Name="Fechaing">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!Fechaing.Value</Value>
-                                      <Style>
-                                        <FontSize>9pt</FontSize>
-                                        <Format>dd/MM/yyyy</Format>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style>
-                                    <TextAlign>Left</TextAlign>
-                                  </Style>
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Fechaing</rd:DefaultName>
-                              <Top>1.08134cm</Top>
-                              <Left>0.05292cm</Left>
-                              <Height>0.6cm</Height>
-                              <Width>4.55965cm</Width>
-                              <ZIndex>14</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
                             <Textbox Name="cargo">
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
@@ -422,7 +387,7 @@
                               <Left>9.22954cm</Left>
                               <Height>0.6cm</Height>
                               <Width>4.23334cm</Width>
-                              <ZIndex>15</ZIndex>
+                              <ZIndex>14</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -456,7 +421,7 @@
                               <Left>13.32177cm</Left>
                               <Height>0.6cm</Height>
                               <Width>2.92365cm</Width>
-                              <ZIndex>16</ZIndex>
+                              <ZIndex>15</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -471,7 +436,7 @@
                               <Top>5.31561cm</Top>
                               <Height>0cm</Height>
                               <Width>16.87097cm</Width>
-                              <ZIndex>17</ZIndex>
+                              <ZIndex>16</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -483,7 +448,7 @@
                               <Left>4.68313cm</Left>
                               <Height>1.80922cm</Height>
                               <Width>0cm</Width>
-                              <ZIndex>18</ZIndex>
+                              <ZIndex>17</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -495,7 +460,7 @@
                               <Left>11.58844cm</Left>
                               <Height>1.80922cm</Height>
                               <Width>0cm</Width>
-                              <ZIndex>19</ZIndex>
+                              <ZIndex>18</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -523,7 +488,7 @@
                               <Left>0.05292cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>4.55965cm</Width>
-                              <ZIndex>20</ZIndex>
+                              <ZIndex>19</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -555,7 +520,7 @@
                               <Left>4.85952cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>4.55965cm</Width>
-                              <ZIndex>21</ZIndex>
+                              <ZIndex>20</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -589,7 +554,7 @@
                               <Top>4.5745cm</Top>
                               <Height>0.6cm</Height>
                               <Width>4.50674cm</Width>
-                              <ZIndex>22</ZIndex>
+                              <ZIndex>21</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -623,7 +588,7 @@
                               <Left>4.85952cm</Left>
                               <Height>0.6cm</Height>
                               <Width>6.44266cm</Width>
-                              <ZIndex>23</ZIndex>
+                              <ZIndex>22</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -655,7 +620,7 @@
                               <Left>11.72955cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>4.55965cm</Width>
-                              <ZIndex>24</ZIndex>
+                              <ZIndex>23</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -671,7 +636,7 @@
                               <Left>0.01323cm</Left>
                               <Height>0cm</Height>
                               <Width>16.85774cm</Width>
-                              <ZIndex>25</ZIndex>
+                              <ZIndex>24</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -683,7 +648,7 @@
                               <Left>10.00094cm</Left>
                               <Height>1.85964cm</Height>
                               <Width>0cm</Width>
-                              <ZIndex>26</ZIndex>
+                              <ZIndex>25</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -711,7 +676,7 @@
                               <Left>0.05292cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>4.55965cm</Width>
-                              <ZIndex>27</ZIndex>
+                              <ZIndex>26</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -743,7 +708,7 @@
                               <Left>10.10677cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>2.93278cm</Width>
-                              <ZIndex>28</ZIndex>
+                              <ZIndex>27</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -759,7 +724,7 @@
                               <Left>0.01323cm</Left>
                               <Height>0cm</Height>
                               <Width>16.85774cm</Width>
-                              <ZIndex>29</ZIndex>
+                              <ZIndex>28</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -771,7 +736,7 @@
                               <Left>3.48406cm</Left>
                               <Height>1.89996cm</Height>
                               <Width>0cm</Width>
-                              <ZIndex>30</ZIndex>
+                              <ZIndex>29</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -799,7 +764,7 @@
                               <Left>0.02646cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>2.37652cm</Width>
-                              <ZIndex>31</ZIndex>
+                              <ZIndex>30</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -831,7 +796,7 @@
                               <Left>0.12348cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>4.41854cm</Width>
-                              <ZIndex>32</ZIndex>
+                              <ZIndex>31</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -864,7 +829,7 @@
                               <Top>9.38627cm</Top>
                               <Height>0.61764cm</Height>
                               <Width>16.52765cm</Width>
-                              <ZIndex>33</ZIndex>
+                              <ZIndex>32</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -880,7 +845,7 @@
                               <Left>0.01323cm</Left>
                               <Height>0cm</Height>
                               <Width>16.85774cm</Width>
-                              <ZIndex>34</ZIndex>
+                              <ZIndex>33</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -892,7 +857,7 @@
                               <Left>0.01323cm</Left>
                               <Height>0cm</Height>
                               <Width>16.85774cm</Width>
-                              <ZIndex>35</ZIndex>
+                              <ZIndex>34</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -920,7 +885,7 @@
                               <Left>0.12348cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>7.05965cm</Width>
-                              <ZIndex>36</ZIndex>
+                              <ZIndex>35</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -936,7 +901,7 @@
                               <Left>8.2731cm</Left>
                               <Height>1.58498cm</Height>
                               <Width>0cm</Width>
-                              <ZIndex>37</ZIndex>
+                              <ZIndex>36</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -964,7 +929,7 @@
                               <Left>8.44949cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>8.07816cm</Width>
-                              <ZIndex>38</ZIndex>
+                              <ZIndex>37</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -998,7 +963,7 @@
                               <Left>11.72955cm</Left>
                               <Height>0.6cm</Height>
                               <Width>4.55965cm</Width>
-                              <ZIndex>39</ZIndex>
+                              <ZIndex>38</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1030,7 +995,7 @@
                               <Left>0.05292cm</Left>
                               <Height>0.91442cm</Height>
                               <Width>9.84219cm</Width>
-                              <ZIndex>40</ZIndex>
+                              <ZIndex>39</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1064,7 +1029,7 @@
                               <Left>0.05292cm</Left>
                               <Height>0.6cm</Height>
                               <Width>3.39586cm</Width>
-                              <ZIndex>41</ZIndex>
+                              <ZIndex>40</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1096,7 +1061,7 @@
                               <Left>3.66045cm</Left>
                               <Height>0.6cm</Height>
                               <Width>12.8672cm</Width>
-                              <ZIndex>42</ZIndex>
+                              <ZIndex>41</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1128,7 +1093,7 @@
                               <Left>13.21594cm</Left>
                               <Height>0.6cm</Height>
                               <Width>3.3117cm</Width>
-                              <ZIndex>43</ZIndex>
+                              <ZIndex>42</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1160,7 +1125,7 @@
                               <Left>13.21594cm</Left>
                               <Height>0.6cm</Height>
                               <Width>3.3117cm</Width>
-                              <ZIndex>44</ZIndex>
+                              <ZIndex>43</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1192,7 +1157,7 @@
                               <Left>8.44949cm</Left>
                               <Height>0.6cm</Height>
                               <Width>8.07816cm</Width>
-                              <ZIndex>45</ZIndex>
+                              <ZIndex>44</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1224,7 +1189,7 @@
                               <Left>0.12348cm</Left>
                               <Height>0.6cm</Height>
                               <Width>7.97323cm</Width>
-                              <ZIndex>46</ZIndex>
+                              <ZIndex>45</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1257,7 +1222,7 @@
                               <Top>11.8406cm</Top>
                               <Height>0.61764cm</Height>
                               <Width>16.52765cm</Width>
-                              <ZIndex>47</ZIndex>
+                              <ZIndex>46</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1273,7 +1238,7 @@
                               <Left>0.00661cm</Left>
                               <Height>0cm</Height>
                               <Width>16.86435cm</Width>
-                              <ZIndex>48</ZIndex>
+                              <ZIndex>47</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -1285,7 +1250,7 @@
                               <Left>0.00661cm</Left>
                               <Height>0cm</Height>
                               <Width>16.86435cm</Width>
-                              <ZIndex>49</ZIndex>
+                              <ZIndex>48</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -1313,7 +1278,7 @@
                               <Left>0.12348cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>7.05965cm</Width>
-                              <ZIndex>50</ZIndex>
+                              <ZIndex>49</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1329,7 +1294,7 @@
                               <Left>7.5211cm</Left>
                               <Height>3.41942cm</Height>
                               <Width>0cm</Width>
-                              <ZIndex>51</ZIndex>
+                              <ZIndex>50</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -1357,7 +1322,7 @@
                               <Left>7.62693cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>8.90071cm</Width>
-                              <ZIndex>52</ZIndex>
+                              <ZIndex>51</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1373,7 +1338,7 @@
                               <Left>0.00661cm</Left>
                               <Height>0cm</Height>
                               <Width>16.86435cm</Width>
-                              <ZIndex>53</ZIndex>
+                              <ZIndex>52</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -1401,7 +1366,7 @@
                               <Left>7.59165cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>3.12845cm</Width>
-                              <ZIndex>54</ZIndex>
+                              <ZIndex>53</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1433,7 +1398,7 @@
                               <Left>7.62693cm</Left>
                               <Height>0.6cm</Height>
                               <Width>4.87873cm</Width>
-                              <ZIndex>55</ZIndex>
+                              <ZIndex>54</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1465,7 +1430,7 @@
                               <Left>0.12348cm</Left>
                               <Height>0.6cm</Height>
                               <Width>7.22123cm</Width>
-                              <ZIndex>56</ZIndex>
+                              <ZIndex>55</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1497,7 +1462,7 @@
                               <Left>0.08819cm</Left>
                               <Height>0.6cm</Height>
                               <Width>7.09494cm</Width>
-                              <ZIndex>57</ZIndex>
+                              <ZIndex>56</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1529,7 +1494,7 @@
                               <Left>7.66221cm</Left>
                               <Height>0.6cm</Height>
                               <Width>8.86544cm</Width>
-                              <ZIndex>58</ZIndex>
+                              <ZIndex>57</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1561,7 +1526,7 @@
                               <Left>3.66045cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>7.05965cm</Width>
-                              <ZIndex>59</ZIndex>
+                              <ZIndex>58</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1577,7 +1542,7 @@
                               <Left>0.00331cm</Left>
                               <Height>0cm</Height>
                               <Width>16.86435cm</Width>
-                              <ZIndex>60</ZIndex>
+                              <ZIndex>59</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -1589,7 +1554,7 @@
                               <Left>0.00331cm</Left>
                               <Height>0cm</Height>
                               <Width>16.86435cm</Width>
-                              <ZIndex>61</ZIndex>
+                              <ZIndex>60</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -1601,7 +1566,7 @@
                               <Left>0.08819cm</Left>
                               <Height>0cm</Height>
                               <Width>16.86435cm</Width>
-                              <ZIndex>62</ZIndex>
+                              <ZIndex>61</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -1629,7 +1594,7 @@
                               <Left>0.12348cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>4.41854cm</Width>
-                              <ZIndex>63</ZIndex>
+                              <ZIndex>62</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1645,7 +1610,7 @@
                               <Left>12.68205cm</Left>
                               <Height>1.58498cm</Height>
                               <Width>0cm</Width>
-                              <ZIndex>64</ZIndex>
+                              <ZIndex>63</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Dotted</Style>
@@ -1673,7 +1638,7 @@
                               <Left>12.82316cm</Left>
                               <Height>0.59244cm</Height>
                               <Width>3.12845cm</Width>
-                              <ZIndex>65</ZIndex>
+                              <ZIndex>64</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1703,6 +1668,38 @@
                               <Left>12.82316cm</Left>
                               <Height>0.6cm</Height>
                               <Width>2.5cm</Width>
+                              <ZIndex>65</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="Fechaing">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!Fechaing.Value</Value>
+                                      <Style />
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Right</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>Fechaing</rd:DefaultName>
+                              <Top>1.04606cm</Top>
+                              <Left>0.12348cm</Left>
+                              <Height>0.6cm</Height>
+                              <Width>4.38326cm</Width>
                               <ZIndex>66</ZIndex>
                               <Style>
                                 <Border>
@@ -1717,7 +1714,6 @@
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
                           <Top>0.10583cm</Top>
-                          <Left>0cm</Left>
                           <Height>18.98701cm</Height>
                           <Width>16.95254cm</Width>
                           <Style>

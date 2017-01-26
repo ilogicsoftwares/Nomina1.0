@@ -41,7 +41,9 @@ namespace Nomina1._0
             {
                 trabajadores = Datos.Micontexto.trabajador.Where(x => x.estatus.idestatus == 1).Where(x=>x.nominatype.idnomina==nominaViewModel.nominaActual.idnomina || x.nominatype1.idnomina == nominaViewModel.nominaActual.idnomina).ToList();
             }
-            WinReport newreport = new WinReport(trabajadores, "C:\\Nomina1.0\\Nomina1.0\\Reports\\" + ReportName + ".rdlc");
+
+            var trabs=trabajadores.Select("new(nombres,apellidos,cargo.nombre as cargo,departamentos.descripcion as departamentos,sueldo,cedula, nominatype.descripcion as nominatype)");
+            WinReport newreport = new WinReport(trabs, "C:\\Nomina1.0\\Nomina1.0\\Reports\\" + ReportName + ".rdlc");
             newreport.Show();
         }
     }

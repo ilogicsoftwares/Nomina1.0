@@ -218,6 +218,7 @@
     </Compile>
     <Compile Include="ViewModel\AsigConceptoViewModel.cs" />
     <Compile Include="ViewModel\AsigNominaViewModel.cs" />
+    <Compile Include="ViewModel\AsistDiaViewModel.cs" />
     <Compile Include="ViewModel\CamposGenViemodel.cs" />
     <Compile Include="ViewModel\CamposViewModel.cs" />
     <Compile Include="ViewModel\CargoViewModel.cs" />
@@ -252,6 +253,9 @@
     </Compile>
     <Compile Include="WinAsigNomina.xaml.cs">
       <DependentUpon>WinAsigNomina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinAsistDiaria.xaml.cs">
+      <DependentUpon>WinAsistDiaria.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinBusqueda.xaml.cs">
       <DependentUpon>WinBusqueda.xaml</DependentUpon>
@@ -346,6 +350,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinAsigNomina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinAsistDiaria.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

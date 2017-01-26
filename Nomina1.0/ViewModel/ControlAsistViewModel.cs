@@ -181,11 +181,11 @@ namespace Nomina1._0.ViewModel
 
         private void TrabajadorFinder(object obj)
         {
-
+            nominaEntities db = new nominaEntities();
             TextBox identi = obj as TextBox;
             Nomtrabajador = null;
             Saludo = null;
-            trabajador = Datos.Micontexto.trabajador.FirstOrDefault(x => x.cedula == Identificator);
+            trabajador = db.trabajador.FirstOrDefault(x => x.cedula == Identificator);
             if (trabajador != null)
             {
 
@@ -196,7 +196,7 @@ namespace Nomina1._0.ViewModel
                 DateTime TodayTime = DateTime.Now;
                 Tempo = TodayTime.ToString("hh:mm:ss tt");
                 //BUSCAR REgistro si existe en el dia
-                 Checkcontrol = Datos.Micontexto.controlasist.Where(x =>x.date==Today).Where(x => x.idtrabajador == trabajador.idtrabajador).FirstOrDefault();
+                 Checkcontrol = db.controlasist.Where(x =>x.date==Today).Where(x => x.idtrabajador == trabajador.idtrabajador).FirstOrDefault();
                 //
                 if (Checkcontrol == null)
                 {
@@ -208,8 +208,8 @@ namespace Nomina1._0.ViewModel
                     nuevocontrol.trabajador = trabajador;
                     nuevocontrol.date = Today;
                     Checkcontrol = nuevocontrol;
-                    
-                    Datos.Micontexto.controlasist.Add(Checkcontrol);
+
+                    db.controlasist.Add(Checkcontrol);
                    
                 }
                 //Configurando para cambiar los campos lineles por coma a listas
@@ -242,12 +242,20 @@ namespace Nomina1._0.ViewModel
                     trabajador.idestatusasis = 1;
                     Lentradas.Add(TodayTime.ToString("H:mm:ss"));
                     var nuevaEntrada = string.Join(",", Lentradas.ToArray());
+                    DateTime retrasoTiempo =DateTime.Today + ((DateTime)Configuracion.HoraEntrada).TimeOfDay;
+                    TimeSpan retraso = TodayTime - retrasoTiempo;
                     Checkcontrol.Entradas = nuevaEntrada;
+                    var minRetraso= (decimal?)retraso.TotalMinutes;
+                    if (minRetraso > Configuracion.MinRetrasos)
+                    {
+                        Checkcontrol.Retraso = (decimal?)retraso.TotalMinutes;
+                    }
                     Color = Colors.LightGreen.ToString();
 
                 }
                 else //Control Salidas
                 {
+
                     if (Lsalidas.Count() == Configuracion.MaxEntradas)
                     {
                         trabajador = null;
@@ -270,12 +278,18 @@ namespace Nomina1._0.ViewModel
                     if (Checkcontrol.HorasD >= Configuracion.MinHorasDia)
                     {
                         Checkcontrol.Dia = 1;
+                    }else
+                    {
+                        ErrorMsg = "El Tabajador no puede salir todavia";
+                        Saludo = "";
+
+                        return;
                     }
                     Color = Colors.DarkRed.ToString();
                     PasarDatos();
                 }
 
-                Datos.Micontexto.SaveChanges();
+                db.SaveChanges();
                
                 Console.Beep();
                 

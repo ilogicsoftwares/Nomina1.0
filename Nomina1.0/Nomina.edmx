@@ -72,6 +72,7 @@
           <Property Name="HorasEx" Type="decimal" Precision="10" Scale="2" />
           <Property Name="DiaF" Type="decimal" Precision="10" Scale="2" />
           <Property Name="Inasistencia" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Retraso" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="controlconfig">
           <Key>
@@ -90,6 +91,8 @@
           <Property Name="WInasistencia" Type="varchar" MaxLength="50" />
           <Property Name="MaxEntradas" Type="int" />
           <Property Name="MaxTimeCheck" Type="int" />
+          <Property Name="MinRetrasos" Type="decimal" Precision="11" Scale="0" />
+          <Property Name="HoraEntrada" Type="datetime" Precision="0" />
         </EntityType>
         <EntityType Name="departamentos">
           <Key>
@@ -786,7 +789,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="tipocuenta" EntitySet="tipocuenta" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
-          <EntitySet Name="controlconfig" EntityType="nominaModel.controlconfig" />
           <EntitySet Name="campotra" EntityType="nominaModel.campotra" />
           <AssociationSet Name="Trabajacampo" Association="nominaModel.Trabajacampo">
             <End Role="trabajador" EntitySet="trabajador" />
@@ -797,6 +799,7 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="trabajador" EntitySet="trabajador" />
             <End Role="controlasist" EntitySet="controlasist" />
           </AssociationSet>
+          <EntitySet Name="controlconfig" EntityType="nominaModel.controlconfig" />
           </EntityContainer>
         <EntityType Name="bancos">
           <Key>
@@ -1329,24 +1332,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="controlconfig">
-          <Key>
-            <PropertyRef Name="idcontrol" />
-          </Key>
-          <Property Name="MinHorasDia" Type="Decimal" />
-          <Property Name="MaxHorasDia" Type="Decimal" />
-          <Property Name="IniJorDiurna" Type="DateTime" />
-          <Property Name="IniJorNocTurna" Type="DateTime" />
-          <Property Name="idcontrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WHorasD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="WDia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="WHorasN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="WHorasEx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="WDiaF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="WInasistencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MaxEntradas" Type="Int32" />
-          <Property Name="MaxTimeCheck" Type="Int32" />
-        </EntityType>
         <EntityType Name="campotra">
           <Key>
             <PropertyRef Name="idcampotra" />
@@ -1384,6 +1369,7 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="HorasEx" Type="Decimal" />
           <Property Name="DiaF" Type="Decimal" />
           <Property Name="Inasistencia" Type="Decimal" />
+          <Property Name="Retraso" Type="Decimal" />
           <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorTra" FromRole="controlasist" ToRole="trabajador" />
         </EntityType>
         <Association Name="TrabajadorTra">
@@ -1398,6 +1384,26 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="controlconfig">
+          <Key>
+            <PropertyRef Name="idcontrol" />
+          </Key>
+          <Property Name="MinHorasDia" Type="Decimal" />
+          <Property Name="MaxHorasDia" Type="Decimal" />
+          <Property Name="IniJorDiurna" Type="DateTime" />
+          <Property Name="IniJorNocTurna" Type="DateTime" />
+          <Property Name="idcontrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WHorasD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WDia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WHorasN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WHorasEx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WDiaF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WInasistencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaxEntradas" Type="Int32" />
+          <Property Name="MaxTimeCheck" Type="Int32" />
+          <Property Name="MinRetrasos" Type="Decimal" />
+          <Property Name="HoraEntrada" Type="DateTime" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1703,25 +1709,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="controlconfig">
-            <EntityTypeMapping TypeName="nominaModel.controlconfig">
-              <MappingFragment StoreEntitySet="controlconfig">
-                <ScalarProperty Name="MaxTimeCheck" ColumnName="MaxTimeCheck" />
-                <ScalarProperty Name="MaxEntradas" ColumnName="MaxEntradas" />
-                <ScalarProperty Name="WInasistencia" ColumnName="WInasistencia" />
-                <ScalarProperty Name="WDiaF" ColumnName="WDiaF" />
-                <ScalarProperty Name="WHorasEx" ColumnName="WHorasEx" />
-                <ScalarProperty Name="WHorasN" ColumnName="WHorasN" />
-                <ScalarProperty Name="WDia" ColumnName="WDia" />
-                <ScalarProperty Name="WHorasD" ColumnName="WHorasD" />
-                <ScalarProperty Name="idcontrol" ColumnName="idcontrol" />
-                <ScalarProperty Name="IniJorNocTurna" ColumnName="IniJorNocTurna" />
-                <ScalarProperty Name="IniJorDiurna" ColumnName="IniJorDiurna" />
-                <ScalarProperty Name="MaxHorasDia" ColumnName="MaxHorasDia" />
-                <ScalarProperty Name="MinHorasDia" ColumnName="MinHorasDia" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="campotra">
             <EntityTypeMapping TypeName="nominaModel.campotra">
               <MappingFragment StoreEntitySet="campotra">
@@ -1735,6 +1722,7 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <EntitySetMapping Name="controlasist">
             <EntityTypeMapping TypeName="nominaModel.controlasist">
               <MappingFragment StoreEntitySet="controlasist">
+                <ScalarProperty Name="Retraso" ColumnName="Retraso" />
                 <ScalarProperty Name="Inasistencia" ColumnName="Inasistencia" />
                 <ScalarProperty Name="DiaF" ColumnName="DiaF" />
                 <ScalarProperty Name="HorasEx" ColumnName="HorasEx" />
@@ -1746,6 +1734,27 @@ FROM `varsys` AS `varsys`</DefiningQuery>
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="controlconfig">
+            <EntityTypeMapping TypeName="nominaModel.controlconfig">
+              <MappingFragment StoreEntitySet="controlconfig">
+                <ScalarProperty Name="HoraEntrada" ColumnName="HoraEntrada" />
+                <ScalarProperty Name="MinRetrasos" ColumnName="MinRetrasos" />
+                <ScalarProperty Name="MaxTimeCheck" ColumnName="MaxTimeCheck" />
+                <ScalarProperty Name="MaxEntradas" ColumnName="MaxEntradas" />
+                <ScalarProperty Name="WInasistencia" ColumnName="WInasistencia" />
+                <ScalarProperty Name="WDiaF" ColumnName="WDiaF" />
+                <ScalarProperty Name="WHorasEx" ColumnName="WHorasEx" />
+                <ScalarProperty Name="WHorasN" ColumnName="WHorasN" />
+                <ScalarProperty Name="WDia" ColumnName="WDia" />
+                <ScalarProperty Name="WHorasD" ColumnName="WHorasD" />
+                <ScalarProperty Name="idcontrol" ColumnName="idcontrol" />
+                <ScalarProperty Name="IniJorNocTurna" ColumnName="IniJorNocTurna" />
+                <ScalarProperty Name="IniJorDiurna" ColumnName="IniJorDiurna" />
+                <ScalarProperty Name="MaxHorasDia" ColumnName="MaxHorasDia" />
+                <ScalarProperty Name="MinHorasDia" ColumnName="MinHorasDia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

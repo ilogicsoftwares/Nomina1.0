@@ -300,25 +300,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="controlconfig">
-      <EntityTypeMapping TypeName="nominaModel.controlconfig">
-        <MappingFragment StoreEntitySet="controlconfig">
-          <ScalarProperty Name="MaxTimeCheck" ColumnName="MaxTimeCheck" />
-          <ScalarProperty Name="MaxEntradas" ColumnName="MaxEntradas" />
-          <ScalarProperty Name="WInasistencia" ColumnName="WInasistencia" />
-          <ScalarProperty Name="WDiaF" ColumnName="WDiaF" />
-          <ScalarProperty Name="WHorasEx" ColumnName="WHorasEx" />
-          <ScalarProperty Name="WHorasN" ColumnName="WHorasN" />
-          <ScalarProperty Name="WDia" ColumnName="WDia" />
-          <ScalarProperty Name="WHorasD" ColumnName="WHorasD" />
-          <ScalarProperty Name="idcontrol" ColumnName="idcontrol" />
-          <ScalarProperty Name="IniJorNocTurna" ColumnName="IniJorNocTurna" />
-          <ScalarProperty Name="IniJorDiurna" ColumnName="IniJorDiurna" />
-          <ScalarProperty Name="MaxHorasDia" ColumnName="MaxHorasDia" />
-          <ScalarProperty Name="MinHorasDia" ColumnName="MinHorasDia" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="campotra">
       <EntityTypeMapping TypeName="nominaModel.campotra">
         <MappingFragment StoreEntitySet="campotra">
@@ -332,6 +313,7 @@
     <EntitySetMapping Name="controlasist">
       <EntityTypeMapping TypeName="nominaModel.controlasist">
         <MappingFragment StoreEntitySet="controlasist">
+          <ScalarProperty Name="Retraso" ColumnName="Retraso" />
           <ScalarProperty Name="Inasistencia" ColumnName="Inasistencia" />
           <ScalarProperty Name="DiaF" ColumnName="DiaF" />
           <ScalarProperty Name="HorasEx" ColumnName="HorasEx" />
@@ -343,6 +325,27 @@
           <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="controlconfig">
+      <EntityTypeMapping TypeName="nominaModel.controlconfig">
+        <MappingFragment StoreEntitySet="controlconfig">
+          <ScalarProperty Name="HoraEntrada" ColumnName="HoraEntrada" />
+          <ScalarProperty Name="MinRetrasos" ColumnName="MinRetrasos" />
+          <ScalarProperty Name="MaxTimeCheck" ColumnName="MaxTimeCheck" />
+          <ScalarProperty Name="MaxEntradas" ColumnName="MaxEntradas" />
+          <ScalarProperty Name="WInasistencia" ColumnName="WInasistencia" />
+          <ScalarProperty Name="WDiaF" ColumnName="WDiaF" />
+          <ScalarProperty Name="WHorasEx" ColumnName="WHorasEx" />
+          <ScalarProperty Name="WHorasN" ColumnName="WHorasN" />
+          <ScalarProperty Name="WDia" ColumnName="WDia" />
+          <ScalarProperty Name="WHorasD" ColumnName="WHorasD" />
+          <ScalarProperty Name="idcontrol" ColumnName="idcontrol" />
+          <ScalarProperty Name="IniJorNocTurna" ColumnName="IniJorNocTurna" />
+          <ScalarProperty Name="IniJorDiurna" ColumnName="IniJorDiurna" />
+          <ScalarProperty Name="MaxHorasDia" ColumnName="MaxHorasDia" />
+          <ScalarProperty Name="MinHorasDia" ColumnName="MinHorasDia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

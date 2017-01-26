@@ -46,11 +46,11 @@
         <AssociationConnector Association="nominaModel.PrenominaTraid" />
         <AssociationConnector Association="nominaModel.prenominagen_ibfk_1" />
         <AssociationConnector Association="nominaModel.TrabajadorTipoc" />
-        <EntityTypeShape EntityType="nominaModel.controlconfig" Width="1.5" PointX="15.375" PointY="3.75" />
         <EntityTypeShape EntityType="nominaModel.campotra" Width="1.5" PointX="11" PointY="23.5" />
         <AssociationConnector Association="nominaModel.Trabajacampo" />
         <EntityTypeShape EntityType="nominaModel.controlasist" Width="1.5" PointX="11" PointY="18.75" />
         <AssociationConnector Association="nominaModel.TrabajadorTra" />
+        <EntityTypeShape EntityType="nominaModel.controlconfig" Width="1.5" PointX="15.375" PointY="3.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -25,6 +25,7 @@ namespace Nomina1._0
         public Nullable<decimal> HorasEx { get; set; }
         public Nullable<decimal> DiaF { get; set; }
         public Nullable<decimal> Inasistencia { get; set; }
+        public Nullable<decimal> Retraso { get; set; }
     
         public virtual trabajador trabajador { get; set; }
     }

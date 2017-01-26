@@ -96,7 +96,6 @@
       <End Role="tipocuenta" EntitySet="tipocuenta" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
-    <EntitySet Name="controlconfig" EntityType="nominaModel.controlconfig" />
     <EntitySet Name="campotra" EntityType="nominaModel.campotra" />
     <AssociationSet Name="Trabajacampo" Association="nominaModel.Trabajacampo">
       <End Role="trabajador" EntitySet="trabajador" />
@@ -107,6 +106,7 @@
       <End Role="trabajador" EntitySet="trabajador" />
       <End Role="controlasist" EntitySet="controlasist" />
     </AssociationSet>
+    <EntitySet Name="controlconfig" EntityType="nominaModel.controlconfig" />
   </EntityContainer>
   <EntityType Name="bancos">
     <Key>
@@ -639,24 +639,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="controlconfig">
-    <Key>
-      <PropertyRef Name="idcontrol" />
-    </Key>
-    <Property Name="MinHorasDia" Type="Decimal" />
-    <Property Name="MaxHorasDia" Type="Decimal" />
-    <Property Name="IniJorDiurna" Type="DateTime" />
-    <Property Name="IniJorNocTurna" Type="DateTime" />
-    <Property Name="idcontrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="WHorasD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="WDia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="WHorasN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="WHorasEx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="WDiaF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="WInasistencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="MaxEntradas" Type="Int32" />
-    <Property Name="MaxTimeCheck" Type="Int32" />
-  </EntityType>
   <EntityType Name="campotra">
     <Key>
       <PropertyRef Name="idcampotra" />
@@ -694,6 +676,7 @@
     <Property Name="HorasEx" Type="Decimal" />
     <Property Name="DiaF" Type="Decimal" />
     <Property Name="Inasistencia" Type="Decimal" />
+    <Property Name="Retraso" Type="Decimal" />
     <NavigationProperty Name="trabajador" Relationship="nominaModel.TrabajadorTra" FromRole="controlasist" ToRole="trabajador" />
   </EntityType>
   <Association Name="TrabajadorTra">
@@ -708,4 +691,24 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="controlconfig">
+    <Key>
+      <PropertyRef Name="idcontrol" />
+    </Key>
+    <Property Name="MinHorasDia" Type="Decimal" />
+    <Property Name="MaxHorasDia" Type="Decimal" />
+    <Property Name="IniJorDiurna" Type="DateTime" />
+    <Property Name="IniJorNocTurna" Type="DateTime" />
+    <Property Name="idcontrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WHorasD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WDia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WHorasN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WHorasEx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WDiaF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WInasistencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaxEntradas" Type="Int32" />
+    <Property Name="MaxTimeCheck" Type="Int32" />
+    <Property Name="MinRetrasos" Type="Decimal" />
+    <Property Name="HoraEntrada" Type="DateTime" />
+  </EntityType>
 </Schema>
