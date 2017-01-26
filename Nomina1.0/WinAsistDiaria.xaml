@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Nomina1._0"
         xmlns:vm="clr-namespace:Nomina1._0.ViewModel"
         mc:Ignorable="d"
-        Title="WinAsistDiaria" Height="435.897" Width="669.231">
+        Title="WinAsistDiaria" Height="456.897" Width="669.231">
     <Window.DataContext>
         <vm:AsistDiaViewModel/>
     </Window.DataContext>
@@ -26,6 +26,8 @@
             </DataGrid.Columns>
 
         </DataGrid>
+        <Label x:Name="label" Content="{Binding ControlDia.Count}" HorizontalAlignment="Left" Margin="621,401,0,0" VerticalAlignment="Top" Width="30" Height="26"/>
+        <Label x:Name="label_Copy" Content="Total Trabajadores:" HorizontalAlignment="Left" Margin="505,401,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </local:MetroToolWindowBase>
