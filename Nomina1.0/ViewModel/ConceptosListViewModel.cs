@@ -113,6 +113,13 @@ namespace Nomina1._0.ViewModel
                 obtenernombres();
                 ItemActual = 0;
                 NotifyPropertyChanged("Concepts");
+                GurdarEn(ListTipo);
+            }
+        }
+        private void GurdarEn(int listTipo)
+        {
+            if (listTipo == 1)
+            {
                 if (Concepts != null)
                 {
                     objeto.conceptos = string.Join(",", Concepts);
@@ -120,6 +127,17 @@ namespace Nomina1._0.ViewModel
                 else
                 {
                     objeto.conceptos = string.Empty;
+                }
+            }
+            else
+            {
+                if (Concepts != null)
+                {
+                    objeto.conceptosbonos = string.Join(",", Concepts);
+                }
+                else
+                {
+                    objeto.conceptosbonos = string.Empty;
                 }
             }
         }
@@ -144,14 +162,7 @@ namespace Nomina1._0.ViewModel
                 NotifyPropertyChanged("Concepts");
             }
             ItemActual = ind - 1;
-            if (Concepts != null)
-            {
-                objeto.conceptos = string.Join(",", Concepts);
-            }
-            else
-            {
-                objeto.conceptos = string.Empty;
-            }
+            GurdarEn(ListTipo);
         }
         public void MoveDown(object item)
         {
@@ -167,14 +178,7 @@ namespace Nomina1._0.ViewModel
                 NotifyPropertyChanged("Concepts");
             }
             ItemActual = ind + 1;
-            if (Concepts != null)
-            {
-                objeto.conceptos = string.Join(",", Concepts);
-            }
-            else
-            {
-                objeto.conceptos = string.Empty;
-            }
+            GurdarEn(ListTipo);
 
         }
         public void Filtro(string concepto) //AddObject
@@ -189,14 +193,7 @@ namespace Nomina1._0.ViewModel
             ItemActual = Concepts.IndexOf(concepto);
             obtenernombres();
             NotifyPropertyChanged("Concepts");
-            if (Concepts != null)
-            {
-                objeto.conceptos = string.Join(",", Concepts);
-            }
-            else
-            {
-                objeto.conceptos = string.Empty;
-            }
+            GurdarEn(ListTipo);
 
         }
 

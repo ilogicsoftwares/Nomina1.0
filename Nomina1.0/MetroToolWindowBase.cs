@@ -33,6 +33,7 @@ namespace Nomina1._0
         private void Closedx(object sender, EventArgs e)
         {
             Datos.ResetAll();
+            Datos._PrincipalWindow.Focus();
         }
 
         private void Activar(object sender, EventArgs e)

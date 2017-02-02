@@ -38,11 +38,15 @@ namespace Nomina1._0
                 Title = trabajador.TrabajadorActual.nominatype.descripcion;
                 listBox.DataContext = trabajador.ConceptosViewList;
                 listBox_Copy.DataContext = trabajador.CamposViewList;
-            }else
+                BtnGroup.DataContext= trabajador.ConceptosViewList;
+
+            }
+            else
             {
                 Title = trabajador.TrabajadorActual.nominatype1.descripcion;
                 listBox.DataContext = trabajador.BonosConceptosViewList;
                 listBox_Copy.DataContext = trabajador.CamposViewList;
+                BtnGroup.DataContext = trabajador.BonosConceptosViewList;
             }
 
         }

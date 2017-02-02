@@ -101,7 +101,7 @@ namespace Nomina1._0
                 
                 nventana.Title = title;
                 nventana.ShowInTaskbar = false;
-                nventana.WindowStyle = WindowStyle.ToolWindow;
+               // nventana.WindowStyle = WindowStyle.ToolWindow;
                 nventana.SetResourceReference(MetroWindow.GlowBrushProperty,"AccentColorBrush");
                 nventana.ResizeMode = ResizeMode.CanResizeWithGrip;
                 if (window=="PrincipalWindow")

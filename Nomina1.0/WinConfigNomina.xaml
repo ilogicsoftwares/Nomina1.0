@@ -21,53 +21,55 @@
             </Rectangle>
         </Button>
         <ListBox x:Name="listBox" Margin="16,0,230,17" BorderBrush="Teal" BorderThickness="1" ItemsSource="{Binding FullConcepts, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="codigo" DisplayMemberPath="nombre" TextOptions.TextHintingMode="Animated" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="105" VerticalAlignment="Bottom" SelectedIndex="{Binding ConceptosViewList.ItemActual}" />
-        <Button x:Name="btnUp" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Mover Arriba" Margin="165,0,0,94" Height="35" VerticalAlignment="Bottom" Command="{Binding ConceptosViewList.MoveUpCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}">
-            <Rectangle Width="15"
-                Height="15"
-                Fill="Teal">
-                <Rectangle.OpacityMask>
-                    <VisualBrush Stretch="Fill"
-                        Visual="{DynamicResource appbar_arrow_up}"  />
-                </Rectangle.OpacityMask>
-            </Rectangle>
-        </Button>
-        <Button x:Name="btnDown" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Mover Abajo" Margin="165,0,0,66" Height="35" VerticalAlignment="Bottom" Command="{Binding ConceptosViewList.MoveDownCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}">
-            <Rectangle Width="15"
-                Height="15"
-                Fill="Teal">
-                <Rectangle.OpacityMask>
-                    <VisualBrush Stretch="Fill"
-                        Visual="{DynamicResource appbar_arrow_down}" />
-                </Rectangle.OpacityMask>
-            </Rectangle>
-        </Button>
-        <Button x:Name="BtnPlus" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Agregar Concepto" Margin="165,0,0,38" Height="35" VerticalAlignment="Bottom" Command="{Binding ConceptosViewList.AddConceptCommand}">
-            <Rectangle Width="15"
-                Height="15"
-                Fill="Teal">
-                <Rectangle.OpacityMask>
-                    <VisualBrush Stretch="Fill"
-                        Visual="{DynamicResource appbar_add}" />
-                </Rectangle.OpacityMask>
-            </Rectangle>
-        </Button>
-        <Button x:Name="btnEx"  Command="{Binding ConceptosViewList.RemoveConceptCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}"  HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Eliminar Concepto" Margin="165,0,0,10" Height="35" VerticalAlignment="Bottom">
-            <Rectangle Width="15"
-                Height="15"
-                Fill="Red" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-44.838"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Rectangle.RenderTransform>
-                <Rectangle.OpacityMask>
-                    <VisualBrush Stretch="Fill"
-                        Visual="{DynamicResource appbar_add}" />
-                </Rectangle.OpacityMask>
-            </Rectangle>
-        </Button>
+        <Grid x:Name="BtnGroup" HorizontalAlignment="Left" Height="116" Margin="165,52,0,0" VerticalAlignment="Top" Width="35">
+            <Button x:Name="btnUp" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Mover Arriba" Margin="0,0,0,85" Height="35" VerticalAlignment="Bottom" Command="{Binding MoveUpCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}">
+                <Rectangle Width="15"
+                    Height="15"
+                    Fill="Teal">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                            Visual="{DynamicResource appbar_arrow_up}"  />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="btnDown" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Mover Abajo" Margin="0,0,0,57" Height="35" VerticalAlignment="Bottom" Command="{Binding MoveDownCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}">
+                <Rectangle Width="15"
+                    Height="15"
+                    Fill="Teal">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                            Visual="{DynamicResource appbar_arrow_down}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="BtnPlus" HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Agregar Concepto" Margin="0,0,0,29" Height="35" VerticalAlignment="Bottom" Command="{Binding AddConceptCommand}">
+                <Rectangle Width="15"
+                    Height="15"
+                    Fill="Teal">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                            Visual="{DynamicResource appbar_add}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="btnEx"  Command="{Binding RemoveConceptCommand}" CommandParameter="{Binding SelectedValue, ElementName=listBox}"  HorizontalAlignment="Left" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" ToolTip="Eliminar Concepto" Margin="0,0,0,1" Height="35" VerticalAlignment="Bottom">
+                <Rectangle Width="15"
+                    Height="15"
+                    Fill="Red" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-44.838"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+                            Visual="{DynamicResource appbar_add}" />
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+        </Grid>
     </Grid>
 </local:MetroToolWindowBase>

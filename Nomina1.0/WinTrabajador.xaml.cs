@@ -54,6 +54,11 @@ namespace Nomina1._0
             TrabajadorViewModel tra = (TrabajadorViewModel)DataContext;
             tra.BonosConceptosViewList.CargaPorNomina((nominatype)comboNomina_Copy.SelectedValue);
         }
+
+        private void CommandNuevo_Copy4_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
     
 }

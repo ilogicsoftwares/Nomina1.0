@@ -43,8 +43,8 @@ namespace Nomina1._0.ViewModel
                 return;
             }
             WinConfigNomina confignomina = new WinConfigNomina(this, int.Parse(obj.ToString()));
-            confignomina.Owner = Datos._PrincipalWindow;
-            confignomina.ShowDialog();
+             confignomina.Owner = Datos._PrincipalWindow;
+             confignomina.ShowDialog();
         }
 
         private trabajador _TrabajadorActual;

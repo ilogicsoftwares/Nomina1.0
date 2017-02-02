@@ -35,7 +35,7 @@ namespace Nomina1._0.ViewModel
             conceptos = BD.conceptos.ToList();
             buscarTrabs(0);
             TrabajadoresS = new ObservableCollection<Trabs>();
-            var noms = BD.nominatype.Where(x => x.tipo == 1).ToList();
+            var noms = BD.nominatype.ToList();
             nominatype newtodo = new nominatype { descripcion = "TODOS",idnomina=0 };
             noms.Add(newtodo);
             Nominas = noms.OrderBy(x => x.idnomina).ToList();
@@ -55,7 +55,14 @@ namespace Nomina1._0.ViewModel
         {
             trabajador = new TrabajadorViewModel();
             trabajador.Filtro(idtrabajador.ToString());
-            trabajador.ConceptosViewList.Filtro(conceptosSelected.idconcepto.ToString());
+            if (Nomina.tipo == 1)
+            {
+                trabajador.ConceptosViewList.Filtro(conceptosSelected.idconcepto.ToString());
+            }
+            else
+            {
+                trabajador.BonosConceptosViewList.Filtro(conceptosSelected.idconcepto.ToString());
+            }
       
         }
         private void MoveTrab(object obj)
@@ -100,7 +107,7 @@ namespace Nomina1._0.ViewModel
         {
             if (nominaid != 0)
             {
-                Trabajadoresx = new ObservableCollection<Trabs>(BD.trabajador.Where(x => x.idstatus == 1).Where(x => x.nominatype.idnomina == nominaid).Select(x => new Trabs { Nombre = x.nombres.Trim() + " " + x.apellidos.Trim(), ID = x.idtrabajador }).ToList());
+                Trabajadoresx = new ObservableCollection<Trabs>(BD.trabajador.Where(x => x.idstatus == 1).Where(x => x.nominatype.idnomina == nominaid || x.nominatype1.idnomina==nominaid).Select(x => new Trabs { Nombre = x.nombres.Trim() + " " + x.apellidos.Trim(), ID = x.idtrabajador }).ToList());
             }else
             {
                 Trabajadoresx = new ObservableCollection<Trabs>(BD.trabajador.Where(x => x.idstatus == 1).Select(x => new Trabs { Nombre = x.nombres.Trim() +" "+ x.apellidos.Trim(), ID = x.idtrabajador }).ToList());
