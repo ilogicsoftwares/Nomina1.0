@@ -28,6 +28,7 @@ namespace Nomina1._0
         }
         public WinBusqueda(string Titulo,string objetotype,string select)
         {
+
            
             InitializeComponent();
 
@@ -54,21 +55,24 @@ namespace Nomina1._0
 
         private void dataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            //  Datos.AFuncion(PrincipalViewModel.ObjetoActual, "Filtro",selectedObject.GetType().GetProperty("Id").GetValue(selectedObject).ToString());
-            try { 
-            var _id = objetoActual.ID;
-            if (_id != 0)
+            Selection();
+        }
+        private void Selection()
+        {
+            try
             {
-                Datos.AFuncion(PrincipalViewModel.ObjetoActual, "Filtro", _id.ToString());
-                Close();
-            }
+                var _id = objetoActual.ID;
+                if (_id != 0)
+                {
+                    Datos.AFuncion(PrincipalViewModel.ObjetoActual, "Filtro", _id.ToString());
+                    Close();
+                }
             }
             catch
             {
 
             }
         }
-
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             if (textBox.Text==string.Empty)
@@ -128,7 +132,23 @@ namespace Nomina1._0
        
         }
 
+        private void dataGrid_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+        }
 
+        private void dataGrid_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            //  Datos.AFuncion(PrincipalViewModel.ObjetoActual, "Filtro",selectedObject.GetType().GetProperty("Id").GetValue(selectedObject).ToString());
 
+            if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                Selection();
+            }
+        }
+
+        private void MetroWindow_Closed(object sender, EventArgs e)
+        {
+            Datos.WindowActual.Focus();
+        }
     }
 }
