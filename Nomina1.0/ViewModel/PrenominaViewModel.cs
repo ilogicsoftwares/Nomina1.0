@@ -383,7 +383,7 @@ namespace Nomina1._0.ViewModel
 
             var Gen = Datos.Micontexto.nominauni.Where(x => x.nominatype.idnomina == SelectedNomina.idnomina);
 
-            if ((FHasta - Fdesde).TotalDays < CantDays || (FHasta - Fdesde).TotalDays > CantDays + 3)
+            if (FHasta.Month!=2 && (FHasta - Fdesde).TotalDays < CantDays || (FHasta - Fdesde).TotalDays > CantDays + 3)
             {
                 Datos.Msg("La cantidad de dias entre una y otra fecha debe de ser de " + CantDays.ToString() + " y no mayor de " + (CantDays + 2).ToString(), "Error");
                 result = true;

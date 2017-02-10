@@ -269,4 +269,12 @@ namespace Nomina1._0
         public string apellidos { get; set; }
 
     }
+
+    public class Asistencia
+    {
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+        public string Cedula { get; set; }
+        public List<int> Asistencias { get; set; }
+}
 }

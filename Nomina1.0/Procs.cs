@@ -72,5 +72,56 @@ namespace Nomina1._0
             }
             return (acumasig - acumdeduc).ToString();
         }
+        [Display(Description = "Calcula los dias laborados por Control de Asistencia")]
+        public string DIASCONTROLASIST(string idtra)
+        {
+            var idx = int.Parse(idtra);
+            var fechadesde = PrenominaViewModel.FechaD;
+            var fechahasta = PrenominaViewModel.FechaA;
+
+           var dias =newenti.controlasist.Where(x => x.idtrabajador == idx).Where(x => x.date >= fechadesde || x.date <= fechahasta).Where(x => x.Dia == 1).Count();
+            return dias.ToString();
+        }
+        [Display(Description = "Calcula la cantidad de Domingos en intervalo de nomina")]
+        public string DOMINGOSDEINTERVALO(string idtra)
+        {
+            var fechadesde = PrenominaViewModel.FechaD;
+            var fechahasta = PrenominaViewModel.FechaA;
+            var canlunes = 0;
+            for (DateTime i = fechadesde; i <= fechahasta; i = i.AddDays(1))
+            {
+                if (i.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    canlunes += 1;
+                }
+
+            }
+            return canlunes.ToString();
+        }
+        [Display(Description = "Calcula la cantidad de Sabados en intervalo de nomina")]
+        public string SABADOSDEINTERVALO(string idtra)
+        {
+            var fechadesde = PrenominaViewModel.FechaD;
+            var fechahasta = PrenominaViewModel.FechaA;
+            var canlunes = 0;
+            for (DateTime i = fechadesde; i <= fechahasta; i = i.AddDays(1))
+            {
+                if (i.DayOfWeek == DayOfWeek.Saturday)
+                {
+                    canlunes += 1;
+                }
+
+            }
+            return canlunes.ToString();
+        }
+        [Display(Description = "Calcula la cantidad de Dias en intervalo de nomina")]
+        public string DIASENINTERVALO(string idtra)
+        {
+            var fechadesde = PrenominaViewModel.FechaD;
+            var fechahasta = PrenominaViewModel.FechaA;
+            var canlunes = (fechadesde-fechahasta).TotalDays;
+            
+            return canlunes.ToString();
+        }
     }
 }

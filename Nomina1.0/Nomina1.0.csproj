@@ -469,6 +469,7 @@
     <AdditionalFiles Include="Reports\FichaTrabajador.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AdditionalFiles>
+    <EmbeddedResource Include="Reports\Asistencia.rdlc" />
     <EmbeddedResource Include="Reports\NominaGeneral.rdlc" />
     <EmbeddedResource Include="Reports\ReciboPago.rdlc" />
     <EmbeddedResource Include="Reports\RepGeneralTrabajad.rdlc" />
