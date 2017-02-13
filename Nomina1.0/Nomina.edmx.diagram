@@ -29,9 +29,6 @@
         <AssociationConnector Association="nominaModel.PrenominaType" />
         <EntityTypeShape EntityType="nominaModel.nominauni" Width="1.5" PointX="3" PointY="15.375" />
         <AssociationConnector Association="nominaModel.nominaType1" />
-        <EntityTypeShape EntityType="nominaModel.conceptos" Width="1.5" PointX="13.375" PointY="12" />
-        <AssociationConnector Association="nominaModel.conceptostra" />
-        <AssociationConnector Association="nominaModel.concepttra" />
         <EntityTypeShape EntityType="nominaModel.estatusasis" Width="1.5" PointX="6.5" PointY="21.5" />
         <EntityTypeShape EntityType="nominaModel.trabajador" Width="1.5" PointX="8.75" PointY="15.625" />
         <AssociationConnector Association="nominaModel.Trabajadoridbanco" />
@@ -50,7 +47,10 @@
         <AssociationConnector Association="nominaModel.Trabajacampo" />
         <EntityTypeShape EntityType="nominaModel.controlasist" Width="1.5" PointX="11" PointY="18.75" />
         <AssociationConnector Association="nominaModel.TrabajadorTra" />
-        <EntityTypeShape EntityType="nominaModel.controlconfig" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="nominaModel.conceptos" Width="1.5" PointX="3.375" PointY="4" />
+        <EntityTypeShape EntityType="nominaModel.controlconfig" Width="1.5" PointX="13.375" PointY="11.75" />
+        <AssociationConnector Association="nominaModel.conceptostra" />
+        <AssociationConnector Association="nominaModel.concepttra" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

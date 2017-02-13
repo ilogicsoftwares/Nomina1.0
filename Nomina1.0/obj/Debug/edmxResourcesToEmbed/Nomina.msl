@@ -240,21 +240,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="conceptos">
-      <EntityTypeMapping TypeName="nominaModel.conceptos">
-        <MappingFragment StoreEntitySet="conceptos">
-          <ScalarProperty Name="desactivar" ColumnName="desactivar" />
-          <ScalarProperty Name="noimprimir" ColumnName="noimprimir" />
-          <ScalarProperty Name="codigo" ColumnName="codigo" />
-          <ScalarProperty Name="Valor" ColumnName="Valor" />
-          <ScalarProperty Name="tipo" ColumnName="tipo" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="variante" ColumnName="variante" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="estatusasis">
       <EntityTypeMapping TypeName="nominaModel.estatusasis">
         <MappingFragment StoreEntitySet="estatusasis">
@@ -325,6 +310,21 @@
           <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="conceptos">
+      <EntityTypeMapping TypeName="nominaModel.conceptos">
+        <MappingFragment StoreEntitySet="conceptos">
+          <ScalarProperty Name="desactivar" ColumnName="desactivar" />
+          <ScalarProperty Name="noimprimir" ColumnName="noimprimir" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="variante" ColumnName="variante" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

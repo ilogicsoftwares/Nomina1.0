@@ -249,43 +249,44 @@ namespace Nomina1._0.ViewModel
                         PreNom.nominatype = trab.nominatype1;
                     }
                     PreNom.trabajador = trab;
-
-                    var idcon = Int32.Parse(con);
-                    var xa = paraconcepto.conceptos.First(x => x.idconcepto == idcon);
+                    var idcon = 0;
+                   
                     try
                     {
+
+                        idcon = Int32.Parse(con);
+                        var xa = paraconcepto.conceptos.First(x => x.idconcepto == idcon);
+
+                        PreNom.nombrecon = xa.nombre;
 
                         PreNom.idconcepto = xa.idconcepto;
-                    }
-                    catch
-                    {
-                        System.Windows.MessageBox.Show("Error en Trabajador " + trab.cedula + " en el Concepto " + idcon, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    PreNom.nombrecon = xa.nombre;
-                    try
-                    {
                         PreNom.valorconcepto = LeerConcepto(xa.Valor, trab.idtrabajador);
-                    }
-                    catch
-                    {
-                        Datos.Msg("Error en el Trabajador " + trab.cedula.Trim() + " " + trab.nombres.Trim(), "Error", "E");
-                    }
-                    PreNom.valorvar = decimal.Parse(LeerCampo(xa.variante, trab.idtrabajador));
-                    PreNom.tipoconcepto = xa.tipo;
-                    if (xa.noimprimir != 1)
-                    {
-                        if (xa.desactivar != 1)
-                        { Datos.Micontexto.prenomina.Add(PreNom); }
-                       
-                    }
-                    else
-                    {
-                        if (PreNom.valorconcepto != 0)
+
+                        PreNom.valorvar = LeerConcepto(xa.variante, trab.idtrabajador);
+                        PreNom.tipoconcepto = xa.tipo;
+                        if (xa.noimprimir != 1)
                         {
                             if (xa.desactivar != 1)
                             { Datos.Micontexto.prenomina.Add(PreNom); }
+
+                        }
+                        else
+                        {
+                            if (PreNom.valorconcepto != 0)
+                            {
+                                if (xa.desactivar != 1)
+                                { Datos.Micontexto.prenomina.Add(PreNom); }
+                            }
                         }
                     }
+                    catch
+                    {
+                        System.Windows.MessageBox.Show("Error en Trabajador " + trab.cedula + " "+trab.nombres.Trim()+" " + trab.apellidos.Trim()+ " en el Concepto " + idcon, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                   
+                   
+                 
 
                 }
             }
@@ -309,8 +310,13 @@ namespace Nomina1._0.ViewModel
 
         public static decimal LeerConcepto(string conceptvalue, int idx)
         {
-            var divconcept = conceptvalue.Split('*', '+', '-', '/', '(', ')');
-            string valorconvertido = conceptvalue;
+            if (conceptvalue==string.Empty || conceptvalue==null)
+            {
+                return 0;
+            }
+            var conceptvaluex=conceptvalue.Replace(" ", "");
+            var divconcept = conceptvaluex.Split('*', '+', '-', '/', '(', ')');
+            string valorconvertido = conceptvaluex;
             nominaEntities paraconcepto = new nominaEntities();
 
             foreach (var item in divconcept)
@@ -334,8 +340,18 @@ namespace Nomina1._0.ViewModel
             }
             valorconvertido = valorconvertido.Replace(',', '.');
             NCalc.Expression e = new NCalc.Expression(valorconvertido);
-            return Decimal.Round(decimal.Parse(e.Evaluate().ToString()),2); ;
+            decimal evaluation = 0;
+            try
+            {
+                evaluation = decimal.Parse(e.Evaluate().ToString());
+            }
+            catch(System.ArgumentException x)
+            {
+               
+                Datos.Msg("Error en Concepto Numero " + idx.ToString() + ". El parametro " + x.ParamName + " no existe o esta mal escrito.");
+            }
 
+            return Decimal.Round(evaluation, 2); ;
         }
 
         public static string LeerCampo(string campo, int idx)

@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:Nomina1._0"
         xmlns:vm="clr-namespace:Nomina1._0.ViewModel"
         mc:Ignorable="d"
-        Title="WinAsistDiaria" Height="456.897" Width="854.231">
+        Title="WinAsistDiaria" Height="456.897" Width="854.231" Closed="MetroToolWindowBase_Closed">
     <Window.DataContext>
         <vm:AsistDiaViewModel/>
     </Window.DataContext>
     <Grid>
         <DatePicker HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="223" SelectedDate="{Binding Fecha}"/>
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding ControlDia}" Height="355" Margin="10,41,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" BorderBrush="Teal" BorderThickness="3">
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding ControlDia,Mode=TwoWay}" Height="355" Margin="10,41,10,0" VerticalAlignment="Top" AutoGenerateColumns="False" BorderBrush="Teal" BorderThickness="3">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Fecha" Binding="{Binding date,StringFormat=d}"  />
                 <DataGridTextColumn Header="Cedula" Binding="{Binding trabajador.cedula}"  />
@@ -20,14 +20,14 @@
                 <DataGridTextColumn Header="Apellidos" Binding="{Binding trabajador.apellidos}"  />
                 <DataGridTextColumn Header="Entradas" Binding="{Binding Entradas}"  />
                 <DataGridTextColumn Header="Salidas" Binding="{Binding Salidas}"  />
-                <DataGridTextColumn Header="Dia" Binding="{Binding Dia}"  />
+                <DataGridTextColumn Header="Dia" Binding="{Binding Dia}"   />
                 <DataGridTextColumn Header="Horas" Binding="{Binding HorasD}"  />
                 <DataGridTextColumn Header="Retraso" Binding="{Binding Retraso}"  />
             </DataGrid.Columns>
 
         </DataGrid>
-        <Label x:Name="label" Content="{Binding ControlDia.Count}" HorizontalAlignment="Right" Margin="0,401,10,0" VerticalAlignment="Top" Width="30" Height="26"/>
-        <Label x:Name="label_Copy" Content="Total Trabajadores:" HorizontalAlignment="Right" Margin="0,401,45,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="{Binding ControlDia.Count}" HorizontalAlignment="Right" Margin="0,399,11,0" VerticalAlignment="Top" Width="30" Height="26"/>
+        <Label x:Name="label_Copy" Content="Total Trabajadores:" HorizontalAlignment="Right" Margin="0,399,46,0" VerticalAlignment="Top"/>
 
     </Grid>
 </local:MetroToolWindowBase>

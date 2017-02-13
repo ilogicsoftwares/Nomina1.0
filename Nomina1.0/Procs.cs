@@ -79,7 +79,7 @@ namespace Nomina1._0
             var fechadesde = PrenominaViewModel.FechaD;
             var fechahasta = PrenominaViewModel.FechaA;
 
-           var dias =newenti.controlasist.Where(x => x.idtrabajador == idx).Where(x => x.date >= fechadesde || x.date <= fechahasta).Where(x => x.Dia == 1).Count();
+           var dias =newenti.controlasist.Where(x => x.idtrabajador == idx).Where(x => x.date >= fechadesde && x.date <= fechahasta).Where(x => x.Dia == 1).Count();
             return dias.ToString();
         }
         [Display(Description = "Calcula la cantidad de Domingos en intervalo de nomina")]
@@ -119,9 +119,24 @@ namespace Nomina1._0
         {
             var fechadesde = PrenominaViewModel.FechaD;
             var fechahasta = PrenominaViewModel.FechaA;
-            var canlunes = (fechadesde-fechahasta).TotalDays;
+            var canlunes = (fechahasta-fechadesde).TotalDays ;
             
-            return canlunes.ToString();
+            return (Math.Abs(canlunes) +1).ToString();
+        }
+        [Display(Description = "Calcula la cantidad de Sabados y Domingos en intervalo de nomina")]
+        public string SABADOSYDOMDEINTERVALO(string idtra)
+        {
+          var result=  int.Parse (SABADOSDEINTERVALO(idtra)) + int.Parse (DOMINGOSDEINTERVALO(idtra));
+            return result.ToString();
+        }
+        [Display(Description = "Calcula la cantidad de Dias que faltan para el final del periodo")]
+        public string DIASHASTA(string idtra)
+        {
+            var fechadesde = DateTime.Today;
+            var fechahasta = PrenominaViewModel.FechaA;
+            var canlunes = (fechahasta - fechadesde).TotalDays;
+            
+            return (Math.Abs(canlunes) + 1).ToString();
         }
     }
 }

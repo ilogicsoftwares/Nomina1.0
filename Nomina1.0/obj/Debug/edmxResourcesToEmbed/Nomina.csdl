@@ -37,15 +37,6 @@
       <End Role="nominatype" EntitySet="nominatype" />
       <End Role="nominauni" EntitySet="nominauni" />
     </AssociationSet>
-    <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
-    <AssociationSet Name="conceptostra" Association="nominaModel.conceptostra">
-      <End Role="conceptos" EntitySet="conceptos" />
-      <End Role="prenominagen" EntitySet="prenominagen" />
-    </AssociationSet>
-    <AssociationSet Name="concepttra" Association="nominaModel.concepttra">
-      <End Role="conceptos" EntitySet="conceptos" />
-      <End Role="prenomina" EntitySet="prenomina" />
-    </AssociationSet>
     <EntitySet Name="estatusasis" EntityType="nominaModel.estatusasis" />
     <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
     <AssociationSet Name="Trabajadoridbanco" Association="nominaModel.Trabajadoridbanco">
@@ -106,7 +97,16 @@
       <End Role="trabajador" EntitySet="trabajador" />
       <End Role="controlasist" EntitySet="controlasist" />
     </AssociationSet>
+    <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
     <EntitySet Name="controlconfig" EntityType="nominaModel.controlconfig" />
+    <AssociationSet Name="conceptostra" Association="nominaModel.conceptostra">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="prenominagen" EntitySet="prenominagen" />
+    </AssociationSet>
+    <AssociationSet Name="concepttra" Association="nominaModel.concepttra">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="prenomina" EntitySet="prenomina" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="bancos">
     <Key>
@@ -199,8 +199,8 @@
     <Property Name="tipoconcepto" Type="Int32" />
     <Property Name="idnominagen" Type="Int32" />
     <NavigationProperty Name="nominatype" Relationship="nominaModel.PrenominaType" FromRole="prenomina" ToRole="nominatype" />
-    <NavigationProperty Name="conceptos" Relationship="nominaModel.concepttra" FromRole="prenomina" ToRole="conceptos" />
     <NavigationProperty Name="trabajador" Relationship="nominaModel.PrenominaTraid" FromRole="prenomina" ToRole="trabajador" />
+    <NavigationProperty Name="conceptos" Relationship="nominaModel.concepttra" FromRole="prenomina" ToRole="conceptos" />
   </EntityType>
   <EntityType Name="prenominagen">
     <Key>
@@ -216,8 +216,8 @@
     <Property Name="valorvar" Type="Decimal" />
     <Property Name="tipoconcepto" Type="Int32" />
     <NavigationProperty Name="nominatype" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="prenominagen" ToRole="nominatype" />
-    <NavigationProperty Name="conceptos" Relationship="nominaModel.conceptostra" FromRole="prenominagen" ToRole="conceptos" />
     <NavigationProperty Name="trabajador" Relationship="nominaModel.prenominagen_ibfk_1" FromRole="prenominagen" ToRole="trabajador" />
+    <NavigationProperty Name="conceptos" Relationship="nominaModel.conceptostra" FromRole="prenominagen" ToRole="conceptos" />
   </EntityType>
   <EntityType Name="procedures">
     <Key>
@@ -394,46 +394,6 @@
       </Principal>
       <Dependent Role="nominauni">
         <PropertyRef Name="idnomina" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="conceptos">
-    <Key>
-      <PropertyRef Name="idconcepto" />
-    </Key>
-    <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="variante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="tipo" Type="Int32" />
-    <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="codigo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="noimprimir" Type="Int32" Nullable="false" />
-    <Property Name="desactivar" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="prenominagen" Relationship="nominaModel.conceptostra" FromRole="conceptos" ToRole="prenominagen" />
-    <NavigationProperty Name="prenomina" Relationship="nominaModel.concepttra" FromRole="conceptos" ToRole="prenomina" />
-  </EntityType>
-  <Association Name="conceptostra">
-    <End Type="nominaModel.conceptos" Role="conceptos" Multiplicity="0..1" />
-    <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="conceptos">
-        <PropertyRef Name="idconcepto" />
-      </Principal>
-      <Dependent Role="prenominagen">
-        <PropertyRef Name="idconcepto" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="concepttra">
-    <End Type="nominaModel.conceptos" Role="conceptos" Multiplicity="0..1" />
-    <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="conceptos">
-        <PropertyRef Name="idconcepto" />
-      </Principal>
-      <Dependent Role="prenomina">
-        <PropertyRef Name="idconcepto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -691,6 +651,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="conceptos">
+    <Key>
+      <PropertyRef Name="idconcepto" />
+    </Key>
+    <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="variante" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="noimprimir" Type="Int32" Nullable="false" />
+    <Property Name="desactivar" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="prenominagen" Relationship="nominaModel.conceptostra" FromRole="conceptos" ToRole="prenominagen" />
+    <NavigationProperty Name="prenomina" Relationship="nominaModel.concepttra" FromRole="conceptos" ToRole="prenomina" />
+  </EntityType>
   <EntityType Name="controlconfig">
     <Key>
       <PropertyRef Name="idcontrol" />
@@ -708,7 +684,31 @@
     <Property Name="WInasistencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="MaxEntradas" Type="Int32" />
     <Property Name="MaxTimeCheck" Type="Int32" />
-    <Property Name="MinRetrasos" Type="Decimal" />
+    <Property Name="MinRetrasos" Type="Int32" />
     <Property Name="HoraEntrada" Type="DateTime" />
   </EntityType>
+  <Association Name="conceptostra">
+    <End Type="nominaModel.conceptos" Role="conceptos" Multiplicity="0..1" />
+    <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="idconcepto" />
+      </Principal>
+      <Dependent Role="prenominagen">
+        <PropertyRef Name="idconcepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="concepttra">
+    <End Type="nominaModel.conceptos" Role="conceptos" Multiplicity="0..1" />
+    <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="idconcepto" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idconcepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

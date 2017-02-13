@@ -49,7 +49,7 @@
           </Key>
           <Property Name="idconcepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" />
-          <Property Name="variante" Type="char" MaxLength="50" />
+          <Property Name="variante" Type="char" MaxLength="100" />
           <Property Name="descripcion" Type="varchar" MaxLength="100" />
           <Property Name="tipo" Type="int" />
           <Property Name="Valor" Type="char" MaxLength="100" />
@@ -91,7 +91,7 @@
           <Property Name="WInasistencia" Type="varchar" MaxLength="50" />
           <Property Name="MaxEntradas" Type="int" />
           <Property Name="MaxTimeCheck" Type="int" />
-          <Property Name="MinRetrasos" Type="decimal" Precision="11" Scale="0" />
+          <Property Name="MinRetrasos" Type="int" />
           <Property Name="HoraEntrada" Type="datetime" Precision="0" />
         </EntityType>
         <EntityType Name="departamentos">
@@ -534,18 +534,6 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="TrabajadorStatatusAsis">
-          <End Role="estatusasis" Type="Self.estatusasis" Multiplicity="0..1" />
-          <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="estatusasis">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="trabajador">
-              <PropertyRef Name="idestatusasis" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="TrabajadorTipoc">
           <End Role="tipocuenta" Type="Self.tipocuenta" Multiplicity="0..1" />
           <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -676,10 +664,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="nominatype" EntitySet="nominatype" />
             <End Role="trabajador" EntitySet="trabajador" />
           </AssociationSet>
-          <AssociationSet Name="TrabajadorStatatusAsis" Association="Self.TrabajadorStatatusAsis">
-            <End Role="estatusasis" EntitySet="estatusasis" />
-            <End Role="trabajador" EntitySet="trabajador" />
-          </AssociationSet>
           <AssociationSet Name="TrabajadorTipoc" Association="Self.TrabajadorTipoc">
             <End Role="tipocuenta" EntitySet="tipocuenta" />
             <End Role="trabajador" EntitySet="trabajador" />
@@ -729,15 +713,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <AssociationSet Name="nominaType1" Association="nominaModel.nominaType1">
             <End Role="nominatype" EntitySet="nominatype" />
             <End Role="nominauni" EntitySet="nominauni" />
-          </AssociationSet>
-          <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
-          <AssociationSet Name="conceptostra" Association="nominaModel.conceptostra">
-            <End Role="conceptos" EntitySet="conceptos" />
-            <End Role="prenominagen" EntitySet="prenominagen" />
-          </AssociationSet>
-          <AssociationSet Name="concepttra" Association="nominaModel.concepttra">
-            <End Role="conceptos" EntitySet="conceptos" />
-            <End Role="prenomina" EntitySet="prenomina" />
           </AssociationSet>
           <EntitySet Name="estatusasis" EntityType="nominaModel.estatusasis" />
           <EntitySet Name="trabajador" EntityType="nominaModel.trabajador" />
@@ -799,7 +774,16 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             <End Role="trabajador" EntitySet="trabajador" />
             <End Role="controlasist" EntitySet="controlasist" />
           </AssociationSet>
+          <EntitySet Name="conceptos" EntityType="nominaModel.conceptos" />
           <EntitySet Name="controlconfig" EntityType="nominaModel.controlconfig" />
+          <AssociationSet Name="conceptostra" Association="nominaModel.conceptostra">
+            <End Role="conceptos" EntitySet="conceptos" />
+            <End Role="prenominagen" EntitySet="prenominagen" />
+          </AssociationSet>
+          <AssociationSet Name="concepttra" Association="nominaModel.concepttra">
+            <End Role="conceptos" EntitySet="conceptos" />
+            <End Role="prenomina" EntitySet="prenomina" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="bancos">
           <Key>
@@ -892,8 +876,8 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="tipoconcepto" Type="Int32" />
           <Property Name="idnominagen" Type="Int32" />
           <NavigationProperty Name="nominatype" Relationship="nominaModel.PrenominaType" FromRole="prenomina" ToRole="nominatype" />
-          <NavigationProperty Name="conceptos" Relationship="nominaModel.concepttra" FromRole="prenomina" ToRole="conceptos" />
           <NavigationProperty Name="trabajador" Relationship="nominaModel.PrenominaTraid" FromRole="prenomina" ToRole="trabajador" />
+          <NavigationProperty Name="conceptos" Relationship="nominaModel.concepttra" FromRole="prenomina" ToRole="conceptos" />
         </EntityType>
         <EntityType Name="prenominagen">
           <Key>
@@ -909,8 +893,8 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="valorvar" Type="Decimal" />
           <Property Name="tipoconcepto" Type="Int32" />
           <NavigationProperty Name="nominatype" Relationship="nominaModel.prenominagen_ibfk_2" FromRole="prenominagen" ToRole="nominatype" />
-          <NavigationProperty Name="conceptos" Relationship="nominaModel.conceptostra" FromRole="prenominagen" ToRole="conceptos" />
           <NavigationProperty Name="trabajador" Relationship="nominaModel.prenominagen_ibfk_1" FromRole="prenominagen" ToRole="trabajador" />
+          <NavigationProperty Name="conceptos" Relationship="nominaModel.conceptostra" FromRole="prenominagen" ToRole="conceptos" />
         </EntityType>
         <EntityType Name="procedures">
           <Key>
@@ -1087,46 +1071,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             </Principal>
             <Dependent Role="nominauni">
               <PropertyRef Name="idnomina" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="conceptos">
-          <Key>
-            <PropertyRef Name="idconcepto" />
-          </Key>
-          <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="variante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="tipo" Type="Int32" />
-          <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="codigo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="noimprimir" Type="Int32" Nullable="false" />
-          <Property Name="desactivar" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="prenominagen" Relationship="nominaModel.conceptostra" FromRole="conceptos" ToRole="prenominagen" />
-          <NavigationProperty Name="prenomina" Relationship="nominaModel.concepttra" FromRole="conceptos" ToRole="prenomina" />
-        </EntityType>
-        <Association Name="conceptostra">
-          <End Type="nominaModel.conceptos" Role="conceptos" Multiplicity="0..1" />
-          <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="conceptos">
-              <PropertyRef Name="idconcepto" />
-            </Principal>
-            <Dependent Role="prenominagen">
-              <PropertyRef Name="idconcepto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="concepttra">
-          <End Type="nominaModel.conceptos" Role="conceptos" Multiplicity="0..1" />
-          <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="conceptos">
-              <PropertyRef Name="idconcepto" />
-            </Principal>
-            <Dependent Role="prenomina">
-              <PropertyRef Name="idconcepto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1384,6 +1328,22 @@ FROM `varsys` AS `varsys`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="conceptos">
+          <Key>
+            <PropertyRef Name="idconcepto" />
+          </Key>
+          <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="variante" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipo" Type="Int32" />
+          <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="codigo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="noimprimir" Type="Int32" Nullable="false" />
+          <Property Name="desactivar" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="prenominagen" Relationship="nominaModel.conceptostra" FromRole="conceptos" ToRole="prenominagen" />
+          <NavigationProperty Name="prenomina" Relationship="nominaModel.concepttra" FromRole="conceptos" ToRole="prenomina" />
+        </EntityType>
         <EntityType Name="controlconfig">
           <Key>
             <PropertyRef Name="idcontrol" />
@@ -1401,9 +1361,33 @@ FROM `varsys` AS `varsys`</DefiningQuery>
           <Property Name="WInasistencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MaxEntradas" Type="Int32" />
           <Property Name="MaxTimeCheck" Type="Int32" />
-          <Property Name="MinRetrasos" Type="Decimal" />
+          <Property Name="MinRetrasos" Type="Int32" />
           <Property Name="HoraEntrada" Type="DateTime" />
         </EntityType>
+        <Association Name="conceptostra">
+          <End Type="nominaModel.conceptos" Role="conceptos" Multiplicity="0..1" />
+          <End Type="nominaModel.prenominagen" Role="prenominagen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="conceptos">
+              <PropertyRef Name="idconcepto" />
+            </Principal>
+            <Dependent Role="prenominagen">
+              <PropertyRef Name="idconcepto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="concepttra">
+          <End Type="nominaModel.conceptos" Role="conceptos" Multiplicity="0..1" />
+          <End Type="nominaModel.prenomina" Role="prenomina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="conceptos">
+              <PropertyRef Name="idconcepto" />
+            </Principal>
+            <Dependent Role="prenomina">
+              <PropertyRef Name="idconcepto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1649,21 +1633,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="conceptos">
-            <EntityTypeMapping TypeName="nominaModel.conceptos">
-              <MappingFragment StoreEntitySet="conceptos">
-                <ScalarProperty Name="desactivar" ColumnName="desactivar" />
-                <ScalarProperty Name="noimprimir" ColumnName="noimprimir" />
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="Valor" ColumnName="Valor" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="variante" ColumnName="variante" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="estatusasis">
             <EntityTypeMapping TypeName="nominaModel.estatusasis">
               <MappingFragment StoreEntitySet="estatusasis">
@@ -1734,6 +1703,21 @@ FROM `varsys` AS `varsys`</DefiningQuery>
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="conceptos">
+            <EntityTypeMapping TypeName="nominaModel.conceptos">
+              <MappingFragment StoreEntitySet="conceptos">
+                <ScalarProperty Name="desactivar" ColumnName="desactivar" />
+                <ScalarProperty Name="noimprimir" ColumnName="noimprimir" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="variante" ColumnName="variante" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

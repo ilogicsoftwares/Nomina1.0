@@ -25,7 +25,7 @@ namespace Nomina1._0
         public Nullable<int> tipoconcepto { get; set; }
     
         public virtual nominatype nominatype { get; set; }
-        public virtual conceptos conceptos { get; set; }
         public virtual trabajador trabajador { get; set; }
+        public virtual conceptos conceptos { get; set; }
     }
 }

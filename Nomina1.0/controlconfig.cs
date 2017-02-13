@@ -27,7 +27,7 @@ namespace Nomina1._0
         public string WInasistencia { get; set; }
         public Nullable<int> MaxEntradas { get; set; }
         public Nullable<int> MaxTimeCheck { get; set; }
-        public Nullable<decimal> MinRetrasos { get; set; }
+        public Nullable<int> MinRetrasos { get; set; }
         public Nullable<System.DateTime> HoraEntrada { get; set; }
     }
 }

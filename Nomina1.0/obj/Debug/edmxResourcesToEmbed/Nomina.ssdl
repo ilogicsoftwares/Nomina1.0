@@ -44,7 +44,7 @@
     </Key>
     <Property Name="idconcepto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="50" />
-    <Property Name="variante" Type="char" MaxLength="50" />
+    <Property Name="variante" Type="char" MaxLength="100" />
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
     <Property Name="tipo" Type="int" />
     <Property Name="Valor" Type="char" MaxLength="100" />
@@ -86,7 +86,7 @@
     <Property Name="WInasistencia" Type="varchar" MaxLength="50" />
     <Property Name="MaxEntradas" Type="int" />
     <Property Name="MaxTimeCheck" Type="int" />
-    <Property Name="MinRetrasos" Type="decimal" Precision="11" Scale="0" />
+    <Property Name="MinRetrasos" Type="int" />
     <Property Name="HoraEntrada" Type="datetime" Precision="0" />
   </EntityType>
   <EntityType Name="departamentos">
@@ -529,18 +529,6 @@ warning 6002: The table/view 'nomina.varsys' does not have a primary key defined
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="TrabajadorStatatusAsis">
-    <End Role="estatusasis" Type="Self.estatusasis" Multiplicity="0..1" />
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="estatusasis">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="trabajador">
-        <PropertyRef Name="idestatusasis" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="TrabajadorTipoc">
     <End Role="tipocuenta" Type="Self.tipocuenta" Multiplicity="0..1" />
     <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
@@ -669,10 +657,6 @@ FROM `varsys` AS `varsys`</DefiningQuery>
     </AssociationSet>
     <AssociationSet Name="TrabajadorNominaBonos" Association="Self.TrabajadorNominaBonos">
       <End Role="nominatype" EntitySet="nominatype" />
-      <End Role="trabajador" EntitySet="trabajador" />
-    </AssociationSet>
-    <AssociationSet Name="TrabajadorStatatusAsis" Association="Self.TrabajadorStatatusAsis">
-      <End Role="estatusasis" EntitySet="estatusasis" />
       <End Role="trabajador" EntitySet="trabajador" />
     </AssociationSet>
     <AssociationSet Name="TrabajadorTipoc" Association="Self.TrabajadorTipoc">

@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace Nomina1._0
 {
     /// <summary>
-    /// Interaction logic for WinAsistDiaria.xaml
+    /// Interaction logic for WinRepAsistDia.xaml
     /// </summary>
-    public partial class WinAsistDiaria 
+    public partial class WinRepAsistDia 
     {
-        public WinAsistDiaria()
+        public WinRepAsistDia()
         {
             InitializeComponent();
-        }
-
-        private void MetroToolWindowBase_Closed(object sender, EventArgs e)
-        {
-            Datos.Micontexto.SaveChanges();
         }
     }
 }

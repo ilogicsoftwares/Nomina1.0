@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -11,16 +12,21 @@ namespace Nomina1._0.ViewModel
     class AsistDiaViewModel: INotifyPropertyChanged
     {
 
-
+       public RelayCommand GuardarCommand { get; set; }
        public  AsistDiaViewModel()
         {
            
             Fecha = DateTime.Today;
-
+            GuardarCommand = new RelayCommand(Guardar);
         }
 
-        private List<controlasist> _ControlDia;
-        public List<controlasist> ControlDia
+        private void Guardar(object obj)
+        {
+            Datos.Micontexto.SaveChanges();
+        }
+
+        private ObservableCollection<controlasist> _ControlDia;
+        public ObservableCollection<controlasist> ControlDia
         {
             get { return _ControlDia; }
             set
@@ -57,9 +63,10 @@ namespace Nomina1._0.ViewModel
 
         public void FiltrarPorFecha(DateTime date)
         {
-            ControlDia = Datos.Micontexto.controlasist.Where(x => x.date == date).ToList();
+            ControlDia = new ObservableCollection<controlasist> (Datos.Micontexto.controlasist.Where(x => x.date == date).ToList());
         }
 
+      
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")

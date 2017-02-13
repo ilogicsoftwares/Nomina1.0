@@ -231,6 +231,7 @@
     <Compile Include="ViewModel\NominaViewModel.cs" />
     <Compile Include="ViewModel\PrenominaViewModel.cs" />
     <Compile Include="ViewModel\PrincipalViewModel.cs" />
+    <Compile Include="ViewModel\ReportAsistViewModel.cs" />
     <Compile Include="ViewModel\ReportByNominaViewModel.cs" />
     <Compile Include="ViewModel\ReportNominaViewModel.cs" />
     <Compile Include="ViewModel\TrabajadorViewModel.cs" />
@@ -304,6 +305,9 @@
     </Compile>
     <Compile Include="WinProcedures.xaml.cs">
       <DependentUpon>WinProcedures.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinRepAsistDia.xaml.cs">
+      <DependentUpon>WinRepAsistDia.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinRepFicha.xaml.cs">
       <DependentUpon>WinRepFicha.xaml</DependentUpon>
@@ -418,6 +422,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinProcedures.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinRepAsistDia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

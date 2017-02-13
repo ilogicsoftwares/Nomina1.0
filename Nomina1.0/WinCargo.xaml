@@ -1,4 +1,4 @@
-﻿<Controls:MetroWindow x:Class="Nomina1._0.WinCargo"
+﻿<local:MetroToolWindowBase x:Class="Nomina1._0.WinCargo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -33,4 +33,4 @@
         <Label x:Name="label_Copy2" Content="Departamento:" Margin="0,101,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Height="25"/>
 
     </Grid>
-</Controls:MetroWindow>
+</local:MetroToolWindowBase>
