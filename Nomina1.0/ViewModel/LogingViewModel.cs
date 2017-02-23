@@ -24,8 +24,14 @@ namespace Nomina1._0.ViewModel
          }
         private void CargarUsuarios()
         {
-            this.usuarios = userContext.users.ToList();
-        }
+            try
+            { this.usuarios = userContext.users.ToList();
+            }
+            catch
+            {
+                Datos.Msg("Ocurrio un error al leer la base de datos", "Error", "E");
+            }
+            }
 
         private List<users> _usuarios;
         public List<users> usuarios
