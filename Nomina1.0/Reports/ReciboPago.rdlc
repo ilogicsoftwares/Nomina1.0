@@ -11,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>4.24686cm</Height>
+              <Height>4.07047cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -50,7 +50,9 @@
                                             <TextRuns>
                                               <TextRun>
                                                 <Value>Id Concepto</Value>
-                                                <Style />
+                                                <Style>
+                                                  <FontSize>8pt</FontSize>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
@@ -94,7 +96,9 @@
                                             <TextRuns>
                                               <TextRun>
                                                 <Value>Concepto</Value>
-                                                <Style />
+                                                <Style>
+                                                  <FontSize>8pt</FontSize>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
@@ -138,7 +142,9 @@
                                             <TextRuns>
                                               <TextRun>
                                                 <Value>Cantidad</Value>
-                                                <Style />
+                                                <Style>
+                                                  <FontSize>8pt</FontSize>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style>
@@ -176,7 +182,9 @@
                                             <TextRuns>
                                               <TextRun>
                                                 <Value>Asignaciones</Value>
-                                                <Style />
+                                                <Style>
+                                                  <FontSize>8pt</FontSize>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style>
@@ -214,7 +222,9 @@
                                             <TextRuns>
                                               <TextRun>
                                                 <Value>Deducciones</Value>
-                                                <Style />
+                                                <Style>
+                                                  <FontSize>8pt</FontSize>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style>
@@ -247,7 +257,7 @@
                                 </TablixCells>
                               </TablixRow>
                               <TablixRow>
-                                <Height>0.6cm</Height>
+                                <Height>0.67055cm</Height>
                                 <TablixCells>
                                   <TablixCell>
                                     <CellContents>
@@ -259,7 +269,9 @@
                                             <TextRuns>
                                               <TextRun>
                                                 <Value>=Fields!IdConcepto.Value</Value>
-                                                <Style />
+                                                <Style>
+                                                  <FontSize>8pt</FontSize>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style>
@@ -291,7 +303,9 @@
                                             <TextRuns>
                                               <TextRun>
                                                 <Value>=Fields!NombreConcepto.Value.ToString().Trim()</Value>
-                                                <Style />
+                                                <Style>
+                                                  <FontSize>8pt</FontSize>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
@@ -321,7 +335,9 @@
                                             <TextRuns>
                                               <TextRun>
                                                 <Value>=Microsoft.VisualBasic.Interaction.iif(Fields!Variante.Value &gt; 0, Fields!Variante.Value, "")</Value>
-                                                <Style />
+                                                <Style>
+                                                  <FontSize>8pt</FontSize>
+                                                </Style>
                                               </TextRun>
                                             </TextRuns>
                                             <Style>
@@ -354,6 +370,7 @@
                                               <TextRun>
                                                 <Value>=Microsoft.VisualBasic.Interaction.iif(Fields!ConceptoTipo.Value = 1, Fields!Valor.Value, "")</Value>
                                                 <Style>
+                                                  <FontSize>8pt</FontSize>
                                                   <Format>'Bs. F.'#,0.00;('Bs. F.'#,0.00)</Format>
                                                   <rd:FormatSymbolCulture>es-VE</rd:FormatSymbolCulture>
                                                 </Style>
@@ -389,6 +406,7 @@
                                               <TextRun>
                                                 <Value>=Microsoft.VisualBasic.Interaction.iif(Fields!ConceptoTipo.Value = 2, Fields!Valor.Value, "")</Value>
                                                 <Style>
+                                                  <FontSize>8pt</FontSize>
                                                   <Format>'Bs. F.'#,0.00;('Bs. F.'#,0.00)</Format>
                                                   <rd:FormatSymbolCulture>es-VE</rd:FormatSymbolCulture>
                                                 </Style>
@@ -439,7 +457,7 @@
                           <DataSetName>DataSet1</DataSetName>
                           <Top>1.59992cm</Top>
                           <Left>0.02042cm</Left>
-                          <Height>1.2cm</Height>
+                          <Height>1.27055cm</Height>
                           <Width>18.33068cm</Width>
                           <Style>
                             <Border>
@@ -467,7 +485,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Totales:</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -478,7 +498,7 @@
                           <rd:DefaultName>Textbox7</rd:DefaultName>
                           <Top>2.87047cm</Top>
                           <Left>9.04263cm</Left>
-                          <Height>0.6cm</Height>
+                          <Height>0.56472cm</Height>
                           <Width>1.75331cm</Width>
                           <ZIndex>2</ZIndex>
                           <Style>
@@ -501,6 +521,7 @@
                                   <Label>SumaDeduc</Label>
                                   <Value>=Sum(iif(Fields!ConceptoTipo.Value = 2,CDbl(Fields!Valor.Value), 0.0))</Value>
                                   <Style>
+                                    <FontSize>8pt</FontSize>
                                     <Format>'Bs. F.'#,0.00;('Bs. F.'#,0.00)</Format>
                                     <rd:FormatSymbolCulture>es-VE</rd:FormatSymbolCulture>
                                   </Style>
@@ -513,7 +534,7 @@
                           </Paragraphs>
                           <Top>2.87047cm</Top>
                           <Left>14.63898cm</Left>
-                          <Height>0.6cm</Height>
+                          <Height>0.56472cm</Height>
                           <Width>3.73368cm</Width>
                           <ZIndex>3</ZIndex>
                           <Style>
@@ -537,6 +558,7 @@
                                   <Label>SumaAsigs</Label>
                                   <Value>=Sum(iif(Fields!ConceptoTipo.Value = 1,CDbl(Fields!Valor.Value), 0.0))</Value>
                                   <Style>
+                                    <FontSize>8pt</FontSize>
                                     <Format>'Bs. F.'#,0.00;('Bs. F.'#,0.00)</Format>
                                     <rd:FormatSymbolCulture>es-VE</rd:FormatSymbolCulture>
                                   </Style>
@@ -547,9 +569,9 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <Top>2.87047cm</Top>
+                          <Top>2.90575cm</Top>
                           <Left>10.83475cm</Left>
-                          <Height>0.6cm</Height>
+                          <Height>0.56472cm</Height>
                           <Width>3.73368cm</Width>
                           <ZIndex>4</ZIndex>
                           <Style>
@@ -571,7 +593,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>Tola a Pagar:</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -580,8 +604,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox43</rd:DefaultName>
-                          <Top>3.64686cm</Top>
-                          <Left>12.11207cm</Left>
+                          <Top>3.47047cm</Top>
+                          <Left>12.16721cm</Left>
                           <Height>0.6cm</Height>
                           <Width>2.5cm</Width>
                           <ZIndex>5</ZIndex>
@@ -604,6 +628,7 @@
                                 <TextRun>
                                   <Value>=(ReportItems!SumaAsigs.Value-ReportItems!SumaDeduc.Value)</Value>
                                   <Style>
+                                    <FontSize>8pt</FontSize>
                                     <Format>'Bs. F.'#,0.00;('Bs. F.'#,0.00)</Format>
                                     <rd:FormatSymbolCulture>es-VE</rd:FormatSymbolCulture>
                                   </Style>
@@ -615,8 +640,8 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox43</rd:DefaultName>
-                          <Top>3.64686cm</Top>
-                          <Left>14.61912cm</Left>
+                          <Top>3.47047cm</Top>
+                          <Left>14.67426cm</Left>
                           <Height>0.6cm</Height>
                           <Width>3.71148cm</Width>
                           <ZIndex>6</ZIndex>
@@ -1154,7 +1179,7 @@
                           </Paragraphs>
                           <rd:DefaultName>Textbox7</rd:DefaultName>
                           <Top>3.04686cm</Top>
-                          <Left>0.08438cm</Left>
+                          <Left>0.06303cm</Left>
                           <Height>0.6cm</Height>
                           <Width>8.81714cm</Width>
                           <ZIndex>8</ZIndex>
@@ -1207,7 +1232,7 @@
         </PageBreak>
         <Top>0.17639cm</Top>
         <Left>0.02375cm</Left>
-        <Height>4.24686cm</Height>
+        <Height>4.07047cm</Height>
         <Width>18.4543cm</Width>
         <Style>
           <Border>
@@ -1216,7 +1241,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.74144in</Height>
+    <Height>1.67199in</Height>
     <Style>
       <Border>
         <Style>None</Style>

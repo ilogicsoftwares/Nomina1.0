@@ -122,8 +122,8 @@ namespace Nomina1._0.ViewModel
 
         public void Guardar()
         {
-            using (nominaEntities bd = new nominaEntities())
-            {
+           
+            
                 try
                 {
 
@@ -163,7 +163,7 @@ namespace Nomina1._0.ViewModel
 
                     }
                 }
-            }
+           
         }
 
         public void Nuevo()

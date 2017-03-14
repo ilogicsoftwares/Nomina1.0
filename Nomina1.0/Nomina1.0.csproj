@@ -65,6 +65,18 @@
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="NCalc, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NCalc-Edge.1.4.1.0\lib\NCalc.dll</HintPath>
@@ -226,6 +238,7 @@
     <Compile Include="ViewModel\ConceptosViewModel.cs" />
     <Compile Include="ViewModel\ControlAsistViewModel.cs" />
     <Compile Include="ViewModel\DepartViewModel.cs" />
+    <Compile Include="ViewModel\InasistenciaViewModel.cs" />
     <Compile Include="ViewModel\ListCamposModel.cs" />
     <Compile Include="ViewModel\ModelBase.cs" />
     <Compile Include="ViewModel\NominaViewModel.cs" />
@@ -257,6 +270,9 @@
     </Compile>
     <Compile Include="WinAsistDiaria.xaml.cs">
       <DependentUpon>WinAsistDiaria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinAsistencia.xaml.cs">
+      <DependentUpon>WinAsistencia.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinBusqueda.xaml.cs">
       <DependentUpon>WinBusqueda.xaml</DependentUpon>
@@ -358,6 +374,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WinAsistDiaria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinAsistencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
