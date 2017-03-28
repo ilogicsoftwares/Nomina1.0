@@ -273,7 +273,7 @@ namespace Nomina1._0.ViewModel
 
 
                     var result = Lentradas.Zip(Lsalidas,(primero,segundo)=>new  {entrada=primero,salida=segundo });
-                    var union=result.Select(x=> new {x.entrada, x.salida, horas = int.Parse((DateTime.Parse(x.salida).Subtract(DateTime.Parse(x.entrada))).Hours.ToString()) });
+                    var union=result.Select(x=> new {x.entrada, x.salida, horas = decimal.Parse((DateTime.Parse(x.salida).Subtract(DateTime.Parse(x.entrada))).TotalHours.ToString()) });
                      Checkcontrol.HorasD = union.Sum(x => x.horas);
                     if (Checkcontrol.HorasD >= Configuracion.MinHorasDia)
                     {

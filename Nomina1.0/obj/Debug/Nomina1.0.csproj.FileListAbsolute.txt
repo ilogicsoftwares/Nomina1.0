@@ -318,3 +318,12 @@ D:\Nomina1.0\Nomina1.0\obj\Debug\WinAsistencia.g.cs
 D:\Nomina1.0\Nomina1.0\obj\Debug\WinAsistencia.baml
 D:\Nomina1.0\Nomina1.0\obj\Debug\RdlCompile.cache
 D:\Nomina1.0\Nomina1.0\obj\Debug\RdlCompile.compiled
+C:\Nomina1.0\Nomina1.0\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Nomina1.0\Nomina1.0\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Nomina1.0\Nomina1.0\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Nomina1.0\Nomina1.0\obj\Debug\Nomina1.0.csproj.Nomina1.0.exe.config
+C:\Nomina1.0\Nomina1.0\obj\Debug\WinAsistencia.g.cs
+C:\Nomina1.0\Nomina1.0\obj\Debug\WinAsistencia.baml
+C:\Nomina1.0\Nomina1.0\obj\Debug\RdlCompile.cache
+C:\Nomina1.0\Nomina1.0\obj\Debug\RdlCompile.compiled
