@@ -83,6 +83,17 @@ namespace Nomina1._0
             WindowActual = null;
         }
 
+        public static void FoxReport(string report, string queryFile, string idWhere)
+        {
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.WorkingDirectory = @"c:\reporter";
+            p.StartInfo.FileName = "reporter.exe";
+            p.StartInfo.Arguments = report + " " + queryFile + " " + idWhere;
+            p.StartInfo.ErrorDialog = true;
+            p.StartInfo.UseShellExecute = true;
+            p.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Maximized;
+            p.Start();
+        }
 
         public static void AbrirWindow(string title, string window, string isModal = "1", string WinParams="x")
         {

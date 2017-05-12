@@ -327,3 +327,15 @@ C:\Nomina1.0\Nomina1.0\obj\Debug\WinAsistencia.g.cs
 C:\Nomina1.0\Nomina1.0\obj\Debug\WinAsistencia.baml
 C:\Nomina1.0\Nomina1.0\obj\Debug\RdlCompile.cache
 C:\Nomina1.0\Nomina1.0\obj\Debug\RdlCompile.compiled
+C:\Nomina1.0\Nomina1.0\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
