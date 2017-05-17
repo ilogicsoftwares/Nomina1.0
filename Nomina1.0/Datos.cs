@@ -82,11 +82,16 @@ namespace Nomina1._0
             SelectQuery =string.Empty;
             WindowActual = null;
         }
-
+        /// <summary>
+        /// Crea un Reporte de Foxpro.
+        /// </summary>
+        /// <param name="report">Representa la direccion donde esta ubicado el reporte</param>
+        /// <param name="queryFile">Representa donde esta ubicado el archivo de consulta del reporte</param>
+        /// <param name="idWhere">Representa la clausala where de la consulta</param>
         public static void FoxReport(string report, string queryFile, string idWhere)
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.WorkingDirectory = @"c:\reporter";
+            p.StartInfo.WorkingDirectory = @"c:\Nomina1.0";
             p.StartInfo.FileName = "reporter.exe";
             p.StartInfo.Arguments = report + " " + queryFile + " " + idWhere;
             p.StartInfo.ErrorDialog = true;

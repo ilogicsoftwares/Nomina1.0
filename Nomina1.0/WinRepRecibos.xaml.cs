@@ -57,7 +57,7 @@ namespace Nomina1._0
                 PrenominaViewModel nomina = new PrenominaViewModel(reportNominaViewModel.NominaActual.idnominauni);
                 if (recibos.IsChecked==true)
                 {
-                    Datos.FoxReport("recibos", "recibos.txt", this.textBox_Copy3.Text);
+                    Datos.FoxReport("recibos", "recibos.txt", "WHERE_prenominagen.idnominagen="+this.textBox_Copy3.Text);
                 }
                 if (resumen.IsChecked == true)
                 {
