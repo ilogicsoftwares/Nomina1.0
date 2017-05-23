@@ -193,6 +193,8 @@
     <Property Name="valorvar" Type="decimal" Precision="10" Scale="0" />
     <Property Name="tipoconcepto" Type="int" />
     <Property Name="idnominagen" Type="int" />
+    <Property Name="desde" Type="datetime" Precision="0" />
+    <Property Name="hasta" Type="date" />
   </EntityType>
   <EntityType Name="prenominagen">
     <Key>
@@ -310,8 +312,8 @@
     <Property Name="valorinicial" Type="varchar" MaxLength="50" />
     <Property Name="constante" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'nomina.varsys' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
   <EntityType Name="varsys">
     <Key>
       <PropertyRef Name="cedula" />

@@ -339,3 +339,5 @@ C:\Nomina1.0\Nomina1.0\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
 C:\Nomina1.0\Nomina1.0\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
 C:\Nomina1.0\Nomina1.0\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 C:\Nomina1.0\Nomina1.0\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Nomina1.0\Nomina1.0\bin\Debug\Database1.mdf
+C:\Nomina1.0\Nomina1.0\bin\Debug\Database1_log.ldf

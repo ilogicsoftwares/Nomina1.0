@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nominaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bancos">
+    <Key>
+      <PropertyRef Name="Idbanco" />
+    </Key>
+    <Property Name="Idbanco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="trabajador_copy" Relationship="Self.trabajador_copy_ibfk_8" FromRole="bancos" ToRole="trabajador_copy" />
+    <NavigationProperty Name="trabajador" Relationship="Self.Trabajadoridbanco" FromRole="bancos" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="campos">
+    <Key>
+      <PropertyRef Name="idcampo" />
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="idcampo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="valorinicial" Type="Decimal" />
+    <Property Name="esReiniciado" Type="Int32" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="campotra">
+    <Key>
+      <PropertyRef Name="idcampotra" />
+    </Key>
+    <Property Name="idcampotra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idtrabajador" Type="Int32" Nullable="false" />
+    <Property Name="nombrecampo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="valor" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="trabajador" Relationship="Self.Trabajacampo" FromRole="campotra" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="cargo">
+    <Key>
+      <PropertyRef Name="idcargo" />
+    </Key>
+    <Property Name="idcargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="conceptos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Iddepartamentos" Type="Int32" />
+    <Property Name="sidcargo" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="departamentos" Relationship="Self.cargodepart" FromRole="cargo" ToRole="departamentos" />
+    <NavigationProperty Name="trabajador_copy" Relationship="Self.trabajador_copy_ibfk_1" FromRole="cargo" ToRole="trabajador_copy" />
+    <NavigationProperty Name="trabajador" Relationship="Self.TrabajadorCargo" FromRole="cargo" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="conceptos">
+    <Key>
+      <PropertyRef Name="idconcepto" />
+    </Key>
+    <Property Name="idconcepto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="variante" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="Valor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="codigo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="noimprimir" Type="Int32" Nullable="false" />
+    <Property Name="desactivar" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="prenominagen" Relationship="Self.conceptostra" FromRole="conceptos" ToRole="prenominagen" />
+    <NavigationProperty Name="prenomina" Relationship="Self.concepttra" FromRole="conceptos" ToRole="prenomina" />
+  </EntityType>
+  <EntityType Name="controlasist">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idtrabajador" Type="Int32" />
+    <Property Name="date" Type="DateTime" Nullable="false" />
+    <Property Name="Entradas" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Salidas" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="HorasD" Type="Decimal" />
+    <Property Name="Dia" Type="Decimal" />
+    <Property Name="HorasN" Type="Decimal" />
+    <Property Name="HorasEx" Type="Decimal" />
+    <Property Name="DiaF" Type="Decimal" />
+    <Property Name="Inasistencia" Type="Decimal" />
+    <Property Name="Retraso" Type="Decimal" />
+    <NavigationProperty Name="trabajador" Relationship="Self.TrabajadorTra" FromRole="controlasist" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="controlconfig">
+    <Key>
+      <PropertyRef Name="idcontrol" />
+    </Key>
+    <Property Name="MinHorasDia" Type="Decimal" />
+    <Property Name="MaxHorasDia" Type="Decimal" />
+    <Property Name="IniJorDiurna" Type="DateTime" />
+    <Property Name="IniJorNocTurna" Type="DateTime" />
+    <Property Name="idcontrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WHorasD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WDia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WHorasN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WHorasEx" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WDiaF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WInasistencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaxEntradas" Type="Int32" />
+    <Property Name="MaxTimeCheck" Type="Int32" />
+    <Property Name="MinRetrasos" Type="Int32" />
+    <Property Name="HoraEntrada" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="departamentos">
+    <Key>
+      <PropertyRef Name="iddepartamentos" />
+    </Key>
+    <Property Name="iddepartamentos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="cargo" Relationship="Self.cargodepart" FromRole="departamentos" ToRole="cargo" />
+    <NavigationProperty Name="trabajador_copy" Relationship="Self.trabajador_copy_ibfk_2" FromRole="departamentos" ToRole="trabajador_copy" />
+    <NavigationProperty Name="trabajador" Relationship="Self.TrabajadorDepart" FromRole="departamentos" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="estatus">
+    <Key>
+      <PropertyRef Name="idestatus" />
+    </Key>
+    <Property Name="idestatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="trabajador_copy" Relationship="Self.trabajador_copy_ibfk_3" FromRole="estatus" ToRole="trabajador_copy" />
+    <NavigationProperty Name="trabajador" Relationship="Self.TrabajadorEstatus" FromRole="estatus" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="estatusasis">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="gradointruc">
+    <Key>
+      <PropertyRef Name="idgrado" />
+    </Key>
+    <Property Name="idgrado" Type="Int32" Nullable="false" />
+    <Property Name="grado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="trabajador_copy" Relationship="Self.trabajador_copy_ibfk_7" FromRole="gradointruc" ToRole="trabajador_copy" />
+    <NavigationProperty Name="trabajador" Relationship="Self.Trabajadorgrado" FromRole="gradointruc" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="jornada">
+    <Key>
+      <PropertyRef Name="idjornada" />
+    </Key>
+    <Property Name="idjornada" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Lunes" Type="Int32" />
+    <Property Name="Martes" Type="Int32" />
+    <Property Name="Miercoles" Type="Int32" />
+    <Property Name="Jueves" Type="Int32" />
+    <Property Name="Viernes" Type="Int32" />
+    <Property Name="Sabado" Type="Int32" />
+    <Property Name="Domingo" Type="Int32" />
+    <Property Name="Horariodesde" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Horariohasta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Descansodesde" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Descansohasta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="descanso" Type="Int32" />
+  </EntityType>
+  <EntityType Name="nacionalidad">
+    <Key>
+      <PropertyRef Name="idnacionalidad" />
+    </Key>
+    <Property Name="idnacionalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="trabajador_copy" Relationship="Self.trabajador_copy_ibfk_4" FromRole="nacionalidad" ToRole="trabajador_copy" />
+    <NavigationProperty Name="trabajador" Relationship="Self.TrabajadorNac" FromRole="nacionalidad" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="nominaini">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="desde" Type="DateTime" />
+    <Property Name="hasta" Type="DateTime" />
+    <Property Name="estatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="nominatype">
+    <Key>
+      <PropertyRef Name="idnomina" />
+    </Key>
+    <Property Name="idnomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="intervalo" Type="Int32" Nullable="false" />
+    <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="scodigo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="nominauni" Relationship="Self.nominaType1" FromRole="nominatype" ToRole="nominauni" />
+    <NavigationProperty Name="prenominagen" Relationship="Self.prenominagen_ibfk_2" FromRole="nominatype" ToRole="prenominagen" />
+    <NavigationProperty Name="prenomina" Relationship="Self.PrenominaType" FromRole="nominatype" ToRole="prenomina" />
+    <NavigationProperty Name="trabajador_copy" Relationship="Self.trabajador_copy_ibfk_5" FromRole="nominatype" ToRole="trabajador_copy" />
+    <NavigationProperty Name="trabajador" Relationship="Self.TrabajadorNomina" FromRole="nominatype" ToRole="trabajador" />
+    <NavigationProperty Name="trabajador1" Relationship="Self.TrabajadorNominaBonos" FromRole="nominatype" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="nominauni">
+    <Key>
+      <PropertyRef Name="idnominauni" />
+    </Key>
+    <Property Name="idnominauni" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="desde" Type="DateTime" />
+    <Property Name="hasta" Type="DateTime" />
+    <Property Name="totalnomina" Type="Decimal" />
+    <Property Name="totalasignaciones" Type="Decimal" />
+    <Property Name="totaldeducciones" Type="Decimal" />
+    <Property Name="estatus" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="user" Type="Int32" />
+    <Property Name="cantidadt" Type="Int32" />
+    <Property Name="idnomina" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="nominatype" Relationship="Self.nominaType1" FromRole="nominauni" ToRole="nominatype" />
+  </EntityType>
+  <EntityType Name="prenomina">
+    <Key>
+      <PropertyRef Name="idprenomina" />
+    </Key>
+    <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idnominatype" Type="Int32" Nullable="false" />
+    <Property Name="idtrabajador" Type="Int32" />
+    <Property Name="idconcepto" Type="Int32" />
+    <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valorconcepto" Type="Decimal" />
+    <Property Name="valorvar" Type="Decimal" />
+    <Property Name="tipoconcepto" Type="Int32" />
+    <Property Name="idnominagen" Type="Int32" />
+    <Property Name="desde" Type="DateTime" />
+    <Property Name="hasta" Type="DateTime" />
+    <NavigationProperty Name="conceptos" Relationship="Self.concepttra" FromRole="prenomina" ToRole="conceptos" />
+    <NavigationProperty Name="nominatype" Relationship="Self.PrenominaType" FromRole="prenomina" ToRole="nominatype" />
+    <NavigationProperty Name="trabajador" Relationship="Self.PrenominaTraid" FromRole="prenomina" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="prenominagen">
+    <Key>
+      <PropertyRef Name="idprenomina" />
+    </Key>
+    <Property Name="idprenomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Idnominagen" Type="Int32" Nullable="false" />
+    <Property Name="idnominatype" Type="Int32" Nullable="false" />
+    <Property Name="idtrabajador" Type="Int32" />
+    <Property Name="idconcepto" Type="Int32" />
+    <Property Name="nombrecon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="valorconcepto" Type="Decimal" />
+    <Property Name="valorvar" Type="Decimal" />
+    <Property Name="tipoconcepto" Type="Int32" />
+    <NavigationProperty Name="conceptos" Relationship="Self.conceptostra" FromRole="prenominagen" ToRole="conceptos" />
+    <NavigationProperty Name="nominatype" Relationship="Self.prenominagen_ibfk_2" FromRole="prenominagen" ToRole="nominatype" />
+    <NavigationProperty Name="trabajador" Relationship="Self.prenominagen_ibfk_1" FromRole="prenominagen" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="procedures">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tipocuenta">
+    <Key>
+      <PropertyRef Name="idtipocuenta" />
+    </Key>
+    <Property Name="idtipocuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="trabajador_copy" Relationship="Self.trabajador_copy_ibfk_6" FromRole="tipocuenta" ToRole="trabajador_copy" />
+    <NavigationProperty Name="trabajador" Relationship="Self.TrabajadorTipoc" FromRole="tipocuenta" ToRole="trabajador" />
+  </EntityType>
+  <EntityType Name="trabajador">
+    <Key>
+      <PropertyRef Name="idtrabajador" />
+    </Key>
+    <Property Name="idtrabajador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idcargo" Type="Int32" />
+    <Property Name="iddepartamentos" Type="Int32" />
+    <Property Name="direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="telefonocel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="telefonolocal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="telefonocontacto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="nombrecontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sueldo" Type="Decimal" />
+    <Property Name="idstatus" Type="Int32" Nullable="false" />
+    <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sexo" Type="Int32" />
+    <Property Name="Fechaing" Type="DateTime" />
+    <Property Name="fechanac" Type="DateTime" />
+    <Property Name="edocivil" Type="Int32" />
+    <Property Name="Nhijos" Type="Int32" />
+    <Property Name="idnacionalidad" Type="Int32" />
+    <Property Name="idgrado" Type="Int32" />
+    <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Idnomina" Type="Int32" Nullable="false" />
+    <Property Name="numerocuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="idbanco" Type="Int32" />
+    <Property Name="idtipocuenta" Type="Int32" />
+    <Property Name="idnominadebonos" Type="Int32" />
+    <Property Name="conceptosbonos" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="idestatusasis" Type="Int32" />
+    <NavigationProperty Name="bancos" Relationship="Self.Trabajadoridbanco" FromRole="trabajador" ToRole="bancos" />
+    <NavigationProperty Name="campotra" Relationship="Self.Trabajacampo" FromRole="trabajador" ToRole="campotra" />
+    <NavigationProperty Name="cargo" Relationship="Self.TrabajadorCargo" FromRole="trabajador" ToRole="cargo" />
+    <NavigationProperty Name="controlasist" Relationship="Self.TrabajadorTra" FromRole="trabajador" ToRole="controlasist" />
+    <NavigationProperty Name="departamentos" Relationship="Self.TrabajadorDepart" FromRole="trabajador" ToRole="departamentos" />
+    <NavigationProperty Name="estatus" Relationship="Self.TrabajadorEstatus" FromRole="trabajador" ToRole="estatus" />
+    <NavigationProperty Name="gradointruc" Relationship="Self.Trabajadorgrado" FromRole="trabajador" ToRole="gradointruc" />
+    <NavigationProperty Name="nacionalidad" Relationship="Self.TrabajadorNac" FromRole="trabajador" ToRole="nacionalidad" />
+    <NavigationProperty Name="nominatype" Relationship="Self.TrabajadorNomina" FromRole="trabajador" ToRole="nominatype" />
+    <NavigationProperty Name="nominatype1" Relationship="Self.TrabajadorNominaBonos" FromRole="trabajador" ToRole="nominatype" />
+    <NavigationProperty Name="prenomina" Relationship="Self.PrenominaTraid" FromRole="trabajador" ToRole="prenomina" />
+    <NavigationProperty Name="prenominagen" Relationship="Self.prenominagen_ibfk_1" FromRole="trabajador" ToRole="prenominagen" />
+    <NavigationProperty Name="tipocuenta" Relationship="Self.TrabajadorTipoc" FromRole="trabajador" ToRole="tipocuenta" />
+  </EntityType>
+  <EntityType Name="trabajador_copy">
+    <Key>
+      <PropertyRef Name="idtrabajador" />
+    </Key>
+    <Property Name="idtrabajador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idcargo" Type="Int32" />
+    <Property Name="iddepartamentos" Type="Int32" />
+    <Property Name="direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="telefonocel" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="telefonolocal" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="telefonocontacto" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="nombrecontacto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sueldo" Type="Decimal" />
+    <Property Name="idstatus" Type="Int32" Nullable="false" />
+    <Property Name="conceptos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sexo" Type="Int32" />
+    <Property Name="Fechaing" Type="DateTime" />
+    <Property Name="fechanac" Type="DateTime" />
+    <Property Name="edocivil" Type="Int32" />
+    <Property Name="Nhijos" Type="Int32" />
+    <Property Name="idnacionalidad" Type="Int32" />
+    <Property Name="idgrado" Type="Int32" />
+    <Property Name="lugarnac" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dirfoto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Idnomina" Type="Int32" Nullable="false" />
+    <Property Name="numerocuenta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="idbanco" Type="Int32" />
+    <Property Name="idtipocuenta" Type="Int32" />
+    <NavigationProperty Name="bancos" Relationship="Self.trabajador_copy_ibfk_8" FromRole="trabajador_copy" ToRole="bancos" />
+    <NavigationProperty Name="cargo" Relationship="Self.trabajador_copy_ibfk_1" FromRole="trabajador_copy" ToRole="cargo" />
+    <NavigationProperty Name="departamentos" Relationship="Self.trabajador_copy_ibfk_2" FromRole="trabajador_copy" ToRole="departamentos" />
+    <NavigationProperty Name="estatus" Relationship="Self.trabajador_copy_ibfk_3" FromRole="trabajador_copy" ToRole="estatus" />
+    <NavigationProperty Name="gradointruc" Relationship="Self.trabajador_copy_ibfk_7" FromRole="trabajador_copy" ToRole="gradointruc" />
+    <NavigationProperty Name="nacionalidad" Relationship="Self.trabajador_copy_ibfk_4" FromRole="trabajador_copy" ToRole="nacionalidad" />
+    <NavigationProperty Name="nominatype" Relationship="Self.trabajador_copy_ibfk_5" FromRole="trabajador_copy" ToRole="nominatype" />
+    <NavigationProperty Name="tipocuenta" Relationship="Self.trabajador_copy_ibfk_6" FromRole="trabajador_copy" ToRole="tipocuenta" />
+  </EntityType>
+  <EntityType Name="usermenu">
+    <Key>
+      <PropertyRef Name="Idmenu" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="Int32" />
+    <Property Name="Pariente" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Accion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Parametros" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Seleccionado" Type="Int32" />
+    <Property Name="hijos" Type="Int32" />
+    <Property Name="idusuario" Type="Int32" />
+    <Property Name="Guardar" Type="Int32" />
+    <Property Name="Editar" Type="Int32" />
+    <Property Name="Eliminar" Type="Int32" />
+    <Property Name="Idmenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipoid" Type="Int32" Nullable="false" />
+    <Property Name="keyCi" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FechaNac" Type="DateTime" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Desactivar" Type="Int32" />
+    <Property Name="Vigenciadesde" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="usertype">
+    <Key>
+      <PropertyRef Name="usertypeid" />
+    </Key>
+    <Property Name="usertypeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="variables">
+    <Key>
+      <PropertyRef Name="nombre" />
+    </Key>
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tamaño" Type="Int32" Nullable="false" />
+    <Property Name="valorinicial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="constante" Type="Int32" />
+  </EntityType>
+  <EntityType Name="varsys">
+    <Key>
+      <PropertyRef Name="cedula" />
+    </Key>
+    <Property Name="idtrabajador" Type="Int32" />
+    <Property Name="cedula" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="vDIASDES" Type="Int32" />
+    <Property Name="vDLAB" Type="Decimal" />
+    <Property Name="vVHIJOS" Type="Decimal" />
+    <Property Name="vDF" Type="Decimal" />
+    <Property Name="vHR" Type="Decimal" />
+    <Property Name="vDFI" Type="Decimal" />
+  </EntityType>
+  <Association Name="trabajador_copy_ibfk_8">
+    <End Role="bancos" Type="Self.bancos" Multiplicity="0..1" />
+    <End Role="trabajador_copy" Type="Self.trabajador_copy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bancos">
+        <PropertyRef Name="Idbanco" />
+      </Principal>
+      <Dependent Role="trabajador_copy">
+        <PropertyRef Name="idbanco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Trabajadoridbanco">
+    <End Role="bancos" Type="Self.bancos" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bancos">
+        <PropertyRef Name="Idbanco" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idbanco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Trabajacampo">
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="1" />
+    <End Role="campotra" Type="Self.campotra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="campotra">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="cargodepart">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="0..1" />
+    <End Role="cargo" Type="Self.cargo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="iddepartamentos" />
+      </Principal>
+      <Dependent Role="cargo">
+        <PropertyRef Name="Iddepartamentos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="trabajador_copy_ibfk_1">
+    <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
+    <End Role="trabajador_copy" Type="Self.trabajador_copy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cargo">
+        <PropertyRef Name="idcargo" />
+      </Principal>
+      <Dependent Role="trabajador_copy">
+        <PropertyRef Name="idcargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorCargo">
+    <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cargo">
+        <PropertyRef Name="idcargo" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idcargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="conceptostra">
+    <End Role="conceptos" Type="Self.conceptos" Multiplicity="0..1" />
+    <End Role="prenominagen" Type="Self.prenominagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="idconcepto" />
+      </Principal>
+      <Dependent Role="prenominagen">
+        <PropertyRef Name="idconcepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="concepttra">
+    <End Role="conceptos" Type="Self.conceptos" Multiplicity="0..1" />
+    <End Role="prenomina" Type="Self.prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conceptos">
+        <PropertyRef Name="idconcepto" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idconcepto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorTra">
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1" />
+    <End Role="controlasist" Type="Self.controlasist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="controlasist">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="trabajador_copy_ibfk_2">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="0..1" />
+    <End Role="trabajador_copy" Type="Self.trabajador_copy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="iddepartamentos" />
+      </Principal>
+      <Dependent Role="trabajador_copy">
+        <PropertyRef Name="iddepartamentos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorDepart">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="iddepartamentos" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="iddepartamentos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="trabajador_copy_ibfk_3">
+    <End Role="estatus" Type="Self.estatus" Multiplicity="1" />
+    <End Role="trabajador_copy" Type="Self.trabajador_copy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estatus">
+        <PropertyRef Name="idestatus" />
+      </Principal>
+      <Dependent Role="trabajador_copy">
+        <PropertyRef Name="idstatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorEstatus">
+    <End Role="estatus" Type="Self.estatus" Multiplicity="1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estatus">
+        <PropertyRef Name="idestatus" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idstatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="trabajador_copy_ibfk_7">
+    <End Role="gradointruc" Type="Self.gradointruc" Multiplicity="0..1" />
+    <End Role="trabajador_copy" Type="Self.trabajador_copy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gradointruc">
+        <PropertyRef Name="idgrado" />
+      </Principal>
+      <Dependent Role="trabajador_copy">
+        <PropertyRef Name="idgrado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Trabajadorgrado">
+    <End Role="gradointruc" Type="Self.gradointruc" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gradointruc">
+        <PropertyRef Name="idgrado" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idgrado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="trabajador_copy_ibfk_4">
+    <End Role="nacionalidad" Type="Self.nacionalidad" Multiplicity="0..1" />
+    <End Role="trabajador_copy" Type="Self.trabajador_copy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nacionalidad">
+        <PropertyRef Name="idnacionalidad" />
+      </Principal>
+      <Dependent Role="trabajador_copy">
+        <PropertyRef Name="idnacionalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorNac">
+    <End Role="nacionalidad" Type="Self.nacionalidad" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nacionalidad">
+        <PropertyRef Name="idnacionalidad" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idnacionalidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="nominaType1">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+    <End Role="nominauni" Type="Self.nominauni" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="nominauni">
+        <PropertyRef Name="idnomina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="prenominagen_ibfk_2">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+    <End Role="prenominagen" Type="Self.prenominagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="prenominagen">
+        <PropertyRef Name="idnominatype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrenominaType">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+    <End Role="prenomina" Type="Self.prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idnominatype" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="trabajador_copy_ibfk_5">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+    <End Role="trabajador_copy" Type="Self.trabajador_copy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="trabajador_copy">
+        <PropertyRef Name="Idnomina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorNomina">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="Idnomina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorNominaBonos">
+    <End Role="nominatype" Type="Self.nominatype" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nominatype">
+        <PropertyRef Name="idnomina" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idnominadebonos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrenominaTraid">
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1" />
+    <End Role="prenomina" Type="Self.prenomina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="prenomina">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="prenominagen_ibfk_1">
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1" />
+    <End Role="prenominagen" Type="Self.prenominagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="trabajador">
+        <PropertyRef Name="idtrabajador" />
+      </Principal>
+      <Dependent Role="prenominagen">
+        <PropertyRef Name="idtrabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="trabajador_copy_ibfk_6">
+    <End Role="tipocuenta" Type="Self.tipocuenta" Multiplicity="0..1" />
+    <End Role="trabajador_copy" Type="Self.trabajador_copy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipocuenta">
+        <PropertyRef Name="idtipocuenta" />
+      </Principal>
+      <Dependent Role="trabajador_copy">
+        <PropertyRef Name="idtipocuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrabajadorTipoc">
+    <End Role="tipocuenta" Type="Self.tipocuenta" Multiplicity="0..1" />
+    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipocuenta">
+        <PropertyRef Name="idtipocuenta" />
+      </Principal>
+      <Dependent Role="trabajador">
+        <PropertyRef Name="idtipocuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="nominaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bancos" EntityType="Self.bancos" />
+    <EntitySet Name="campos" EntityType="Self.campos" />
+    <EntitySet Name="campotra" EntityType="Self.campotra" />
+    <EntitySet Name="cargo" EntityType="Self.cargo" />
+    <EntitySet Name="conceptos" EntityType="Self.conceptos" />
+    <EntitySet Name="controlasist" EntityType="Self.controlasist" />
+    <EntitySet Name="controlconfig" EntityType="Self.controlconfig" />
+    <EntitySet Name="departamentos" EntityType="Self.departamentos" />
+    <EntitySet Name="estatus" EntityType="Self.estatus" />
+    <EntitySet Name="estatusasis" EntityType="Self.estatusasis" />
+    <EntitySet Name="gradointruc" EntityType="Self.gradointruc" />
+    <EntitySet Name="jornada" EntityType="Self.jornada" />
+    <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" />
+    <EntitySet Name="nominaini" EntityType="Self.nominaini" />
+    <EntitySet Name="nominatype" EntityType="Self.nominatype" />
+    <EntitySet Name="nominauni" EntityType="Self.nominauni" />
+    <EntitySet Name="prenomina" EntityType="Self.prenomina" />
+    <EntitySet Name="prenominagen" EntityType="Self.prenominagen" />
+    <EntitySet Name="procedures" EntityType="Self.procedures" />
+    <EntitySet Name="tipocuenta" EntityType="Self.tipocuenta" />
+    <EntitySet Name="trabajador" EntityType="Self.trabajador" />
+    <EntitySet Name="trabajador_copy" EntityType="Self.trabajador_copy" />
+    <EntitySet Name="usermenu" EntityType="Self.usermenu" />
+    <EntitySet Name="users" EntityType="Self.users" />
+    <EntitySet Name="usertype" EntityType="Self.usertype" />
+    <EntitySet Name="variables" EntityType="Self.variables" />
+    <EntitySet Name="varsys" EntityType="Self.varsys" />
+    <AssociationSet Name="trabajador_copy_ibfk_8" Association="Self.trabajador_copy_ibfk_8">
+      <End Role="bancos" EntitySet="bancos" />
+      <End Role="trabajador_copy" EntitySet="trabajador_copy" />
+    </AssociationSet>
+    <AssociationSet Name="Trabajadoridbanco" Association="Self.Trabajadoridbanco">
+      <End Role="bancos" EntitySet="bancos" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="Trabajacampo" Association="Self.Trabajacampo">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="campotra" EntitySet="campotra" />
+    </AssociationSet>
+    <AssociationSet Name="cargodepart" Association="Self.cargodepart">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="cargo" EntitySet="cargo" />
+    </AssociationSet>
+    <AssociationSet Name="trabajador_copy_ibfk_1" Association="Self.trabajador_copy_ibfk_1">
+      <End Role="cargo" EntitySet="cargo" />
+      <End Role="trabajador_copy" EntitySet="trabajador_copy" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorCargo" Association="Self.TrabajadorCargo">
+      <End Role="cargo" EntitySet="cargo" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="conceptostra" Association="Self.conceptostra">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="prenominagen" EntitySet="prenominagen" />
+    </AssociationSet>
+    <AssociationSet Name="concepttra" Association="Self.concepttra">
+      <End Role="conceptos" EntitySet="conceptos" />
+      <End Role="prenomina" EntitySet="prenomina" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorTra" Association="Self.TrabajadorTra">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="controlasist" EntitySet="controlasist" />
+    </AssociationSet>
+    <AssociationSet Name="trabajador_copy_ibfk_2" Association="Self.trabajador_copy_ibfk_2">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="trabajador_copy" EntitySet="trabajador_copy" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorDepart" Association="Self.TrabajadorDepart">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="trabajador_copy_ibfk_3" Association="Self.trabajador_copy_ibfk_3">
+      <End Role="estatus" EntitySet="estatus" />
+      <End Role="trabajador_copy" EntitySet="trabajador_copy" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorEstatus" Association="Self.TrabajadorEstatus">
+      <End Role="estatus" EntitySet="estatus" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="trabajador_copy_ibfk_7" Association="Self.trabajador_copy_ibfk_7">
+      <End Role="gradointruc" EntitySet="gradointruc" />
+      <End Role="trabajador_copy" EntitySet="trabajador_copy" />
+    </AssociationSet>
+    <AssociationSet Name="Trabajadorgrado" Association="Self.Trabajadorgrado">
+      <End Role="gradointruc" EntitySet="gradointruc" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="trabajador_copy_ibfk_4" Association="Self.trabajador_copy_ibfk_4">
+      <End Role="nacionalidad" EntitySet="nacionalidad" />
+      <End Role="trabajador_copy" EntitySet="trabajador_copy" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorNac" Association="Self.TrabajadorNac">
+      <End Role="nacionalidad" EntitySet="nacionalidad" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="nominaType1" Association="Self.nominaType1">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="nominauni" EntitySet="nominauni" />
+    </AssociationSet>
+    <AssociationSet Name="prenominagen_ibfk_2" Association="Self.prenominagen_ibfk_2">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="prenominagen" EntitySet="prenominagen" />
+    </AssociationSet>
+    <AssociationSet Name="PrenominaType" Association="Self.PrenominaType">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="prenomina" EntitySet="prenomina" />
+    </AssociationSet>
+    <AssociationSet Name="trabajador_copy_ibfk_5" Association="Self.trabajador_copy_ibfk_5">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="trabajador_copy" EntitySet="trabajador_copy" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorNomina" Association="Self.TrabajadorNomina">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorNominaBonos" Association="Self.TrabajadorNominaBonos">
+      <End Role="nominatype" EntitySet="nominatype" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="PrenominaTraid" Association="Self.PrenominaTraid">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="prenomina" EntitySet="prenomina" />
+    </AssociationSet>
+    <AssociationSet Name="prenominagen_ibfk_1" Association="Self.prenominagen_ibfk_1">
+      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="prenominagen" EntitySet="prenominagen" />
+    </AssociationSet>
+    <AssociationSet Name="trabajador_copy_ibfk_6" Association="Self.trabajador_copy_ibfk_6">
+      <End Role="tipocuenta" EntitySet="tipocuenta" />
+      <End Role="trabajador_copy" EntitySet="trabajador_copy" />
+    </AssociationSet>
+    <AssociationSet Name="TrabajadorTipoc" Association="Self.TrabajadorTipoc">
+      <End Role="tipocuenta" EntitySet="tipocuenta" />
+      <End Role="trabajador" EntitySet="trabajador" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

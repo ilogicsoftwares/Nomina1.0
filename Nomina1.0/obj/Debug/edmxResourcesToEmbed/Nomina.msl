@@ -77,21 +77,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="prenomina">
-      <EntityTypeMapping TypeName="nominaModel.prenomina">
-        <MappingFragment StoreEntitySet="prenomina">
-          <ScalarProperty Name="idnominagen" ColumnName="idnominagen" />
-          <ScalarProperty Name="tipoconcepto" ColumnName="tipoconcepto" />
-          <ScalarProperty Name="valorvar" ColumnName="valorvar" />
-          <ScalarProperty Name="valorconcepto" ColumnName="valorconcepto" />
-          <ScalarProperty Name="nombrecon" ColumnName="nombrecon" />
-          <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
-          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
-          <ScalarProperty Name="idnominatype" ColumnName="idnominatype" />
-          <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="prenominagen">
       <EntityTypeMapping TypeName="nominaModel.prenominagen">
         <MappingFragment StoreEntitySet="prenominagen">
@@ -346,6 +331,23 @@
           <ScalarProperty Name="IniJorDiurna" ColumnName="IniJorDiurna" />
           <ScalarProperty Name="MaxHorasDia" ColumnName="MaxHorasDia" />
           <ScalarProperty Name="MinHorasDia" ColumnName="MinHorasDia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prenomina">
+      <EntityTypeMapping TypeName="nominaModel.prenomina">
+        <MappingFragment StoreEntitySet="prenomina">
+          <ScalarProperty Name="hasta" ColumnName="hasta" />
+          <ScalarProperty Name="desde" ColumnName="desde" />
+          <ScalarProperty Name="idnominagen" ColumnName="idnominagen" />
+          <ScalarProperty Name="tipoconcepto" ColumnName="tipoconcepto" />
+          <ScalarProperty Name="valorvar" ColumnName="valorvar" />
+          <ScalarProperty Name="valorconcepto" ColumnName="valorconcepto" />
+          <ScalarProperty Name="nombrecon" ColumnName="nombrecon" />
+          <ScalarProperty Name="idconcepto" ColumnName="idconcepto" />
+          <ScalarProperty Name="idtrabajador" ColumnName="idtrabajador" />
+          <ScalarProperty Name="idnominatype" ColumnName="idnominatype" />
+          <ScalarProperty Name="idprenomina" ColumnName="idprenomina" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

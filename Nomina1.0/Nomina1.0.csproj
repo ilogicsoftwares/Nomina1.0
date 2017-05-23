@@ -14,6 +14,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publicar\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -143,90 +143,108 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="bancos.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="campos.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="campotra.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="cargo.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="conceptos.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Consultas.cs" />
     <Compile Include="controlasist.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="controlconfig.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="departamentos.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="estatus.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="estatusasis.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="gradointruc.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="IlogicEval.cs" />
     <Compile Include="IProcedimientos.cs" />
     <Compile Include="jornada.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="MyMultiConverter.cs" />
     <Compile Include="nacionalidad.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="nominaini.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="nominatype.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="nominauni.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="prenomina.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="prenominagen.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="procedures.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Procs.cs" />
     <Compile Include="RepByNominaWin.xaml.cs">
       <DependentUpon>RepByNominaWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="tipocuenta.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="trabajador.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="trabajador_copy.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usermenu.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="users.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usertype.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="variables.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="varsys.cs">
-      <DependentUpon>Nomina.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AsigConceptoViewModel.cs" />
     <Compile Include="ViewModel\AsigNominaViewModel.cs" />
@@ -251,11 +269,6 @@
     <Compile Include="ViewModel\LogingViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="Datos.cs" />
-    <Compile Include="Nomina.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Nomina.tt</DependentUpon>
-    </Compile>
     <Compile Include="PrincipalWindow.xaml.cs">
       <DependentUpon>PrincipalWindow.xaml</DependentUpon>
     </Compile>
@@ -467,16 +480,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Nomina.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Nomina.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Nomina.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Nomina.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -501,12 +504,12 @@
     <EmbeddedResource Include="Reports\NominaGeneral.rdlc" />
     <EmbeddedResource Include="Reports\ReciboPago.rdlc" />
     <EmbeddedResource Include="Reports\RepGeneralTrabajad.rdlc" />
-    <EntityDeploy Include="Nomina.edmx">
+    <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Nomina.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Nomina.edmx.diagram">
-      <DependentUpon>Nomina.edmx</DependentUpon>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
@@ -533,16 +536,6 @@
     <Resource Include="ILOGICICONhd.ico" />
     <Resource Include="ILOGICICON.ico" />
     <Resource Include="Image1.png" />
-    <Content Include="Nomina.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Nomina.edmx</DependentUpon>
-      <LastGenOutput>Nomina.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Nomina.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Nomina.edmx</DependentUpon>
-      <LastGenOutput>Nomina.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\COLEGIO.BMP" />
     <Resource Include="Resources\ILOGICICON.png" />
     <Resource Include="Resources\Entypo-license.txt" />
@@ -576,6 +569,25 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database1.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database1_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

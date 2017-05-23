@@ -92,6 +92,7 @@ namespace Nomina1._0
 
             WinReport report = new WinReport(dt.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\ReciboPago.rdlc");
             report.ShowDialog();
+            Datos.FoxReport("recibos", "prerecibos.txt", "WHERE_idnominatype=" + nomina.SelectedNomina.idnomina);
         }
 
         private void CommandNuevo_Click(object sender, RoutedEventArgs e)
