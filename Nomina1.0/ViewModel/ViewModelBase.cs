@@ -12,6 +12,8 @@ namespace Nomina1._0.ViewModel
     {
 
 
+      
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
@@ -21,6 +23,8 @@ namespace Nomina1._0.ViewModel
             }
         }
 
+
+     
 
     }
 }

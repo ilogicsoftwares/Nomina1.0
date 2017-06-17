@@ -385,5 +385,31 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="empresa">
+      <EntityTypeMapping TypeName="nominaModel.empresa">
+        <MappingFragment StoreEntitySet="empresa">
+          <ScalarProperty Name="Detallelogo" ColumnName="Detallelogo" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NumerodeLicencia" ColumnName="NumerodeLicencia" />
+          <ScalarProperty Name="TipodeLicencia" ColumnName="TipodeLicencia" />
+          <ScalarProperty Name="Telefonos" ColumnName="Telefonos" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Rif" ColumnName="Rif" />
+          <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+          <ScalarProperty Name="Idempresa" ColumnName="Idempresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="calendario">
+      <EntityTypeMapping TypeName="nominaModel.calendario">
+        <MappingFragment StoreEntitySet="calendario">
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idcalendario" ColumnName="idcalendario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -52,5 +52,7 @@ namespace Nomina1._0
         public DbSet<usertype> usertype { get; set; }
         public DbSet<variables> variables { get; set; }
         public DbSet<varsys> varsys { get; set; }
+        public DbSet<empresa> empresa { get; set; }
+        public DbSet<calendario> calendario { get; set; }
     }
 }

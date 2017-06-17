@@ -59,6 +59,8 @@
         <AssociationConnector Association="nominaModel.prenominagen_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="nominaModel.trabajador_copy_ibfk_6" ManuallyRouted="false" />
         <AssociationConnector Association="nominaModel.TrabajadorTipoc" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="nominaModel.empresa" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="nominaModel.calendario" Width="1.5" PointX="11.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

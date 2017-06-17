@@ -4,6 +4,7 @@ using MahApps.Metro.Controls;
 using Nomina1._0.ViewModel;
 using System.Windows.Markup;
 using System.Globalization;
+using System.Linq;
 
 namespace Nomina1._0
 {
@@ -34,7 +35,7 @@ namespace Nomina1._0
                 if (passwordBox.Password.Trim() == comboBox.SelectedValuePath.ToString().Trim() && passwordBox.Password.Trim()!=string.Empty)
                 {
                     LogingViewModel.UsuarioActivo = initUser.UsuarioActual;
-                    Datos.AbrirWindow("Ilogic Softwares Nomina -"+" Usuario: " + LogingViewModel.UsuarioActivo.descripcion,"PrincipalWindow","0");
+                    Datos.AbrirWindow("Ilogic Softwares Nomina -"+" Usuario: " + LogingViewModel.UsuarioActivo.descripcion + " "+ Datos.Micontexto.empresa.FirstOrDefault().RazonSocial,"PrincipalWindow","0");
                     Close();
                     Mensaje.Content = "";
                   

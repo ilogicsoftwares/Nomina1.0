@@ -239,8 +239,10 @@ namespace Nomina1._0.ViewModel
                 }
                 foreach (var con in concepts)
                 {
-
+                    
                     prenomina PreNom = new prenomina();
+                    PreNom.desde = Fdesde;
+                    PreNom.hasta = FHasta;
                     if (nominax.tipo == 1)
                     {
                         PreNom.nominatype = trab.nominatype;
@@ -636,10 +638,11 @@ namespace Nomina1._0.ViewModel
         }
         public void GenerarRecibos()
         {
-   
 
-            WinReport report = new WinReport(DataForReport.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\ReciboPago.rdlc");
-            report.ShowDialog();
+            Datos.FoxReport("recibos", "recibos.txt", "WHERE_idnominagen=" + NominagenID.ToString());
+
+            //WinReport report = new WinReport(DataForReport.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\ReciboPago.rdlc");
+            //report.ShowDialog();
         }
         
 

@@ -12,7 +12,10 @@ namespace Nomina1._0.ViewModel
         public trabajador Trab { get; set; }
         public List<DiasAsistB> Dias { get; set; }
         public string DiasAsis { get; set; }
+        public int Totaldes { get; set; }
         public string DiasInasis { get; set; }
+        public string DiasDes { get; set; }
+        public string DiasFer { get; set; }
         public  int TotalAsis { get; set; }
         public int TotalIna { get; set; }
 
@@ -22,6 +25,8 @@ namespace Nomina1._0.ViewModel
        
         public DateTime Dia { get; set; }
         public bool asist { get; set; }
+        public bool diasdes { get; set; }
+        public bool diafer { get; set; }
     }
     class InasistenciaViewModel:ViewModelBase
     {
@@ -97,27 +102,43 @@ namespace Nomina1._0.ViewModel
                 {
                     var qry = fortrabs.controlasist.Where(x => x.idtrabajador == idtrab && x.date==day.Dia).ToList();
                     int asi;
+                    int asid;
+                    int diaf;
                     if (day.Dia.DayOfWeek == DayOfWeek.Saturday || day.Dia.DayOfWeek == DayOfWeek.Sunday)
                     {
-                        asi = 1;
+                       asid = 1;
+                        asi = 0;
+                    } 
+                    else if (Datos.esFeriado(day.Dia))
+                    { ///aqui 
+                        asid = 1;
+                        asi = 0;
+                        
+
+
                     }
                     else
                     {
+                        asid = 0;
                         asi = qry.Count();
                     }
 
                     trabx.Dias.Add(new DiasAsistB() {
                         Dia = day.Dia,
-                        asist = Convert.ToBoolean(asi)
-                  
-                });
+                        asist = Convert.ToBoolean(asi),
+                        diasdes= Convert.ToBoolean(asid)
+
+
+                    });
                     
 
                 }
                 trabx.DiasAsis = string.Join(",", trabx.Dias.Where(x => x.asist == true).Select(x=>x.Dia.Date.ToShortDateString()));
-                trabx.DiasInasis = string.Join(",", trabx.Dias.Where(x => x.asist == false).Select(x => x.Dia.Date.ToShortDateString()));
+                trabx.DiasDes = string.Join(",", trabx.Dias.Where(x => x.diasdes == true).Select(x => x.Dia.Date.ToShortDateString()));
+                trabx.DiasInasis = string.Join(",", trabx.Dias.Where(x => x.asist == false && x.diasdes == false).Select(x => x.Dia.Date.ToShortDateString()));
                 trabx.TotalAsis = trabx.Dias.Where(x => x.asist == true).Count();
-                trabx.TotalIna= trabx.Dias.Where(x => x.asist == false).Count();
+                trabx.TotalIna= trabx.Dias.Where(x => x.asist == false && x.diasdes == false).Count();
+                trabx.Totaldes= trabx.Dias.Where(x => x.diasdes == true).Count();
                 TrabsDays.Add(trabx);
 
             }

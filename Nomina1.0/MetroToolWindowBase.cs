@@ -14,7 +14,7 @@ namespace Nomina1._0
     {
         public string Query { get; set; }
         public string ObjectType { get;  set; }
-
+        public string ViewModel { get; set; }
         public MetroToolWindowBase()
         {
             Activated += new EventHandler(Activar );
@@ -40,8 +40,13 @@ namespace Nomina1._0
         {
             try
             {
+                var objectnew = ObjectType;
+                if (ObjectType==string.Empty)
+                {
+                    objectnew = ViewModel;
+                }
                 Assembly asm = Assembly.GetEntryAssembly();
-                Type type = asm.GetType("Nomina1._0.ViewModel." + ObjectType);
+                Type type = asm.GetType("Nomina1._0.ViewModel." + objectnew);
 
                 PrincipalViewModel.ObjetoActual = Convert.ChangeType(DataContext, type);
             }catch(Exception)

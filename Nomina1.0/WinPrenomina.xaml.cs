@@ -67,7 +67,7 @@ namespace Nomina1._0
 
         private void CommandNuevo_Copy1_Click(object sender, RoutedEventArgs e)
         {
-            var dt = from trabs in nomina.NominaActual
+          /*  var dt = from trabs in nomina.NominaActual
                      select new PNominaGen
                      {
                          TrabID = trabs.trabajador.idtrabajador,
@@ -91,8 +91,8 @@ namespace Nomina1._0
                      };
 
             WinReport report = new WinReport(dt.ToList(), "C:\\Nomina1.0\\Nomina1.0\\Reports\\ReciboPago.rdlc");
-            report.ShowDialog();
-            Datos.FoxReport("recibos", "prerecibos.txt", "WHERE_idnominatype=" + nomina.SelectedNomina.idnomina);
+            report.ShowDialog();*/
+            Datos.FoxReport("recibos", "prerecibos.txt", "WHERE_idnominatype=" + nomina.SelectedNomina.idnomina +"_ORDER_BY_PRENOMINA.IDPRENOMINA,PRENOMINA.IDTRABAJADOR");
         }
 
         private void CommandNuevo_Click(object sender, RoutedEventArgs e)

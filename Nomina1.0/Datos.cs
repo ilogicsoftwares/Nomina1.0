@@ -91,7 +91,7 @@ namespace Nomina1._0
         public static void FoxReport(string report, string queryFile, string idWhere)
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.WorkingDirectory = @"c:\Nomina1.0";
+            p.StartInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;
             p.StartInfo.FileName = "reporter.exe";
             p.StartInfo.Arguments = report + " " + queryFile + " " + idWhere;
             p.StartInfo.ErrorDialog = true;
@@ -176,6 +176,7 @@ namespace Nomina1._0
         {
             if (window != null)
             {
+               
                 Type type = (window.GetType());
 
                 MethodInfo method = type.GetMethod(metodo);
@@ -257,6 +258,22 @@ namespace Nomina1._0
             return MessageBox.Show(Message,Title,Botones,image);
 
         }
+        public static bool esFeriado(DateTime date)
+        {
+            var esFersiempre = Datos.Micontexto.calendario.Where(x => x.tipo == 0).Where(x => x.fecha.Date.Day == date.Date.Day || x.fecha.Date.Month == date.Date.Month).ToList();
+            var esFerano = Datos.Micontexto.calendario.Where(x => x.tipo == 1).Where(x => x.fecha.Date == date.Date).ToList();
+            if (esFersiempre.Count() > 0)
+            {
+                return true;
+            }
+
+            if (esFerano.Count() > 0)
+            {
+                return true;
+            }
+            return false;
+
+        }
     }
 
     public class PNominaGen
@@ -291,6 +308,10 @@ namespace Nomina1._0
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Cedula { get; set; }
+
         public List<int> Asistencias { get; set; }
-}
+
+      
+    }
+   
 }

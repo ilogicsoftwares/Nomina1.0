@@ -7,6 +7,14 @@
     <Property Name="Idbanco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="calendario">
+    <Key>
+      <PropertyRef Name="idcalendario" />
+    </Key>
+    <Property Name="idcalendario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="tipo" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="campos">
     <Key>
       <PropertyRef Name="idcampo" />
@@ -110,21 +118,22 @@ advertencia 6013: La tabla o vista 'nomina.company' no tiene definida una clave 
     <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="codigo" Type="varchar" MaxLength="10" Nullable="false" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'nomina.empresa' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="empresa">
-          <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
-          <Property Name="Rif" Type="varchar" MaxLength="11" />
-          <Property Name="Direccion" Type="varchar" MaxLength="200" />
-          <Property Name="Telefonos" Type="varchar" MaxLength="11" />
-          <Property Name="TipodeLicencia" Type="varchar" MaxLength="50" />
-          <Property Name="NumerodeLicencia" Type="varchar" MaxLength="50" />
-          <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="Contacto" Type="varchar" MaxLength="50" />
-          <Property Name="Logo" Type="varchar" MaxLength="100" />
-          <Property Name="Detallelogo" Type="varchar" MaxLength="100" />
-          <Property Name="Idempresa" Type="int" />
-        </EntityType>-->
+  <EntityType Name="empresa">
+    <Key>
+      <PropertyRef Name="Idempresa" />
+    </Key>
+    <Property Name="Idempresa" Type="int" Nullable="false" />
+    <Property Name="RazonSocial" Type="varchar" MaxLength="50" />
+    <Property Name="Rif" Type="varchar" MaxLength="11" />
+    <Property Name="Direccion" Type="varchar" MaxLength="500" />
+    <Property Name="Telefonos" Type="varchar" MaxLength="11" />
+    <Property Name="TipodeLicencia" Type="varchar" MaxLength="50" />
+    <Property Name="NumerodeLicencia" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Contacto" Type="varchar" MaxLength="50" />
+    <Property Name="Logo" Type="varchar" MaxLength="100" />
+    <Property Name="Detallelogo" Type="text" />
+  </EntityType>
   <EntityType Name="estatus">
     <Key>
       <PropertyRef Name="idestatus" />
@@ -791,6 +800,7 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
   </Association>
   <EntityContainer Name="nominaModelStoreContainer">
     <EntitySet Name="bancos" EntityType="Self.bancos" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="calendario" EntityType="Self.calendario" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="campos" EntityType="Self.campos" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="campotra" EntityType="Self.campotra" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="cargo" EntityType="Self.cargo" Schema="nomina" store:Type="Tables" />
@@ -798,6 +808,7 @@ advertencia 6002: La tabla o vista 'nomina.varsys' no tiene definida ninguna cla
     <EntitySet Name="controlasist" EntityType="Self.controlasist" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="controlconfig" EntityType="Self.controlconfig" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="nomina" store:Type="Tables" />
+    <EntitySet Name="empresa" EntityType="Self.empresa" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="estatus" EntityType="Self.estatus" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="estatusasis" EntityType="Self.estatusasis" Schema="nomina" store:Type="Tables" />
     <EntitySet Name="gradointruc" EntityType="Self.gradointruc" Schema="nomina" store:Type="Tables" />

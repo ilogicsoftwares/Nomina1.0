@@ -20,6 +20,7 @@ namespace Nomina1._0
             LogingViewModel.userMenu();
          
             grid1.Children.Add(LogingViewModel.UserMenu);
+            this.Title += " " + Datos.Micontexto.empresa.FirstOrDefault().RazonSocial;
          
 
         }
